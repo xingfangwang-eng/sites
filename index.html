@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Directory Center - Enterprise Service Platform</title>
+    <meta name="description" content="Explore our product ecosystem and discover quality services. Professional enterprise service platform with diverse online tools.">
+    <meta name="keywords" content="site directory,enterprise services,online tools,platform navigation">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem 0;
+        }
+        
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #64748b;
+            font-size: 1.125rem;
+        }
+        
+        /* Main Content */
+        .main {
+            padding: 3rem 0;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-bar {
+            width: 4px;
+            height: 2rem;
+            background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+            border-radius: 2px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .section-badge {
+            padding: 0.25rem 0.75rem;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 9999px;
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 2px solid #f1f5f9;
+        }
+        
+        .card:hover {
+            border-color: #c7d2fe;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .card-recent {
+            border-color: #e0e7ff;
+        }
+        
+        .card-recent:hover {
+            border-color: #a5b4fc;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card-category {
+            padding: 0.25rem 0.5rem;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 0.25rem;
+        }
+        
+        .card-recent .card-category {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        
+        .card-date {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover .card-title {
+            color: #4f46e5;
+        }
+        
+        .card-description {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .card-link {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #64748b;
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover .card-link {
+            color: #4f46e5;
+        }
+        
+        .card-link svg {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 0.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-link svg {
+            transform: translateX(4px);
+        }
+        
+        /* Stats */
+        .stats {
+            margin-top: 3rem;
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #c7d2fe;
+            margin-top: 0.25rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.875rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Site Directory Center</h1>
+            <p>Explore our product ecosystem and discover quality services</p>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="container">
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-bar" style="background: linear-gradient(to bottom, #475569, #94a3b8);"></div>
+                    <h2 class="section-title">All Sites</h2>
+                    <span class="section-badge" style="background: #f1f5f9; color: #475569;">Total 34 sites</span>
+                </div>
+                
+                <div class="grid">
+
+                    <a href="https://noseotop.vercel.app/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Search Tools</span>
+                            <span class="card-date">2026-04-05</span>
+                        </div>
+                        <h3 class="card-title">NoSEO.top - Search for Authentic Results</h3>
+                        <p class="card-description">NoSEO.top - Search for Authentic Results - Efficient and practical online tools to boost productivity. Focused on Search Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://nukeprivacy.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Privacy Tools</span>
+                            <span class="card-date">2026-04-04</span>
+                        </div>
+                        <h3 class="card-title">NukePrivacy - Local Video Processing</h3>
+                        <p class="card-description">NukePrivacy - Local Video Processing - Powerful feature support to meet diverse needs. Focused on Privacy Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://killbillcard.vercel.app/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Payment Tools</span>
+                            <span class="card-date">2026-04-02</span>
+                        </div>
+                        <h3 class="card-title">Kill Bill Card - Virtual Credit Card</h3>
+                        <p class="card-description">Kill Bill Card - Virtual Credit Card - One-stop service platform with comprehensive solutions. Focused on Payment Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://zerocloud.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Document Tools</span>
+                            <span class="card-date">2026-04-02</span>
+                        </div>
+                        <h3 class="card-title">ZeroCloud.so - Offline Document Intelligence</h3>
+                        <p class="card-description">ZeroCloud.so - Offline Document Intelligence - Safe and reliable service guarantee, a trustworthy choice. Focused on Document Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://focusinbox-eight.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Productivity Tools</span>
+                            <span class="card-date">2026-04-02</span>
+                        </div>
+                        <h3 class="card-title">FocusInbox - Focused Email Management</h3>
+                        <p class="card-description">FocusInbox - Focused Email Management - Intelligent tools to simplify complex processes. Focused on Productivity Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://saaskiller.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-30</span>
+                        </div>
+                        <h3 class="card-title">SaaSKiller.ai - Subscription Manager</h3>
+                        <p class="card-description">SaaSKiller.ai - Subscription Manager - Clean and easy-to-use interface design, quick to start with no barriers. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://noaimd.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Editors</span>
+                            <span class="card-date">2026-03-30</span>
+                        </div>
+                        <h3 class="card-title">NoAI.md - No-AI Markdown Editor</h3>
+                        <p class="card-description">NoAI.md - No-AI Markdown Editor - Safe and reliable service guarantee, a trustworthy choice. Focused on Editors to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://crosspostfast.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Social Media</span>
+                            <span class="card-date">2026-03-27</span>
+                        </div>
+                        <h3 class="card-title">CrossPost Fast - Multi-platform Posting Tool</h3>
+                        <p class="card-description">CrossPost Fast - Multi-platform Posting Tool - Powerful feature support to meet diverse needs. Focused on Social Media to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://killswitchapi.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">API Tools</span>
+                            <span class="card-date">2026-03-26</span>
+                        </div>
+                        <h3 class="card-title">KillSwitch API - OpenAI Budget Protection</h3>
+                        <p class="card-description">KillSwitch API - OpenAI Budget Protection - One-stop service platform with comprehensive solutions. Focused on API Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://pingthemio.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Email Tools</span>
+                            <span class="card-date">2026-03-25</span>
+                        </div>
+                        <h3 class="card-title">PingThem.io - Gmail Follow-up Tool</h3>
+                        <p class="card-description">PingThem.io - Gmail Follow-up Tool - Built by professional teams with quality assurance. Focused on Email Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://neveruploadio.vercel.app/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Privacy Tools</span>
+                            <span class="card-date">2026-03-24</span>
+                        </div>
+                        <h3 class="card-title">NeverUpload.io - Local File Processing</h3>
+                        <p class="card-description">NeverUpload.io - Local File Processing - Safe and reliable service guarantee, a trustworthy choice. Focused on Privacy Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://cleancsvai.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Data Processing</span>
+                            <span class="card-date">2026-03-24</span>
+                        </div>
+                        <h3 class="card-title">CleanCSV.ai - CSV Data Cleaning</h3>
+                        <p class="card-description">CleanCSV.ai - CSV Data Cleaning - One-stop service platform with comprehensive solutions. Focused on Data Processing to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://saasstripper.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-24</span>
+                        </div>
+                        <h3 class="card-title">SaaSStripper - SaaS Subscription Analysis</h3>
+                        <p class="card-description">SaaSStripper - SaaS Subscription Analysis - Clean and easy-to-use interface design, quick to start with no barriers. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://noadobe.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Design Tools</span>
+                            <span class="card-date">2026-03-24</span>
+                        </div>
+                        <h3 class="card-title">NoAdobe - Adobe Alternatives</h3>
+                        <p class="card-description">NoAdobe - Adobe Alternatives - Innovative solutions to help users improve work efficiency. Focused on Design Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://navslayer.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Website Optimization</span>
+                            <span class="card-date">2026-03-22</span>
+                        </div>
+                        <h3 class="card-title">NavSlayer - Navigation Bar Optimization</h3>
+                        <p class="card-description">NavSlayer - Navigation Bar Optimization - Efficient and practical online tools to boost productivity. Focused on Website Optimization to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://killsaas.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-22</span>
+                        </div>
+                        <h3 class="card-title">KillSaaS - SaaS Cost Optimization</h3>
+                        <p class="card-description">KillSaaS - SaaS Cost Optimization - Clean and easy-to-use interface design, quick to start with no barriers. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://slimsnd.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Audio Tools</span>
+                            <span class="card-date">2026-03-21</span>
+                        </div>
+                        <h3 class="card-title">SlimSND - Audio Compression Tool</h3>
+                        <p class="card-description">SlimSND - Audio Compression Tool - Safe and reliable service guarantee, a trustworthy choice. Focused on Audio Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://boothell.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">System Tools</span>
+                            <span class="card-date">2026-03-18</span>
+                        </div>
+                        <h3 class="card-title">BootHell - Startup Item Manager</h3>
+                        <p class="card-description">BootHell - Startup Item Manager - Powerful feature support to meet diverse needs. Focused on System Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://linguisticdnaextractor.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Language Tools</span>
+                            <span class="card-date">2026-03-18</span>
+                        </div>
+                        <h3 class="card-title">LinguisticDNA Extractor - Language DNA Extraction</h3>
+                        <p class="card-description">LinguisticDNA Extractor - Language DNA Extraction - Innovative solutions to help users improve work efficiency. Focused on Language Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://humbled.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Social Media</span>
+                            <span class="card-date">2026-03-17</span>
+                        </div>
+                        <h3 class="card-title">Humbled - Humble Social Platform</h3>
+                        <p class="card-description">Humbled - Humble Social Platform - Professional online tool platform providing efficient and convenient service experience. Focused on Social Media to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://stopsaas.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-17</span>
+                        </div>
+                        <h3 class="card-title">StopSaaS - SaaS Subscription Terminator</h3>
+                        <p class="card-description">StopSaaS - SaaS Subscription Terminator - Powerful feature support to meet diverse needs. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://oneclickapi.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Development Tools</span>
+                            <span class="card-date">2026-03-16</span>
+                        </div>
+                        <h3 class="card-title">OneClickAPI - API Testing Tool</h3>
+                        <p class="card-description">OneClickAPI - API Testing Tool - Intelligent tools to simplify complex processes. Focused on Development Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://stopaicost.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">AI Tools</span>
+                            <span class="card-date">2026-03-15</span>
+                        </div>
+                        <h3 class="card-title">StopAICost - AI Cost Control</h3>
+                        <p class="card-description">StopAICost - AI Cost Control - Efficient and practical online tools to boost productivity. Focused on AI Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://smesurvivalai.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">AI Tools</span>
+                            <span class="card-date">2026-03-14</span>
+                        </div>
+                        <h3 class="card-title">SMESurvivalAI - SME AI Assistant</h3>
+                        <p class="card-description">SMESurvivalAI - SME AI Assistant - User-friendly interactive experience making work easier. Focused on AI Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://onecommand.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Development Tools</span>
+                            <span class="card-date">2026-03-13</span>
+                        </div>
+                        <h3 class="card-title">OneCommand - Command Line Tools</h3>
+                        <p class="card-description">OneCommand - Command Line Tools - Intelligent tools to simplify complex processes. Focused on Development Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://killsubscription.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-13</span>
+                        </div>
+                        <h3 class="card-title">KillSubscription - Subscription Killer</h3>
+                        <p class="card-description">KillSubscription - Subscription Killer - Powerful feature support to meet diverse needs. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://manualslib.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Document Tools</span>
+                            <span class="card-date">2026-03-12</span>
+                        </div>
+                        <h3 class="card-title">ManualsLib - Manual Document Library</h3>
+                        <p class="card-description">ManualsLib - Manual Document Library - Professional online tool platform providing efficient and convenient service experience. Focused on Document Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://billripper.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Finance Tools</span>
+                            <span class="card-date">2026-03-12</span>
+                        </div>
+                        <h3 class="card-title">BillRipper - Bill Analysis</h3>
+                        <p class="card-description">BillRipper - Bill Analysis - Clean and easy-to-use interface design, quick to start with no barriers. Focused on Finance Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://deadliner.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Productivity Tools</span>
+                            <span class="card-date">2026-03-11</span>
+                        </div>
+                        <h3 class="card-title">Deadliner - Deadline Management</h3>
+                        <p class="card-description">Deadliner - Deadline Management - Professional online tool platform providing efficient and convenient service experience. Focused on Productivity Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://zerosub.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Subscription Management</span>
+                            <span class="card-date">2026-03-10</span>
+                        </div>
+                        <h3 class="card-title">ZeroSub - Zero Subscription Life</h3>
+                        <p class="card-description">ZeroSub - Zero Subscription Life - Innovative solutions to help users improve work efficiency. Focused on Subscription Management to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://mockupnuke.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Design Tools</span>
+                            <span class="card-date">2026-03-08</span>
+                        </div>
+                        <h3 class="card-title">MockupNuke - Design Mockup Generator</h3>
+                        <p class="card-description">MockupNuke - Design Mockup Generator - Professional online tool platform providing efficient and convenient service experience. Focused on Design Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://scriptkill.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">System Tools</span>
+                            <span class="card-date">2026-03-08</span>
+                        </div>
+                        <h3 class="card-title">ScriptKill - Script Cleaning Tool</h3>
+                        <p class="card-description">ScriptKill - Script Cleaning Tool - One-stop service platform with comprehensive solutions. Focused on System Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://viralhook.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Marketing Tools</span>
+                            <span class="card-date">2026-03-07</span>
+                        </div>
+                        <h3 class="card-title">ViralHook - Viral Marketing Tool</h3>
+                        <p class="card-description">ViralHook - Viral Marketing Tool - Professional online tool platform providing efficient and convenient service experience. Focused on Marketing Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://onepagesaas.wangdadi.xyz/" target="_blank" rel="noopener noreferrer" class="card">
+                        <div class="card-header">
+                            <span class="card-category">Development Tools</span>
+                            <span class="card-date">2026-03-07</span>
+                        </div>
+                        <h3 class="card-title">OnePageSaaS - Single Page SaaS Generator</h3>
+                        <p class="card-description">OnePageSaaS - Single Page SaaS Generator - Built by professional teams with quality assurance. Focused on Development Tools to provide quality services to users.</p>
+                        <div class="card-link">
+                            <span>Visit Site</span>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">34</div>
+                        <div class="stat-label">Total Sites</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Recently Launched</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Online Service</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer style="background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 2rem 0; margin-top: 3rem;">
+        <div class="container">
+            <div style="text-align: center;">
+                <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 0.5rem;">
+                    Support: <a href="mailto:457239850@qq.com" style="color: #4f46e5; text-decoration: none;">457239850@qq.com</a>
+                </p>
+                <p style="color: #94a3b8; font-size: 0.75rem;">
+                    © 2026 Site Directory Center. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF', {'project_name': 'main-site'});
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+</body>
+</html>

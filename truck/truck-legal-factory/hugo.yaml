@@ -1,0 +1,99 @@
+baseURL: 'https://truck.wangdadi.xyz'
+languageCode: 'en-us'
+title: 'US Truck Accident & Injury Law Portal'
+theme: 'PaperMod'
+
+params:
+  # 文章目录 (TOC)
+  ShowToc: true
+  TocOpen: false
+  
+  # 首页显示文章摘要
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  
+  # 隐藏文章顶部的作者和日期显示
+  ShowAuthor: false
+  ShowDate: false
+  
+  # 首页摘要设置
+  description: "US Truck Accident & Injury Law Portal - Your comprehensive resource for truck accident legal information"
+  author: "Truck Legal Factory"
+  
+  # 搜索功能
+  search:
+    enable: true
+    placeholder: "Search articles..."
+  
+  # 主页模式设置
+  profileMode:
+    enabled: true
+    title: "US Truck Accident & Injury Law Portal"
+    subtitle: "Your comprehensive resource for truck accident legal information, injury claims, and expert guidance"
+    imageUrl: "#"
+    imageTitle: ""
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: Articles
+        url: posts
+      - name: Tags
+        url: tags
+  
+  # 社交图标
+  socialIcons:
+    - name: "email"
+      url: "mailto:contact@truck.wangdadi.xyz"
+  
+  # 编辑文章链接
+  editPost:
+    URL: "https://github.com/username/repo/blob/main/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+# 菜单设置
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: posts
+      name: Articles
+      url: /posts/
+      weight: 20
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 30
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 40
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 50
+
+# 输出格式
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# 分页设置
+paginate: 10
+paginatePath: "page"
+
+# 分类设置
+taxonomies:
+  category: categories
+  tag: tags
+  series: series

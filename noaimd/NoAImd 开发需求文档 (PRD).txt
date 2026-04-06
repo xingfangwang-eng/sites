@@ -1,0 +1,17 @@
+NoAI.md 开发需求文档 (PRD)
+1. 产品定位
+一个“反 AI、反臃肿、反云端监控”的极简 Markdown 写作工具。主打：秒开、本地存储、隐私绝对安全。
+2. 核心功能（MVP 阶段）
+极致编辑器： 基于浏览器的 Markdown 编辑器，支持标准语法。
+零延迟存储： 每一秒钟自动保存到 LocalStorage，无需手动保存。
+AI 屏蔽声明（Killer Feature）： 页面显著位置显示实时网络监测状态，证明没有数据发往 AI 接口。
+Pro 级导出： 一键导出 HTML/Markdown/加密 ZIP。
+GitHub Gist 同步（付费功能）： 仅在用户付费后开启私有云同步。
+3. 视觉规范 (UI/UX)
+配色方案： 背景 #000000 (深黑)，文字 #00FF41 (黑客绿)，光标高亮 #FFFFFF。
+字体： 系统自带的等宽字体 (Monospace / JetBrains Mono)。
+布局： 占据屏幕 100% 的文本区域，隐藏所有滚动条，无任何菜单栏。
+4. 技术栈推荐
+Next.js (App Router) + Tailwind CSS (用于极速构建)。
+Markdown 解析： react-markdown 或 marked。
+存储： 浏览器 localStorage + IndexedDB。

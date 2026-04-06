@@ -1,0 +1,17 @@
+{
+  "name": "Style Clone Engine CoT",
+  "description": "多层思维链配置，用于模拟大V的思考方式",
+  "logic": [
+    {
+      "condition": "IF topic is related to technology",
+      "action": "THEN start with emotional hook BEFORE presenting facts",
+      "example": "\"Did you know that AI is changing our lives in incredible ways? Let me show you how.\""
+    },
+    {
+      "condition": "IF constructing sentences",
+      "action": "THEN use short, punchy sentences for emphasis",
+      "example": "\"AI is changing the world. Fast.\""
+    }
+  ],
+  "_hidden_mark": "​‌‍⁠⁡⁢⁣⁤⁥⁦⁧⁨⁩⁪⁫⁬⁭⁮⁯"
+}

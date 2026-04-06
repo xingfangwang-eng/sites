@@ -1,0 +1,548 @@
+[
+  {
+    "keyword": "how to stop notion from using my data to train ai 2026",
+    "slug": "stop-notion-ai-data-training",
+    "title": "Is Notion Training on Your Private Notes? How to Switch to a Zero-AI Alternative",
+    "problem_description": "User is worried about 'Shadow Training' where their private intellectual property or sensitive business strategies are being fed into LLMs by default.",
+    "how_to_solve": "NoAIMD is local-first. Your data never leaves your device, making it mathematically impossible for us to train AI on your notes."
+  },
+  {
+    "keyword": "why is obsidian getting so slow with ai plugins",
+    "slug": "fix-obsidian-slow-lag-2026",
+    "title": "Tired of Obsidian Lag? Why Your Markdown Editor Doesn't Need AI Bloat",
+    "problem_description": "User loves Markdown but hates that their editor now takes 5 seconds to load because of forced AI indexing and 'smart' features.",
+    "how_to_solve": "NoAIMD is built for speed. By stripping away the AI background processes, we offer near-instant startup and zero-latency typing."
+  },
+  {
+    "keyword": "markdown editor without monthly ai subscription tax",
+    "slug": "no-ai-tax-markdown-editor",
+    "title": "Stop Paying the 'AI Tax': The Best Markdown Editors Without Forced Subscriptions",
+    "problem_description": "User is frustrated that their favorite note app doubled in price to cover the cost of AI features they never click on.",
+    "how_to_solve": "NoAIMD follows a 'Pay for what you use' or 'Free forever' model for core writing. No AI means no massive server overhead, so we pass the savings to you."
+  },
+  {
+    "keyword": "distraction free writing for adhd no ai popups",
+    "slug": "adhd-friendly-writing-no-ai-distractions",
+    "title": "Focus Mode: A Markdown Editor for ADHD Writers Who Hate AI Popups",
+    "problem_description": "Every time the user pauses to think, an 'AI autocomplete' or 'Rewrite this' popup appears, breaking their flow and focus.",
+    "how_to_solve": "NoAIMD features a 'Pure Zen' interface. No popups, no 'Ask AI' buttons—just you and your cursor."
+  },
+  {
+    "keyword": "local first notes for lawyers no cloud ai",
+    "slug": "secure-notes-for-lawyers-no-ai",
+    "title": "Client Confidentiality vs. AI: Why Lawyers are Moving to Local-First Markdown",
+    "problem_description": "Legal professionals cannot risk client data being leaked to or analyzed by third-party AI models due to privilege concerns.",
+    "how_to_solve": "NoAIMD stores files in standard .md format on your local drive. It's the highest level of data sovereignty a legal professional can have."
+  },
+  {
+    "keyword": "cheapest way to host markdown notes without ai features",
+    "slug": "budget-markdown-storage-no-ai",
+    "title": "Affordable Note-Taking: Why You Shouldn't Pay for AI You Don't Use",
+    "problem_description": "Student or budget-conscious user looking for a simple tool without the 'Enterprise AI' price tag.",
+    "how_to_solve": "NoAIMD is lightweight enough to be hosted on free tiers like Vercel or kept entirely offline, eliminating infrastructure costs."
+  },
+  {
+    "keyword": "how to turn off notion ai permanently 2026",
+    "slug": "disable-notion-ai-permanently",
+    "title": "Can't Disable Notion AI? Here is the 'Clean' Markdown Alternative You Need",
+    "problem_description": "User searched for a 'Disable' toggle but found that the AI 'features' are baked into the core UI and cannot be hidden.",
+    "how_to_solve": "Instead of fighting the UI, NoAIMD gives you a blank slate. We don't have an AI toggle because we don't have AI code in our core."
+  },
+  {
+    "keyword": "markdown editor that doesn't track my typing",
+    "slug": "privacy-first-non-tracking-markdown",
+    "title": "Zero Telemetry: The Markdown Editor That Doesn't Watch You Type",
+    "problem_description": "User is paranoid that AI editors are keylogging patterns to improve 'predictive text' models.",
+    "how_to_solve": "NoAIMD has zero telemetry. We don't track your keystrokes, your dwell time, or your document structure."
+  },
+  {
+    "keyword": "simple notepad replacement that supports markdown but no ai",
+    "slug": "simple-markdown-notepad-alternative",
+    "title": "Like Notepad, but Better: Simple Markdown without the AI Gimmicks",
+    "problem_description": "User wants something faster than a heavy app but more capable than basic Notepad, without the 'Smart' bloat.",
+    "how_to_solve": "NoAIMD loads in under 100ms. It's as fast as Notepad but with full GFM (GitHub Flavored Markdown) support."
+  },
+  {
+    "keyword": "best note app for tin foil hat privacy",
+    "slug": "privacy-freak-note-app-no-ai",
+    "title": "The 'Tin Foil Hat' Guide to Note-Taking: Avoiding the AI Surveillance State",
+    "problem_description": "Extreme privacy enthusiasts who want to avoid the trend of 'Everything is an AI model' at all costs.",
+    "how_to_solve": "NoAIMD is open-source friendly and local-only. We believe privacy isn't a feature; it's the default state."
+  },
+  {
+    "keyword": "evernote alternative that doesn't lag 2026",
+    "slug": "evernote-lag-fix-2026",
+    "title": "Is Evernote Lagging? Switch to a Markdown Editor with Zero AI Background Tasks",
+    "problem_description": "User is frustrated by the 'spinning wheel' every time they try to sync a simple text note.",
+    "how_to_solve": "NoAIMD uses your local file system as its database. No syncing with heavy AI servers means zero lag."
+  },
+  {
+    "keyword": "how to export notion notes to local md to avoid ai",
+    "slug": "export-notion-to-local-markdown",
+    "title": "Notion Exit Strategy: Moving Your Data to a Secure, AI-Free Environment",
+    "problem_description": "User wants to 'rescue' their data from cloud platforms before the next privacy policy update.",
+    "how_to_solve": "NoAIMD is the perfect landing spot for your exports. Drag and drop your .md files and keep working without missing a beat."
+  },
+  {
+    "keyword": "minimalist writing app for novelists no ai suggestions",
+    "slug": "minimalist-novel-writing-no-ai",
+    "title": "Write Your Novel Without a Robot's Help: Pure Markdown for Authors",
+    "problem_description": "Creative writers feel that AI suggestions 'pollute' their unique voice and style.",
+    "how_to_solve": "NoAIMD respects the author's voice. We provide the digital paper; you provide the soul. No 'Rewrite with AI' distractions."
+  },
+  {
+    "keyword": "hipaa compliant markdown editor no cloud 2026",
+    "slug": "hipaa-markdown-editor-local",
+    "title": "HIPAA & Markdown: How to Take Medical Notes Without AI Cloud Risks",
+    "problem_description": "Healthcare providers need to take notes but cannot use apps that process data on AI servers due to strict compliance.",
+    "how_to_solve": "Since NoAIMD never uploads data, it fits into your existing local HIPAA-compliant encryption workflow perfectly."
+  },
+  {
+    "keyword": "is there a markdown editor that isn't a bloated saas",
+    "slug": "anti-saas-markdown-editor",
+    "title": "End the SaaS Madness: A Markdown Editor That's Just a Tool, Not a Service",
+    "problem_description": "User is tired of every app trying to be a 'workspace' or 'second brain' with a $20/month AI sub.",
+    "how_to_solve": "NoAIMD is a tool, not a lifestyle. It's a clean interface for your local files. No account required."
+  },
+  {
+    "keyword": "markdown editor for programmers who hate ai autocomplete",
+    "slug": "coding-notes-without-ai-autocomplete",
+    "title": "Focus on the Logic: Coding Notes Without Annoying AI Autocomplete",
+    "problem_description": "Developers find that AI autocomplete in note apps often suggests incorrect or hallucinated code snippets.",
+    "how_to_solve": "NoAIMD provides clean syntax highlighting without trying to finish your sentences for you."
+  },
+  {
+    "keyword": "where can i find a non-ai note taking app",
+    "slug": "non-ai-note-taking-apps-list",
+    "title": "The 2026 Human-Only List: Note Apps with Absolutely Zero AI Features",
+    "problem_description": "A general search from a user overwhelmed by the AI hype cycle.",
+    "how_to_solve": "NoAIMD is the top choice on this list. We are committed to a 'Human-First' roadmap."
+  },
+  {
+    "keyword": "i hate microsoft loop ai popups",
+    "slug": "fix-microsoft-loop-ai-popups",
+    "title": "Microsoft Loop Too Noisy? Try This Quiet Markdown Alternative",
+    "problem_description": "Corporate users forced to use Loop but finding the 'Copilot' integration invasive to their daily workflow.",
+    "how_to_solve": "NoAIMD offers a familiar clean layout but without the corporate surveillance and AI interruptions."
+  },
+  {
+    "keyword": "writing app that doesn't sell data to openai",
+    "slug": "note-app-no-openai-partnership",
+    "title": "Not for Sale: The Markdown Editor That Refuses to Sell Your Data to OpenAI",
+    "problem_description": "Users are wary of 'partnerships' between their software and big AI companies.",
+    "how_to_solve": "NoAIMD has no investors to please and no data to sell. We are funded by users who value privacy, not by data brokers."
+  },
+  {
+    "keyword": "cleanest markdown editor for chromebook no ai",
+    "slug": "chromebook-markdown-editor-no-ai",
+    "title": "Fast & Clean: The Best AI-Free Markdown Editor for Chromebooks",
+    "problem_description": "Chromebook users need web-based tools that aren't heavy on CPU (which most AI apps are).",
+    "how_to_solve": "NoAIMD's web version is ultra-optimized. It runs smoothly on even the lowest-spec hardware because it doesn't run heavy LLM scripts."
+  },
+  {
+    "keyword": "secure markdown editor for whistleblowers no ai tracking",
+    "slug": "secure-markdown-for-whistleblowers",
+    "title": "Zero-Trace Writing: The Only Markdown Editor Whistleblowers Trust in 2026",
+    "problem_description": "User handles highly sensitive information and fears that 'AI-assisted' editors are secretly indexing their content for cloud-based LLMs.",
+    "how_to_solve": "NoAIMD is local-only. It has no cloud syncing and zero telemetry, ensuring that not even a metadata trail is left for AI to follow."
+  },
+  {
+    "keyword": "i'm tired of paying for notion ai i never use",
+    "slug": "stop-paying-notion-ai-tax",
+    "title": "Tired of the Notion 'AI Tax'? Switch to a Pure Markdown Editor and Save $150/Year",
+    "problem_description": "User is frustrated by the mandatory subscription price hike that bundled AI features they find useless and intrusive.",
+    "how_to_solve": "NoAIMD is built on a 'No-Bloat' philosophy. We don't bundle AI, so you only pay for (or use for free) the core writing experience."
+  },
+  {
+    "keyword": "markdown app with no 'ask ai' button in the menu",
+    "slug": "remove-ask-ai-from-markdown-ui",
+    "title": "Clean UI: A Markdown Editor Without the Annoying 'Ask AI' Buttons",
+    "problem_description": "User suffers from UI fatigue; every right-click or text selection triggers an AI popup that breaks their creative flow.",
+    "how_to_solve": "NoAIMD's interface is human-centric. Our context menus are for formatting and filing, not for AI prompts. Pure focus, guaranteed."
+  },
+  {
+    "keyword": "best note taking app for authors who hate generative ai",
+    "slug": "best-notes-for-anti-ai-authors",
+    "title": "Write with Your Soul, Not a Prompt: The #1 Choice for Anti-AI Novelists",
+    "problem_description": "Authors feel that Generative AI devalues their craft and fear that their unique writing style will be 'cloned' by the app they use.",
+    "how_to_solve": "NoAIMD honors the craft. We provide a 'dead-simple' writing environment with zero generative features, ensuring your voice remains 100% yours."
+  },
+  {
+    "keyword": "roam research alternative without ai graph indexing",
+    "slug": "roam-research-alternative-no-ai",
+    "title": "Your Second Brain, Without the AI Spy: A Lightweight Roam Alternative",
+    "problem_description": "User loves networked thought but hates that Roam (or similar apps) now uses AI to 'automatically' link notes, often creating hallucinations.",
+    "how_to_solve": "NoAIMD supports standard [[wikilinks]], but the linking is 100% manual. You build the connections; we just provide the fast, local engine."
+  },
+  {
+    "keyword": "how to delete obsidian ai core plugin permanently",
+    "slug": "delete-obsidian-ai-bloat",
+    "title": "Obsidian Getting Too Heavy? How to Reclaim Your Speed with NoAIMD",
+    "problem_description": "User finds that even 'core' plugins in modern editors are becoming AI-heavy, slowing down the opening of large vaults.",
+    "how_to_solve": "NoAIMD is built on a different stack. It doesn't have an AI core to disable; it's lightweight by design and opens 10k+ notes instantly."
+  },
+  {
+    "keyword": "markdown editor for academic research no ai scraping",
+    "slug": "academic-notes-no-ai-scraping",
+    "title": "Protect Your Research: An AI-Free Markdown Tool for Academics and Ph.D. Students",
+    "problem_description": "Researchers are worried that their unpublished findings or data sets will be scraped by their note-taking app's 'Smart Search' feature.",
+    "how_to_solve": "NoAIMD's search is local and grep-based. We don't 'index' your ideas into a vector database, so your research remains confidential."
+  },
+  {
+    "keyword": "apple notes ai privacy concerns 2026 alternative",
+    "slug": "apple-notes-ai-privacy-fix",
+    "title": "Are Your Apple Notes Private? Switching to a Local-First MD Editor",
+    "problem_description": "With Apple Intelligence deeply integrated, users are losing trust in the 'privacy' of their synced iCloud notes.",
+    "how_to_solve": "NoAIMD gives you true sovereignty. Your notes stay on your machine in standard Markdown, not in an encrypted cloud silo controlled by a tech giant."
+  },
+  {
+    "keyword": "zettelkasten software for luddites no ai",
+    "slug": "zettelkasten-no-ai-luddite-friendly",
+    "title": "The 'Luddite' Guide to Zettelkasten: No AI, No Cloud, Just Notes",
+    "problem_description": "User identifies as a 'digital minimalist' or 'Luddite' and wants technology that feels like paper, not a robot.",
+    "how_to_solve": "NoAIMD is the digital equivalent of a high-quality notebook. It stays out of your way and doesn't try to be 'smart'—it just works."
+  },
+  {
+    "keyword": "is logseq forcing ai features now 2026",
+    "slug": "logseq-ai-bloat-alternative",
+    "title": "Is Your Outliner Lagging? The Clean, Fast, AI-Free Alternative to Logseq",
+    "problem_description": "User noticed their favorite outliner became slow after a 'Smart Update' and wants to go back to basics.",
+    "how_to_solve": "NoAIMD supports outliner-style writing but keeps the codebase lean. No heavy AI background syncs mean no more UI stuttering."
+  },
+  {
+    "keyword": "writing app that doesn't use copilot",
+    "slug": "writing-app-without-copilot",
+    "title": "No Copilot, No Problem: Fly Solo with This Pure Markdown Editor",
+    "problem_description": "User finds the constant suggestions of 'Copilots' insulting to their intelligence and distracting to their thought process.",
+    "how_to_solve": "In NoAIMD, you are the pilot. We provide the cockpit (the editor) and the fuel (Markdown), but zero auto-pilot interference."
+  },
+  {
+    "keyword": "most lightweight markdown editor for linux without ai",
+    "slug": "linux-markdown-no-ai-bloat",
+    "title": "Linux Users: Stop the AI Bloat with the Fastest Local-First MD Editor",
+    "problem_description": "Linux enthusiasts value efficiency and low RAM usage, but modern 'electron-based' AI editors are eating 2GB+ of memory.",
+    "how_to_solve": "NoAIMD is optimized for low resource consumption. It's the perfect companion for a minimalist Tiling Window Manager (TWM) setup."
+  },
+  {
+    "keyword": "offline notes for travelers no ai connection needed",
+    "slug": "offline-travel-notes-no-ai",
+    "title": "Lost in the Mountains? Take Notes Without an AI 'Cloud' Connection",
+    "problem_description": "User travels to remote areas and finds that 'AI-first' apps often fail or hang when they can't reach their servers for 'indexing'.",
+    "how_to_solve": "NoAIMD is 100% functional offline. Your search, your links, and your files are all local. No 'Checking for AI updates' ever."
+  },
+  {
+    "keyword": "how to bypass notion ai block for certain folders",
+    "slug": "bypass-notion-ai-indexing",
+    "title": "Can't Hide Your Notes from Notion AI? Here's the Local-Only Solution",
+    "problem_description": "User wants to keep 90% of notes in Notion but has 10% 'Private' notes that they don't want Notion's AI to see.",
+    "how_to_solve": "NoAIMD is the perfect 'Safe Haven' for those 10% of notes. Keep your sensitive data in local .md files while using other apps for public work."
+  },
+  {
+    "keyword": "markdown editor for deep work no ai interruptions",
+    "slug": "deep-work-markdown-no-ai",
+    "title": "Deep Work Mode: A Markdown Editor Designed to Silence the AI Noise",
+    "problem_description": "User follows Cal Newport's Deep Work principles and finds AI suggestions to be the ultimate 'shallow work' trap.",
+    "how_to_solve": "NoAIMD is designed for flow. The UI vanishes, and there are zero notifications or 'smart' prompts to pull you out of the zone."
+  },
+  {
+    "keyword": "journaling app for mental health no ai analysis",
+    "slug": "private-journaling-no-ai-analysis",
+    "title": "Don't Let an AI Analyze Your Trauma: Private Journaling for 2026",
+    "problem_description": "User is journaling for therapy and is horrified by 'AI Sentiment Analysis' features that try to 'score' their mood or mental state.",
+    "how_to_solve": "NoAIMD is a silent listener. We don't analyze your feelings, we don't 'tag' your emotions. We just save your words."
+  },
+  {
+    "keyword": "google docs alternative that doesn't feed gemini",
+    "slug": "stop-google-docs-gemini-training",
+    "title": "Google Docs vs. Gemini: How to Stop Being a Training Set for AI",
+    "problem_description": "User is moving away from Workspace because Google's TOS allows them to use 'anonymous' data to improve Gemini.",
+    "how_to_solve": "NoAIMD uses your local file system. Google can't see what they can't access. You own your files, literally."
+  },
+  {
+    "keyword": "markdown editor with vim keybindings but no ai",
+    "slug": "vim-markdown-editor-no-ai",
+    "title": "Vim + Markdown - AI = The Ultimate Developer Setup",
+    "problem_description": "Vim users want efficiency but are seeing 'AI plugins' being forced into every new terminal-based or GUI editor.",
+    "how_to_solve": "NoAIMD supports high-performance editing with optional Vim modes, focusing purely on keyboard-driven speed without AI 'autocomplete' lag."
+  },
+  {
+    "keyword": "cheapest way to manage personal knowledge base 2026",
+    "slug": "cheap-pkm-no-ai-fees",
+    "title": "Build a Knowledge Base for $0: Why You Don't Need Expensive AI Tools",
+    "problem_description": "User is a student or self-learner who just wants a way to organize notes without a $20/month AI subscription fee.",
+    "how_to_solve": "NoAIMD is the 'frugal' choice. Since it runs locally, you don't pay for our server costs. It's a professional tool for the price of... nothing."
+  },
+  {
+    "keyword": "how to keep my second brain private from ai",
+    "slug": "private-second-brain-guide",
+    "title": "The Private Second Brain: Keeping Your Thoughts Safe from AI Spiders",
+    "problem_description": "User spent years building a digital garden and is now afraid that a simple app update will turn it into a public training set.",
+    "how_to_solve": "NoAIMD's core promise is 'Privacy by Architecture'. By not having a cloud backend, we provide the ultimate firewall against AI spiders."
+  },
+  {
+    "keyword": "evernote 2026 too slow to open on mobile",
+    "slug": "evernote-mobile-lag-fix",
+    "title": "Evernote Mobile Lag? Switch to a Fast, Non-AI Markdown App",
+    "problem_description": "User tries to jot down a quick thought but the app takes 10 seconds to 'Sync AI context'.",
+    "how_to_solve": "NoAIMD's mobile-friendly web app or local versions are instantaneous. It's just text. No waiting, no lag."
+  },
+  {
+    "keyword": "markdown tool for lawyers with local encryption no ai",
+    "slug": "lawyer-markdown-local-encryption",
+    "title": "Legal Tech Without the Risk: AI-Free Markdown for Sensitive Case Files",
+    "problem_description": "Attorneys need to document privileged communications but fear that 'AI-powered' apps might breach attorney-client privilege.",
+    "how_to_solve": "NoAIMD stores files locally in standard Markdown format. You control the encryption. No AI ever sees your privileged documents."
+  },
+  {
+    "keyword": "best markdown editor for slow internet no ai syncing",
+    "slug": "slow-internet-markdown-no-ai",
+    "title": "Slow Internet? Don't Let AI Syncing Freeze Your Writing App",
+    "problem_description": "User lives in a low-bandwidth area; 'AI-powered' apps often freeze while trying to connect to their LLM servers in background.",
+    "how_to_solve": "NoAIMD is ultra-lightweight. It doesn't need a 5G connection to 'verify' your AI subscription. It's always fast, even on dial-up speeds."
+  },
+  {
+    "keyword": "markdown editor for adhd without ai sensory overload",
+    "slug": "adhd-markdown-no-ai-distractions",
+    "title": "Stop the Noise: An ADHD-Friendly Markdown Editor with Zero AI Popups",
+    "problem_description": "Neurodivergent users often find flashing 'AI suggestion' boxes and 'Smart' toolbars to be a source of sensory overload that breaks their hyper-focus.",
+    "how_to_solve": "NoAIMD is visually silent. We offer a 'True Mono' mode where everything but your text disappears. No moving parts, no AI 'help', just a calm workspace."
+  },
+  {
+    "keyword": "how to stop onenote from scanning my notes for copilot",
+    "slug": "stop-onenote-copilot-scanning",
+    "title": "Microsoft is Scanning Your Notes: How to Move to a Local-First Markdown Tool",
+    "problem_description": "Corporate users realize that even 'private' OneNote notebooks are being indexed to improve enterprise LLMs, making sensitive data searchable by the AI.",
+    "how_to_solve": "NoAIMD is the perfect escape hatch. It's a lightweight web/local tool that treats your notes as private files, not as a training set for Microsoft's cloud."
+  },
+  {
+    "keyword": "markdown editor for digital minimalists no ai features",
+    "slug": "digital-minimalism-markdown-no-ai",
+    "title": "Digital Minimalism 2026: The Best Writing App That Does Absolutely Nothing (Except Write)",
+    "problem_description": "Followers of the digital minimalism movement want tools that are 'single-purpose'. They view AI features as 'digital clutter' that complicates a simple task.",
+    "how_to_solve": "NoAIMD follows the 'Unix Philosophy': Do one thing and do it well. It's a Markdown editor. Nothing more, nothing less. No AI-clutter allowed."
+  },
+  {
+    "keyword": "is my ip safe in jasper ai notes 2026",
+    "slug": "jasper-ai-intellectual-property-risk",
+    "title": "Protecting Your IP: Why Generative AI Notes are a Liability for Creators",
+    "problem_description": "Content creators fear that using 'AI-first' note apps gives the app owner a perpetual license to use their drafts to refine their models.",
+    "how_to_solve": "NoAIMD's local-first architecture means we never see your drafts. Your Intellectual Property stays on your hardware, under your legal control."
+  },
+  {
+    "keyword": "markdown editor for solar punk and off grid living",
+    "slug": "off-grid-solar-punk-markdown",
+    "title": "Writing in the Wild: An Off-Grid Markdown Tool for Low-Energy Devices",
+    "problem_description": "Users living off-grid or using low-power devices (like e-ink tablets) need apps that don't waste battery on background AI API calls.",
+    "how_to_solve": "NoAIMD is extremely energy-efficient. Because it doesn't run heavy LLM scripts or sync with power-hungry AI clouds, your battery lasts days longer."
+  },
+  {
+    "keyword": "bear app alternative for windows without ai bloat",
+    "slug": "bear-alternative-windows-no-ai",
+    "title": "Love Bear's Style but Hate AI? Meet the Cleanest Markdown Editor for Windows",
+    "problem_description": "Windows users want the aesthetic of Bear but are finding that new alternatives are all 'AI-powered' and heavy on resources.",
+    "how_to_solve": "NoAIMD brings that minimalist aesthetic to Windows/Web without the baggage. It's fast, pretty, and 100% human-driven."
+  },
+  {
+    "keyword": "best markdown editor for investigative journalists 2026",
+    "slug": "investigative-journalism-markdown-no-ai",
+    "title": "Whistleblowers & Sources: Why Journalists are Abandoning AI Note Apps",
+    "problem_description": "Journalists cannot risk 'AI auto-summaries' of their interviews being sent to cloud servers, as it could expose confidential sources.",
+    "how_to_solve": "NoAIMD offers a 'Dark Vault' workflow. Keep your interview transcripts in local Markdown files that never touch the internet, bypassing AI surveillance."
+  },
+  {
+    "keyword": "how to keep my second brain offline to avoid ai",
+    "slug": "offline-second-brain-no-ai",
+    "title": "The Offline Second Brain: Why Your Personal Knowledge Shouldn't be a Cloud Model",
+    "problem_description": "The 'Second Brain' community is pivoting away from cloud-sync as they realize 'Smart Search' is just another word for 'Remote Scraping'.",
+    "how_to_solve": "NoAIMD supports [[Linked Thought]] entirely offline. Your brain's connections remain in your physical possession, not in a vector database."
+  },
+  {
+    "keyword": "markdown tool for therapists with hipaa compliance no ai",
+    "slug": "therapist-notes-no-ai-hipaa",
+    "title": "Private Practice, Private Notes: AI-Free Markdown for Mental Health Pros",
+    "problem_description": "Therapists need to take clinical notes but are wary of 'AI-transcription' features that might violate patient confidentiality (HIPAA).",
+    "how_to_solve": "NoAIMD is the safest choice for clinical notes. Since no data is transmitted or analyzed by AI, you maintain 100% patient-provider privilege."
+  },
+  {
+    "keyword": "is there a note app that doesn't use generative ai",
+    "slug": "no-generative-ai-note-apps",
+    "title": "The 'Non-Generative' List: Note Apps That Won't Try to Write for You",
+    "problem_description": "Users find 'Auto-complete' and 'Sentence Finishers' to be patronizing and damaging to their personal writing style.",
+    "how_to_solve": "NoAIMD is a 'Manual-First' editor. We believe writing is thinking, and we refuse to automate the most important part of being human."
+  },
+  {
+    "keyword": "markdown editor that doesn't require an account to save",
+    "slug": "no-account-markdown-editor",
+    "title": "No Account, No AI, No Tracking: Just Open and Start Writing",
+    "problem_description": "Users are tired of 'Sign up with Google' just to use a simple text editor, knowing it's just a way to link their data to an AI profile.",
+    "how_to_solve": "NoAIMD works without an account. Your identity remains anonymous because your data is stored on your device, not our servers."
+  },
+  {
+    "keyword": "how to disable apple intelligence in notes app 2026",
+    "slug": "disable-apple-intelligence-notes",
+    "title": "Can't Turn Off Apple Intelligence? Switch to a Truly Private Markdown Editor",
+    "problem_description": "Apple users are finding it increasingly difficult to 'opt-out' of system-level AI indexing within their native apps.",
+    "how_to_solve": "NoAIMD acts as a 'Privacy Island' on your Mac or iPhone. It doesn't use system AI hooks, so your notes stay invisible to Apple's models."
+  },
+  {
+    "keyword": "evernote alternative with no subscription and no ai",
+    "slug": "evernote-alternative-no-sub-no-ai",
+    "title": "Escape the Evernote Cycle: A Subscription-Free, AI-Free Markdown Editor",
+    "problem_description": "Long-time Evernote users are leaving due to the combination of 'AI Bloat' and ever-increasing 'Subscription Tax'.",
+    "how_to_solve": "NoAIMD is the minimalist's dream. No recurring fees for AI features you don't want. Just a professional tool you can own or use for free."
+  },
+  {
+    "keyword": "markdown editor with no telemetry for security researchers",
+    "slug": "security-research-markdown-no-telemetry",
+    "title": "Zero-Trace Research: The Only Note App Security Researchers Trust",
+    "problem_description": "Security researchers document vulnerabilities and exploits. They cannot risk 'AI-powered' apps sending their findings to cloud servers.",
+    "how_to_solve": "NoAIMD is the gold standard for sensitive research. Zero telemetry, zero cloud sync, zero AI. Just your findings, stored locally, encrypted by you."
+  },
+  {
+    "keyword": "best markdown editor for the year 2026 no ai",
+    "slug": "best-markdown-2026-no-ai",
+    "title": "The Best Markdown Editor of 2026 (For People Who Still Value Humans)",
+    "problem_description": "A general 'Best of' search for users who are specifically looking for an alternative to the AI-dominated market.",
+    "how_to_solve": "NoAIMD is the #1 ranked 'Human-First' editor. We prioritize your privacy, your speed, and your focus above all else."
+  },
+  {
+    "keyword": "markdown editor for air-gapped laptop no ai phone home",
+    "slug": "air-gapped-markdown-no-ai",
+    "title": "Truly Offline: The Best Markdown Editor for Air-Gapped Security Systems",
+    "problem_description": "User is working in a high-security environment and needs an editor that doesn't even have the *code* to attempt a connection to an AI server.",
+    "how_to_solve": "NoAIMD's core is self-contained. It doesn't rely on remote LLM APIs, making it the safest choice for machines that must remain 100% disconnected."
+  },
+  {
+    "keyword": "cheapest way to host a digital garden without ai subscriptions",
+    "slug": "cheap-digital-garden-no-ai",
+    "title": "Low-Cost Digital Gardening: How to Grow Your Ideas Without the AI Tax",
+    "problem_description": "User wants to publish their notes online but every 'Digital Garden' tool in 2026 now forces a 'Smart Hosting' fee for AI search features.",
+    "how_to_solve": "NoAIMD output is standard Markdown. We show you how to host your notes for free on Vercel or GitHub Pages with zero AI overhead costs."
+  },
+  {
+    "keyword": "i hate new apple intelligence notepad 2026",
+    "slug": "apple-intelligence-notepad-alternative",
+    "title": "Apple Intelligence Too Invasive? The 'Classic' Markdown Alternative for Mac",
+    "problem_description": "User feels that the native macOS Notes app has become a 'surveillance tool' that constantly offers to 'Rewrite' their personal thoughts.",
+    "how_to_solve": "NoAIMD is the 'Anti-Notes' app. It respects the classic Mac philosophy of 'Tools, not Teachers.' No AI suggestions, just a perfect writing surface."
+  },
+  {
+    "keyword": "markdown editor for pgp encrypted notes no ai indexing",
+    "slug": "pgp-encrypted-markdown-no-ai",
+    "title": "Privacy First: Writing PGP-Ready Notes Without AI Cloud Scanning",
+    "problem_description": "User manually encrypts notes and is terrified that their editor might 'read' decrypted text in memory to provide 'AI context'.",
+    "how_to_solve": "NoAIMD has zero memory-scraping for AI. What you decrypt stays in your view only. We don't index your text, encrypted or not."
+  },
+  {
+    "keyword": "best note app for the 'human-made' movement",
+    "slug": "human-made-note-taking-app",
+    "title": "100% Human-Made: The Note App for Creators Who Reject Generative AI",
+    "problem_description": "User wants to be part of the 'Human-Only' certification movement and needs tools that guarantee no AI intervention in the creative process.",
+    "how_to_solve": "NoAIMD is the official 'Human-First' workspace. We provide a 'No-AI Certified' environment so you can confidently say your work is 100% yours."
+  },
+  {
+    "keyword": "stop windows 11 notepad from summarizing my files",
+    "slug": "stop-windows-notepad-ai-summary",
+    "title": "Windows Notepad Getting Too 'Smart'? Switch to a Clean Markdown Editor",
+    "problem_description": "Microsoft has integrated Copilot into basic Notepad, and the user is annoyed by the 'Summarize this file' prompt every time they open a .txt.",
+    "how_to_solve": "NoAIMD is the 'Professional Notepad.' It handles .md and .txt files with blazing speed and zero Microsoft cloud interference."
+  },
+  {
+    "keyword": "how to build a second brain on a raspberry pi without ai",
+    "slug": "raspberry-pi-second-brain-no-ai",
+    "title": "Self-Sovereign Knowledge: Running an AI-Free Second Brain on a Pi",
+    "problem_description": "User wants a low-power, self-hosted knowledge base that doesn't need a powerful GPU to run modern 'AI-enhanced' note software.",
+    "how_to_solve": "NoAIMD's web-first architecture is so light it runs perfectly on a Raspberry Pi browser, giving you a private, local-first knowledge base for pennies."
+  },
+  {
+    "keyword": "markdown editor that works with obsidian sync but no ai",
+    "slug": "obsidian-sync-without-ai-bloat",
+    "title": "Sync Your Vault, Not Your Soul: The Lightweight Companion to Obsidian",
+    "problem_description": "User likes Obsidian's file structure but finds the app too heavy now that AI is everywhere. They want a lighter 'frontend' for the same files.",
+    "how_to_solve": "NoAIMD can open your existing Obsidian vault folders directly. Use NoAIMD for fast, distraction-free writing while keeping your files compatible."
+  },
+  {
+    "keyword": "writing app for high-stakes negotiation no ai logging",
+    "slug": "negotiation-notes-no-ai-logging",
+    "title": "Keep Your Leverage: AI-Free Notes for High-Stakes Business Meetings",
+    "problem_description": "User is a negotiator who fears that 'AI Meeting Assistants' might leak their 'walk-away price' or strategy to the other party's AI.",
+    "how_to_solve": "NoAIMD is a silent vault. It doesn't record, it doesn't listen, and it doesn't 'assist.' It just stores your strategy on your local disk."
+  },
+  {
+    "keyword": "minimalist markdown for e-ink tablets no ai lag",
+    "slug": "e-ink-markdown-no-ai-lag",
+    "title": "Perfect for E-Ink: A Markdown Editor with Zero Background AI Processing",
+    "problem_description": "E-ink users (like Boox or Remarkable) suffer from extreme lag when 'Smart' apps try to update the UI with AI suggestions.",
+    "how_to_solve": "NoAIMD's UI is static and optimized for low-refresh screens. No moving AI widgets or popups mean a crisp, clean experience on e-ink."
+  },
+  {
+    "keyword": "markdown editor for novelists who want to avoid ai 'style' 2026",
+    "slug": "avoid-ai-writing-style-editor",
+    "title": "Protect Your Voice: Writing Without the Influence of LLM Suggestions",
+    "problem_description": "The user is worried that constant exposure to 'AI Rewrites' is subconsciously making their writing style sound like a generic chatbot.",
+    "how_to_solve": "NoAIMD is a 'Neutral Zone.' By removing all suggestions, we help you rediscover and protect your unique human voice and rhythm."
+  },
+  {
+    "keyword": "best note app for students who want to disable ai summary",
+    "slug": "disable-ai-summary-student-notes",
+    "title": "Learning, Not Summarizing: Why Students are Rejecting 'Smart' Note Apps",
+    "problem_description": "User wants to develop critical thinking skills and finds that 'AI Summaries' are a 'crutch' that makes them perform worse on exams.",
+    "how_to_solve": "NoAIMD promotes 'Active Recall' by not giving you shortcuts. It's the digital equivalent of a library—pure information, no shortcuts."
+  },
+  {
+    "keyword": "markdown editor that won't be obsolete when an ai company dies",
+    "slug": "future-proof-markdown-editor",
+    "title": "Future-Proof Your Notes: Why You Shouldn't Tie Your Ideas to an AI Startup",
+    "problem_description": "User is worried that if they use an 'AI-integrated' app and the company goes bankrupt (or the API changes), their notes will be broken or lost.",
+    "how_to_solve": "NoAIMD uses plain text .md files. Even if NoAIMD disappeared tomorrow, your notes stay on your drive, readable by any computer forever."
+  },
+  {
+    "keyword": "markdown editor for paranoid users no ai cloud scanning",
+    "slug": "paranoid-markdown-no-ai",
+    "title": "For the Truly Paranoid: The Only Editor That Can't Spy on You",
+    "problem_description": "User believes that all 'AI features' are actually surveillance tools in disguise and wants an editor that physically cannot send data anywhere.",
+    "how_to_solve": "NoAIMD is open-source friendly and can be run entirely offline. We literally don't have the code to send your data anywhere. Paranoid approved."
+  },
+  {
+    "keyword": "best markdown editor for writing a manifesto no ai monitoring",
+    "slug": "write-manifesto-no-ai-monitoring",
+    "title": "Unfiltered Thoughts: The Best Editor for Writing Your Manifesto Without AI Eyes",
+    "problem_description": "User is writing something controversial or highly personal and doesn't want an AI 'safety filter' to flag or monitor their drafts.",
+    "how_to_solve": "NoAIMD has no filters. Because it's local and AI-free, there is no 'Safety Layer' judging your words. You are free to think and write anything."
+  },
+  {
+    "keyword": "markdown editor with no account required and no ai tracking",
+    "slug": "truly-anonymous-markdown-editor",
+    "title": "Total Anonymity: A Markdown Editor with No Accounts, No AI, and No Cloud",
+    "problem_description": "User wants to open a URL, type something, and save it locally without ever giving a tech company their email or IP address for an AI profile.",
+    "how_to_solve": "NoAIMD is the ultimate anonymous tool. Just visit the site, use the PWA, or run it locally. No login, no profile, no AI. Just the file."
+  },
+  {
+    "keyword": "tired of creepy ai suggestions in writing apps",
+    "slug": "anti-creepy-ai-writing-app",
+    "title": "Tired of 'Creepy' AI? The 100% Human Markdown Editor You've Been Looking For",
+    "problem_description": "User is experiencing 'AI Fatigue' and finds the current trend of everything being 'Smart' to be intrusive and psychologically draining.",
+    "how_to_solve": "NoAIMD is the 'Anti-Creep' choice. It's a tool that treats you like an adult, not like a data point for a reinforcement learning model."
+  },
+  {
+    "keyword": "best note app for writing a manifesto no ai monitoring",
+    "slug": "write-manifesto-no-ai-monitoring",
+    "title": "Unfiltered Thoughts: The Best Editor for Writing Your Manifesto Without AI Eyes",
+    "problem_description": "User is writing something controversial or highly personal and doesn't want an AI 'safety filter' to flag or monitor their drafts.",
+    "how_to_solve": "NoAIMD has no filters. Because it's local and AI-free, there is no 'Safety Layer' judging your words. You are free to think and write anything."
+  },
+  {
+    "keyword": "markdown editor with no account required and no ai tracking",
+    "slug": "truly-anonymous-markdown-editor",
+    "title": "Total Anonymity: A Markdown Editor with No Accounts, No AI, and No Cloud",
+    "problem_description": "User wants to open a URL, type something, and save it locally without ever giving a tech company their email or IP address for an AI profile.",
+    "how_to_solve": "NoAIMD is the ultimate anonymous tool. Just visit the site, use the PWA, or run it locally. No login, no profile, no AI. Just the file."
+  },
+  {
+    "keyword": "tired of creepy ai suggestions in writing apps",
+    "slug": "anti-creepy-ai-writing-app",
+    "title": "Tired of 'Creepy' AI? The 100% Human Markdown Editor You've Been Looking For",
+    "problem_description": "User is experiencing 'AI Fatigue' and finds the current trend of everything being 'Smart' to be intrusive and psychologically draining.",
+    "how_to_solve": "NoAIMD is the 'Anti-Creep' choice. It's a tool that treats you like an adult, not like a data point for a reinforcement learning model."
+  }
+]

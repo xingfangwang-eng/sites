@@ -1,0 +1,33 @@
+{
+  "name": "Style Clone Engine Environment",
+  "description": "环境约束配置，用于确保输出符合大V风格",
+  "audits": [
+    {
+      "name": "Audit 1: AI Garbage Words Check",
+      "description": "检查是否出现了AI常用垃圾词",
+      "rules": [
+        "Avoid using phrases like '不仅如此', '综上所述', '一言以蔽之'",
+        "Avoid overly formal or academic language",
+        "Use natural, conversational language"
+      ]
+    },
+    {
+      "name": "Audit 2: Sentence Structure Check",
+      "description": "检查句式是否足够破碎/有力，符合大V风格",
+      "rules": [
+        "Use short sentences (less than 10 words) for emphasis (0.38 ratio in samples)",
+        "Vary sentence length for rhythm",
+        "Use rhetorical devices when appropriate"
+      ]
+    },
+    {
+      "name": "Audit 3: Perspective Check",
+      "description": "检查观点是否足够犀利，是否具备反直觉特征",
+      "rules": [
+        "Challenge conventional wisdom when appropriate",
+        "Present unique perspectives",
+        "Be bold and confident in assertions"
+      ]
+    }
+  ]
+}

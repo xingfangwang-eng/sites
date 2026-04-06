@@ -1,0 +1,695 @@
+[
+  {
+    "keyword": "why is my vercel site not showing up on google 2026",
+    "slug": "fix-vercel-indexing-issues-2026",
+    "title": "Vercel Site Invisible on Google? Here's the 2026 Quick Fix",
+    "problem_description": "Developers deploying on Vercel notice their projects stay unindexed for weeks despite having a sitemap.",
+    "how_to_solve": "Noseoto bypasses the standard GSC wait times by using a direct indexing API specifically optimized for Vercel's edge network."
+  },
+  {
+    "keyword": "how to stop google ai overview from stealing my traffic",
+    "slug": "protect-clicks-from-google-sge",
+    "title": "Is SGE Stealing Your Clicks? How to Reclaim Your Website Traffic",
+    "problem_description": "Users find that Google's AI summary answers the query, so no one clicks the link to their actual site.",
+    "how_to_solve": "Noseoto optimizes your content structure to be the 'cited source' within the AI summary, driving high-intent clicks back to you."
+  },
+  {
+    "keyword": "make my ai blog posts look human to google algorithm",
+    "slug": "humanize-ai-content-for-seo",
+    "title": "Ranking AI Content in 2026: How to Pass the 'Helpful Content' Test",
+    "problem_description": "Bloggers using AI notice a massive traffic drop because Google flags their content as 'low-value automated'.",
+    "how_to_solve": "Use Noseoto's Semantic Enricher to inject unique data points and personal experience signals that Google's 2026 algorithm craves."
+  },
+  {
+    "keyword": "cheaper alternative to ahrefs for broke founders",
+    "slug": "affordable-seo-tool-for-startups",
+    "title": "Don't Pay $99/mo: The Best Low-Cost SEO Tool for Solo Founders",
+    "problem_description": "Early-stage founders need SEO but can't justify the $100+ monthly cost of legacy tools like Ahrefs or Semrush.",
+    "how_to_solve": "Noseoto offers a 'Pay-as-you-grow' model or a generous free tier focused only on what actually moves the needle."
+  },
+  {
+    "keyword": "google says discovered currently not indexed for months",
+    "slug": "fix-discovered-not-indexed-stuck",
+    "title": "Stuck in 'Discovered - Currently Not Indexed'? Here Is the Real Fix",
+    "problem_description": "Website owners see their pages in Search Console, but Google refuses to actually put them in the search results.",
+    "how_to_solve": "Noseoto uses a 'forced crawl' mechanism that mimics high-authority site behavior to push those stuck URLs into the index."
+  },
+  {
+    "keyword": "how to outrank reddit in google search results 2026",
+    "slug": "beat-reddit-on-google",
+    "title": "Tired of Reddit Dominating Search? How to Take Back the #1 Spot",
+    "problem_description": "Google favors Reddit too much in 2026, making it hard for small business websites to rank for their own keywords.",
+    "how_to_solve": "Noseoto helps you implement 'EEAT micro-data' that proves your site is a more authoritative source than an anonymous Reddit thread."
+  },
+  {
+    "keyword": "get my nextjs app indexed in minutes not days",
+    "slug": "instant-index-nextjs-app",
+    "title": "The Developer's Secret to Instant Google Indexing for Next.js",
+    "problem_description": "Next.js developers struggle with SSR/ISR pages not being crawled correctly by Google's bot.",
+    "how_to_solve": "Noseoto provides a snippet that pings Google the moment a new ISR page is generated, ensuring near-instant visibility."
+  },
+  {
+    "keyword": "simple seo checklist for people who hate marketing",
+    "slug": "seo-for-marketing-haters",
+    "title": "Hate Marketing? The 5-Minute SEO Checklist for Practical People",
+    "problem_description": "Technical founders and creators find SEO jargon (backlinks, DA, DR) confusing and annoying.",
+    "how_to_solve": "Noseoto translates complex SEO into a simple 'To-Do' list: 'Fix this title', 'Add this image', 'Click this button to index'."
+  },
+  {
+    "keyword": "how to get into perplexity and searchgpt results",
+    "slug": "rank-on-ai-search-engines",
+    "title": "Beyond Google: How to Make AI Search Engines Recommend You",
+    "problem_description": "Users are moving to Perplexity and SearchGPT, and website owners don't know how to show up there.",
+    "how_to_solve": "Noseoto optimizes your site's 'LLM-readability'—ensuring AI agents can easily parse and cite your content."
+  },
+  {
+    "keyword": "why did my traffic drop after the march 2026 update",
+    "slug": "recover-from-march-2026-update",
+    "title": "Google Update Hit You Hard? A Step-by-Step Recovery Guide",
+    "problem_description": "Small sites often lose 50%+ traffic after a core update and don't know which 'unhelpful' content to delete.",
+    "how_to_solve": "Noseoto's Audit Tool identifies exactly which pages were penalized and provides AI-driven rewrite suggestions to fix them."
+  },
+  {
+    "keyword": "my contact page is ranking but my product isn't",
+    "slug": "fix-wrong-page-ranking-issue",
+    "title": "Stop Google from Ranking the Wrong Page: A Simple Fix",
+    "problem_description": "A common frustration where Google ranks a 'Terms of Service' or 'Contact' page instead of the high-converting sales page.",
+    "how_to_solve": "Noseoto uses internal link re-weighting and canonical mapping to tell Google exactly which page is the priority."
+  },
+  {
+    "keyword": "free tool to check if google can actually see my website",
+    "slug": "check-google-visibility-free",
+    "title": "Can Google Even See You? Use This Free Visibility Checker",
+    "problem_description": "Non-tech users aren't sure if their site is 'live' on search or just floating in space.",
+    "how_to_solve": "Noseoto provides a 1-click 'Spider-Eye' view that shows exactly what Google sees when it visits your URL."
+  },
+  {
+    "keyword": "how to add schema markup without touching any code",
+    "slug": "no-code-schema-markup",
+    "title": "Get Rich Snippets (Stars & Prices) Without Writing a Single Line of Code",
+    "problem_description": "Store owners want those cool star ratings in search results but are scared of breaking their site's JSON-LD code.",
+    "how_to_solve": "Noseoto's visual editor lets you 'point and click' on your price and reviews, then it handles the code injection for you."
+  },
+  {
+    "keyword": "stop google from changing my website titles in search",
+    "slug": "prevent-title-rewriting-google",
+    "title": "Google Changed Your Title? How to Force Your Own Headlines",
+    "problem_description": "Users spend hours on a catchy title, only for Google to replace it with a boring one in the search results.",
+    "how_to_solve": "Noseoto analyzes why Google is rewriting your title and helps you craft H1/Title combinations that Google is 90% less likely to change."
+  },
+  {
+    "keyword": "how to rank for long tail keywords with zero backlinks",
+    "slug": "rank-without-backlinks-2026",
+    "title": "No Backlinks? No Problem. How to Rank on Page 1 Using Only Content",
+    "problem_description": "Small sites can't afford to buy links or do outreach, but they still want to compete.",
+    "how_to_solve": "Noseoto focuses on 'Topic Authority'—grouping small, easy-to-win keywords into clusters that Google trusts more than a few random links."
+  },
+  {
+    "keyword": "why is my shopify store not getting any organic traffic",
+    "slug": "shopify-seo-fix-zero-traffic",
+    "title": "Zero Clicks on Shopify? 3 Hidden Settings You Need to Change",
+    "problem_description": "New Shopify sellers realize that 'building it' doesn't mean they will 'come' from Google.",
+    "how_to_solve": "Noseoto identifies Shopify-specific SEO traps like duplicate tag pages and fixes them automatically."
+  },
+  {
+    "keyword": "make my personal brand show up on the first page",
+    "slug": "personal-brand-seo-guide",
+    "title": "Own Your Name: How to Dominate the Search Results for Your Brand",
+    "problem_description": "Freelancers and consultants want to make sure their portfolio and LinkedIn are the first things people see.",
+    "how_to_solve": "Noseoto creates a 'Brand Shield' strategy, ensuring all your positive profiles are indexed and ranking for your name."
+  },
+  {
+    "keyword": "how to get my blog posts indexed in 24 hours for free",
+    "slug": "fast-indexing-hack-2026",
+    "title": "The 24-Hour Indexing Hack: Get Your Content Found Fast",
+    "problem_description": "Time-sensitive news or trend-jackers need their content indexed NOW, not in two weeks.",
+    "how_to_solve": "Noseoto uses an Indexing API 'burst' feature that notifies 5+ major search engines (Google, Bing, DuckDuckGo) simultaneously."
+  },
+  {
+    "keyword": "is my website shadowbanned by google checker",
+    "slug": "google-shadowban-test",
+    "title": "Is Your Site Shadowbanned? Run This 30-Second SEO Test",
+    "problem_description": "Paranoid site owners think Google is hiding their site because their traffic flatlined for no apparent reason.",
+    "how_to_solve": "Noseoto runs a diagnostic check against 'Safe Browsing' and 'Manual Actions' to confirm if there's a real ban or just bad SEO."
+  },
+  {
+    "keyword": "best way to use ai to write seo content that actually ranks",
+    "slug": "ai-seo-content-strategy-2026",
+    "title": "Stop Copy-Pasting ChatGPT: The Right Way to Use AI for SEO",
+    "problem_description": "Users realize raw AI output doesn't rank anymore; they need a workflow that works.",
+    "how_to_solve": "Noseoto provides 'AI Prompt Templates' that force the AI to include SEO keywords, LSI terms, and a human-like flow."
+  },
+  {
+    "keyword": "why is google search so bad now and how to win",
+    "slug": "survival-guide-modern-google",
+    "title": "Google Search is Getting Worse—Here's Your Plan to Win Anyway",
+    "problem_description": "Frustrated users who feel like only big ads and spam rank, looking for a way for their small, quality site to break through.",
+    "how_to_solve": "Noseoto focuses on 'Hyper-Niche' targeting—winning small battles that the big spam sites don't care about."
+  },
+  {
+    "keyword": "how to index a notion page on google search",
+    "slug": "notion-to-google-seo",
+    "title": "Turn Your Notion Pages into Searchable Website Results",
+    "problem_description": "Users using Notion for their resume or blog find that Google usually ignores these pages.",
+    "how_to_solve": "Noseoto provides a wrapper that adds the necessary meta tags and headers to make Notion pages 'rankable'."
+  },
+  {
+    "keyword": "get my medium articles to rank on the first page",
+    "slug": "medium-seo-ranking-tips",
+    "title": "Ranking on Medium: How to Steal the Top Spot for Your Articles",
+    "problem_description": "Writers want their Medium stories to be found by people searching Google, not just Medium users.",
+    "how_to_solve": "Noseoto analyzes the 'Competitive Gap' on Medium and tells you which keywords the platform's high authority can easily win."
+  },
+  {
+    "keyword": "easiest way to track my keyword rankings every day",
+    "slug": "simple-rank-tracking-daily",
+    "title": "Stop Manually Searching Yourself: Track Your Ranks Automatically",
+    "problem_description": "Users are tired of typing their keywords into Google to see if they've moved up.",
+    "how_to_solve": "Noseoto sends a simple 'Up/Down' email notification every morning, no dashboard required."
+  },
+  {
+    "keyword": "how to outrank my local competitors on google maps",
+    "slug": "dominate-local-seo-maps",
+    "title": "Be the First Choice: How to Rank #1 in Your Local Area",
+    "problem_description": "Local business owners (plumbers, cafes) are losing customers to competitors who show up higher on the map.",
+    "how_to_solve": "Noseoto optimizes your 'Local Entity' signal, making your business appear more relevant to the specific neighborhood."
+  },
+  {
+    "keyword": "why google keeps showing my old meta description",
+    "slug": "update-google-snippet-quickly",
+    "title": "Force Google to Show Your New Description (In Under 48 Hours)",
+    "problem_description": "User updated their sale price or offer, but the old one is still showing in search results.",
+    "how_to_solve": "Noseoto triggers a 'Cache Refresh' request that forces Google to re-read the snippet metadata immediately."
+  },
+  {
+    "keyword": "seo tool that explains things like i am five",
+    "slug": "seo-for-beginners-eli5",
+    "title": "Finally, an SEO Tool That Speaks Human (ELI5 Mode)",
+    "problem_description": "People are overwhelmed by technical talk and just want to be told 'Your site is slow, click here to fix it'.",
+    "how_to_solve": "Noseoto's 'ELI5 Mode' removes all metrics like DA/DR/LSI and uses 'Health Scores' and 'Action Buttons' instead."
+  },
+  {
+    "keyword": "get my startup featured in the 'people also ask' section",
+    "slug": "rank-in-people-also-ask",
+    "title": "How to Hack the 'People Also Ask' Box for Massive Traffic",
+    "problem_description": "Users see their competitors answering questions in the PAA box and want in.",
+    "how_to_solve": "Noseoto identifies the exact questions your audience is asking and formats your content as a 'Direct Answer' for Google's bot."
+  },
+  {
+    "keyword": "is my site speed hurting my google ranking 2026",
+    "slug": "site-speed-vs-rank-test",
+    "title": "Speed Test: Is Your Slow Website Killing Your Google Rank?",
+    "problem_description": "Users know speed matters but don't know if their 2-second load time is 'bad enough' to lose rank.",
+    "how_to_solve": "Noseoto provides a 'Revenue-at-Risk' report, showing exactly how many clicks you're losing due to slow performance on Vercel/Next.js."
+  },
+  {
+    "keyword": "how to rank for 'best tool for' keywords fast",
+    "slug": "rank-for-best-tool-listicles",
+    "title": "The Secret to Ranking for 'Best Tool' Searches in Your Niche",
+    "problem_description": "The most profitable keywords are 'Best [X] Tool', but they are heavily defended by big review sites.",
+    "how_to_solve": "Noseoto helps you find 'Empty Listicles'—articles where the top result is old or low quality, giving you a path to take over."
+  },
+  {
+    "keyword": "seo for people with no time to blog",
+    "slug": "low-effort-seo-strategy",
+    "title": "Lazy SEO: How to Rank Without Writing New Content Every Week",
+    "problem_description": "Busy business owners can't commit to a 'blog once a week' schedule.",
+    "how_to_solve": "Noseoto focuses on 'Static SEO'—optimizing your core pages once so they stay ranked for years without maintenance."
+  },
+  {
+    "keyword": "how to get my images to show up in google image search",
+    "slug": "google-image-search-optimization",
+    "title": "Get More Traffic from Images: The 2026 Image SEO Guide",
+    "problem_description": "Designers and photographers have great visuals that nobody can find on Google.",
+    "how_to_solve": "Noseoto automates the 'Alt-text' and 'Image Sitemap' generation, ensuring your visuals are indexed as high-quality assets."
+  },
+  {
+    "keyword": "why am i ranking on page 2 and how to get to page 1",
+    "slug": "move-from-page-2-to-page-1",
+    "title": "Stuck on Page 2? Use This 10-Minute Fix to Reach Page 1",
+    "problem_description": "The 'SEO Limbo'—being close enough to see the traffic but not getting any clicks.",
+    "how_to_solve": "Noseoto identifies the 'missing 10%' (usually a missing subheader or a slightly too-long URL) that's holding you back."
+  },
+  {
+    "keyword": "best free seo browser extension for chrome 2026",
+    "slug": "best-chrome-extension-for-seo",
+    "title": "The Only SEO Chrome Extension You Need in 2026 (Free)",
+    "problem_description": "Users want a tool that tells them the SEO health of any page they visit without opening a new tab.",
+    "how_to_solve": "The Noseoto Chrome Extension provides an instant 'Indexability Score' for any site you're currently browsing."
+  },
+  {
+    "keyword": "how to stop competitors from outranking me on my own name",
+    "slug": "protect-brand-name-search",
+    "title": "Brand Hijacking: How to Stop Others from Ranking for Your Name",
+    "problem_description": "Competitors are running ads or writing 'Is [Your Brand] a Scam?' articles to steal your traffic.",
+    "how_to_solve": "Noseoto helps you set up an 'Authority Fortress' that pushes negative or competitor content to page 3."
+  },
+  {
+    "keyword": "get google to crawl my site more often hack",
+    "slug": "increase-crawl-frequency",
+    "title": "Is Google Ignoring You? How to Make the Bot Visit You Daily",
+    "problem_description": "Users notice that Google only visits their site once a month, making updates take forever to show up.",
+    "how_to_solve": "Noseoto creates a 'Dynamic Content Signal' that tells Google your site is frequently updated, forcing the bot to return more often."
+  },
+  {
+    "keyword": "why are my competitors with bad content ranking higher",
+    "slug": "beat-low-quality-competitors",
+    "title": "Frustrated by Crappy Sites Ranking Higher? Here's the Secret",
+    "problem_description": "User feels their content is better, but 'spammy' sites are winning due to technical tricks.",
+    "how_to_solve": "Noseoto reveals the 'Hidden Technical SEO' of your competitors so you can copy their structure while keeping your superior content."
+  },
+  {
+    "keyword": "how to rank my newsletter on google search results",
+    "slug": "newsletter-seo-optimization",
+    "title": "Don't Let Your Newsletters Die in Inboxes: Get Them on Google",
+    "problem_description": "Substack/Beehiiv writers want their past issues to bring in new subscribers via search.",
+    "how_to_solve": "Noseoto helps you create SEO-friendly archives that turn your newsletters into 'Evergreen' traffic drivers."
+  },
+  {
+    "keyword": "do i need to worry about core web vitals in 2026",
+    "slug": "core-web-vitals-importance-2026",
+    "title": "Core Web Vitals in 2026: Do They Actually Matter for Ranking?",
+    "problem_description": "Small business owners are tired of chasing 'green scores' and want to know if it actually helps.",
+    "how_to_solve": "Noseoto provides a 'Reality Check'—showing you exactly how much speed impacts *your* specific niche's rankings."
+  },
+  {
+    "keyword": "seo for developers who don't want to use wordpress",
+    "slug": "seo-for-non-wordpress-sites",
+    "title": "Hate WordPress? How to Master SEO for Custom Coded Sites",
+    "problem_description": "Developers building with React/Vue/Svelte feel like they are at an SEO disadvantage compared to WordPress's Yoast.",
+    "how_to_solve": "Noseoto is the 'Yoast for Developers'—a simple API and toolkit for custom-built, modern web apps."
+  },
+  {
+    "keyword": "how to add a sitemap to my vercel project easily",
+    "slug": "vercel-sitemap-generator-tool",
+    "title": "The Easiest Way to Generate a Sitemap for Vercel (Auto-Update)",
+    "problem_description": "Vercel doesn't have a built-in 'Auto-Sitemap' button like Shopify, leaving devs to manual work.",
+    "how_to_solve": "Noseoto generates a live-updating sitemap that automatically adds new pages as you deploy them."
+  },
+  {
+    "keyword": "why google keeps changing my meta titles to my brand name",
+    "slug": "fix-google-brand-name-title-overwrite",
+    "title": "Stop Google from Adding Your Brand Name to Every Title Tag",
+    "problem_description": "Users want to use their 60 characters for keywords, but Google cuts it off to put the brand name.",
+    "how_to_solve": "Noseoto's 'Title Shield' strategy helps you format titles so Google is forced to keep your keyword-rich phrasing."
+  },
+  {
+    "keyword": "how to get my shopify products into the google 'shopping' tab",
+    "slug": "shopify-to-google-shopping-free",
+    "title": "Get Free Sales: How to Appear in the Google Shopping Tab for Free",
+    "problem_description": "Sellers think they have to pay for ads to show up in the product grid.",
+    "how_to_solve": "Noseoto optimizes your 'Product Schema' so Google can pull your inventory into the organic shopping results for free."
+  },
+  {
+    "keyword": "why is my website ranking for the wrong keywords",
+    "slug": "fix-keyword-misalignment-seo",
+    "title": "Wrong Traffic? How to Stop Ranking for Irrelevant Keywords",
+    "problem_description": "User is getting visits from people looking for 'free stuff' when they sell a premium service.",
+    "how_to_solve": "Noseoto's 'Intent Filter' helps you scrub your content of 'junk-traffic' keywords and double down on high-conversion terms."
+  },
+  {
+    "keyword": "how to write a meta description that people actually click",
+    "slug": "high-ctr-meta-descriptions",
+    "title": "The Click-Magnet: How to Write Meta Descriptions That Win the Visit",
+    "problem_description": "Even at #1, if your description is boring, people click #2. Users need a formula.",
+    "how_to_solve": "Noseoto uses a 'Copywriting Psychology' framework to suggest meta descriptions that include a hook, a benefit, and a CTA."
+  },
+  {
+    "keyword": "check if my competitors are using ai content tool",
+    "slug": "competitor-ai-content-checker",
+    "title": "Are Your Competitors Using AI? Here is How to Tell (And Beat Them)",
+    "problem_description": "User wants to know if they are competing against a human or a bot factory.",
+    "how_to_solve": "Noseoto's 'Pattern Analyzer' flags if a competitor's sudden rank increase is due to mass-produced AI content (and how to out-quality them)."
+  },
+  {
+    "keyword": "how to get a knowledge panel for my small business",
+    "slug": "get-google-knowledge-panel",
+    "title": "Get That Sidebar: How to Trigger a Google Knowledge Panel",
+    "problem_description": "Small business owners want that professional-looking box on the right side of Google results.",
+    "how_to_solve": "Noseoto helps you claim your 'Entity' on Wikipedia, Wikidata, and social profiles to trigger the panel."
+  },
+  {
+    "keyword": "how to rank my youtube videos on the first page of google",
+    "slug": "rank-youtube-videos-on-google",
+    "title": "Double Your Views: How to Get Your Videos into Google Search",
+    "problem_description": "Vloggers want their videos to appear in the 'Video' carousel on Google for more reach.",
+    "how_to_solve": "Noseoto provides 'Video Schema' that tells Google exactly at what time-stamp you answer a specific question."
+  },
+  {
+    "keyword": "why did my ranking drop after i installed an seo plugin",
+    "slug": "seo-plugin-ranking-drop-fix",
+    "title": "Did Your SEO Plugin Break Your Site? How to Revert and Recover",
+    "problem_description": "Heavy plugins sometimes create 'Noindex' tags by accident, nuking your traffic.",
+    "how_to_solve": "Noseoto performs a 'Conflict Check' to ensure no other plugins are blocking Google from seeing your best pages."
+  },
+  {
+    "keyword": "seo for people who don't want to pay monthly fees",
+    "slug": "one-time-fee-seo-tool",
+    "title": "Stop the Subscription: The Best One-Time SEO Optimization Strategy",
+    "problem_description": "Subscription fatigue. Users want to optimize once and be done with it.",
+    "how_to_solve": "Noseoto promotes a 'Build-and-Launch' SEO framework that requires zero ongoing costs once the foundation is set."
+  },
+  {
+    "keyword": "how to find low competition keywords in 2026 for free",
+    "slug": "free-low-competition-keyword-research",
+    "title": "Hidden Gems: How to Find Zero-Competition Keywords Today",
+    "problem_description": "All the good keywords seem taken. Users need to find the 'cracks' in the market.",
+    "how_to_solve": "Noseoto's 'Gap Finder' specifically looks for keywords where only forums (Reddit/Quora) are ranking, which are easy to beat."
+  },
+  {
+    "keyword": "make my blog load in under 1 second for seo",
+    "slug": "sub-1-second-load-time-seo",
+    "title": "The 1-Second Rule: How to Make Your Site Blazing Fast for Google",
+    "problem_description": "Users hear that 1 second is the threshold but their site takes 4 seconds.",
+    "how_to_solve": "Noseoto identifies 'Asset Bloat' (images too big, too much JS) and gives a specific 'Remove these' list."
+  },
+  {
+    "keyword": "how to get my podcast episodes indexed on google",
+    "slug": "podcast-seo-strategy-2026",
+    "title": "Podcast SEO: How to Get Your Audio Content Found on Search",
+    "problem_description": "Podcasters want their episodes to show up when people search for topics they discussed.",
+    "how_to_solve": "Noseoto helps you turn transcripts into SEO-optimized 'Show Notes' that act as landing pages for search bots."
+  },
+  {
+    "keyword": "why is google not indexing my new pages anymore",
+    "slug": "fix-google-stopped-indexing",
+    "title": "Did Google Stop Indexing Your Site? 3 Reasons and 3 Fixes",
+    "problem_description": "A site that used to get indexed fine suddenly gets ignored by Google for all new posts.",
+    "how_to_solve": "Noseoto checks your 'Crawl Budget' and fixes the 'Dead Ends' that are making Google's bot give up on your site."
+  },
+  {
+    "keyword": "how to use internal links to pass 'link juice' properly",
+    "slug": "internal-link-juice-strategy",
+    "title": "Internal Link Mastery: How to Boost Rankings Without New Backlinks",
+    "problem_description": "Users have one high-ranking page and want to use its power to help other pages.",
+    "how_to_solve": "Noseoto visualizes your 'Page Power' and tells you exactly which links to add to your #1 page to lift up your #10 page."
+  },
+  {
+    "keyword": "how to get rich snippets for my recipes or events",
+    "slug": "get-recipe-event-rich-snippets",
+    "title": "Stand Out: How to Get Recipe Photos and Event Dates in Search",
+    "problem_description": "Food bloggers and event planners want the extra visual real estate in search results.",
+    "how_to_solve": "Noseoto provides a 'Rich Snippet Generator' tailored for specialized content types like recipes, events, and reviews."
+  },
+  {
+    "keyword": "is it safe to use ai to generate meta tags 2026",
+    "slug": "ai-meta-tags-safety-check",
+    "title": "Will AI-Generated Meta Tags Get You Penalized? The 2026 Verdict",
+    "problem_description": "Users want to save time using AI but are afraid of a 'Google Penalty'.",
+    "how_to_solve": "Noseoto provides 'Safe-AI' tags that are verified against Google's latest 'Helpful Content' guidelines."
+  },
+  {
+    "keyword": "how to remove my name from google search results fast",
+    "slug": "remove-personal-info-google",
+    "title": "Privacy Fix: How to Push Down or Remove Search Results for Your Name",
+    "problem_description": "Users have an old embarrassing post or data leak they want gone.",
+    "how_to_solve": "Noseoto helps you use 'Negative SEO' (pushing down) or 'Right to be Forgotten' requests to clean up your search presence."
+  },
+  {
+    "keyword": "seo for small business without a physical address",
+    "slug": "local-seo-without-address",
+    "title": "No Office? No Problem. How to Rank Locally for Service Areas",
+    "problem_description": "Freelancers or service businesses who work from home but want to rank in a specific city.",
+    "how_to_solve": "Noseoto optimizes your site for 'Service Area' signals rather than just a physical map pin."
+  },
+  {
+    "keyword": "why is my website traffic going down every month help",
+    "slug": "fix-declining-website-traffic",
+    "title": "Traffic in Freefall? How to Stop the Bleeding and Recover",
+    "problem_description": "The slow death—losing 5-10% traffic every month without a clear 'penalty'.",
+    "how_to_solve": "Noseoto's 'Decay Audit' finds pages that were once winners but have been 'out-updated' by competitors, and tells you what to add."
+  },
+  {
+    "keyword": "best way to rename my url without losing ranking",
+    "slug": "rename-url-keep-ranking",
+    "title": "Changing Your URLs? Don't Lose Your Rank—Do This Instead",
+    "problem_description": "Users want to clean up their ugly URLs but are terrified of losing their page 1 spot.",
+    "how_to_solve": "Noseoto automates the 301 redirect map and ensures Google 'transfers' the credit to the new URL in record time."
+  },
+  {
+    "keyword": "how to rank for 'alternative to' keywords in my niche",
+    "slug": "rank-for-competitor-alternatives",
+    "title": "The 'Alternative To' Strategy: How to Steal Your Competitors' Customers",
+    "problem_description": "Users are looking for 'Alternatives to [Famous Tool]'. Founders want to show up there.",
+    "how_to_solve": "Noseoto helps you build a 'Comparison Engine' page that is perfectly optimized for people looking to switch brands."
+  },
+  {
+    "keyword": "how to add author expertise to blog posts for google eeat",
+    "slug": "improve-author-eeat-signals",
+    "title": "Does Google Trust Your Writers? How to Show Author Expertise",
+    "problem_description": "In 2026, Google checks if the person writing the article is actually a professional.",
+    "how_to_solve": "Noseoto automatically generates 'Author Schema' that links your writer's bio to their LinkedIn, books, and other credentials."
+  },
+  {
+    "keyword": "why google is not showing my site's icon next to my link",
+    "slug": "fix-missing-favicon-in-search",
+    "title": "Where's Your Favicon? How to Fix Missing Icons in Google Search",
+    "problem_description": "Search results look incomplete without the little brand logo, hurting click-through rates.",
+    "how_to_solve": "Noseoto checks your 'Favicon' pathing and ensures it meets Google's 2026 'High-DPI' requirements for all devices."
+  },
+  {
+    "keyword": "how to find what questions people are asking on reddit for seo",
+    "slug": "reddit-keyword-research-for-seo",
+    "title": "Reddit is the New Keyword Research: How to Find What People Want",
+    "problem_description": "Traditional keyword tools are too sterile. Users want the 'real' problems people discuss on forums.",
+    "how_to_solve": "Noseoto's 'Social Listener' pulls the most common pain-point questions from Subreddits in your niche."
+  },
+  {
+    "keyword": "should i delete old blog posts to improve seo 2026",
+    "slug": "content-pruning-guide-2026",
+    "title": "Content Pruning: Should You Delete Your Old Posts to Rank Better?",
+    "problem_description": "Users have 500 posts but only 10 get traffic. They wonder if the 'dead weight' is hurting them.",
+    "how_to_solve": "Noseoto's 'Pruning Assistant' tells you which posts to delete, which to merge, and which to keep."
+  },
+  {
+    "keyword": "how to get my business listed on 'best of' local blogs",
+    "slug": "get-on-local-listicles",
+    "title": "Be the Best: How to Get Featured in Local 'Top 10' Lists",
+    "problem_description": "Small businesses want the referral traffic from local 'Top 10 Cafes in NYC' style blogs.",
+    "how_to_solve": "Noseoto identifies who owns those blogs and provides a 'Pitch Template' to get you added."
+  },
+  {
+    "keyword": "why is my robots.txt file blocking google from my site fix",
+    "slug": "fix-robots-txt-blocking-google",
+    "title": "Is Your Robots.txt Secretly Killing Your SEO? Here's How to Fix It",
+    "problem_description": "One wrong line in a text file can make your entire site disappear from Google.",
+    "how_to_solve": "Noseoto scans your robots.txt and flags any 'Disallow' rules that are accidentally hiding your money pages."
+  },
+  {
+    "keyword": "how to make my website accessible for search engine bots",
+    "slug": "improve-bot-accessibility-seo",
+    "title": "Is Your Site Too Complex for Google? How to Simplify for Bots",
+    "problem_description": "Heavy use of JavaScript, pop-ups, and paywalls often prevent Google from seeing the content.",
+    "how_to_solve": "Noseoto provides a 'Bot-Simulated' view that shows you exactly where the crawler is getting stuck on your site."
+  },
+  {
+    "keyword": "best way to get high quality backlinks for free 2026",
+    "slug": "free-high-quality-backlinks-2026",
+    "title": "Backlink Blueprint: How to Get Authority Links Without a Budget",
+    "problem_description": "Backlinks are expensive. Users want to know the 'Earned' way to get them.",
+    "how_to_solve": "Noseoto focuses on 'Data-Driven' SEO—helping you create simple charts or stats that other bloggers will naturally want to link to."
+  },
+  {
+    "keyword": "how to rank my ecommerce site for gift-related keywords",
+    "slug": "ecommerce-gift-seo-strategy",
+    "title": "The Gift Guide Strategy: How to Win During Holidays and Seasons",
+    "problem_description": "Sellers miss out on 'Best Gift for [X]' traffic because they don't have the right landing pages.",
+    "how_to_solve": "Noseoto helps you build 'Dynamic Gift Guides' that capture high-intent seasonal searchers."
+  },
+  {
+    "keyword": "why google says my content is 'unhelpful' help",
+    "slug": "fix-unhelpful-content-label",
+    "title": "Did Google Label You 'Unhelpful'? Here's How to Prove Them Wrong",
+    "problem_description": "The most dreaded feedback from Google—finding out your hard work is considered 'spammy' or 'generic'.",
+    "how_to_solve": "Noseoto audits your content for 'Information Gain'—adding the new facts and perspectives Google requires to call content 'Helpful'."
+  },
+  {
+    "keyword": "how to use internal links to fix orphaned pages",
+    "slug": "fix-orphaned-pages-seo",
+    "title": "Orphaned Pages: How to Find and Save Your Unlinked Content",
+    "problem_description": "User has great pages that Google never finds because they aren't linked from the main site.",
+    "how_to_solve": "Noseoto's 'Orphan Finder' automatically locates these pages and suggests the best place in your menu or footer to link them."
+  },
+  {
+    "keyword": "get my app on the first page for 'alternative to' my competitor",
+    "slug": "rank-as-competitor-alternative",
+    "title": "The Disruptor's Guide: Ranking as the Better Alternative",
+    "problem_description": "Small startups want to target users who are unhappy with a big, expensive competitor.",
+    "how_to_solve": "Noseoto helps you create 'Comparison Hubs' that rank when people search '[Competitor Name] Pricing' or 'Alternative'."
+  },
+  {
+    "keyword": "how to rank for voice search on alexa and siri 2026",
+    "slug": "voice-search-optimization-2026",
+    "title": "Hey Google: How to Be the #1 Answer for Voice Search Queries",
+    "problem_description": "People are asking their speakers for help. If you aren't the top 'snippet', you don't exist in voice.",
+    "how_to_solve": "Noseoto optimizes your content for 'Natural Language'—targeting how people *speak* rather than how they *type*."
+  },
+  {
+    "keyword": "why did my local business ranking drop suddenly",
+    "slug": "recover-local-seo-drop",
+    "title": "Local Rank Drop? Check These 3 Things Immediately",
+    "problem_description": "A cafe that was #1 for 'coffee near me' is now nowhere to be found.",
+    "how_to_solve": "Noseoto checks for 'NAP' (Name, Address, Phone) inconsistency and fixes the conflicting data on the web."
+  },
+  {
+    "keyword": "how to get my whitepaper or ebook to show up on google",
+    "slug": "rank-pdf-whitepaper-google",
+    "title": "Don't Hide Your PDFs: How to Index and Rank Whitepapers",
+    "problem_description": "Users have great PDFs but Google is only showing the landing page, not the content inside.",
+    "how_to_solve": "Noseoto provides a way to 'Shadow-Index' PDFs, making the valuable data inside searchable while keeping the lead-gen form."
+  },
+  {
+    "keyword": "is there a free way to see what keywords my competitors rank for",
+    "slug": "free-competitor-keyword-check",
+    "title": "Sneak Peek: How to See Your Competitors' Best Keywords for Free",
+    "problem_description": "Users want the 'spy' features of paid tools without the price tag.",
+    "how_to_solve": "Noseoto offers a 'Top 5 Keywords' view for any domain, giving you the starting point for a competitive takeover."
+  },
+  {
+    "keyword": "how to add star ratings to my search result snippet",
+    "slug": "add-stars-to-google-search",
+    "title": "Get More Clicks: How to Show 5-Star Ratings in Google Results",
+    "problem_description": "Clicks are everything. Star ratings increase CTR by up to 30%.",
+    "how_to_solve": "Noseoto guides you through setting up the 'AggregateRating' schema that Google needs to display those stars."
+  },
+  {
+    "keyword": "why google keeps flagging my site for 'thin content'",
+    "slug": "fix-thin-content-google-penalty",
+    "title": "Too Short? How to Fix 'Thin Content' Issues Without Fluff",
+    "problem_description": "Google thinks your pages don't have enough value. Users don't want to just add 'word count' fluff.",
+    "how_to_solve": "Noseoto helps you add 'Interactive Elements' (calculators, tools, tables) that count as 'Deep Content' to Google."
+  },
+  {
+    "keyword": "how to get my site to show up in google news 2026",
+    "slug": "google-news-seo-strategy",
+    "title": "Breaking News: How to Get Your Articles into Google News",
+    "problem_description": "Publishers want the massive traffic spikes that come from being in the 'Top Stories' carousel.",
+    "how_to_solve": "Noseoto audits your site for 'News-Readiness'—ensuring your timestamps, author bylines, and speed meet the News Publisher criteria."
+  },
+  {
+    "keyword": "seo for web3 and crypto projects: how to rank",
+    "slug": "web3-crypto-seo-guide",
+    "title": "Web3 SEO: How to Get Your Crypto Project Found on Google",
+    "problem_description": "Crypto sites are often flagged as 'High Risk' (YMYL). Users struggle to get any traction.",
+    "how_to_solve": "Noseoto helps you build 'Trust Signals' that prove your project is a legitimate business, not a scam."
+  },
+  {
+    "keyword": "how to rank for 'how to' keywords with video and text",
+    "slug": "rank-for-how-to-queries",
+    "title": "Be the Teacher: Ranking for 'How-To' Searches in Your Niche",
+    "problem_description": "'How to [X]' is the most common search. Users want to be the answer.",
+    "how_to_solve": "Noseoto provides a 'Step-by-Step' schema template that helps Google turn your article into a 'Featured Snippet' list."
+  },
+  {
+    "keyword": "why is my website title too long for google search",
+    "slug": "fix-title-tag-too-long",
+    "title": "Stop the Dots: How to Keep Your Title from Getting Cut Off",
+    "problem_description": "The '...' at the end of a title looks unprofessional and hides the call to action.",
+    "how_to_solve": "Noseoto's 'Pixel-Perfect Title Preview' shows you exactly where the cut-off will happen on mobile vs. desktop."
+  },
+  {
+    "keyword": "how to get my products ranked for 'near me' searches",
+    "slug": "rank-products-for-near-me",
+    "title": "Shop Local: How to Rank Your Products for 'Near Me' Searches",
+    "problem_description": "Users are looking for 'Red shoes near me'. Store owners want to show they have them in stock.",
+    "how_to_solve": "Noseoto syncs your local inventory data with Google's 'See What's In Store' feature."
+  },
+  {
+    "keyword": "is buying an expired domain good for seo in 2026",
+    "slug": "expired-domain-seo-2026",
+    "title": "The Expired Domain Trap: Is It Still a Shortcut to #1?",
+    "problem_description": "Users hear they can 'buy authority' but are afraid of inheriting a penalty.",
+    "how_to_solve": "Noseoto's 'Domain History Audit' tells you if a domain is a 'Gold Mine' or a 'Toxic Asset' before you buy it."
+  },
+  {
+    "keyword": "how to optimize my site for searchgpt and perplexity ai",
+    "slug": "optimize-for-ai-browsers",
+    "title": "The AI-First SEO: Preparing for the Post-Google Era",
+    "problem_description": "Forward-thinking users want to be ready for when AI search becomes the dominant way people find info.",
+    "how_to_solve": "Noseoto focuses on 'Citable Facts'—structuring your data so AI models can easily use you as a primary source."
+  },
+  {
+    "keyword": "best way to find broken links on my site for free",
+    "slug": "find-broken-links-free-tool",
+    "title": "Find Every 404: Stop Losing Traffic to Broken Links",
+    "problem_description": "Broken links frustrate users and signal to Google that your site is unmaintained.",
+    "how_to_solve": "Noseoto provides a weekly 'Health Report' that automatically finds every broken link and tells you where to redirect it."
+  },
+  {
+    "keyword": "how to get my blog to rank for questions on quora",
+    "slug": "rank-for-quora-questions",
+    "title": "Quora SEO: How to Show Up When People Search Questions on Google",
+    "problem_description": "Quora ranks high. If you can't beat them, you want to be the answer people find on Quora.",
+    "how_to_solve": "Noseoto identifies which Quora threads are ranking on Google so you can go there and drop a link to your site."
+  },
+  {
+    "keyword": "why google keeps ignoring my new sitemap help",
+    "slug": "fix-sitemap-not-read-by-google",
+    "title": "Sitemap Ignored? How to Force Google to Read Your New Pages",
+    "problem_description": "User submits a sitemap in GSC, but the 'Last Read' date is weeks old.",
+    "how_to_solve": "Noseoto uses a 'Ping' method to alert Google's crawl engine that a major change has occurred, forcing a re-read."
+  },
+  {
+    "keyword": "how to make a portfolio site rank for job titles",
+    "slug": "rank-portfolio-for-job-titles",
+    "title": "Get Hired: How to Rank Your Portfolio for '[Job Title] in [City]'",
+    "problem_description": "Designers/Devs want to be found by recruiters who are searching Google for talent.",
+    "how_to_solve": "Noseoto helps you optimize your portfolio's 'Job Schema' and keyword targeting to treat your site like a 24/7 lead-gen tool."
+  },
+  {
+    "keyword": "simple seo for b2b websites: get more enterprise leads",
+    "slug": "b2b-seo-lead-gen-strategy",
+    "title": "B2B SEO: How to Rank for the Words Your Customers Actually Use",
+    "problem_description": "B2B sites often rank for 'Industry Jargon' that nobody actually searches for.",
+    "how_to_solve": "Noseoto's 'Customer Language' tool finds the plain-English terms your actual buyers use to find solutions."
+  },
+  {
+    "keyword": "how to fix duplicate content issues on a large website",
+    "slug": "fix-duplicate-content-at-scale",
+    "title": "Duplicate Content at Scale: The Automated Fix for Big Sites",
+    "problem_description": "E-commerce sites with 1000s of similar products get flagged for duplication.",
+    "how_to_solve": "Noseoto uses AI to 'Unique-ify' product descriptions in bulk, ensuring each page is seen as original by Google."
+  },
+  {
+    "keyword": "check if my website has too many ads for google seo",
+    "slug": "ad-density-seo-checker",
+    "title": "Are Ads Killing Your Ranking? Check Your Ad-to-Content Ratio",
+    "problem_description": "Users want to monetize but don't want to get penalized for 'Intrusive Ads'.",
+    "how_to_solve": "Noseoto's 'User Experience' audit flags if your ads are pushing your content too far down the page (Above the Fold)."
+  },
+  {
+    "keyword": "how to get my business logo in google search results",
+    "slug": "show-business-logo-in-search",
+    "title": "Branding in Search: How to Show Your Logo Next to Your URL",
+    "problem_description": "A small but powerful trust signal that many small sites are missing.",
+    "how_to_solve": "Noseoto helps you implement 'Organization Schema' with a verified logo URL to trigger the search icon."
+  },
+  {
+    "keyword": "why did my traffic go to zero after changing my theme",
+    "slug": "recover-seo-after-theme-change",
+    "title": "Theme Change Disaster? How to Restore Your SEO Rankings",
+    "problem_description": "New themes often come with bad header structures (H1s) or hidden 'Noindex' settings.",
+    "how_to_solve": "Noseoto compares your 'Old Site Structure' with the 'New' one to find what was lost during the redesign."
+  },
+  {
+    "keyword": "how to rank my SaaS landing page on the first page",
+    "slug": "rank-saas-landing-page",
+    "title": "SaaS SEO: How to Rank Your Landing Page for Your Core Solution",
+    "problem_description": "Founders want their 'Homepage' to rank for 'Best [Problem] Software'.",
+    "how_to_solve": "Noseoto focuses on 'Feature-Driven SEO'—making sure every part of your SaaS is a searchable keyword."
+  },
+  {
+    "keyword": "is there an seo tool that doesn't feel like a cockpit",
+    "slug": "simple-user-friendly-seo-tool",
+    "title": "SEO Without the Overload: The Cleanest Tool for Modern Creators",
+    "problem_description": "User is tired of tools that have 1000 buttons and data charts they don't understand.",
+    "how_to_solve": "Noseoto is built on 'Minimalist SEO'—it only shows you the 3 things you need to do today to grow."
+  },
+  {
+    "keyword": "how to get indexed by bing and duckduckgo fast",
+    "slug": "index-on-bing-duckduckgo",
+    "title": "Don't Ignore 10% of the Web: Get Found on Bing and DuckDuckGo",
+    "problem_description": "Everyone focuses on Google, but millions of high-paying users use other search engines.",
+    "how_to_solve": "Noseoto uses the 'IndexNow' protocol to push your site to all major search engines simultaneously with one click."
+  }
+]

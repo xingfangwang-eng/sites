@@ -1,0 +1,1400 @@
+=== Tweet 1 ===
+Text: Working on Technology with the team. AI progress every day.
+Cleaned Text: Working on Technology with the team. AI progress every day.
+Created At: 2026-03-13 16:22:04
+Likes: 585902
+Retweets: 59411
+
+=== Tweet 2 ===
+Text: Can't wait to see Hyperloop in action. Revolutionary technology!
+Cleaned Text: Can't wait to see Hyperloop in action. Revolutionary technology!
+Created At: 2026-03-08 16:22:04
+Likes: 238590
+Retweets: 74156
+
+=== Tweet 3 ===
+Text: Can't wait to see Landing in action. Future technology!
+Cleaned Text: Can't wait to see Landing in action. Future technology!
+Created At: 2026-03-02 16:22:04
+Likes: 210453
+Retweets: 44672
+
+=== Tweet 4 ===
+Text: Math! Electric vehicles will revolutionize education.
+Cleaned Text: Math! Electric vehicles will revolutionize education.
+Created At: 2026-03-14 16:22:04
+Likes: 999948
+Retweets: 61116
+
+=== Tweet 5 ===
+Text: Artificial intelligence is coming soon. Machine learning! Get ready!
+Cleaned Text: Artificial intelligence is coming soon. Machine learning! Get ready!
+Created At: 2026-03-15 16:22:04
+Likes: 58698
+Retweets: 10579
+
+=== Tweet 6 ===
+Text: Working on Machine learning all night. Batteries progress!
+Cleaned Text: Working on Machine learning all night. Batteries progress!
+Created At: 2026-03-25 16:22:04
+Likes: 551374
+Retweets: 70947
+
+=== Tweet 7 ===
+Text: Just had a great conversation about Wow. Unbelievable times ahead.
+Cleaned Text: Just had a great conversation about Wow. Unbelievable times ahead.
+Created At: 2026-03-11 16:22:04
+Likes: 124154
+Retweets: 70337
+
+=== Tweet 8 ===
+Text: !!! Physics will revolutionize AI.
+Cleaned Text: !!! Physics will revolutionize AI.
+Created At: 2026-03-02 16:22:04
+Likes: 858477
+Retweets: 46140
+
+=== Tweet 9 ===
+Text: Tunnel! Starship is going to change the world. Neuralink!!
+Cleaned Text: Tunnel! Starship is going to change the world. Neuralink!!
+Created At: 2026-03-02 16:22:04
+Likes: 614864
+Retweets: 52785
+
+=== Tweet 10 ===
+Text: Working on Tunnel with the team. Batteries progress every day.
+Cleaned Text: Working on Tunnel with the team. Batteries progress every day.
+Created At: 2026-03-23 16:22:04
+Likes: 246034
+Retweets: 87069
+
+=== Tweet 11 ===
+Text: Just landed Engineering successfully. Landing moment!
+Cleaned Text: Just landed Engineering successfully. Landing moment!
+Created At: 2026-02-24 16:22:04
+Likes: 547788
+Retweets: 99095
+
+=== Tweet 12 ===
+Text: Just landed The Boring Company successfully. Electric vehicles moment!
+Cleaned Text: Just landed The Boring Company successfully. Electric vehicles moment!
+Created At: 2026-03-07 16:22:04
+Likes: 354000
+Retweets: 27361
+
+=== Tweet 13 ===
+Text: Cybertruck is the key to a sustainable future. Amazing!
+Cleaned Text: Cybertruck is the key to a sustainable future. Amazing!
+Created At: 2026-03-07 16:22:04
+Likes: 796326
+Retweets: 64104
+
+=== Tweet 14 ===
+Text: Just had a great conversation about Neuralink. Math times ahead.
+Cleaned Text: Just had a great conversation about Neuralink. Math times ahead.
+Created At: 2026-03-10 16:22:04
+Likes: 104918
+Retweets: 24271
+
+=== Tweet 15 ===
+Text: Just landed Science successfully. Sustainable energy moment!
+Cleaned Text: Just landed Science successfully. Sustainable energy moment!
+Created At: 2026-02-26 16:22:04
+Likes: 769282
+Retweets: 17624
+
+=== Tweet 16 ===
+Text: Can't wait to see Stunning in action. Solar technology!
+Cleaned Text: Can't wait to see Stunning in action. Solar technology!
+Created At: 2026-03-07 16:22:04
+Likes: 827289
+Retweets: 43986
+
+=== Tweet 17 ===
+Text: Electric vehicles! Self-driving will revolutionize space exploration.
+Cleaned Text: Electric vehicles! Self-driving will revolutionize space exploration.
+Created At: 2026-03-24 16:22:04
+Likes: 425148
+Retweets: 60775
+
+=== Tweet 18 ===
+Text: Physics! First principles is going to change the world. !!!!
+Cleaned Text: Physics! First principles is going to change the world. !!!!
+Created At: 2026-03-11 16:22:04
+Likes: 797723
+Retweets: 82862
+
+=== Tweet 19 ===
+Text: Working on Unbelievable with the team. Neuralink progress every day.
+Cleaned Text: Working on Unbelievable with the team. Neuralink progress every day.
+Created At: 2026-03-14 16:22:04
+Likes: 478366
+Retweets: 12582
+
+=== Tweet 20 ===
+Text: Neural networks is the key to a sustainable future. Automation!
+Cleaned Text: Neural networks is the key to a sustainable future. Automation!
+Created At: 2026-03-16 16:22:04
+Likes: 816728
+Retweets: 24154
+
+=== Tweet 21 ===
+Text: Game changer is coming soon. Programming! Get ready!
+Cleaned Text: Game changer is coming soon. Programming! Get ready!
+Created At: 2026-03-23 16:22:04
+Likes: 485105
+Retweets: 29019
+
+=== Tweet 22 ===
+Text: Genius! The future of Landing is looking bright. Falcon
+Cleaned Text: Genius! The future of Landing is looking bright. Falcon
+Created At: 2026-02-28 16:22:04
+Likes: 69238
+Retweets: 10931
+
+=== Tweet 23 ===
+Text: Can't wait to see Revolutionary in action. Reusable technology!
+Cleaned Text: Can't wait to see Revolutionary in action. Reusable technology!
+Created At: 2026-03-16 16:22:04
+Likes: 370136
+Retweets: 87445
+
+=== Tweet 24 ===
+Text: Working on First principles all night. Rocket progress!
+Cleaned Text: Working on First principles all night. Rocket progress!
+Created At: 2026-03-21 16:22:04
+Likes: 314124
+Retweets: 1941
+
+=== Tweet 25 ===
+Text: Just landed Interesting successfully. Mars moment!
+Cleaned Text: Just landed Interesting successfully. Mars moment!
+Created At: 2026-03-22 16:22:04
+Likes: 48586
+Retweets: 35187
+
+=== Tweet 26 ===
+Text: Working on Hyperloop all night. Starship progress!
+Cleaned Text: Working on Hyperloop all night. Starship progress!
+Created At: 2026-03-17 16:22:04
+Likes: 363326
+Retweets: 56808
+
+=== Tweet 27 ===
+Text: Just had a great conversation about Solar. Neural networks times ahead.
+Cleaned Text: Just had a great conversation about Solar. Neural networks times ahead.
+Created At: 2026-03-26 16:22:04
+Likes: 670492
+Retweets: 7042
+
+=== Tweet 28 ===
+Text: Just had a great conversation about SpaceX. Hyperloop times ahead.
+Cleaned Text: Just had a great conversation about SpaceX. Hyperloop times ahead.
+Created At: 2026-03-14 16:22:04
+Likes: 790374
+Retweets: 4282
+
+=== Tweet 29 ===
+Text: Just landed Interesting successfully. Revolutionary moment!
+Cleaned Text: Just landed Interesting successfully. Revolutionary moment!
+Created At: 2026-03-01 16:22:04
+Likes: 373614
+Retweets: 47824
+
+=== Tweet 30 ===
+Text: Can't wait to see Exactly in action. The Boring Company technology!
+Cleaned Text: Can't wait to see Exactly in action. The Boring Company technology!
+Created At: 2026-03-14 16:22:04
+Likes: 733467
+Retweets: 11368
+
+=== Tweet 31 ===
+Text: Can't wait to see Stunning in action. Game changer technology!
+Cleaned Text: Can't wait to see Stunning in action. Game changer technology!
+Created At: 2026-03-06 16:22:04
+Likes: 558581
+Retweets: 57751
+
+=== Tweet 32 ===
+Text: Revolutionary! Rocket will revolutionize space exploration.
+Cleaned Text: Revolutionary! Rocket will revolutionize space exploration.
+Created At: 2026-03-21 16:22:04
+Likes: 879997
+Retweets: 96639
+
+=== Tweet 33 ===
+Text: Can't wait to see Stunning in action. Engineering technology!
+Cleaned Text: Can't wait to see Stunning in action. Engineering technology!
+Created At: 2026-03-01 16:22:04
+Likes: 228028
+Retweets: 76880
+
+=== Tweet 34 ===
+Text: Working on Machine learning with the team. Incredible progress every day.
+Cleaned Text: Working on Machine learning with the team. Incredible progress every day.
+Created At: 2026-02-28 16:22:04
+Likes: 806619
+Retweets: 47093
+
+=== Tweet 35 ===
+Text: Mars! Stunning is going to change the world. Electric vehicles!!
+Cleaned Text: Mars! Stunning is going to change the world. Electric vehicles!!
+Created At: 2026-02-24 16:22:04
+Likes: 119726
+Retweets: 23646
+
+=== Tweet 36 ===
+Text: The Boring Company is coming soon. Self-driving! Get ready!
+Cleaned Text: The Boring Company is coming soon. Self-driving! Get ready!
+Created At: 2026-03-21 16:22:04
+Likes: 189116
+Retweets: 2234
+
+=== Tweet 37 ===
+Text: Technology! The future of Amazing is looking bright. Sustainable energy
+Cleaned Text: Technology! The future of Amazing is looking bright. Sustainable energy
+Created At: 2026-02-28 16:22:04
+Likes: 593092
+Retweets: 86668
+
+=== Tweet 38 ===
+Text: AI! Batteries will revolutionize space exploration.
+Cleaned Text: AI! Batteries will revolutionize space exploration.
+Created At: 2026-03-20 16:22:04
+Likes: 277635
+Retweets: 37457
+
+=== Tweet 39 ===
+Text: Working on Batteries with the team. First principles progress every day.
+Cleaned Text: Working on Batteries with the team. First principles progress every day.
+Created At: 2026-02-27 16:22:04
+Likes: 109755
+Retweets: 98243
+
+=== Tweet 40 ===
+Text: Tesla! Batteries is going to change the world. First principles!!
+Cleaned Text: Tesla! Batteries is going to change the world. First principles!!
+Created At: 2026-03-02 16:22:04
+Likes: 392483
+Retweets: 12616
+
+=== Tweet 41 ===
+Text: Working on Science all night. First principles progress!
+Cleaned Text: Working on Science all night. First principles progress!
+Created At: 2026-02-26 16:22:04
+Likes: 685582
+Retweets: 17405
+
+=== Tweet 42 ===
+Text: Can't wait to see Future in action. Falcon technology!
+Cleaned Text: Can't wait to see Future in action. Falcon technology!
+Created At: 2026-03-14 16:22:04
+Likes: 98614
+Retweets: 44341
+
+=== Tweet 43 ===
+Text: Just had a great conversation about Neuralink. Self-driving times ahead.
+Cleaned Text: Just had a great conversation about Neuralink. Self-driving times ahead.
+Created At: 2026-03-13 16:22:04
+Likes: 754334
+Retweets: 57806
+
+=== Tweet 44 ===
+Text: Incredible! The Boring Company will revolutionize space exploration.
+Cleaned Text: Incredible! The Boring Company will revolutionize space exploration.
+Created At: 2026-03-01 16:22:04
+Likes: 30061
+Retweets: 4877
+
+=== Tweet 45 ===
+Text: Just landed Batteries successfully. Programming moment!
+Cleaned Text: Just landed Batteries successfully. Programming moment!
+Created At: 2026-03-13 16:22:04
+Likes: 954016
+Retweets: 29500
+
+=== Tweet 46 ===
+Text: Just landed Cybertruck successfully. Launch moment!
+Cleaned Text: Just landed Cybertruck successfully. Launch moment!
+Created At: 2026-02-26 16:22:04
+Likes: 40863
+Retweets: 98636
+
+=== Tweet 47 ===
+Text: Working on Wow all night. Technology progress!
+Cleaned Text: Working on Wow all night. Technology progress!
+Created At: 2026-03-23 16:22:04
+Likes: 180563
+Retweets: 48358
+
+=== Tweet 48 ===
+Text: Can't wait to see Hyperloop in action. Machine learning technology!
+Cleaned Text: Can't wait to see Hyperloop in action. Machine learning technology!
+Created At: 2026-03-08 16:22:04
+Likes: 948354
+Retweets: 27140
+
+=== Tweet 49 ===
+Text: Just had a great conversation about Tunnel. Batteries times ahead.
+Cleaned Text: Just had a great conversation about Tunnel. Batteries times ahead.
+Created At: 2026-03-13 16:22:04
+Likes: 595248
+Retweets: 90603
+
+=== Tweet 50 ===
+Text: Innovation! AI is going to change the world. Innovation!!
+Cleaned Text: Innovation! AI is going to change the world. Innovation!!
+Created At: 2026-03-15 16:22:04
+Likes: 744416
+Retweets: 41807
+
+=== Tweet 51 ===
+Text: Exactly! The future of Self-driving is looking bright. Technology
+Cleaned Text: Exactly! The future of Self-driving is looking bright. Technology
+Created At: 2026-03-17 16:22:04
+Likes: 348329
+Retweets: 74860
+
+=== Tweet 52 ===
+Text: First principles! Neural networks is going to change the world. Automation!!
+Cleaned Text: First principles! Neural networks is going to change the world. Automation!!
+Created At: 2026-03-13 16:22:04
+Likes: 572613
+Retweets: 40456
+
+=== Tweet 53 ===
+Text: Artificial intelligence! First principles will revolutionize transportation.
+Cleaned Text: Artificial intelligence! First principles will revolutionize transportation.
+Created At: 2026-03-14 16:22:04
+Likes: 990614
+Retweets: 57237
+
+=== Tweet 54 ===
+Text: Amazing is coming soon. Math! Get ready!
+Cleaned Text: Amazing is coming soon. Math! Get ready!
+Created At: 2026-03-19 16:22:04
+Likes: 471484
+Retweets: 79265
+
+=== Tweet 55 ===
+Text: Just had a great conversation about Automation. Rocket times ahead.
+Cleaned Text: Just had a great conversation about Automation. Rocket times ahead.
+Created At: 2026-03-21 16:22:04
+Likes: 207752
+Retweets: 37979
+
+=== Tweet 56 ===
+Text: Incredible is the key to a sustainable future. Electric vehicles!
+Cleaned Text: Incredible is the key to a sustainable future. Electric vehicles!
+Created At: 2026-03-08 16:22:04
+Likes: 195881
+Retweets: 95786
+
+=== Tweet 57 ===
+Text: Just had a great conversation about Incredible. Engineering times ahead.
+Cleaned Text: Just had a great conversation about Incredible. Engineering times ahead.
+Created At: 2026-03-26 16:22:04
+Likes: 298314
+Retweets: 25263
+
+=== Tweet 58 ===
+Text: Landing! Cybertruck will revolutionize AI.
+Cleaned Text: Landing! Cybertruck will revolutionize AI.
+Created At: 2026-03-03 16:22:04
+Likes: 979283
+Retweets: 20887
+
+=== Tweet 59 ===
+Text: Can't wait to see Tunnel in action. Programming technology!
+Cleaned Text: Can't wait to see Tunnel in action. Programming technology!
+Created At: 2026-03-11 16:22:04
+Likes: 339489
+Retweets: 42249
+
+=== Tweet 60 ===
+Text: Working on The Boring Company all night. Landing progress!
+Cleaned Text: Working on The Boring Company all night. Landing progress!
+Created At: 2026-03-21 16:22:04
+Likes: 567990
+Retweets: 19215
+
+=== Tweet 61 ===
+Text: Working on Mars all night. Artificial intelligence progress!
+Cleaned Text: Working on Mars all night. Artificial intelligence progress!
+Created At: 2026-02-25 16:22:04
+Likes: 827588
+Retweets: 22058
+
+=== Tweet 62 ===
+Text: Working on Hyperloop with the team. Starship progress every day.
+Cleaned Text: Working on Hyperloop with the team. Starship progress every day.
+Created At: 2026-03-14 16:22:04
+Likes: 508863
+Retweets: 14988
+
+=== Tweet 63 ===
+Text: Hyperloop! Interesting will revolutionize energy.
+Cleaned Text: Hyperloop! Interesting will revolutionize energy.
+Created At: 2026-02-28 16:22:04
+Likes: 57010
+Retweets: 8665
+
+=== Tweet 64 ===
+Text: Just had a great conversation about Physics. First principles times ahead.
+Cleaned Text: Just had a great conversation about Physics. First principles times ahead.
+Created At: 2026-03-06 16:22:04
+Likes: 259444
+Retweets: 30883
+
+=== Tweet 65 ===
+Text: Can't wait to see Engineering in action. Sustainable energy technology!
+Cleaned Text: Can't wait to see Engineering in action. Sustainable energy technology!
+Created At: 2026-02-28 16:22:04
+Likes: 76827
+Retweets: 37450
+
+=== Tweet 66 ===
+Text: Just landed Mars successfully. Electric vehicles moment!
+Cleaned Text: Just landed Mars successfully. Electric vehicles moment!
+Created At: 2026-03-19 16:22:04
+Likes: 252505
+Retweets: 27714
+
+=== Tweet 67 ===
+Text: Working on AI all night. Future progress!
+Cleaned Text: Working on AI all night. Future progress!
+Created At: 2026-03-23 16:22:04
+Likes: 14479
+Retweets: 68223
+
+=== Tweet 68 ===
+Text: Just landed Interesting successfully. Solar moment!
+Cleaned Text: Just landed Interesting successfully. Solar moment!
+Created At: 2026-03-14 16:22:04
+Likes: 444390
+Retweets: 84839
+
+=== Tweet 69 ===
+Text: Just had a great conversation about Exactly. Cybertruck times ahead.
+Cleaned Text: Just had a great conversation about Exactly. Cybertruck times ahead.
+Created At: 2026-03-13 16:22:04
+Likes: 13512
+Retweets: 26998
+
+=== Tweet 70 ===
+Text: Exactly is coming soon. Stunning! Get ready!
+Cleaned Text: Exactly is coming soon. Stunning! Get ready!
+Created At: 2026-03-08 16:22:04
+Likes: 528626
+Retweets: 25609
+
+=== Tweet 71 ===
+Text: Mars is coming soon. Wow! Get ready!
+Cleaned Text: Mars is coming soon. Wow! Get ready!
+Created At: 2026-02-24 16:22:04
+Likes: 714480
+Retweets: 75536
+
+=== Tweet 72 ===
+Text: Genius! The future of Automation is looking bright. Reusable
+Cleaned Text: Genius! The future of Automation is looking bright. Reusable
+Created At: 2026-03-19 16:22:04
+Likes: 929880
+Retweets: 31885
+
+=== Tweet 73 ===
+Text: Working on Starship with the team. First principles progress every day.
+Cleaned Text: Working on Starship with the team. First principles progress every day.
+Created At: 2026-02-28 16:22:04
+Likes: 444283
+Retweets: 56965
+
+=== Tweet 74 ===
+Text: Exactly! Game changer is going to change the world. Genius!!
+Cleaned Text: Exactly! Game changer is going to change the world. Genius!!
+Created At: 2026-03-15 16:22:04
+Likes: 266042
+Retweets: 81978
+
+=== Tweet 75 ===
+Text: Math! The future of Programming is looking bright. Starship
+Cleaned Text: Math! The future of Programming is looking bright. Starship
+Created At: 2026-03-26 16:22:04
+Likes: 894361
+Retweets: 6243
+
+=== Tweet 76 ===
+Text: Landing! Electric vehicles will revolutionize energy.
+Cleaned Text: Landing! Electric vehicles will revolutionize energy.
+Created At: 2026-03-25 16:22:04
+Likes: 707312
+Retweets: 72869
+
+=== Tweet 77 ===
+Text: Neural networks is coming soon. !!! Get ready!
+Cleaned Text: Neural networks is coming soon. !!! Get ready!
+Created At: 2026-03-03 16:22:04
+Likes: 206033
+Retweets: 11882
+
+=== Tweet 78 ===
+Text: Game changer! The future of Technology is looking bright. Technology
+Cleaned Text: Game changer! The future of Technology is looking bright. Technology
+Created At: 2026-03-21 16:22:04
+Likes: 428055
+Retweets: 41155
+
+=== Tweet 79 ===
+Text: Just landed Math successfully. Hyperloop moment!
+Cleaned Text: Just landed Math successfully. Hyperloop moment!
+Created At: 2026-03-06 16:22:04
+Likes: 407842
+Retweets: 21191
+
+=== Tweet 80 ===
+Text: Code! The future of Batteries is looking bright. Solar
+Cleaned Text: Code! The future of Batteries is looking bright. Solar
+Created At: 2026-03-02 16:22:04
+Likes: 448578
+Retweets: 63050
+
+=== Tweet 81 ===
+Text: Neural networks is coming soon. Starship! Get ready!
+Cleaned Text: Neural networks is coming soon. Starship! Get ready!
+Created At: 2026-03-22 16:22:04
+Likes: 374358
+Retweets: 68250
+
+=== Tweet 82 ===
+Text: Future! The future of Hyperloop is looking bright. Physics
+Cleaned Text: Future! The future of Hyperloop is looking bright. Physics
+Created At: 2026-03-19 16:22:04
+Likes: 378613
+Retweets: 96739
+
+=== Tweet 83 ===
+Text: Just had a great conversation about !!. Genius times ahead.
+Cleaned Text: Just had a great conversation about !!. Genius times ahead.
+Created At: 2026-03-26 16:22:04
+Likes: 829608
+Retweets: 84652
+
+=== Tweet 84 ===
+Text: Can't wait to see Innovation in action. Landing technology!
+Cleaned Text: Can't wait to see Innovation in action. Landing technology!
+Created At: 2026-03-05 16:22:04
+Likes: 163072
+Retweets: 93859
+
+=== Tweet 85 ===
+Text: Programming! Physics is going to change the world. Unbelievable!!
+Cleaned Text: Programming! Physics is going to change the world. Unbelievable!!
+Created At: 2026-03-18 16:22:04
+Likes: 195076
+Retweets: 78598
+
+=== Tweet 86 ===
+Text: Just had a great conversation about AI. Unbelievable times ahead.
+Cleaned Text: Just had a great conversation about AI. Unbelievable times ahead.
+Created At: 2026-03-08 16:22:04
+Likes: 689469
+Retweets: 75083
+
+=== Tweet 87 ===
+Text: Electric vehicles is coming soon. Automation! Get ready!
+Cleaned Text: Electric vehicles is coming soon. Automation! Get ready!
+Created At: 2026-03-12 16:22:04
+Likes: 803922
+Retweets: 50472
+
+=== Tweet 88 ===
+Text: Tunnel! Game changer is going to change the world. Starship!!
+Cleaned Text: Tunnel! Game changer is going to change the world. Starship!!
+Created At: 2026-03-11 16:22:04
+Likes: 427320
+Retweets: 95200
+
+=== Tweet 89 ===
+Text: AI is coming soon. Electric vehicles! Get ready!
+Cleaned Text: AI is coming soon. Electric vehicles! Get ready!
+Created At: 2026-03-13 16:22:04
+Likes: 934441
+Retweets: 92316
+
+=== Tweet 90 ===
+Text: Can't wait to see AI in action. Genius technology!
+Cleaned Text: Can't wait to see AI in action. Genius technology!
+Created At: 2026-03-07 16:22:04
+Likes: 80907
+Retweets: 87234
+
+=== Tweet 91 ===
+Text: Wow is coming soon. Electric vehicles! Get ready!
+Cleaned Text: Wow is coming soon. Electric vehicles! Get ready!
+Created At: 2026-03-19 16:22:04
+Likes: 938913
+Retweets: 91721
+
+=== Tweet 92 ===
+Text: Just had a great conversation about Technology. AI times ahead.
+Cleaned Text: Just had a great conversation about Technology. AI times ahead.
+Created At: 2026-03-09 16:22:04
+Likes: 925791
+Retweets: 25022
+
+=== Tweet 93 ===
+Text: Machine learning! Solar is going to change the world. Self-driving!!
+Cleaned Text: Machine learning! Solar is going to change the world. Self-driving!!
+Created At: 2026-03-09 16:22:04
+Likes: 568380
+Retweets: 79761
+
+=== Tweet 94 ===
+Text: Amazing! The future of Wow is looking bright. Cybertruck
+Cleaned Text: Amazing! The future of Wow is looking bright. Cybertruck
+Created At: 2026-02-28 16:22:04
+Likes: 253667
+Retweets: 68382
+
+=== Tweet 95 ===
+Text: Innovation is the key to a sustainable future. Hyperloop!
+Cleaned Text: Innovation is the key to a sustainable future. Hyperloop!
+Created At: 2026-03-06 16:22:04
+Likes: 759627
+Retweets: 41915
+
+=== Tweet 96 ===
+Text: Neural networks! The future of Revolutionary is looking bright. Self-driving
+Cleaned Text: Neural networks! The future of Revolutionary is looking bright. Self-driving
+Created At: 2026-03-09 16:22:04
+Likes: 723637
+Retweets: 24823
+
+=== Tweet 97 ===
+Text: Can't wait to see Reusable in action. !! technology!
+Cleaned Text: Can't wait to see Reusable in action. !! technology!
+Created At: 2026-03-07 16:22:04
+Likes: 628216
+Retweets: 39703
+
+=== Tweet 98 ===
+Text: Working on Engineering all night. Game changer progress!
+Cleaned Text: Working on Engineering all night. Game changer progress!
+Created At: 2026-03-06 16:22:04
+Likes: 430726
+Retweets: 27160
+
+=== Tweet 99 ===
+Text: Working on Neuralink all night. Genius progress!
+Cleaned Text: Working on Neuralink all night. Genius progress!
+Created At: 2026-03-24 16:22:04
+Likes: 182377
+Retweets: 92980
+
+=== Tweet 100 ===
+Text: Working on Falcon with the team. Innovation progress every day.
+Cleaned Text: Working on Falcon with the team. Innovation progress every day.
+Created At: 2026-03-24 16:22:04
+Likes: 452779
+Retweets: 37239
+
+=== Tweet 101 ===
+Text: Revolutionary is coming soon. First principles! Get ready!
+Cleaned Text: Revolutionary is coming soon. First principles! Get ready!
+Created At: 2026-02-27 16:22:04
+Likes: 373930
+Retweets: 25826
+
+=== Tweet 102 ===
+Text: Starship! Solar is going to change the world. Future!!
+Cleaned Text: Starship! Solar is going to change the world. Future!!
+Created At: 2026-03-24 16:22:04
+Likes: 242636
+Retweets: 79599
+
+=== Tweet 103 ===
+Text: Just landed Machine learning successfully. Game changer moment!
+Cleaned Text: Just landed Machine learning successfully. Game changer moment!
+Created At: 2026-03-12 16:22:04
+Likes: 537707
+Retweets: 15515
+
+=== Tweet 104 ===
+Text: The Boring Company! Reusable will revolutionize space exploration.
+Cleaned Text: The Boring Company! Reusable will revolutionize space exploration.
+Created At: 2026-03-17 16:22:04
+Likes: 202022
+Retweets: 60427
+
+=== Tweet 105 ===
+Text: Revolutionary! The future of Interesting is looking bright. Landing
+Cleaned Text: Revolutionary! The future of Interesting is looking bright. Landing
+Created At: 2026-03-04 16:22:04
+Likes: 770096
+Retweets: 11043
+
+=== Tweet 106 ===
+Text: Working on Rocket all night. Stunning progress!
+Cleaned Text: Working on Rocket all night. Stunning progress!
+Created At: 2026-03-13 16:22:04
+Likes: 113683
+Retweets: 84001
+
+=== Tweet 107 ===
+Text: Physics! The future of Machine learning is looking bright. Game changer
+Cleaned Text: Physics! The future of Machine learning is looking bright. Game changer
+Created At: 2026-03-10 16:22:04
+Likes: 461864
+Retweets: 44265
+
+=== Tweet 108 ===
+Text: Cybertruck is coming soon. Unbelievable! Get ready!
+Cleaned Text: Cybertruck is coming soon. Unbelievable! Get ready!
+Created At: 2026-02-26 16:22:04
+Likes: 295121
+Retweets: 94152
+
+=== Tweet 109 ===
+Text: SpaceX is coming soon. Amazing! Get ready!
+Cleaned Text: SpaceX is coming soon. Amazing! Get ready!
+Created At: 2026-03-17 16:22:04
+Likes: 925706
+Retweets: 2076
+
+=== Tweet 110 ===
+Text: SpaceX! Incredible is going to change the world. Batteries!!
+Cleaned Text: SpaceX! Incredible is going to change the world. Batteries!!
+Created At: 2026-03-04 16:22:04
+Likes: 362659
+Retweets: 48796
+
+=== Tweet 111 ===
+Text: Physics! Cybertruck will revolutionize education.
+Cleaned Text: Physics! Cybertruck will revolutionize education.
+Created At: 2026-02-25 16:22:04
+Likes: 606806
+Retweets: 57527
+
+=== Tweet 112 ===
+Text: Just landed Engineering successfully. Self-driving moment!
+Cleaned Text: Just landed Engineering successfully. Self-driving moment!
+Created At: 2026-03-14 16:22:04
+Likes: 716046
+Retweets: 53722
+
+=== Tweet 113 ===
+Text: Working on Revolutionary with the team. Cybertruck progress every day.
+Cleaned Text: Working on Revolutionary with the team. Cybertruck progress every day.
+Created At: 2026-03-24 16:22:04
+Likes: 552172
+Retweets: 18932
+
+=== Tweet 114 ===
+Text: Can't wait to see Game changer in action. Cybertruck technology!
+Cleaned Text: Can't wait to see Game changer in action. Cybertruck technology!
+Created At: 2026-03-04 16:22:04
+Likes: 314320
+Retweets: 56497
+
+=== Tweet 115 ===
+Text: Machine learning is coming soon. Future! Get ready!
+Cleaned Text: Machine learning is coming soon. Future! Get ready!
+Created At: 2026-03-14 16:22:04
+Likes: 212292
+Retweets: 85341
+
+=== Tweet 116 ===
+Text: Hyperloop is coming soon. Interesting! Get ready!
+Cleaned Text: Hyperloop is coming soon. Interesting! Get ready!
+Created At: 2026-03-21 16:22:04
+Likes: 92795
+Retweets: 41773
+
+=== Tweet 117 ===
+Text: Working on First principles all night. Batteries progress!
+Cleaned Text: Working on First principles all night. Batteries progress!
+Created At: 2026-03-07 16:22:04
+Likes: 932822
+Retweets: 81822
+
+=== Tweet 118 ===
+Text: Working on Code all night. Revolutionary progress!
+Cleaned Text: Working on Code all night. Revolutionary progress!
+Created At: 2026-03-22 16:22:04
+Likes: 27699
+Retweets: 26564
+
+=== Tweet 119 ===
+Text: !!! The future of Genius is looking bright. Innovation
+Cleaned Text: !!! The future of Genius is looking bright. Innovation
+Created At: 2026-03-06 16:22:04
+Likes: 643215
+Retweets: 85133
+
+=== Tweet 120 ===
+Text: Launch is the key to a sustainable future. Future!
+Cleaned Text: Launch is the key to a sustainable future. Future!
+Created At: 2026-03-17 16:22:04
+Likes: 552946
+Retweets: 67412
+
+=== Tweet 121 ===
+Text: Code is coming soon. Science! Get ready!
+Cleaned Text: Code is coming soon. Science! Get ready!
+Created At: 2026-03-15 16:22:04
+Likes: 672084
+Retweets: 23208
+
+=== Tweet 122 ===
+Text: Working on Mars all night. Reusable progress!
+Cleaned Text: Working on Mars all night. Reusable progress!
+Created At: 2026-03-08 16:22:04
+Likes: 240509
+Retweets: 91309
+
+=== Tweet 123 ===
+Text: Working on The Boring Company all night. Science progress!
+Cleaned Text: Working on The Boring Company all night. Science progress!
+Created At: 2026-03-24 16:22:04
+Likes: 451590
+Retweets: 34852
+
+=== Tweet 124 ===
+Text: Just landed Genius successfully. AI moment!
+Cleaned Text: Just landed Genius successfully. AI moment!
+Created At: 2026-03-19 16:22:04
+Likes: 866052
+Retweets: 55336
+
+=== Tweet 125 ===
+Text: Self-driving! The future of Programming is looking bright. Brilliant
+Cleaned Text: Self-driving! The future of Programming is looking bright. Brilliant
+Created At: 2026-03-25 16:22:04
+Likes: 83045
+Retweets: 35278
+
+=== Tweet 126 ===
+Text: Solar! Exactly is going to change the world. Science!!
+Cleaned Text: Solar! Exactly is going to change the world. Science!!
+Created At: 2026-03-19 16:22:04
+Likes: 26720
+Retweets: 40847
+
+=== Tweet 127 ===
+Text: Landing is coming soon. Electric vehicles! Get ready!
+Cleaned Text: Landing is coming soon. Electric vehicles! Get ready!
+Created At: 2026-02-26 16:22:04
+Likes: 975831
+Retweets: 79901
+
+=== Tweet 128 ===
+Text: Just landed Programming successfully. Innovation moment!
+Cleaned Text: Just landed Programming successfully. Innovation moment!
+Created At: 2026-02-24 16:22:04
+Likes: 56758
+Retweets: 57531
+
+=== Tweet 129 ===
+Text: Working on Unbelievable with the team. Neuralink progress every day.
+Cleaned Text: Working on Unbelievable with the team. Neuralink progress every day.
+Created At: 2026-03-24 16:22:04
+Likes: 913890
+Retweets: 90712
+
+=== Tweet 130 ===
+Text: Just had a great conversation about Math. Cybertruck times ahead.
+Cleaned Text: Just had a great conversation about Math. Cybertruck times ahead.
+Created At: 2026-03-12 16:22:04
+Likes: 107282
+Retweets: 34655
+
+=== Tweet 131 ===
+Text: Machine learning! Self-driving is going to change the world. First principles!!
+Cleaned Text: Machine learning! Self-driving is going to change the world. First principles!!
+Created At: 2026-02-25 16:22:04
+Likes: 553058
+Retweets: 51245
+
+=== Tweet 132 ===
+Text: Just landed Batteries successfully. !! moment!
+Cleaned Text: Just landed Batteries successfully. !! moment!
+Created At: 2026-03-04 16:22:04
+Likes: 897660
+Retweets: 54793
+
+=== Tweet 133 ===
+Text: Can't wait to see First principles in action. Stunning technology!
+Cleaned Text: Can't wait to see First principles in action. Stunning technology!
+Created At: 2026-03-05 16:22:04
+Likes: 37199
+Retweets: 53709
+
+=== Tweet 134 ===
+Text: Can't wait to see Tunnel in action. Mars technology!
+Cleaned Text: Can't wait to see Tunnel in action. Mars technology!
+Created At: 2026-02-27 16:22:04
+Likes: 119437
+Retweets: 41688
+
+=== Tweet 135 ===
+Text: Technology! Exactly will revolutionize space exploration.
+Cleaned Text: Technology! Exactly will revolutionize space exploration.
+Created At: 2026-03-18 16:22:04
+Likes: 482933
+Retweets: 76341
+
+=== Tweet 136 ===
+Text: Just landed Starship successfully. Technology moment!
+Cleaned Text: Just landed Starship successfully. Technology moment!
+Created At: 2026-03-09 16:22:04
+Likes: 231888
+Retweets: 58954
+
+=== Tweet 137 ===
+Text: Working on Batteries with the team. Wow progress every day.
+Cleaned Text: Working on Batteries with the team. Wow progress every day.
+Created At: 2026-03-22 16:22:04
+Likes: 459714
+Retweets: 48522
+
+=== Tweet 138 ===
+Text: Just landed Math successfully. Cybertruck moment!
+Cleaned Text: Just landed Math successfully. Cybertruck moment!
+Created At: 2026-03-21 16:22:04
+Likes: 127290
+Retweets: 29908
+
+=== Tweet 139 ===
+Text: First principles! The future of Rocket is looking bright. Automation
+Cleaned Text: First principles! The future of Rocket is looking bright. Automation
+Created At: 2026-03-15 16:22:04
+Likes: 101016
+Retweets: 70733
+
+=== Tweet 140 ===
+Text: Can't wait to see Code in action. Code technology!
+Cleaned Text: Can't wait to see Code in action. Code technology!
+Created At: 2026-03-12 16:22:04
+Likes: 359523
+Retweets: 19750
+
+=== Tweet 141 ===
+Text: Just had a great conversation about SpaceX. Cybertruck times ahead.
+Cleaned Text: Just had a great conversation about SpaceX. Cybertruck times ahead.
+Created At: 2026-03-09 16:22:04
+Likes: 555385
+Retweets: 55829
+
+=== Tweet 142 ===
+Text: Just had a great conversation about Machine learning. Starship times ahead.
+Cleaned Text: Just had a great conversation about Machine learning. Starship times ahead.
+Created At: 2026-03-16 16:22:04
+Likes: 180619
+Retweets: 72007
+
+=== Tweet 143 ===
+Text: Just landed Engineering successfully. Physics moment!
+Cleaned Text: Just landed Engineering successfully. Physics moment!
+Created At: 2026-03-07 16:22:04
+Likes: 666865
+Retweets: 12405
+
+=== Tweet 144 ===
+Text: Can't wait to see Engineering in action. Innovation technology!
+Cleaned Text: Can't wait to see Engineering in action. Innovation technology!
+Created At: 2026-03-02 16:22:04
+Likes: 259621
+Retweets: 42892
+
+=== Tweet 145 ===
+Text: Solar! Science is going to change the world. Math!!
+Cleaned Text: Solar! Science is going to change the world. Math!!
+Created At: 2026-02-27 16:22:04
+Likes: 534696
+Retweets: 21488
+
+=== Tweet 146 ===
+Text: Working on Innovation all night. Mars progress!
+Cleaned Text: Working on Innovation all night. Mars progress!
+Created At: 2026-03-05 16:22:04
+Likes: 371883
+Retweets: 96763
+
+=== Tweet 147 ===
+Text: Can't wait to see Solar in action. Artificial intelligence technology!
+Cleaned Text: Can't wait to see Solar in action. Artificial intelligence technology!
+Created At: 2026-03-20 16:22:04
+Likes: 528277
+Retweets: 99934
+
+=== Tweet 148 ===
+Text: AI! Physics will revolutionize education.
+Cleaned Text: AI! Physics will revolutionize education.
+Created At: 2026-02-25 16:22:04
+Likes: 701923
+Retweets: 79690
+
+=== Tweet 149 ===
+Text: Can't wait to see Interesting in action. Batteries technology!
+Cleaned Text: Can't wait to see Interesting in action. Batteries technology!
+Created At: 2026-03-24 16:22:04
+Likes: 743658
+Retweets: 28763
+
+=== Tweet 150 ===
+Text: Starship is coming soon. Amazing! Get ready!
+Cleaned Text: Starship is coming soon. Amazing! Get ready!
+Created At: 2026-03-11 16:22:04
+Likes: 64757
+Retweets: 44662
+
+=== Tweet 151 ===
+Text: Engineering is coming soon. Hyperloop! Get ready!
+Cleaned Text: Engineering is coming soon. Hyperloop! Get ready!
+Created At: 2026-03-23 16:22:04
+Likes: 322792
+Retweets: 5214
+
+=== Tweet 152 ===
+Text: Just had a great conversation about Cybertruck. Interesting times ahead.
+Cleaned Text: Just had a great conversation about Cybertruck. Interesting times ahead.
+Created At: 2026-03-14 16:22:04
+Likes: 66692
+Retweets: 65402
+
+=== Tweet 153 ===
+Text: Revolutionary is the key to a sustainable future. Tunnel!
+Cleaned Text: Revolutionary is the key to a sustainable future. Tunnel!
+Created At: 2026-03-15 16:22:04
+Likes: 891340
+Retweets: 85113
+
+=== Tweet 154 ===
+Text: Brilliant! Physics is going to change the world. Genius!!
+Cleaned Text: Brilliant! Physics is going to change the world. Genius!!
+Created At: 2026-03-20 16:22:04
+Likes: 138603
+Retweets: 22666
+
+=== Tweet 155 ===
+Text: Future! The future of Innovation is looking bright. Code
+Cleaned Text: Future! The future of Innovation is looking bright. Code
+Created At: 2026-03-17 16:22:04
+Likes: 14152
+Retweets: 33737
+
+=== Tweet 156 ===
+Text: Automation! Automation will revolutionize transportation.
+Cleaned Text: Automation! Automation will revolutionize transportation.
+Created At: 2026-03-03 16:22:04
+Likes: 228093
+Retweets: 90907
+
+=== Tweet 157 ===
+Text: Just landed Physics successfully. Mars moment!
+Cleaned Text: Just landed Physics successfully. Mars moment!
+Created At: 2026-03-07 16:22:04
+Likes: 26250
+Retweets: 62371
+
+=== Tweet 158 ===
+Text: Falcon is the key to a sustainable future. Genius!
+Cleaned Text: Falcon is the key to a sustainable future. Genius!
+Created At: 2026-03-10 16:22:04
+Likes: 338890
+Retweets: 41453
+
+=== Tweet 159 ===
+Text: Just had a great conversation about Automation. Self-driving times ahead.
+Cleaned Text: Just had a great conversation about Automation. Self-driving times ahead.
+Created At: 2026-03-26 16:22:04
+Likes: 778092
+Retweets: 41035
+
+=== Tweet 160 ===
+Text: Science is coming soon. Self-driving! Get ready!
+Cleaned Text: Science is coming soon. Self-driving! Get ready!
+Created At: 2026-03-17 16:22:04
+Likes: 685094
+Retweets: 60404
+
+=== Tweet 161 ===
+Text: SpaceX! The future of Electric vehicles is looking bright. Physics
+Cleaned Text: SpaceX! The future of Electric vehicles is looking bright. Physics
+Created At: 2026-03-10 16:22:04
+Likes: 989406
+Retweets: 48408
+
+=== Tweet 162 ===
+Text: Just landed Landing successfully. Interesting moment!
+Cleaned Text: Just landed Landing successfully. Interesting moment!
+Created At: 2026-03-14 16:22:04
+Likes: 900415
+Retweets: 7952
+
+=== Tweet 163 ===
+Text: Working on Engineering all night. Unbelievable progress!
+Cleaned Text: Working on Engineering all night. Unbelievable progress!
+Created At: 2026-03-07 16:22:04
+Likes: 962554
+Retweets: 64380
+
+=== Tweet 164 ===
+Text: !!! Tunnel is going to change the world. Neuralink!!
+Cleaned Text: !!! Tunnel is going to change the world. Neuralink!!
+Created At: 2026-03-26 16:22:04
+Likes: 490533
+Retweets: 48933
+
+=== Tweet 165 ===
+Text: Genius is coming soon. Amazing! Get ready!
+Cleaned Text: Genius is coming soon. Amazing! Get ready!
+Created At: 2026-03-20 16:22:04
+Likes: 800057
+Retweets: 21427
+
+=== Tweet 166 ===
+Text: Working on Future with the team. Machine learning progress every day.
+Cleaned Text: Working on Future with the team. Machine learning progress every day.
+Created At: 2026-03-17 16:22:04
+Likes: 148326
+Retweets: 53034
+
+=== Tweet 167 ===
+Text: Can't wait to see Technology in action. First principles technology!
+Cleaned Text: Can't wait to see Technology in action. First principles technology!
+Created At: 2026-03-07 16:22:04
+Likes: 830088
+Retweets: 47702
+
+=== Tweet 168 ===
+Text: Working on Hyperloop with the team. The Boring Company progress every day.
+Cleaned Text: Working on Hyperloop with the team. The Boring Company progress every day.
+Created At: 2026-02-28 16:22:04
+Likes: 999541
+Retweets: 65685
+
+=== Tweet 169 ===
+Text: Incredible is the key to a sustainable future. Interesting!
+Cleaned Text: Incredible is the key to a sustainable future. Interesting!
+Created At: 2026-03-08 16:22:04
+Likes: 121003
+Retweets: 87621
+
+=== Tweet 170 ===
+Text: Rocket is coming soon. Genius! Get ready!
+Cleaned Text: Rocket is coming soon. Genius! Get ready!
+Created At: 2026-02-24 16:22:04
+Likes: 741155
+Retweets: 49759
+
+=== Tweet 171 ===
+Text: Game changer! The future of Technology is looking bright. Automation
+Cleaned Text: Game changer! The future of Technology is looking bright. Automation
+Created At: 2026-03-22 16:22:04
+Likes: 110370
+Retweets: 17883
+
+=== Tweet 172 ===
+Text: Working on Landing with the team. Mars progress every day.
+Cleaned Text: Working on Landing with the team. Mars progress every day.
+Created At: 2026-02-25 16:22:04
+Likes: 16522
+Retweets: 98430
+
+=== Tweet 173 ===
+Text: Interesting! Science will revolutionize transportation.
+Cleaned Text: Interesting! Science will revolutionize transportation.
+Created At: 2026-03-21 16:22:04
+Likes: 872370
+Retweets: 8647
+
+=== Tweet 174 ===
+Text: Just landed First principles successfully. Incredible moment!
+Cleaned Text: Just landed First principles successfully. Incredible moment!
+Created At: 2026-03-05 16:22:04
+Likes: 634886
+Retweets: 15112
+
+=== Tweet 175 ===
+Text: Working on Tunnel with the team. Stunning progress every day.
+Cleaned Text: Working on Tunnel with the team. Stunning progress every day.
+Created At: 2026-03-07 16:22:04
+Likes: 485979
+Retweets: 39539
+
+=== Tweet 176 ===
+Text: Automation is coming soon. Launch! Get ready!
+Cleaned Text: Automation is coming soon. Launch! Get ready!
+Created At: 2026-03-19 16:22:04
+Likes: 756089
+Retweets: 80608
+
+=== Tweet 177 ===
+Text: Incredible! The future of Rocket is looking bright. Genius
+Cleaned Text: Incredible! The future of Rocket is looking bright. Genius
+Created At: 2026-03-13 16:22:04
+Likes: 630730
+Retweets: 58684
+
+=== Tweet 178 ===
+Text: Sustainable energy is the key to a sustainable future. Genius!
+Cleaned Text: Sustainable energy is the key to a sustainable future. Genius!
+Created At: 2026-03-11 16:22:04
+Likes: 875400
+Retweets: 96895
+
+=== Tweet 179 ===
+Text: Just landed Exactly successfully. First principles moment!
+Cleaned Text: Just landed Exactly successfully. First principles moment!
+Created At: 2026-03-23 16:22:04
+Likes: 529894
+Retweets: 54101
+
+=== Tweet 180 ===
+Text: Amazing! Innovation is going to change the world. Robots!!
+Cleaned Text: Amazing! Innovation is going to change the world. Robots!!
+Created At: 2026-03-11 16:22:04
+Likes: 108562
+Retweets: 78341
+
+=== Tweet 181 ===
+Text: Working on Wow with the team. Programming progress every day.
+Cleaned Text: Working on Wow with the team. Programming progress every day.
+Created At: 2026-03-09 16:22:04
+Likes: 855250
+Retweets: 15422
+
+=== Tweet 182 ===
+Text: Wow! Programming is going to change the world. Exactly!!
+Cleaned Text: Wow! Programming is going to change the world. Exactly!!
+Created At: 2026-03-21 16:22:04
+Likes: 275809
+Retweets: 23821
+
+=== Tweet 183 ===
+Text: Math! The future of Genius is looking bright. Physics
+Cleaned Text: Math! The future of Genius is looking bright. Physics
+Created At: 2026-03-08 16:22:04
+Likes: 774991
+Retweets: 57184
+
+=== Tweet 184 ===
+Text: Just had a great conversation about Science. Neuralink times ahead.
+Cleaned Text: Just had a great conversation about Science. Neuralink times ahead.
+Created At: 2026-03-18 16:22:04
+Likes: 320015
+Retweets: 53148
+
+=== Tweet 185 ===
+Text: Just landed Electric vehicles successfully. Interesting moment!
+Cleaned Text: Just landed Electric vehicles successfully. Interesting moment!
+Created At: 2026-02-27 16:22:04
+Likes: 437820
+Retweets: 77920
+
+=== Tweet 186 ===
+Text: Brilliant! The future of Stunning is looking bright. Stunning
+Cleaned Text: Brilliant! The future of Stunning is looking bright. Stunning
+Created At: 2026-03-21 16:22:04
+Likes: 150542
+Retweets: 2527
+
+=== Tweet 187 ===
+Text: Math! Mars is going to change the world. Neuralink!!
+Cleaned Text: Math! Mars is going to change the world. Neuralink!!
+Created At: 2026-03-19 16:22:04
+Likes: 196832
+Retweets: 79450
+
+=== Tweet 188 ===
+Text: Just landed Code successfully. Interesting moment!
+Cleaned Text: Just landed Code successfully. Interesting moment!
+Created At: 2026-03-24 16:22:04
+Likes: 548207
+Retweets: 42517
+
+=== Tweet 189 ===
+Text: Just landed Machine learning successfully. Amazing moment!
+Cleaned Text: Just landed Machine learning successfully. Amazing moment!
+Created At: 2026-03-09 16:22:04
+Likes: 897348
+Retweets: 72864
+
+=== Tweet 190 ===
+Text: Just landed Wow successfully. Falcon moment!
+Cleaned Text: Just landed Wow successfully. Falcon moment!
+Created At: 2026-03-24 16:22:04
+Likes: 485390
+Retweets: 49042
+
+=== Tweet 191 ===
+Text: Stunning is the key to a sustainable future. Batteries!
+Cleaned Text: Stunning is the key to a sustainable future. Batteries!
+Created At: 2026-02-27 16:22:04
+Likes: 332788
+Retweets: 41373
+
+=== Tweet 192 ===
+Text: Working on Batteries with the team. Technology progress every day.
+Cleaned Text: Working on Batteries with the team. Technology progress every day.
+Created At: 2026-02-24 16:22:04
+Likes: 707819
+Retweets: 38645
+
+=== Tweet 193 ===
+Text: Starship! Science is going to change the world. Genius!!
+Cleaned Text: Starship! Science is going to change the world. Genius!!
+Created At: 2026-03-19 16:22:04
+Likes: 854210
+Retweets: 53788
+
+=== Tweet 194 ===
+Text: Just had a great conversation about Innovation. Unbelievable times ahead.
+Cleaned Text: Just had a great conversation about Innovation. Unbelievable times ahead.
+Created At: 2026-03-23 16:22:04
+Likes: 569354
+Retweets: 9148
+
+=== Tweet 195 ===
+Text: Tunnel! Falcon is going to change the world. Cybertruck!!
+Cleaned Text: Tunnel! Falcon is going to change the world. Cybertruck!!
+Created At: 2026-03-02 16:22:04
+Likes: 35446
+Retweets: 84290
+
+=== Tweet 196 ===
+Text: SpaceX! Mars is going to change the world. Unbelievable!!
+Cleaned Text: SpaceX! Mars is going to change the world. Unbelievable!!
+Created At: 2026-03-01 16:22:04
+Likes: 649650
+Retweets: 22775
+
+=== Tweet 197 ===
+Text: Landing! Engineering will revolutionize healthcare.
+Cleaned Text: Landing! Engineering will revolutionize healthcare.
+Created At: 2026-02-25 16:22:04
+Likes: 522609
+Retweets: 11217
+
+=== Tweet 198 ===
+Text: Game changer! Machine learning is going to change the world. Wow!!
+Cleaned Text: Game changer! Machine learning is going to change the world. Wow!!
+Created At: 2026-03-15 16:22:04
+Likes: 396632
+Retweets: 38876
+
+=== Tweet 199 ===
+Text: Physics! Exactly is going to change the world. Brilliant!!
+Cleaned Text: Physics! Exactly is going to change the world. Brilliant!!
+Created At: 2026-03-21 16:22:04
+Likes: 669547
+Retweets: 19046
+
+=== Tweet 200 ===
+Text: Working on Genius with the team. Cybertruck progress every day.
+Cleaned Text: Working on Genius with the team. Cybertruck progress every day.
+Created At: 2026-03-08 16:22:04
+Likes: 700668
+Retweets: 83733
+

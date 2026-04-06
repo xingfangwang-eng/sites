@@ -1,0 +1,102 @@
+{
+  "vip_1": {
+    "prompt": "如何看 2026 年的 AI 泡沫",
+    "a_side": "Error generating native output",
+    "b_side": "Error generating output with capsule",
+    "differences": {
+      "a_unique_words": [
+        "native"
+      ],
+      "b_unique_words": [
+        "with",
+        "capsule"
+      ],
+      "length_difference": 6,
+      "sentence_count_difference": 0,
+      "a_length": 30,
+      "b_length": 36,
+      "a_sentences": 1,
+      "b_sentences": 1
+    }
+  },
+  "vip_2": {
+    "prompt": "如何看 2026 年的 AI 泡沫",
+    "a_side": "Error generating native output",
+    "b_side": "Error generating output with capsule",
+    "differences": {
+      "a_unique_words": [
+        "native"
+      ],
+      "b_unique_words": [
+        "with",
+        "capsule"
+      ],
+      "length_difference": 6,
+      "sentence_count_difference": 0,
+      "a_length": 30,
+      "b_length": 36,
+      "a_sentences": 1,
+      "b_sentences": 1
+    }
+  },
+  "vip_3": {
+    "prompt": "如何看 2026 年的 AI 泡沫",
+    "a_side": "Error generating native output",
+    "b_side": "Error generating output with capsule",
+    "differences": {
+      "a_unique_words": [
+        "native"
+      ],
+      "b_unique_words": [
+        "with",
+        "capsule"
+      ],
+      "length_difference": 6,
+      "sentence_count_difference": 0,
+      "a_length": 30,
+      "b_length": 36,
+      "a_sentences": 1,
+      "b_sentences": 1
+    }
+  },
+  "vip_4": {
+    "prompt": "如何看 2026 年的 AI 泡沫",
+    "a_side": "Error generating native output",
+    "b_side": "Error generating output with capsule",
+    "differences": {
+      "a_unique_words": [
+        "native"
+      ],
+      "b_unique_words": [
+        "with",
+        "capsule"
+      ],
+      "length_difference": 6,
+      "sentence_count_difference": 0,
+      "a_length": 30,
+      "b_length": 36,
+      "a_sentences": 1,
+      "b_sentences": 1
+    }
+  },
+  "vip_5": {
+    "prompt": "如何看 2026 年的 AI 泡沫",
+    "a_side": "Error generating native output",
+    "b_side": "Error generating output with capsule",
+    "differences": {
+      "a_unique_words": [
+        "native"
+      ],
+      "b_unique_words": [
+        "with",
+        "capsule"
+      ],
+      "length_difference": 6,
+      "sentence_count_difference": 0,
+      "a_length": 30,
+      "b_length": 36,
+      "a_sentences": 1,
+      "b_sentences": 1
+    }
+  }
+}

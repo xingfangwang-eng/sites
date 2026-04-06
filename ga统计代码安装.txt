@@ -1,0 +1,2 @@
+输入 node -v 然后按回车
+node inject_ga_custom.js

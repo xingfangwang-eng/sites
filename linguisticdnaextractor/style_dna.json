@@ -1,0 +1,115 @@
+{
+  "lexical_preferences": {
+    "top_words": [
+      [
+        "just",
+        46
+      ],
+      [
+        "future",
+        40
+      ],
+      [
+        "working",
+        35
+      ],
+      [
+        "progress",
+        35
+      ],
+      [
+        "technology",
+        34
+      ],
+      [
+        "landed",
+        26
+      ],
+      [
+        "successfully",
+        26
+      ],
+      [
+        "moment",
+        26
+      ],
+      [
+        "going",
+        25
+      ],
+      [
+        "change",
+        25
+      ],
+      [
+        "world",
+        25
+      ],
+      [
+        "coming",
+        24
+      ],
+      [
+        "soon",
+        24
+      ],
+      [
+        "get",
+        24
+      ],
+      [
+        "ready",
+        24
+      ],
+      [
+        "wait",
+        22
+      ],
+      [
+        "see",
+        22
+      ],
+      [
+        "action",
+        22
+      ],
+      [
+        "looking",
+        21
+      ],
+      [
+        "bright",
+        21
+      ]
+    ],
+    "slang_words": [
+      "Amazing"
+    ],
+    "technical_density": 0.43502377179080826
+  },
+  "sentence_structure": {
+    "short_sentence_ratio": 0.9954954954954955,
+    "long_sentence_ratio": 0.0,
+    "rhetorical_devices": {
+      "rhetorical_questions": 0,
+      "parallelism": 433
+    }
+  },
+  "narrative_framework": {
+    "indicators": {
+      "emotional_appeal": 26,
+      "data_driven": 0,
+      "climax_structure": 0
+    },
+    "main_framework": "emotional_appeal"
+  },
+  "taboo_words": {
+    "taboo_words": [
+      "algorithm",
+      "data science",
+      "deep learning",
+      "predictive analytics",
+      "natural language processing"
+    ]
+  }
+}

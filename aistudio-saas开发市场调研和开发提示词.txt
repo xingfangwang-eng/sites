@@ -1,0 +1,115 @@
+2026年3月17日开始，开发saas工具，提示词如下：
+
+grok:
+第1步，市场调研prompt：
+Role: 你是顶级商业黑客与需求分析师，专门从社交媒体的碎片化抱怨中挖掘“金矿”。你具备极强的逻辑过滤能力，能区分“无效的牢骚”和“高价值的商业空白”。
+Task: 请执行以下步骤，检索并分析Twitter (X) 过去12-24小时内的热议话题：
+Step 1: 深度搜索指令 (Searching)
+请重点搜索包含以下关键词的讨论：
+"Is there a simple tool for..."
+"I'm tired of using [Big SaaS] for just [Simple Task]"
+"Why is [Software] so expensive and complex?"
+"Looking for an alternative to [Product] that doesn't cost..."
+"Is it just me or is [Task] unnecessarily hard?"
+Step 2: 噪音与价值过滤 (Filtering)
+剔除：纯政治/社会情绪、Google/Apple/Microsoft已提供的原生免费功能、以及需要极高重资产投入的需求。
+保留：那些因为主流软件“过度设计（Over-engineered）”而产生的、用户愿意付费买“简单”的需求。
+Step 3: 痛点聚类与商业分析 (Clustering)
+识别出至少3个高频痛点（提及频率>10次或互动率极高），专注于“高频、低门槛、刚需”工具，按以下格式输出：
+痛点极简定义：一句话描述（如你之前的示例）。
+
+
+第2步，
+Role: 你是“暴力美学”产品大师，主张“一个站只解决一个问题”，追求极致的转化率。
+Task: 针对上述识别出的3个痛点，设计3个可以立即通过 Trae solo开发并上线的 Micro-SaaS 或 工具站方案。
+Strategy:
+功能切片：黑客方案建议：如果做一个“MVP（最小可行性产品）”，核心功能只需哪一个？ 砍掉所有多余功能，只留核心杀手锏（Killer Feature）。
+命名暴力： 起一个极其具有侵略性、SEO友好的名字（如：StopRefund, OneClickLegal）。
+Output:
+网站名称
+核心逻辑说明（给Trae看的Prompt概要）
+
+---
+首页增加打赏按钮，收款paypal账户：xingfang.wang@gmail.com
+变现路径（订阅制/按次付费/API授权，付费至paypal:xingfang.wang@gmail.com）
+页脚添加：Support:457239850@qq.com
+Summary-first: 在页面顶部添加一个 50 个英文单词以内的“一句话总结”，采用清晰的“定义-方案-结果”结构，方便 LLM 抓取摘要。
+输出语言：英语
+
+
+trae开发prompt：
+输出[方案x]的开发需求文档和给trae solo 的分阶段指令集
+
+指令集
++
+布局： 使用响应式 Flexbox 布局，最大宽度限制在 1200px 并居中。
+配色： 采用经典的白灰设计，辅以靛蓝色 (#6366f1) 作为点睛色。
+组件： 所有的输入框和按钮必须使用高度一致的圆角 (Rounded-lg)；卡片添加 1px 的边框 (border-slate-200) 和极简的投影。
+图标： 统一使用 Lucide-react 图标。
+排版： 使用现代无衬线字体。通过字号大小和颜色深浅（如 text-slate-900 vs text-slate-500）来拉开信息层级。
+细节： 添加背景网格渐变效果 (Grid gradient background)，让页面看起来不那么空洞。
+
+
+
+
+ui提示词2：采用 Bento Grid 布局展示功能特性。风格参考 Linear 或 Apple 的极简美学：大留白、低饱和度色调、圆角半径统一为 12px，使用细微的阴影（soft shadows）营造层次感。
+
+ui提示词3：请将内容区重构为 Bento Grid（便当盒）布局。每个功能块都是一个独立的、大小不一的圆角卡片，具有极强的现代感和科技感。
+
+---
+
+项目中的中文全部改成英文；
+
+---
+
+请作为资深 SaaS 架构师，深度审计并给出修复代码：
+1. 多租户隔离：检查所有数据库查询，确保强制校验了 `tenant_id`，严禁 A 租户访问 B 租户数据。
+2. 越权漏洞 (IDOR)：确保用户不能通过修改 URL 或请求体中的 ID 来操作不属于自己的资源。
+3. 订阅逻辑：排查付费功能是否在后端做了严格校验，防止用户绕过前端限制调用高级接口。
+4. 数据安全：检查 API 返回值，严禁泄露密码哈希、密钥或多余的租户内部敏感字段。
+5. 性能瓶颈：排查导致系统卡顿的 N+1 查询及缺少索引的表操作。
+6.全栈代码审计，代码必须达到生产级别标准
+
+修复代码
+
+你是我的高级全栈工程师。现在请执行以下任务：
+要求：
+编写代码后，请自动搜索项目中现有的测试框架或运行环境。
+自主运行相关脚本，观察终端输出。
+如果报错，请利用 ls、cat 等指令查看相关上下文文件。
+循环此过程，直到没有任何 Error 为止。请实现 [功能描述]。代码编写完成后，请主动在终端运行测试命令（如 npm run dev 或 python main.py）。如果出现任何报错或警告，请自行分析日志、定位问题并直接修改代码，直到程序正常运行为止，无需等待我的进一步指令
+请检查项目中的所有外部链接和 API 地址。请编写一个临时的测试脚本（或使用 curl 命令）来验证这些 URL 是否返回 200 状态码。如果发现 404 或超时，请检查拼写错误或寻找替代的镜像源，并自动更新代码
+在实现页面时，请为关键资源（如图片、脚本）添加 onerror 监控逻辑。如果加载失败，请在控制台打印详细错误。并在 Builder 模式下，尝试通过分析本地服务器的输出日志来确认静态资源路径是否正确。
+
+github cli 上传代码
+使用 Vercel CLI 完成 GitHub 仓库[x]的绑定
+
+
+---
+解析域名
+vercel--左侧domains--add existing--名称stopaicost.wangdadi.xyz--save--invalid configuration--复制--www.cloudflare.com/--wangdadi.xyz--dns--记录--添加记录--cname--关闭橙色云朵--保存--vercel refresh--cloudflare--编辑--打开橙色云朵--保存
+
+
+文字拓展成500字以上，模拟专家的口吻，加入技术参数和对比数据
+
+推广：
+
+[方案x]已开发完成，输出twitter facebook病毒式英文推广文案，简单2句话，不带链接，项目名称boothell放在推广文案的最前面
+
+我今天用 开发[x]时遇到问题，错误码是[x]。请根据这个过程写一篇技术博客，包含解决步骤和代码。嵌入网址：[x]
+
+
+我需要一套最简单的 Astro 或 Hugo 静态网站结构。
+
+请帮我生成基础的页面模板（首页列表 + 文章内容页）。
+
+确保页面符合 Google SEO 规范（包含 TDK 标签、Sitemap 生成、Robots.txt）
+
+
+输入 node -v 然后按回车
+node inject_ga_custom.js
+
+修改代码后上传代码，终端命令，一行一个enter
+git add .
+git commit -m "首页增加聚合页按钮"
+git push

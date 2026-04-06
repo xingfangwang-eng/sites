@@ -1,0 +1,49 @@
+.legal-fact-check {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #28a745;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fact-check-badge {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.fact-check-badge svg {
+  margin-right: 8px;
+  stroke: #28a745;
+}
+
+.fact-check-badge span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.legal-fact-check p {
+  margin: 0;
+  color: #495057;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .legal-fact-check {
+    margin-top: 30px;
+    padding: 15px;
+  }
+  
+  .fact-check-badge span {
+    font-size: 14px;
+  }
+  
+  .legal-fact-check p {
+    font-size: 13px;
+  }
+}

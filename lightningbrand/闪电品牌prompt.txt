@@ -1,0 +1,56 @@
+Grok，过去 1 小时 X 上讨论度激增、且带有强烈情绪（吐槽/狂欢/震惊）的前 3 个梗或事件是什么？”
+
+
+商业可行性分析： 针对热点追问：
+
+* “这个热点最核心的‘金句’或‘视觉符号’是什么？如果我要做一个 9.9 美元的数字产品，什么样的产品会让这群人立刻下单（例如：精美壁纸、自动化脚本、讽刺海报、预测报告）？”
+
+提取设计元素： 让 Grok 提供：
+
+* 产品名称（要极具传播力）。
+* 核心文案（直击痛点的情绪文字）。
+* 视觉描述（给 AI 绘画模型的提示词描述）。
+
+aistudio
+step by step,输出制作流程和给trae solo的终极提示词
+
+trae
+
+Role: 你是一名顶级全栈营销工程师，擅长通过 Next.js 和 Tailwind CSS 制作具有极高转化率的单页落地页（Landing Page）。
+Task: 帮我开发一个名为 "Humbled Meme Generator Kit" 的销售网站。
+Design Style:
+风格参考 TikTok/X 流行审美：白灰背景，高饱和度强调色。
+视觉冲击力：顶部大标题使用粗体斜体，营造一种“大声吐槽”的既视感。
+Content:
+Hero Section:
+标题： "NO WAY HE GOT HYPED UP BY HIS FRIENDS JUST TO GET HUMBLED ??"
+副标题：别再手动 P 图了！9.9 刀解锁 50+ 现成 'Humbled' 瞬间模板，一键生成属于你朋友的“破防瞬间”。
+CTA 按钮：点击领取我的一秒破防包 (链接设为: #buy)
+Visual Demo:
+展示一个左右对比的 Card：左边是“Confident Hyped Up”，右边是带有红色大字“HUMBLED”的崩溃瞬间。
+What's Inside:
+50+ 高清讽刺海报背景（AI 驱动设计）。
+10+ 搞怪对话气泡贴纸。
+永久更新的短视频剪辑 BGM 推荐表。
+Footer: 加入一行字：“Don't let your friends get away with it.”
+Tech Stack Requirements:
+使用Lucide React 和 Tailwind CSS。
+必须是单文件结构或易于部署到github和 Vercel 的结构。
+购买按钮点击后，跳转到我的 LemonSqueezy 链接：[在此处填入你的链接]。
+Action: 请直接输出完整的代码，并告诉我如何一键部署到 github和 Vercel 。
+
+1.语言全部为英文；
+2.立即购买按钮改为蓝色，用户点击按钮，付款至我的paypal账号：xingfang.wang@gmail.com;
+3.页脚新增文字：Support:457239850@qq.com
+
+
+代码上传到github，trae命令：
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/xingfangwang-eng/仓库名.git
+git push -u origin main
+
+项目部署到 Vercel
+帮我把这个项目部署到 Vercel，并关联到我刚创建的 GitHub 仓库：https://github.com/xingfangwang-eng/humbled.git

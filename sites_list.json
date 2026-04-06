@@ -1,0 +1,242 @@
+{
+  "sites": [
+    {
+      "subdomain": "https://noseotop.vercel.app/",
+      "title": "NoSEO.top - Search for Authentic Results",
+      "category": "Search Tools",
+      "created_at": "2026-04-05T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://nukeprivacy.vercel.app",
+      "title": "NukePrivacy - Local Video Processing",
+      "category": "Privacy Tools",
+      "created_at": "2026-04-04T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killbillcard.vercel.app/",
+      "title": "Kill Bill Card - Virtual Credit Card",
+      "category": "Payment Tools",
+      "created_at": "2026-04-02T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://zerocloud.vercel.app",
+      "title": "ZeroCloud.so - Offline Document Intelligence",
+      "category": "Document Tools",
+      "created_at": "2026-04-02T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://focusinbox-eight.vercel.app",
+      "title": "FocusInbox - Focused Email Management",
+      "category": "Productivity Tools",
+      "created_at": "2026-04-02T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://saaskiller.vercel.app",
+      "title": "SaaSKiller.ai - Subscription Manager",
+      "category": "Subscription Management",
+      "created_at": "2026-03-30T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://noaimd.vercel.app",
+      "title": "NoAI.md - No-AI Markdown Editor",
+      "category": "Editors",
+      "created_at": "2026-03-30T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://crosspostfast.vercel.app",
+      "title": "CrossPost Fast - Multi-platform Posting Tool",
+      "category": "Social Media",
+      "created_at": "2026-03-27T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killswitchapi.vercel.app",
+      "title": "KillSwitch API - OpenAI Budget Protection",
+      "category": "API Tools",
+      "created_at": "2026-03-26T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://pingthemio.vercel.app",
+      "title": "PingThem.io - Gmail Follow-up Tool",
+      "category": "Email Tools",
+      "created_at": "2026-03-25T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://neveruploadio.vercel.app/",
+      "title": "NeverUpload.io - Local File Processing",
+      "category": "Privacy Tools",
+      "created_at": "2026-03-24T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://cleancsvai.vercel.app",
+      "title": "CleanCSV.ai - CSV Data Cleaning",
+      "category": "Data Processing",
+      "created_at": "2026-03-24T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://saasstripper.vercel.app",
+      "title": "SaaSStripper - SaaS Subscription Analysis",
+      "category": "Subscription Management",
+      "created_at": "2026-03-24T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://noadobe.vercel.app",
+      "title": "NoAdobe - Adobe Alternatives",
+      "category": "Design Tools",
+      "created_at": "2026-03-24T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://navslayer.vercel.app",
+      "title": "NavSlayer - Navigation Bar Optimization",
+      "category": "Website Optimization",
+      "created_at": "2026-03-22T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killsaas.vercel.app",
+      "title": "KillSaaS - SaaS Cost Optimization",
+      "category": "Subscription Management",
+      "created_at": "2026-03-22T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://slimsnd.vercel.app",
+      "title": "SlimSND - Audio Compression Tool",
+      "category": "Audio Tools",
+      "created_at": "2026-03-21T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://boothell.vercel.app",
+      "title": "BootHell - Startup Item Manager",
+      "category": "System Tools",
+      "created_at": "2026-03-18T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://linguisticdnaextractor.wangdadi.xyz/",
+      "title": "LinguisticDNA Extractor - Language DNA Extraction",
+      "category": "Language Tools",
+      "created_at": "2026-03-18T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://humbled.wangdadi.xyz/",
+      "title": "Humbled - Humble Social Platform",
+      "category": "Social Media",
+      "created_at": "2026-03-17T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stopsaas.wangdadi.xyz/",
+      "title": "StopSaaS - SaaS Subscription Terminator",
+      "category": "Subscription Management",
+      "created_at": "2026-03-17T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://oneclickapi.wangdadi.xyz/",
+      "title": "OneClickAPI - API Testing Tool",
+      "category": "Development Tools",
+      "created_at": "2026-03-16T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stopaicost.wangdadi.xyz/",
+      "title": "StopAICost - AI Cost Control",
+      "category": "AI Tools",
+      "created_at": "2026-03-15T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://smesurvivalai.wangdadi.xyz/",
+      "title": "SMESurvivalAI - SME AI Assistant",
+      "category": "AI Tools",
+      "created_at": "2026-03-14T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://onecommand.wangdadi.xyz/",
+      "title": "OneCommand - Command Line Tools",
+      "category": "Development Tools",
+      "created_at": "2026-03-13T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killsubscription.wangdadi.xyz/",
+      "title": "KillSubscription - Subscription Killer",
+      "category": "Subscription Management",
+      "created_at": "2026-03-13T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://manualslib.wangdadi.xyz/",
+      "title": "ManualsLib - Manual Document Library",
+      "category": "Document Tools",
+      "created_at": "2026-03-12T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://billripper.wangdadi.xyz/",
+      "title": "BillRipper - Bill Analysis",
+      "category": "Finance Tools",
+      "created_at": "2026-03-12T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://deadliner.wangdadi.xyz/",
+      "title": "Deadliner - Deadline Management",
+      "category": "Productivity Tools",
+      "created_at": "2026-03-11T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://zerosub.wangdadi.xyz/",
+      "title": "ZeroSub - Zero Subscription Life",
+      "category": "Subscription Management",
+      "created_at": "2026-03-10T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://mockupnuke.wangdadi.xyz/",
+      "title": "MockupNuke - Design Mockup Generator",
+      "category": "Design Tools",
+      "created_at": "2026-03-08T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://scriptkill.wangdadi.xyz/",
+      "title": "ScriptKill - Script Cleaning Tool",
+      "category": "System Tools",
+      "created_at": "2026-03-08T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://viralhook.wangdadi.xyz/",
+      "title": "ViralHook - Viral Marketing Tool",
+      "category": "Marketing Tools",
+      "created_at": "2026-03-07T08:47:06Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://onepagesaas.wangdadi.xyz/",
+      "title": "OnePageSaaS - Single Page SaaS Generator",
+      "category": "Development Tools",
+      "created_at": "2026-03-07T08:47:06Z",
+      "is_pushed": false
+    }
+  ]
+}
