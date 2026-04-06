@@ -83,7 +83,7 @@ class StaticHTMLGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
+    <meta name="google-site-verification" content="uTT2vLHXrvh44esSpln_EMc1QEFjkN0vjJZ04UgI0Qc" />
     <title>Site Directory Center - Enterprise Service Platform</title>
     <meta name="description" content="Explore our product ecosystem and discover quality services. Professional enterprise service platform with diverse online tools.">
     <meta name="keywords" content="site directory,enterprise services,online tools,platform navigation">
