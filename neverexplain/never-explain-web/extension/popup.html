@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NeverExplain Settings</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #status {
+      margin-top: 16px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+  </style>
+</head>
+<body>
+  <h1>NeverExplain Settings</h1>
+  <div class="form-group">
+    <label for="baseUrl">Web App Base URL:</label>
+    <input type="text" id="baseUrl" placeholder="http://localhost:3000">
+  </div>
+  <button id="saveBtn">Save</button>
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

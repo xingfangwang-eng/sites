@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "BrainBridge",
+  "version": "1.0.0",
+  "description": "解决跨平台 AI 记忆断层",
+  "permissions": [
+    "commands",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "sync-memory": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "同步选中的文本到 BrainBridge"
+    }
+  }
+}

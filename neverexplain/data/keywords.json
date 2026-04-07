@@ -1,0 +1,389 @@
+[
+  {
+    "keyword": "stop chatgpt from adding comments to every code block",
+    "slug": "stop-chatgpt-adding-comments-to-code",
+    "title": "Tired of Deleting Comments? Stop ChatGPT from Commenting Every Code Block",
+    "problem_description": "Users have to manually tell AI 'no comments' in every single new chat session, wasting time on repetitive negative prompting.",
+    "how_to_solve": "Use a /recall-no-comments hook to instantly inject your strict 'no-comment' code style into any chat session."
+  },
+  {
+    "keyword": "how to keep nextjs tailwind context in new claude chat",
+    "slug": "keep-nextjs-tailwind-context-claude",
+    "title": "Don't Retype Your Stack: How to Keep Next.js & Tailwind Context in Claude",
+    "problem_description": "Starting a new session in Claude requires re-pasting the same 'I use App Router, Tailwind, and TypeScript' prompt every time.",
+    "how_to_solve": "Create a /recall-stack-web hook that auto-fills your environment specs with one command."
+  },
+  {
+    "keyword": "chatgpt forgot my project business logic again",
+    "slug": "chatgpt-forgot-project-business-logic",
+    "title": "Fixing 'Memory Amnesia': Why ChatGPT Forgets Your Project Logic and How to Solve It",
+    "problem_description": "The built-in memory feature is often too vague or fails to recall deep business rules in new threads.",
+    "how_to_solve": "Inject the full 2000-word business logic instantly using a /recall-logic-v2 hook via NeverExplain extension."
+  },
+  {
+    "keyword": "fastest way to paste coding standards into ai",
+    "slug": "fastest-way-paste-coding-standards-ai",
+    "title": "Beyond Copy-Paste: The Fastest Way to Sync Coding Standards with AI",
+    "problem_description": "Developers waste 30 seconds every chat session finding and pasting their team's .eslintrc or naming conventions.",
+    "how_to_solve": "NeverExplain's Chrome extension monitors your input for /recall-style and replaces it with your full team standard."
+  },
+  {
+    "keyword": "share llm context between chatgpt and claude",
+    "slug": "share-llm-context-between-platforms",
+    "title": "Cross-Platform AI Context: Syncing Your Project Background Across ChatGPT & Claude",
+    "problem_description": "Users frequently switch between LLMs (ChatGPT for logic, Claude for refactoring) and hate re-explaining the project to both.",
+    "how_to_solve": "Use a unified /recall hook that works identically on chatgpt.com, claude.ai, and deepseek.com."
+  },
+  {
+    "keyword": "custom instructions for multiple projects chatgpt",
+    "slug": "custom-instructions-multiple-projects",
+    "title": "The Solution to ChatGPT's Single-Custom-Instruction Limitation",
+    "problem_description": "ChatGPT only allows one set of global custom instructions, but developers work on 5+ projects with different stacks.",
+    "how_to_solve": "Replace the static custom instructions with dynamic project hooks like /recall-proj1, /recall-proj2."
+  },
+  {
+    "keyword": "stop ai from using outdated library syntax",
+    "slug": "stop-ai-outdated-library-syntax",
+    "title": "Prevent AI Hallucinations: Force LLMs to Use Your Specific Library Versions",
+    "problem_description": "LLMs often use deprecated APIs (e.g., Next.js Pages router instead of App router) unless explicitly told in every chat.",
+    "how_to_solve": "Auto-inject your package.json dependencies and version requirements via a simple hook."
+  },
+  {
+    "keyword": "how to tell claude my naming conventions once",
+    "slug": "tell-claude-naming-conventions-once",
+    "title": "One Click Naming Conventions: How to Never Explain Your Style to Claude Again",
+    "problem_description": "Users are annoyed by AI using camelCase when the project requires snake_case, requiring constant correction.",
+    "how_to_solve": "Set a /recall-naming hook that injects specific naming rules into the first prompt of every session."
+  },
+  {
+    "keyword": "boilerplate prompt for shadcn ui components",
+    "slug": "boilerplate-prompt-shadcn-ui",
+    "title": "Get Perfect Shadcn UI Code: The Ultimate Auto-Fill Context",
+    "problem_description": "Generating Shadcn components requires telling the AI where the components folder is and which icons to use (Lucide vs Radix).",
+    "how_to_solve": "Bind your Shadcn configuration to /recall-shadcn to ensure every UI generation is build-ready."
+  },
+  {
+    "keyword": "automate ai project onboarding for new developers",
+    "slug": "automate-ai-project-onboarding",
+    "title": "AI-Powered Team Onboarding: Syncing Project Context Across the Whole Team",
+    "problem_description": "New team members don't know the exact 'AI prompts' used to maintain consistency in the project.",
+    "how_to_solve": "Share a central /recall-master-context link so every team member's AI follows the same architecture."
+  },
+  {
+    "keyword": "v0 dev repetitive prompting problem",
+    "slug": "v0-dev-repetitive-prompting-fix",
+    "title": "Better V0.dev Results: How to Inject Deep Context into V0 Prompts",
+    "problem_description": "V0.dev is great but often lacks the specific brand guidelines or design system context that is tedious to type.",
+    "how_to_solve": "Use NeverExplain to expand brand-style hooks inside the V0.dev input field."
+  },
+  {
+    "keyword": "chatgpt memory full workarounds for devs",
+    "slug": "chatgpt-memory-full-workarounds",
+    "title": "Is Your ChatGPT Memory Full? Here is a Cleaner Way to Store Project Context",
+    "problem_description": "Users hit the memory limit or find the memory becomes 'polluted' with old project info.",
+    "how_to_solve": "Offload your context to NeverExplain and call it on-demand with hooks, keeping your AI memory clean."
+  },
+  {
+    "keyword": "how to feed long api documentation to ai every time",
+    "slug": "feed-long-api-docs-to-ai",
+    "title": "Stop Pasting API Docs: Auto-Recall Documentation in New Chats",
+    "problem_description": "When working with niche or private APIs, users have to paste the docs repeatedly so the AI doesn't hallucinate.",
+    "how_to_solve": "Store the API spec in NeverExplain and use /recall-api-docs to ground the AI's response."
+  },
+  {
+    "keyword": "avoid ai code bloat by setting context",
+    "slug": "avoid-ai-code-bloat-context",
+    "title": "Kill AI Code Bloat: Automatically Inject 'Minimalist' Coding Principles",
+    "problem_description": "AI tends to write overly verbose code unless told to be 'concise and DRY' in every new session.",
+    "how_to_solve": "Enforce a /recall-dry hook to ensure the AI always produces production-grade, minimalist code."
+  },
+  {
+    "keyword": "efficient way to manage multiple system prompts",
+    "slug": "manage-multiple-system-prompts",
+    "title": "Multiple System Prompts? How to Switch Between Roles with Hooks",
+    "problem_description": "Switching between a 'Senior React Dev' persona and a 'Database Architect' persona is manual and slow.",
+    "how_to_solve": "Toggle roles instantly with /recall-senior-dev or /recall-db-pro hooks."
+  }
+
+  {
+    "keyword": "how to feed database schema to cursor ai every time",
+    "slug": "feed-database-schema-cursor-ai",
+    "title": "Stop Hallucinating Columns: The Fast Way to Feed Database Schemas to AI",
+    "problem_description": "When asking AI to write SQL or Prisma queries, it constantly guesses column names that don't exist unless you paste the schema in every chat.",
+    "how_to_solve": "Store your SQL/Prisma schema in NeverExplain and call it with /recall-schema to ground the AI in your actual data structure."
+  },
+  {
+    "keyword": "tell chatgpt to use tailwind v4 instead of v3",
+    "slug": "force-chatgpt-tailwind-v4",
+    "title": "Exhausted by Deprecated Classes? How to Force ChatGPT to use Tailwind v4",
+    "problem_description": "AI models often default to older version syntax (like Tailwind v3) even when your project is on the latest version, leading to broken styles.",
+    "how_to_solve": "Use a /recall-tw4 hook to inject the latest documentation and class rules into every design-related prompt."
+  },
+  {
+    "keyword": "inject brand voice into claude artifacts",
+    "slug": "inject-brand-voice-claude-artifacts",
+    "title": "Consistent Branding in Claude: How to Automate Brand Voice Injection",
+    "problem_description": "Claude's writing is great but often lacks specific brand 'vibe' or forbidden words, requiring manual editing every time.",
+    "how_to_solve": "Create a /recall-voice hook that contains your brand's style guide and tone of voice for instant application."
+  },
+  {
+    "keyword": "stop ai from using arrow functions in react",
+    "slug": "stop-ai-arrow-functions-react",
+    "title": "Enforcing Code Style: How to Make AI Write Function Declarations Only",
+    "problem_description": "Teams with strict coding styles (e.g., preferring 'function' over 'const' for components) waste time refactoring AI-generated code.",
+    "how_to_solve": "Set a /recall-react-style hook that explicitly forbids arrow functions and other non-compliant patterns."
+  },
+  {
+    "keyword": "manage multiple client personas in chatgpt",
+    "slug": "manage-multiple-client-personas-ai",
+    "title": "Freelancer Hack: Switching Client Contexts in ChatGPT Without Copy-Paste",
+    "problem_description": "Freelancers working for 5 different clients have to constantly remind the AI: 'Client A uses this tone, Client B uses that tech stack'.",
+    "how_to_solve": "Assign each client a hook like /recall-client-a, /recall-client-b to switch context in 1 second."
+  },
+  {
+    "keyword": "tell ai to use biome instead of prettier",
+    "slug": "force-biome-over-prettier-ai",
+    "title": "Stop Getting Prettier Suggestions: Switching AI to Biome.js Context",
+    "problem_description": "AI keeps suggesting Prettier/ESLint configs when the project has moved to Biome, causing configuration conflicts.",
+    "how_to_solve": "Use /recall-biome to explain your linting and formatting rules to the AI once and for all."
+  },
+  {
+    "keyword": "chatgpt custom instructions for separate projects",
+    "slug": "chatgpt-custom-instructions-per-project",
+    "title": "Why ChatGPT Needs Per-Project Custom Instructions (And How to Get Them)",
+    "problem_description": "Users are frustrated that Custom Instructions are global. Changing them for every project is a UX nightmare.",
+    "how_to_solve": "NeverExplain acts as a 'Switcher' for custom instructions via simple slash commands in the chat bar."
+  },
+  {
+    "keyword": "keep api documentation updated in ai context",
+    "slug": "keep-api-docs-updated-ai",
+    "title": "Outdated AI Knowledge? How to Inject Your Private API Docs Instantly",
+    "problem_description": "LLMs don't know your company's internal API changes made last week. Pasting the changelog every time is tedious.",
+    "how_to_solve": "Keep a live-updated context in NeverExplain called /recall-api and trigger it whenever you build new features."
+  },
+  {
+    "keyword": "avoid gpt-4o repetitive apologies and filler text",
+    "slug": "avoid-gpt-4o-filler-text",
+    "title": "No More 'As an AI Language Model': Cutting the Fluff with Prompt Hooks",
+    "problem_description": "Users hate the repetitive 'I apologize', 'Sure, I can help with that' filler text that consumes output tokens and time.",
+    "how_to_solve": "A /recall-no-fluff hook adds instructions to 'be concise, skip the intro, and get straight to the code' automatically."
+  },
+  {
+    "keyword": "consistent seo rules for ai blog generation",
+    "slug": "consistent-seo-rules-ai-blogs",
+    "title": "Automating SEO Compliance: How to Feed Your Checklist to AI",
+    "problem_description": "Content teams have to paste the same 15-point SEO checklist (slug rules, H1-H3 structure, keyword density) for every new article.",
+    "how_to_solve": "Bind your SEO checklist to /recall-seo-rules to ensure every AI draft is pre-optimized."
+  },
+  {
+    "keyword": "explain complex codebase to new ai session",
+    "slug": "explain-complex-codebase-ai",
+    "title": "Contextual Deep-Dive: How to 'Onboard' AI to Your Legacy Codebase",
+    "problem_description": "Starting a refactor on legacy code requires explaining the architecture, quirks, and technical debt every single time.",
+    "how_to_solve": "Store a 'Technical Debt Map' in NeverExplain and use /recall-legacy to warn the AI about fragile parts of the code."
+  },
+  {
+    "keyword": "how to stop ai from using lucide-react in icons",
+    "slug": "stop-ai-lucide-react-icons",
+    "title": "Using FontAwesome or Custom Icons? Force AI to Stop Defaulting to Lucide",
+    "problem_description": "AI models (especially v0 and ChatGPT) love Lucide-react, but many projects use FontAwesome or HeroIcons.",
+    "how_to_solve": "Create a /recall-icons hook to specify exactly which icon library and import path to use."
+  },
+  {
+    "keyword": "ai prompt for atomic design system",
+    "slug": "ai-prompt-atomic-design-system",
+    "title": "Atomic Design with AI: Keeping Component Hierarchy Consistent",
+    "problem_description": "AI often generates 'God components' instead of following Atomic Design principles (atoms, molecules, organisms).",
+    "how_to_solve": "Use /recall-atomic to remind the AI to break down UI into your specific project structure."
+  },
+  {
+    "keyword": "sync prompts between web and mobile chatgpt",
+    "slug": "sync-prompts-web-mobile-chatgpt",
+    "title": "Cross-Device Prompt Sync: Access Your Project Context Everywhere",
+    "problem_description": "Users find it hard to use complex project prompts when switching from Desktop to Mobile Chat.",
+    "how_to_solve": "While the extension is desktop-first, NeverExplain's web dashboard allows quick copying of hooks for mobile use."
+  },
+  {
+    "keyword": "tell deepseek my code style for rust",
+    "slug": "deepseek-rust-code-style",
+    "title": "Optimizing DeepSeek for Rust: Auto-Injecting Safety and Style Rules",
+    "problem_description": "DeepSeek is powerful for coding but needs specific context for crate versions and safety preferences in Rust.",
+    "how_to_solve": "Use /recall-rust-env to set up the perfect coding environment in DeepSeek instantly."
+  },
+  {
+    "keyword": "prevent ai from suggesting client-side logic in nextjs server components",
+    "slug": "prevent-client-side-logic-server-components",
+    "title": "Server Component Mastery: Stop AI from Putting 'use client' Everywhere",
+    "problem_description": "AI struggles with the boundary between Server and Client components in Next.js, often adding 'use client' unnecessarily.",
+    "how_to_solve": "A /recall-rsc hook provides the rules for when to use server vs client components in your specific architecture."
+  },
+  {
+    "keyword": "how to maintain user personas in ai copywriting",
+    "slug": "maintain-user-personas-ai",
+    "title": "Multi-Persona Marketing: Switching Target Audiences with AI Hooks",
+    "problem_description": "Copywriters hate re-pasting 'Persona A: 30yo Tech Mom' and 'Persona B: 50yo CFO' descriptions for every ad variant.",
+    "how_to_solve": "Switch audiences instantly with /recall-mom or /recall-cfo to tailor the AI's output."
+  },
+  {
+    "keyword": "automate jira ticket to pr description context",
+    "slug": "jira-to-pr-description-ai",
+    "title": "Instant PR Descriptions: Injecting Jira Context into AI Prompts",
+    "problem_description": "Developers waste time explaining the 'Why' of a PR to the AI when that info is already in a Jira ticket or project brief.",
+    "how_to_solve": "Quickly paste Jira details into NeverExplain and use /recall-ticket to generate the perfect PR summary."
+  },
+  {
+    "keyword": "best way to store recurring long prompts for ai",
+    "slug": "store-recurring-long-prompts-ai",
+    "title": "Stop Saving Prompts in Notion: A Better Way to Trigger Long AI Context",
+    "problem_description": "The 'Notion -> Copy -> Tab Switch -> Paste' workflow is the #1 productivity killer for heavy AI users.",
+    "how_to_solve": "NeverExplain eliminates the middleman. Type the hook directly in the chat, and the extension does the work."
+  },
+  {
+    "keyword": "chatgpt memory pollution fix",
+    "slug": "chatgpt-memory-pollution-fix",
+    "title": "Is Your AI Memory Polluted? Use On-Demand Context Instead",
+    "problem_description": "ChatGPT's permanent memory gets cluttered with conflicting info from different projects, leading to 'confused' AI.",
+    "how_to_solve": "Turn off global memory and use /recall hooks for 'clean' and 'specific' project context on-demand."
+  }
+
+  {
+    "keyword": "how to feed database schema to cursor ai every time",
+    "slug": "feed-database-schema-cursor-ai",
+    "title": "Stop Hallucinating Columns: The Fast Way to Feed Database Schemas to AI",
+    "problem_description": "When asking AI to write SQL or Prisma queries, it constantly guesses column names that don't exist unless you paste the schema in every chat.",
+    "how_to_solve": "Store your SQL/Prisma schema in NeverExplain and call it with /recall-schema to ground the AI in your actual data structure."
+  },
+  {
+    "keyword": "tell chatgpt to use tailwind v4 instead of v3",
+    "slug": "force-chatgpt-tailwind-v4",
+    "title": "Exhausted by Deprecated Classes? How to Force ChatGPT to use Tailwind v4",
+    "problem_description": "AI models often default to older version syntax (like Tailwind v3) even when your project is on the latest version, leading to broken styles.",
+    "how_to_solve": "Use a /recall-tw4 hook to inject the latest documentation and class rules into every design-related prompt."
+  },
+  {
+    "keyword": "inject brand voice into claude artifacts",
+    "slug": "inject-brand-voice-claude-artifacts",
+    "title": "Consistent Branding in Claude: How to Automate Brand Voice Injection",
+    "problem_description": "Claude's writing is great but often lacks specific brand 'vibe' or forbidden words, requiring manual editing every time.",
+    "how_to_solve": "Create a /recall-voice hook that contains your brand's style guide and tone of voice for instant application."
+  },
+  {
+    "keyword": "stop ai from using arrow functions in react",
+    "slug": "stop-ai-arrow-functions-react",
+    "title": "Enforcing Code Style: How to Make AI Write Function Declarations Only",
+    "problem_description": "Teams with strict coding styles (e.g., preferring 'function' over 'const' for components) waste time refactoring AI-generated code.",
+    "how_to_solve": "Set a /recall-react-style hook that explicitly forbids arrow functions and other non-compliant patterns."
+  },
+  {
+    "keyword": "manage multiple client personas in chatgpt",
+    "slug": "manage-multiple-client-personas-ai",
+    "title": "Freelancer Hack: Switching Client Contexts in ChatGPT Without Copy-Paste",
+    "problem_description": "Freelancers working for 5 different clients have to constantly remind the AI: 'Client A uses this tone, Client B uses that tech stack'.",
+    "how_to_solve": "Assign each client a hook like /recall-client-a, /recall-client-b to switch context in 1 second."
+  },
+  {
+    "keyword": "tell ai to use biome instead of prettier",
+    "slug": "force-biome-over-prettier-ai",
+    "title": "Stop Getting Prettier Suggestions: Switching AI to Biome.js Context",
+    "problem_description": "AI keeps suggesting Prettier/ESLint configs when the project has moved to Biome, causing configuration conflicts.",
+    "how_to_solve": "Use /recall-biome to explain your linting and formatting rules to the AI once and for all."
+  },
+  {
+    "keyword": "chatgpt custom instructions for separate projects",
+    "slug": "chatgpt-custom-instructions-per-project",
+    "title": "Why ChatGPT Needs Per-Project Custom Instructions (And How to Get Them)",
+    "problem_description": "Users are frustrated that Custom Instructions are global. Changing them for every project is a UX nightmare.",
+    "how_to_solve": "NeverExplain acts as a 'Switcher' for custom instructions via simple slash commands in the chat bar."
+  },
+  {
+    "keyword": "keep api documentation updated in ai context",
+    "slug": "keep-api-docs-updated-ai",
+    "title": "Outdated AI Knowledge? How to Inject Your Private API Docs Instantly",
+    "problem_description": "LLMs don't know your company's internal API changes made last week. Pasting the changelog every time is tedious.",
+    "how_to_solve": "Keep a live-updated context in NeverExplain called /recall-api and trigger it whenever you build new features."
+  },
+  {
+    "keyword": "avoid gpt-4o repetitive apologies and filler text",
+    "slug": "avoid-gpt-4o-filler-text",
+    "title": "No More 'As an AI Language Model': Cutting the Fluff with Prompt Hooks",
+    "problem_description": "Users hate the repetitive 'I apologize', 'Sure, I can help with that' filler text that consumes output tokens and time.",
+    "how_to_solve": "A /recall-no-fluff hook adds instructions to 'be concise, skip the intro, and get straight to the code' automatically."
+  },
+  {
+    "keyword": "consistent seo rules for ai blog generation",
+    "slug": "consistent-seo-rules-ai-blogs",
+    "title": "Automating SEO Compliance: How to Feed Your Checklist to AI",
+    "problem_description": "Content teams have to paste the same 15-point SEO checklist (slug rules, H1-H3 structure, keyword density) for every new article.",
+    "how_to_solve": "Bind your SEO checklist to /recall-seo-rules to ensure every AI draft is pre-optimized."
+  },
+  {
+    "keyword": "explain complex codebase to new ai session",
+    "slug": "explain-complex-codebase-ai",
+    "title": "Contextual Deep-Dive: How to 'Onboard' AI to Your Legacy Codebase",
+    "problem_description": "Starting a refactor on legacy code requires explaining the architecture, quirks, and technical debt every single time.",
+    "how_to_solve": "Store a 'Technical Debt Map' in NeverExplain and use /recall-legacy to warn the AI about fragile parts of the code."
+  },
+  {
+    "keyword": "how to stop ai from using lucide-react in icons",
+    "slug": "stop-ai-lucide-react-icons",
+    "title": "Using FontAwesome or Custom Icons? Force AI to Stop Defaulting to Lucide",
+    "problem_description": "AI models (especially v0 and ChatGPT) love Lucide-react, but many projects use FontAwesome or HeroIcons.",
+    "how_to_solve": "Create a /recall-icons hook to specify exactly which icon library and import path to use."
+  },
+  {
+    "keyword": "ai prompt for atomic design system",
+    "slug": "ai-prompt-atomic-design-system",
+    "title": "Atomic Design with AI: Keeping Component Hierarchy Consistent",
+    "problem_description": "AI often generates 'God components' instead of following Atomic Design principles (atoms, molecules, organisms).",
+    "how_to_solve": "Use /recall-atomic to remind the AI to break down UI into your specific project structure."
+  },
+  {
+    "keyword": "sync prompts between web and mobile chatgpt",
+    "slug": "sync-prompts-web-mobile-chatgpt",
+    "title": "Cross-Device Prompt Sync: Access Your Project Context Everywhere",
+    "problem_description": "Users find it hard to use complex project prompts when switching from Desktop to Mobile Chat.",
+    "how_to_solve": "While the extension is desktop-first, NeverExplain's web dashboard allows quick copying of hooks for mobile use."
+  },
+  {
+    "keyword": "tell deepseek my code style for rust",
+    "slug": "deepseek-rust-code-style",
+    "title": "Optimizing DeepSeek for Rust: Auto-Injecting Safety and Style Rules",
+    "problem_description": "DeepSeek is powerful for coding but needs specific context for crate versions and safety preferences in Rust.",
+    "how_to_solve": "Use /recall-rust-env to set up the perfect coding environment in DeepSeek instantly."
+  },
+  {
+    "keyword": "prevent ai from suggesting client-side logic in nextjs server components",
+    "slug": "prevent-client-side-logic-server-components",
+    "title": "Server Component Mastery: Stop AI from Putting 'use client' Everywhere",
+    "problem_description": "AI struggles with the boundary between Server and Client components in Next.js, often adding 'use client' unnecessarily.",
+    "how_to_solve": "A /recall-rsc hook provides the rules for when to use server vs client components in your specific architecture."
+  },
+  {
+    "keyword": "how to maintain user personas in ai copywriting",
+    "slug": "maintain-user-personas-ai",
+    "title": "Multi-Persona Marketing: Switching Target Audiences with AI Hooks",
+    "problem_description": "Copywriters hate re-pasting 'Persona A: 30yo Tech Mom' and 'Persona B: 50yo CFO' descriptions for every ad variant.",
+    "how_to_solve": "Switch audiences instantly with /recall-mom or /recall-cfo to tailor the AI's output."
+  },
+  {
+    "keyword": "automate jira ticket to pr description context",
+    "slug": "jira-to-pr-description-ai",
+    "title": "Instant PR Descriptions: Injecting Jira Context into AI Prompts",
+    "problem_description": "Developers waste time explaining the 'Why' of a PR to the AI when that info is already in a Jira ticket or project brief.",
+    "how_to_solve": "Quickly paste Jira details into NeverExplain and use /recall-ticket to generate the perfect PR summary."
+  },
+  {
+    "keyword": "best way to store recurring long prompts for ai",
+    "slug": "store-recurring-long-prompts-ai",
+    "title": "Stop Saving Prompts in Notion: A Better Way to Trigger Long AI Context",
+    "problem_description": "The 'Notion -> Copy -> Tab Switch -> Paste' workflow is the #1 productivity killer for heavy AI users.",
+    "how_to_solve": "NeverExplain eliminates the middleman. Type the hook directly in the chat, and the extension does the work."
+  },
+  {
+    "keyword": "chatgpt memory pollution fix",
+    "slug": "chatgpt-memory-pollution-fix",
+    "title": "Is Your AI Memory Polluted? Use On-Demand Context Instead",
+    "problem_description": "ChatGPT's permanent memory gets cluttered with conflicting info from different projects, leading to 'confused' AI.",
+    "how_to_solve": "Turn off global memory and use /recall hooks for 'clean' and 'specific' project context on-demand."
+  }
+]

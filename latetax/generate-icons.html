@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LateTax Icon Generator</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+      background: #f8fafc;
+    }
+    h1 {
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+    .icon-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .icon-item {
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: white;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+    .instructions {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+    }
+    .instructions h3 {
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    .instructions p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>LateTax Icon Generator</h1>
+  
+  <div class="icon-container" id="icons"></div>
+  
+  <button onclick="downloadAll()">Download All Icons</button>
+  
+  <div class="instructions">
+    <h3>Instructions</h3>
+    <p>
+      1. Click "Download All Icons" to download all icon sizes.<br>
+      2. Save the downloaded files to the <code>icons/</code> folder.<br>
+      3. The icons will be named: icon16.png, icon32.png, icon48.png, icon128.png
+    </p>
+  </div>
+
+  <script>
+    const sizes = [16, 32, 48, 128];
+    
+    function drawIcon(ctx, size) {
+      const scale = size / 128;
+      
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#6366f1');
+      gradient.addColorStop(1, '#8b5cf6');
+      
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2 - 4 * scale, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, (size / 2 - 4 * scale) * 0.83, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+      ctx.lineWidth = 4 * scale;
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.moveTo(size / 2, size / 2);
+      ctx.lineTo(size / 2, size / 2 - 29 * scale);
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 6 * scale;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.moveTo(size / 2, size / 2);
+      ctx.lineTo(size / 2 + 21 * scale, size / 2 + 11 * scale);
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 6 * scale;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, 6 * scale, 0, Math.PI * 2);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+    }
+    
+    function createIcons() {
+      const container = document.getElementById('icons');
+      
+      sizes.forEach(size => {
+        const div = document.createElement('div');
+        div.className = 'icon-item';
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        canvas.id = `icon${size}`;
+        
+        const ctx = canvas.getContext('2d');
+        drawIcon(ctx, size);
+        
+        const label = document.createElement('p');
+        label.textContent = `${size}x${size}`;
+        label.style.color = '#64748b';
+        label.style.marginTop = '8px';
+        
+        div.appendChild(canvas);
+        div.appendChild(label);
+        container.appendChild(div);
+      });
+    }
+    
+    function downloadAll() {
+      sizes.forEach(size => {
+        const canvas = document.getElementById(`icon${size}`);
+        const link = document.createElement('a');
+        link.download = `icon${size}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+    
+    createIcons();
+  </script>
+</body>
+</html>

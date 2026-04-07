@@ -1,0 +1,115 @@
+[
+  {
+    "slug": "convert-curl-to-axios",
+    "title": "How to Convert cURL to Axios: A Step-by-Step Guide",
+    "problem_description": "Developers often need to convert cURL commands to Axios requests when working with APIs in JavaScript applications. This process can be time-consuming and error-prone, especially for complex requests with multiple parameters and headers.",
+    "how_to_solve": "Our tool automatically converts any cURL command to a properly formatted Axios request. Simply paste your cURL command, and we'll generate the Axios code with all headers, parameters, and body correctly formatted. This saves developers hours of manual conversion and reduces the risk of errors."
+  },
+  {
+    "slug": "convert-json-to-csv",
+    "title": "How to Convert JSON to CSV: The Complete Guide",
+    "problem_description": "Converting JSON data to CSV format is a common task for data analysts and developers. Manual conversion is tedious and error-prone, especially for large datasets.",
+    "how_to_solve": "Our tool provides a simple way to convert JSON data to CSV format. Just paste your JSON, and we'll generate a properly formatted CSV file. You can customize the output format and choose which fields to include."
+  },
+  {
+    "slug": "convert-csv-to-json",
+    "title": "How to Convert CSV to JSON: Step-by-Step Tutorial",
+    "problem_description": "Converting CSV files to JSON format is essential for many web applications that work with structured data. Doing this manually is time-consuming, especially for large files.",
+    "how_to_solve": "Our tool makes it easy to convert CSV files to JSON format. Simply upload your CSV file or paste the CSV data, and we'll generate the corresponding JSON structure. You can choose between array of objects or nested JSON formats."
+  },
+  {
+    "slug": "generate-random-password",
+    "title": "How to Generate Strong Random Passwords",
+    "problem_description": "Creating secure passwords is crucial for protecting online accounts, but coming up with strong, unique passwords for each service can be challenging.",
+    "how_to_solve": "Our password generator creates strong, random passwords that meet security requirements. You can customize the length, include special characters, numbers, and uppercase letters to create passwords that are virtually impossible to crack."
+  },
+  {
+    "slug": "minify-css",
+    "title": "How to Minify CSS for Better Performance",
+    "problem_description": "Large CSS files can slow down website loading times, affecting user experience and search engine rankings. Minifying CSS removes unnecessary characters and whitespace to reduce file size.",
+    "how_to_solve": "Our CSS minifier tool reduces the size of your CSS files by removing whitespace, comments, and redundant code. This can significantly improve your website's loading speed and performance."
+  },
+  {
+    "slug": "minify-javascript",
+    "title": "How to Minify JavaScript for Faster Loading",
+    "problem_description": "Unminified JavaScript files can be large and slow to load, impacting website performance and user experience.",
+    "how_to_solve": "Our JavaScript minifier compresses your code by removing whitespace, comments, and unnecessary characters. This reduces file size and improves loading times, making your website faster and more responsive."
+  },
+  {
+    "slug": "validate-email-address",
+    "title": "How to Validate Email Addresses Effectively",
+    "problem_description": "Invalid email addresses can cause delivery failures and bounce rates, affecting email marketing campaigns and user communications.",
+    "how_to_solve": "Our email validation tool checks email addresses for format correctness, domain existence, and mailbox availability. This ensures that your emails reach their intended recipients and reduces bounce rates."
+  },
+  {
+    "slug": "calculate-md5-hash",
+    "title": "How to Calculate MD5 Hash for Files and Text",
+    "problem_description": "MD5 hashes are used to verify data integrity and ensure that files have not been tampered with. Calculating MD5 hashes manually can be complex, especially for large files.",
+    "how_to_solve": "Our MD5 hash calculator generates MD5 hashes for both text strings and files. Simply input your text or upload a file, and we'll compute the MD5 hash instantly. This helps you verify data integrity and detect tampering."
+  },
+  {
+    "slug": "convert-html-to-markdown",
+    "title": "How to Convert HTML to Markdown",
+    "problem_description": "Converting HTML content to Markdown format is useful for content management systems, documentation, and static site generators. Manual conversion is time-consuming and error-prone.",
+    "how_to_solve": "Our HTML to Markdown converter transforms HTML content into clean, well-formatted Markdown. It handles headings, lists, links, images, and other HTML elements, preserving the structure while converting to Markdown syntax."
+  },
+  {
+    "slug": "convert-markdown-to-html",
+    "title": "How to Convert Markdown to HTML",
+    "problem_description": "Markdown is a lightweight markup language that's easy to write, but it needs to be converted to HTML for web display. Manual conversion is not feasible for large documents.",
+    "how_to_solve": "Our Markdown to HTML converter transforms Markdown text into properly formatted HTML. It supports all common Markdown syntax, including headings, lists, links, images, and code blocks, ensuring that your content displays correctly on the web."
+  },
+  {
+    "slug": "compress-image-online",
+    "title": "How to Compress Images Online Without Losing Quality",
+    "problem_description": "Large image files can slow down website loading times and consume more bandwidth. Compressing images is essential for optimizing web performance, but many tools reduce image quality.",
+    "how_to_solve": "Our image compression tool reduces image file sizes while maintaining visual quality. It uses advanced algorithms to compress JPEG, PNG, and WebP images, making your website load faster without sacrificing image clarity."
+  },
+  {
+    "slug": "resize-image-online",
+    "title": "How to Resize Images Online Easily",
+    "problem_description": "Resizing images is a common task for web design, social media, and other digital content. Manual resizing can be time-consuming, especially for multiple images.",
+    "how_to_solve": "Our image resizer allows you to quickly resize images to specific dimensions. You can upload multiple images at once, choose from preset sizes, or enter custom dimensions. The tool maintains image quality while resizing."
+  },
+  {
+    "slug": "generate-qr-code",
+    "title": "How to Generate QR Codes for Websites and More",
+    "problem_description": "QR codes are used to quickly share links, contact information, and other data. Creating QR codes manually can be complex and time-consuming.",
+    "how_to_solve": "Our QR code generator creates custom QR codes for URLs, text, contact information, and more. You can customize the size, color, and error correction level to create QR codes that fit your needs."
+  },
+  {
+    "slug": "decode-qr-code",
+    "title": "How to Decode QR Codes Online",
+    "problem_description": "QR codes contain valuable information, but you need a way to decode them to access the data. Many mobile apps can decode QR codes, but online tools are more convenient for desktop users.",
+    "how_to_solve": "Our QR code decoder allows you to upload an image or use your webcam to scan QR codes. It quickly extracts and displays the information encoded in the QR code, including URLs, text, and contact information."
+  },
+  {
+    "slug": "convert-base64-to-image",
+    "title": "How to Convert Base64 to Image",
+    "problem_description": "Base64 encoding is used to represent binary data as ASCII text, but you often need to convert it back to an image for viewing or editing.",
+    "how_to_solve": "Our Base64 to image converter transforms Base64-encoded data back into image files. Simply paste the Base64 string, and we'll generate the corresponding image in your desired format (JPEG, PNG, etc.)."
+  },
+  {
+    "slug": "convert-image-to-base64",
+    "title": "How to Convert Image to Base64",
+    "problem_description": "Base64 encoding is useful for embedding images directly into HTML, CSS, or JSON files, but converting images to Base64 manually can be complex.",
+    "how_to_solve": "Our image to Base64 converter encodes image files as Base64 strings. Simply upload an image, and we'll generate the Base64 code that you can embed directly into your code or documents."
+  },
+  {
+    "slug": "format-json-online",
+    "title": "How to Format JSON Online for Better Readability",
+    "problem_description": "Unformatted JSON can be difficult to read and debug. Properly formatting JSON makes it easier to understand and work with.",
+    "how_to_solve": "Our JSON formatter beautifies JSON code by adding proper indentation and spacing. This makes it easier to read, debug, and edit JSON data, improving developer productivity."
+  },
+  {
+    "slug": "validate-json-online",
+    "title": "How to Validate JSON Online",
+    "problem_description": "Invalid JSON can cause errors in applications and APIs. Validating JSON ensures that it follows the correct syntax and structure.",
+    "how_to_solve": "Our JSON validator checks JSON code for syntax errors and structural issues. It provides clear error messages and highlights problematic areas, helping you fix issues quickly and efficiently."
+  },
+  {
+    "slug": "generate-uuid",
+    "title": "How to Generate UUIDs (Universally Unique Identifiers)",
+    "problem_description": "UUIDs are used to uniquely identify objects in distributed systems, but generating them manually is not feasible."
+  }
+]
