@@ -36,7 +36,7 @@ export class AntiMonitoring {
         const cellElement = rowElement.querySelector(cellSelector);
         if (cellElement) {
           // 模拟点击单元格
-          cellElement.click();
+          (cellElement as HTMLElement).click();
           
           // 模拟输入数据
           this.simulateInput(cellElement);

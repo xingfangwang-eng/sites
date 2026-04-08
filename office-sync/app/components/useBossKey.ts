@@ -4,13 +4,14 @@ interface UseBossKeyOptions {
   onBossKeyActivated: () => void;
 }
 
+// 动态标题列表
+const titles = ['Analysis.xlsx', 'Weekly_Sync.pptx', 'Main.ts'];
+
 export function useBossKey({ onBossKeyActivated }: UseBossKeyOptions) {
   const [isBossMode, setIsBossMode] = useState(false);
   const [escPressCount, setEscPressCount] = useState(0);
   const [lastEscPressTime, setLastEscPressTime] = useState(0);
 
-  // 动态标题列表
-  const titles = ['Analysis.xlsx', 'Weekly_Sync.pptx', 'Main.ts'];
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
 
   // 处理键盘事件
@@ -42,8 +43,8 @@ export function useBossKey({ onBossKeyActivated }: UseBossKeyOptions) {
   // 动态修改 document.title
   useEffect(() => {
     const updateTitle = () => {
-      document.title = titles[currentTitleIndex];
-      setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+      const randomIndex = Math.floor(Math.random() * titles.length);
+      document.title = titles[randomIndex];
     };
 
     // 初始设置标题
@@ -53,7 +54,7 @@ export function useBossKey({ onBossKeyActivated }: UseBossKeyOptions) {
     const titleInterval = setInterval(updateTitle, 30000);
 
     return () => clearInterval(titleInterval);
-  }, [currentTitleIndex]);
+  }, []);
 
   // 监听键盘事件
   useEffect(() => {

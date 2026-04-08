@@ -1,9 +1,11 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import GameContainer from './GameContainer';
 import antiMonitoring from './AntiMonitoring';
 import keepAliveWorker from './KeepAliveWorker';
 import useBossKey from './useBossKey';
 import FinancialReport from './FinancialReport';
+import EmailManager from './EmailManager';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -64,7 +66,7 @@ export default function Layout({ children }: LayoutProps) {
           <h1 className="text-lg font-semibold">Financial Tracker</h1>
         </div>
         <div className="flex border-b border-gray-200">
-          {['File', 'Home', 'Insert', 'Data', 'Review', 'View'].map((tab) => (
+          {['File', 'Home', 'Insert', 'Data', 'Review', 'View', '邮件'].map((tab) => (
             <button
               key={tab}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
@@ -130,63 +132,10 @@ export default function Layout({ children }: LayoutProps) {
         <main className="flex-1 overflow-auto relative" onDoubleClick={handleDoubleClick}>
           {isBossMode ? (
             <FinancialReport />
+          ) : activeTab === '邮件' ? (
+            <EmailManager />
           ) : (
-            <>
-              {children}
-              <div className="p-4">
-                <div className="bg-white border border-gray-200 rounded shadow-sm">
-                  <div className="flex items-center border-b border-gray-200">
-                    <div className="px-4 py-2 font-medium">Sheet1</div>
-                    <div className="px-2 py-2 hover:bg-gray-100 rounded">+</div>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="bg-gray-50 border-b border-gray-200">
-                          <th className="w-12 h-8 border border-gray-200 text-center text-xs font-medium text-gray-500">
-                            #
-                          </th>
-                          {Array.from({ length: 10 }, (_, i) => (
-                            <th key={i} className="w-32 h-8 border border-gray-200 text-center text-xs font-medium text-gray-500">
-                              {String.fromCharCode(65 + i)}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Array.from({ length: 20 }, (_, rowIndex) => (
-                          <tr key={rowIndex} className="hover:bg-gray-50">
-                            <td className="w-12 h-8 border border-gray-200 text-center text-xs font-medium text-gray-500">
-                              {rowIndex + 1}
-                            </td>
-                            {Array.from({ length: 10 }, (_, colIndex) => {
-                              const isCorner = rowIndex === 19 && colIndex === 9;
-                              return (
-                                <td
-                                  key={colIndex}
-                                  className={`w-32 h-8 border border-gray-200 px-2 text-sm ${
-                                    isCorner ? 'cell-corner bg-gray-100' : ''
-                                  }`}
-                                >
-                                  {rowIndex === 0 && colIndex === 0 ? 'Date' :
-                                   rowIndex === 0 && colIndex === 1 ? 'Description' :
-                                   rowIndex === 0 && colIndex === 2 ? 'Category' :
-                                   rowIndex === 0 && colIndex === 3 ? 'Amount' :
-                                   rowIndex > 0 && colIndex === 0 ? `2026-04-${String(rowIndex).padStart(2, '0')}` :
-                                   rowIndex > 0 && colIndex === 1 ? `Transaction ${rowIndex}` :
-                                   rowIndex > 0 && colIndex === 2 ? ['Food', 'Transport', 'Entertainment', 'Shopping', 'Utilities'][Math.floor(Math.random() * 5)] :
-                                   rowIndex > 0 && colIndex === 3 ? `$${(Math.random() * 1000).toFixed(2)}` : ''}
-                                </td>
-                              );
-                            })}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </>
+            children
           )}
         </main>
       </div>
