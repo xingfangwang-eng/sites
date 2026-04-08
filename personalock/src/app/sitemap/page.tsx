@@ -2,7 +2,7 @@ import Link from 'next/link';
 import keywordsData from '../../../data/keywords.json';
 
 export default function SitemapPage() {
-  const baseUrl = 'https://personalock.wangdadi.xyz';
+  const baseUrl = 'https://personalock.vercel.app';
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -39,13 +39,13 @@ export default function SitemapPage() {
             </li>
             <li>
               <Link 
-                href="/solutions" 
+                href="/solutions/" 
                 className="text-blue-600 hover:text-blue-800 hover:underline"
               >
                 Solutions Library
               </Link>
               <span className="text-slate-400 ml-2 text-sm">
-                {baseUrl}/solutions
+                {baseUrl}/solutions/
               </span>
             </li>
           </ul>
@@ -64,18 +64,34 @@ export default function SitemapPage() {
                 </span>
                 <div className="flex-1">
                   <Link 
-                    href={`/solutions/${keyword.slug}`} 
+                    href={`/${keyword.slug}/`} 
                     className="text-blue-600 hover:text-blue-800 hover:underline text-sm"
                   >
                     {keyword.title}
                   </Link>
                   <div className="text-slate-400 text-xs">
-                    {baseUrl}/solutions/{keyword.slug}
+                    {baseUrl}/{keyword.slug}/
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </section>
+
+        {/* XML Sitemap Link */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold text-slate-800 mb-4">
+            XML Sitemap
+          </h2>
+          <p className="text-slate-600 mb-4">
+            Use this XML sitemap for search engine submission:
+          </p>
+          <a 
+            href="/sitemap.xml" 
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block"
+          >
+            Download XML Sitemap
+          </a>
         </section>
 
         {/* Footer Info */}
