@@ -244,6 +244,41 @@
       "category": "Development Tools",
       "created_at": "2026-04-06T12:00:00Z",
       "is_pushed": false
+    },
+    {
+      "subdomain": "https://office-sync.wangdadi.xyz/",
+      "title": "Office Sync - Financial Tracker",
+      "category": "Productivity Tools",
+      "created_at": "2026-04-08T10:00:00Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://brainbridge.wangdadi.xyz/",
+      "title": "BrainBridge - Cross-Platform AI Memory",
+      "category": "AI Tools",
+      "created_at": "2026-04-08T10:01:00Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://personalock.wangdadi.xyz/",
+      "title": "PersonaLock - Lock Your Creative Soul",
+      "category": "AI Tools",
+      "created_at": "2026-04-08T10:02:00Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://neverexplain.wangdadi.xyz/",
+      "title": "Never Explain - AI Workflow Optimization",
+      "category": "AI Tools",
+      "created_at": "2026-04-08T10:03:00Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://capsule-factory-saas.wangdadi.xyz",
+      "title": "Capsule Factory - Pokémon Damage Calculator",
+      "category": "Gaming Tools",
+      "created_at": "2026-04-08T10:04:00Z",
+      "is_pushed": false
     }
   ]
 }
