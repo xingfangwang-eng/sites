@@ -34,7 +34,7 @@ const placeholders = [
 
 // 分类逻辑
 function categorizeSolutions(solutions: any[]) {
-  const categories = {
+  const categories: Record<string, any[]> = {
     'Gaming in Office': [],
     'Anti-Monitoring': [],
     'Status Management': [],
@@ -77,8 +77,8 @@ function getTrendingSolutions(solutions: any[], count: number = 5) {
   const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
   
   const shuffled = [...solutions].sort((a, b) => {
-    const hashA = a.slug.split('').reduce((acc, char) => acc + char.charCodeAt(0), seed);
-    const hashB = b.slug.split('').reduce((acc, char) => acc + char.charCodeAt(0), seed);
+    const hashA = a.slug.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), seed);
+    const hashB = b.slug.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), seed);
     return hashA - hashB;
   });
   

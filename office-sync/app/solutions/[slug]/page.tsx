@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { use } from 'react';
 import keywords from '@/data/keywords.json';
 import { PageClient } from './PageClient';
 
@@ -11,6 +10,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  // 解包 params Promise
   const { slug } = await params;
   const keyword = keywords.find((item) => item.slug === slug);
   
@@ -97,8 +97,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  // 使用 use() 来解包 params
-  const resolvedParams = use(params);
-  return <PageClient slug={resolvedParams.slug} />;
+export default async function Page({ params }: { params: { slug: string } }) {
+  // 解包 params Promise
+  const { slug } = await params;
+  return <PageClient slug={slug} />;
 }

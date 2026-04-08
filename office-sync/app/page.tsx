@@ -89,9 +89,12 @@ export default function Home() {
         {/* Footer */}
         <footer className="bg-slate-900 text-white py-8">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center space-x-6">
               <Link href="/sitemap" className="text-slate-400 hover:text-white transition-colors">
-                Sitemap
+                HTML Sitemap
+              </Link>
+              <Link href="/sitemap.xml" className="text-slate-400 hover:text-white transition-colors">
+                XML Sitemap
               </Link>
             </div>
             <p className="text-slate-400">

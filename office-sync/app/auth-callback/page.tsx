@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function AuthCallback() {
+function AuthCallbackContent() {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
 
@@ -36,5 +36,13 @@ export default function AuthCallback() {
         <p className="text-gray-600">请稍候，正在处理您的授权请求...</p>
       </div>
     </div>
+  );
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={<div className="flex flex-col items-center justify-center h-screen bg-white"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div></div>}>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }
