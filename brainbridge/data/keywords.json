@@ -1,0 +1,1611 @@
+[
+  {
+    "keyword": "copy code from claude to cursor without markdown mess",
+    "slug": "fix-claude-to-cursor-markdown-formatting",
+    "title": "Stop Fixing Backticks: Copy Claude Logic to Cursor Cleanly",
+    "problem_description": "Users are annoyed that copying code blocks from Claude often includes unnecessary markdown symbols or nested formatting that breaks Cursor's autocomplete.",
+    "how_to_solve": "BrainBridge automatically strips AI-specific markdown rendering, providing a 'Code-Only' clipboard optimized for Cursor/VS Code.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Perplexity",
+      "VSCode",
+      "LM Studio",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "why doesn't cursor know what i just talked about in claude",
+    "slug": "sync-claude-context-with-cursor",
+    "title": "Why Your AI Tools Have Amnesia: Syncing Claude and Cursor",
+    "problem_description": "Developers spend 5 minutes re-explaining the architecture to Cursor after just finishing a deep dive session with Claude 3.7.",
+    "how_to_solve": "Use BrainBridge's Universal AI Clipboard to instantly bridge the 'memory gap' between web-based AI chat and your IDE.",
+    "category": "Writer",
+    "difficulty": 2,
+    "user_quote": "I need a better way to organize my AI snippets.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Perplexity",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "transfer complex prompts between chatgpt and perplexity",
+    "slug": "bridge-chatgpt-perplexity-research",
+    "title": "Seamless Research: How to Move Context from ChatGPT to Perplexity",
+    "problem_description": "Researchers find it tedious to copy-paste multiple threads of investigation when switching from creative brainstorming (ChatGPT) to factual verification (Perplexity).",
+    "how_to_solve": "BrainBridge captures the 'essence' of your current session with one shortcut and makes it available in the Perplexity sidebar.",
+    "category": "Researcher",
+    "difficulty": 3,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Claude",
+      "Ollama",
+      "ChatGPT",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "lost ai chat history across multiple tabs",
+    "slug": "find-lost-ai-conversations-tabs",
+    "title": "Stop Tab Hunting: Centralize Your Fragmented AI Memories",
+    "problem_description": "Power users with 50+ open tabs can't remember which AI tool (Gemini, Claude, or Grok) gave them that specific code snippet an hour ago.",
+    "how_to_solve": "BrainBridge creates a unified timeline of 'marked' memories, searchable across all AI platforms.",
+    "category": "Writer",
+    "difficulty": 2,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 3,
+    "related_tools": [
+      "Cursor",
+      "Midjourney",
+      "Claude",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "best way to save ai prompts for reuse in cursor",
+    "slug": "save-prompts-for-cursor-ide",
+    "title": "One-Click Prompt Portability: From Web AI to Your IDE",
+    "problem_description": "Users have to manually copy prompts into a notepad just to move them between their browser-based AI and their coding environment.",
+    "how_to_solve": "BrainBridge acts as a persistent layer that 'floats' over both browser and Cursor, making prompt reuse instant.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Midjourney",
+      "Claude",
+      "Gemini",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "context window fragmentation in multi-ai workflow",
+    "slug": "solve-ai-context-fragmentation",
+    "title": "Fixing Context Fragmentation: The Hidden Cost of Using Multiple AIs",
+    "problem_description": "Each AI tool has its own local context; moving between them feels like 'starting from zero' every time.",
+    "how_to_solve": "BrainBridge provides a 'Context Bridge' that carries the most important logic blocks from one tool to the next.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I need a better way to organize my AI snippets.",
+    "layout_seed": 4,
+    "related_tools": [
+      "LM Studio",
+      "Perplexity",
+      "Claude",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "how to sync claude 3.5 projects with cursor composer",
+    "slug": "sync-claude-projects-with-cursor-composer",
+    "title": "Bridge the Gap: Connecting Claude Projects to Cursor Composer",
+    "problem_description": "Claude's 'Projects' feature is great for organization, but there's no native way to pull that project knowledge into Cursor's Composer mode.",
+    "how_to_solve": "Tag key project snippets in Claude via BrainBridge; they instantly appear as 'Recent Memories' in your Cursor sidebar.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "I spend more time formatting than coding!",
+    "layout_seed": 2,
+    "related_tools": [
+      "Midjourney",
+      "ChatGPT",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "manually re-typing ai instructions is annoying",
+    "slug": "stop-retyping-ai-instructions",
+    "title": "Stop Being a Human Proxy: Automate Context Transfer Between AIs",
+    "problem_description": "Users feel like 'data janitors' who spend more time moving text between AI tabs than actually building products.",
+    "how_to_solve": "BrainBridge eliminates manual re-typing by capturing the 'intent' of one AI session and injecting it into another.",
+    "category": "Writer",
+    "difficulty": 1,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 4,
+    "related_tools": [
+      "DeepSeek",
+      "ChatGPT",
+      "Ollama",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "copy paste from ai to ide keeps breaking syntax",
+    "slug": "fix-ai-to-ide-syntax-errors",
+    "title": "Zero-Config Copy: Prevent AI Markdown from Breaking Your Syntax",
+    "problem_description": "The hidden characters and specific markdown of AI chat interfaces often cause linting errors when pasted into a raw code file.",
+    "how_to_solve": "BrainBridge's 'Clean Extraction' feature removes all non-code noise, ensuring a 100% clean paste into Cursor or VS Code.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I spend more time formatting than coding!",
+    "layout_seed": 4,
+    "related_tools": [
+      "Midjourney",
+      "DeepSeek",
+      "VSCode",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "ai tab management for power users",
+    "slug": "ai-tab-management-strategies",
+    "title": "Beyond Tab Management: A Unified Memory Layer for AI Tools",
+    "problem_description": "Standard tab managers don't understand the 'content' of an AI chat. Users need a tool that manages the 'knowledge' inside the tabs.",
+    "how_to_solve": "BrainBridge focuses on the 'Active Memory' within the tabs, not the tabs themselves, creating a floating knowledge layer.",
+    "category": "Developer",
+    "difficulty": 2,
+    "user_quote": "Why does copying from AI always break my code?",
+    "layout_seed": 3,
+    "related_tools": [
+      "Gemini",
+      "ChatGPT",
+      "DeepSeek",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "share deepseek reasoning with chatgpt o1",
+    "slug": "sync-deepseek-logic-with-chatgpt",
+    "title": "Cross-Model Logic Sharing: DeepSeek Reasoning to ChatGPT o1",
+    "problem_description": "Users use DeepSeek for cheap reasoning and want to bring that logic chain into ChatGPT o1 for refinement, but the transition is clunky.",
+    "how_to_solve": "BrainBridge captures the 'Reasoning Chain' from DeepSeek and formats it as a structured prompt for ChatGPT.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 3,
+    "related_tools": [
+      "Cursor",
+      "Perplexity",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "why can't i copy chatgpt history to cursor directly",
+    "slug": "copy-chatgpt-to-cursor-guide",
+    "title": "The Missing Link: Directly Copying ChatGPT History to Cursor",
+    "problem_description": "OpenAI doesn't provide an easy way to export snippets specifically for developer IDEs like Cursor.",
+    "how_to_solve": "BrainBridge bridges the gap with a Ctrl+Shift+S shortcut that works on any ChatGPT thread.",
+    "category": "Writer",
+    "difficulty": 3,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Gemini",
+      "Cursor",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "organize ai snippets for coding without using notion",
+    "slug": "organize-ai-snippets-no-notion",
+    "title": "Forget Notion: A Faster Way to Organize Temporary AI Snippets",
+    "problem_description": "Notion is too slow for temporary AI context. Users need a high-speed, 'disposable' clipboard for immediate use.",
+    "how_to_solve": "BrainBridge is a lightweight SaaS designed for the 'now'—capturing and moving snippets in seconds, not minutes.",
+    "category": "Developer",
+    "difficulty": 1,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "cursor ai doesn't see my latest claude artifacts",
+    "slug": "sync-claude-artifacts-to-cursor",
+    "title": "Instant Artifact Sync: Get Your Claude Code into Cursor Now",
+    "problem_description": "Claude Artifacts are visually great but hard to 'pip' into a real coding project in Cursor without multiple steps.",
+    "how_to_solve": "BrainBridge detects Claude Artifacts and allows a 'Direct to IDE' sync with one click.",
+    "category": "Developer",
+    "difficulty": 5,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Perplexity",
+      "Cursor",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "context loss when switching from web chat to ide",
+    "slug": "fix-context-loss-web-to-ide",
+    "title": "Stop the Context Leak: Move from Web AI to IDE Without Losing Your Train of Thought",
+    "problem_description": "The 'Brain Drain' that happens when you close a browser tab to start coding. You forget the specific constraints the AI suggested.",
+    "how_to_solve": "BrainBridge keeps those constraints in a 'Floating Bridge' visible right inside your IDE's browser overlay.",
+    "category": "Writer",
+    "difficulty": 4,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Cursor",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "how to build a personal ai knowledge base from chat history",
+    "slug": "build-ai-knowledge-base-from-history",
+    "title": "Passive Knowledge Building: Turn Your AI Chats into a Second Brain",
+    "problem_description": "Thousands of brilliant AI-generated ideas are buried in dead chat threads.",
+    "how_to_solve": "By 'marking' important snippets via BrainBridge, you build a searchable timeline of your best AI interactions.",
+    "category": "Student",
+    "difficulty": 2,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 1,
+    "related_tools": [
+      "DeepSeek",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "copy text from ai without formatting",
+    "slug": "copy-from-ai-no-formatting",
+    "title": "Raw Text Only: Copying from AI Without the Formatting Headache",
+    "problem_description": "AI interfaces use complex HTML/Markdown that makes 'Paste as Plain Text' unreliable.",
+    "how_to_solve": "BrainBridge's specialized parser extracts the semantic text and discards the UI fluff.",
+    "category": "Researcher",
+    "difficulty": 2,
+    "user_quote": "Copy-paste from AI never works right the first time.",
+    "layout_seed": 2,
+    "related_tools": [
+      "VSCode",
+      "Perplexity",
+      "DeepSeek",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "best universal clipboard for ai developers",
+    "slug": "universal-clipboard-for-ai-devs",
+    "title": "The Only Universal Clipboard Built for the AI-First Developer",
+    "problem_description": "Generic clipboards don't understand 'prompts' or 'code blocks'.",
+    "how_to_solve": "BrainBridge is optimized for AI syntax, providing 'Copy for Prompt' and 'Copy for Code' options.",
+    "category": "Developer",
+    "difficulty": 2,
+    "user_quote": "Switching between different AI models is too much work.",
+    "layout_seed": 1,
+    "related_tools": [
+      "DeepSeek",
+      "Ollama",
+      "Gemini",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "bridge the gap between different ai models",
+    "slug": "bridge-gap-between-ai-models",
+    "title": "Model Agnostic Workflow: How to Bridge the Gap Between AIs",
+    "problem_description": "The friction of using multiple 'Best in Class' models for one project.",
+    "how_to_solve": "BrainBridge acts as the 'Data Glue' between Claude (Logic), Midjourney (Visuals), and Cursor (Code).",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "The markdown formatting from AI is driving me crazy.",
+    "layout_seed": 2,
+    "related_tools": [
+      "DeepSeek",
+      "Cursor",
+      "VSCode",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "cursor prompt history sync across devices",
+    "slug": "sync-cursor-prompts-across-devices",
+    "title": "Sync Your Cursor Prompts Anywhere with BrainBridge",
+    "problem_description": "Users want their 'saved memories' from Cursor on one machine to be available on another via a web interface.",
+    "how_to_solve": "BrainBridge uses Firebase Realtime DB to sync every 'marked' memory across all logged-in devices instantly.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 3,
+    "related_tools": [
+      "VSCode",
+      "Gemini",
+      "Cursor",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "transfer deepseek reasoning chain to cursor chat",
+    "slug": "transfer-deepseek-reasoning-to-cursor",
+    "title": "Don't Waste Reasoning: Moving DeepSeek Logic into Cursor",
+    "problem_description": "DeepSeek R1/R2 provides incredible logic chains, but when users move to Cursor to implement, they lose the 'why' behind the code, leading to implementation errors.",
+    "how_to_solve": "BrainBridge captures the hidden reasoning steps and formats them as a 'System Prompt' snippet for Cursor's context window.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 1,
+    "related_tools": [
+      "VSCode",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "fix cursor composer context loss after tab switch",
+    "slug": "fix-cursor-composer-context-loss",
+    "title": "Stay in the Flow: How to Stop Cursor Composer from Forgetting Web Research",
+    "problem_description": "When developers switch from a deep research session in a browser to Cursor Composer, the 'mental context' is lost because there's no data bridge.",
+    "how_to_solve": "BrainBridge acts as an external context buffer that feeds your browser-based research directly into the Composer prompt.",
+    "category": "Writer",
+    "difficulty": 2,
+    "user_quote": "My backticks are all over the place!",
+    "layout_seed": 3,
+    "related_tools": [
+      "VSCode",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "save claude 3.7 sonnet prompts for later use",
+    "slug": "save-claude-3-7-prompts-forever",
+    "title": "Permanent Memory for Claude: Stop Losing Your Best Prompts",
+    "problem_description": "Claude's interface makes it hard to categorize and retrieve specific high-performing prompts once the chat history gets long.",
+    "how_to_solve": "Use Ctrl+Shift+S to 'Bookmark' the logic in BrainBridge with custom tags like #Architecture or #Regex.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 2,
+    "related_tools": [
+      "VSCode",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "bridge chatgpt o1 reasoning to gemini 2.0 ultra",
+    "slug": "bridge-chatgpt-o1-to-gemini-ultra",
+    "title": "Cross-Model Synergy: Using ChatGPT o1 Logic in Gemini Ultra",
+    "problem_description": "Users want to use o1 for the heavy thinking and Gemini for the large context window/creative output, but moving data between them is a manual nightmare.",
+    "how_to_solve": "BrainBridge standardizes the output format so logic from one model can be 'piped' as instructions into another.",
+    "category": "Developer",
+    "difficulty": 5,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Perplexity",
+      "Cursor",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "prevent ai chat history from becoming a mess",
+    "slug": "organize-ai-chat-chaos",
+    "title": "From AI Chaos to Order: A Unified Clipboard for Fragmented Chats",
+    "problem_description": "Power users feel overwhelmed by having 20+ different chat threads across 4 different AI providers.",
+    "how_to_solve": "BrainBridge provides a single 'Timeline of Truth' where only the most important 'marked' snippets reside.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "The markdown formatting from AI is driving me crazy.",
+    "layout_seed": 3,
+    "related_tools": [
+      "ChatGPT",
+      "VSCode",
+      "Ollama",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "copy code from gpt-4o to cursor without extra text",
+    "slug": "copy-clean-code-gpt4o-to-cursor",
+    "title": "Clean Code Only: Extracting Logic from GPT-4o for Your IDE",
+    "problem_description": "GPT-4o often surrounds code with 'Sure, I can help with that' fluff which litters the clipboard.",
+    "how_to_solve": "BrainBridge's Smart Extract filters out AI conversational filler, leaving only the executable code blocks.",
+    "category": "Developer",
+    "difficulty": 2,
+    "user_quote": "I wish I could just drag context between AIs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "Cursor",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "how to sync perplexity research with claude writing",
+    "slug": "sync-perplexity-with-claude",
+    "title": "The Ultimate Research-to-Writing Pipeline: Perplexity + Claude",
+    "problem_description": "Writers use Perplexity for facts but Claude for style. The manual transfer of facts often leads to hallucination or lost details.",
+    "how_to_solve": "BrainBridge captures Perplexity citations and makes them available as 'Context Anchors' in the Claude sidebar.",
+    "category": "Researcher",
+    "difficulty": 1,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 3,
+    "related_tools": [
+      "DeepSeek",
+      "Claude",
+      "Midjourney",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "best way to manage reusable ai snippets for developers",
+    "slug": "manage-reusable-ai-snippets",
+    "title": "Your Personal AI Snippet Library: Built for the Agentic Era",
+    "problem_description": "Developers are tired of searching through old Slack messages or Notion pages for that 'one perfect AI prompt' they used last week.",
+    "how_to_solve": "BrainBridge turns your clipboard into a searchable, permanent library of 'AI-verified' solutions.",
+    "category": "Student",
+    "difficulty": 3,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 2,
+    "related_tools": [
+      "Cursor",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "stop cursor ai from hallucinating based on old context",
+    "slug": "stop-cursor-hallucinations-old-context",
+    "title": "Fresh Context Only: How BrainBridge Keeps Cursor Accurate",
+    "problem_description": "Cursor sometimes uses outdated project files. Users need to feed it 'Fresh Logic' from a recent browser chat to correct it.",
+    "how_to_solve": "Instantly 'push' the latest Claude reasoning into Cursor's active window to override stale local index data.",
+    "category": "Writer",
+    "difficulty": 1,
+    "user_quote": "I wish I could save my best AI prompts for later.",
+    "layout_seed": 4,
+    "related_tools": [
+      "ChatGPT",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "copying nested markdown from ai leads to errors",
+    "slug": "fix-nested-markdown-copy-errors",
+    "title": "No More Broken Backticks: Fixing Nested Markdown AI Exports",
+    "problem_description": "Copying code that itself contains markdown (like a readme generator) often breaks the rendering in the destination AI.",
+    "how_to_solve": "BrainBridge's 'Sanitization' layer handles nested markdown, ensuring the structure remains intact but the syntax doesn't break.",
+    "category": "Researcher",
+    "difficulty": 1,
+    "user_quote": "My code always has weird characters when I paste from AI.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Cursor",
+      "ChatGPT",
+      "LM Studio",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "ai productivity tool for 50 open tabs",
+    "slug": "ai-productivity-tab-manager",
+    "title": "Too Many AI Tabs? Bridge the Memory Gap with BrainBridge",
+    "problem_description": "The 'Tab Fatigue' is real. Users lose track of which AI is working on which part of the task.",
+    "how_to_solve": "BrainBridge stays persistent across all tabs, acting as a 'Global Memory' that follows you regardless of which tab is active.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 3,
+    "related_tools": [
+      "Ollama",
+      "ChatGPT",
+      "Claude",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "move prompt from mobile ai app to desktop ide",
+    "slug": "sync-mobile-ai-to-desktop-ide",
+    "title": "Mobile-to-Desktop AI Sync: Capture on Phone, Code on PC",
+    "problem_description": "Users get a 'lightbulb moment' while using the ChatGPT mobile app but find it hard to get that exact prompt into their Desktop Cursor setup.",
+    "how_to_solve": "The BrainBridge Web Dashboard (/app) makes your mobile 'marks' instantly copyable on your desktop environment.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I'm tired of tab hunting for my AI conversations.",
+    "layout_seed": 1,
+    "related_tools": [
+      "ChatGPT",
+      "Midjourney",
+      "Claude",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "how to bridge knowledge between multiple ai agents",
+    "slug": "bridge-knowledge-between-ai-agents",
+    "title": "The Agent Orchestrator: Syncing Knowledge Between Different AIs",
+    "problem_description": "As users deploy more specialized agents, 'Inter-Agent Communication' becomes the bottleneck.",
+    "how_to_solve": "BrainBridge serves as the 'Human-in-the-loop' clipboard that facilitates data transfer between autonomous agents.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I wish I could just drag context between AIs.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Claude",
+      "Cursor",
+      "DeepSeek",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "avoid retyping the same architectural constraints to every ai",
+    "slug": "avoid-retyping-ai-constraints",
+    "title": "Define Once, Use Everywhere: Syncing Architectural Constraints",
+    "problem_description": "Every new chat requires re-uploading the same 'Project Rules' or 'Style Guides'.",
+    "how_to_solve": "Save your 'Master Constraints' in BrainBridge and one-click paste them into any new AI session.",
+    "category": "Developer",
+    "difficulty": 1,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 2,
+    "related_tools": [
+      "ChatGPT",
+      "Gemini",
+      "LM Studio",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "sync grok 3 logic with vs code",
+    "slug": "sync-grok-with-vs-code",
+    "title": "Real-time Logic: Moving Grok's Latest Insights to VS Code",
+    "problem_description": "Grok has real-time X data. Developers use it for the latest API docs, but need that info in VS Code immediately.",
+    "how_to_solve": "BrainBridge bridges the gap between Grok's real-time web interface and your local development environment.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Gemini",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "workflow for using claude and cursor together",
+    "slug": "best-claude-cursor-workflow",
+    "title": "The Perfect Workflow: Using Claude for Logic and Cursor for Execution",
+    "problem_description": "Users know these two are the 'Power Couple' of AI, but the manual 'Copy/Paste' dance is the only thing slowing them down.",
+    "how_to_solve": "BrainBridge streamlines the 'Power Couple' workflow by making the transfer of logic blocks near-instant.",
+    "category": "Researcher",
+    "difficulty": 1,
+    "user_quote": "Copy-paste from AI never works right the first time.",
+    "layout_seed": 2,
+    "related_tools": [
+      "VSCode",
+      "LM Studio",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "how to keep ai context alive across browser restarts",
+    "slug": "keep-ai-context-alive-browser-restart",
+    "title": "Persistent AI Memory: Don't Lose Your Context to a Browser Crash",
+    "problem_description": "A browser crash or an accidental tab close wipes out the 'Current Working Memory' of an AI session.",
+    "how_to_solve": "BrainBridge saves your 'marked' milestones to Firebase, so they survive even if the browser doesn't.",
+    "category": "Student",
+    "difficulty": 1,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 4,
+    "related_tools": [
+      "ChatGPT",
+      "VSCode",
+      "Perplexity"
+    ]
+  },
+  {
+    "keyword": "sync prompts from midjourney to dall-e 3",
+    "slug": "sync-midjourney-dalle-prompts",
+    "title": "Visual Logic Bridge: Transferring Prompts Between Image AIs",
+    "problem_description": "Creating consistent characters across different image models requires perfectly synced prompts and seeds.",
+    "how_to_solve": "BrainBridge stores your complex image prompts and 'Negative Prompts' in a unified floating toolbar.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "Why does copying from AI always break my code?",
+    "layout_seed": 4,
+    "related_tools": [
+      "DeepSeek",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "universal shortcut for saving ai output",
+    "slug": "universal-ai-save-shortcut",
+    "title": "One Shortcut to Save Them All: Ctrl+Shift+S for AI",
+    "problem_description": "Users are tired of right-clicking or looking for 'Copy' buttons that vary in position on every site.",
+    "how_to_solve": "BrainBridge provides a standardized OS-level (via browser) shortcut for instant capture.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 3,
+    "related_tools": [
+      "Claude",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "transfer complex sql queries from gpt to datagrip",
+    "slug": "transfer-ai-sql-to-datagrip",
+    "title": "Clean SQL Transfer: From AI Chat to Database Client",
+    "problem_description": "AI-generated SQL often includes markdown commentary that causes syntax errors in SQL editors.",
+    "how_to_solve": "BrainBridge's SQL-cleaner mode ensures only the raw query is copied to your clipboard.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 4,
+    "related_tools": [
+      "VSCode",
+      "ChatGPT",
+      "Cursor",
+      "Perplexity"
+    ]
+  },
+  {
+    "keyword": "claude to cursor copy paste problem",
+    "slug": "fix-claude-cursor-copy-paste",
+    "title": "Solving the Claude-to-Cursor Copy/Paste Formatting Bug",
+    "problem_description": "Directly copying from Claude's web UI often results in 'Invisible Characters' that break the Python/JS linter in Cursor.",
+    "how_to_solve": "BrainBridge's 'Deep Clean' function strips non-printing characters before they hit your IDE.",
+    "category": "Student",
+    "difficulty": 4,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Gemini",
+      "DeepSeek",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "save ai conversation as reusable template",
+    "slug": "save-ai-as-template",
+    "title": "Turn Conversations into Templates: Scaling Your AI Workflows",
+    "problem_description": "Users find themselves asking the same series of questions to AI over and over.",
+    "how_to_solve": "Tag a sequence of messages in BrainBridge and use them as a 'Template' for future projects.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 1,
+    "related_tools": [
+      "Ollama",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "bridge context from lmsys to my local model",
+    "slug": "bridge-lmsys-to-local-llm",
+    "title": "LMSYS to Local: Syncing Expert Logic to Your Private AI",
+    "problem_description": "Testing prompts on LMSYS Arena but wanting to use the best result on a local Ollama/LM Studio setup.",
+    "how_to_solve": "BrainBridge captures the 'Winner' prompt from LMSYS and makes it available for your local IDE/Terminal.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 4,
+    "related_tools": [
+      "ChatGPT",
+      "LM Studio",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "lightweight ai memory manager for mac and windows",
+    "slug": "lightweight-ai-memory-manager",
+    "title": "BrainBridge: The Feather-Light Memory Layer for Your AI Tools",
+    "problem_description": "Users don't want another heavy Electron app; they need a browser-integrated tool that doesn't eat RAM.",
+    "how_to_solve": "BrainBridge is a 2MB Chrome Extension + a Next.js web app, designed for maximum speed and minimum footprint.",
+    "category": "Student",
+    "difficulty": 3,
+    "user_quote": "My backticks are all over the place!",
+    "layout_seed": 1,
+    "related_tools": [
+      "Ollama",
+      "ChatGPT",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "sync chatgpt custom instructions with claude projects",
+    "slug": "sync-custom-instructions-with-claude",
+    "title": "Universal Persona: Syncing Your Identity Across All AIs",
+    "problem_description": "Manually updating 'Who I am' and 'How I code' in every AI platform is tedious.",
+    "how_to_solve": "BrainBridge acts as a central 'Persona Vault' that you can inject into any new AI tool with one click.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Midjourney",
+      "Ollama",
+      "VSCode",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "reduce friction in multi-ai research tasks",
+    "slug": "reduce-multi-ai-friction",
+    "title": "Eliminate the AI Friction: Smooth Task Switching in 2026",
+    "problem_description": "The psychological 'Switching Cost' of moving between 3 different AIs is the biggest drain on productivity.",
+    "how_to_solve": "BrainBridge lowers the barrier by ensuring your data is always 'just there' in the sidebar.",
+    "category": "Writer",
+    "difficulty": 3,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 4,
+    "related_tools": [
+      "ChatGPT",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "ai clipboard that supports markdown and code blocks",
+    "slug": "ai-clipboard-markdown-support",
+    "title": "The First Clipboard That Actually Understands Markdown",
+    "problem_description": "Generic clipboards treat AI output like plain text, losing the structure that makes code readable.",
+    "how_to_solve": "BrainBridge preserves the *structure* but cleans the *syntax*, giving you the best of both worlds.",
+    "category": "Researcher",
+    "difficulty": 3,
+    "user_quote": "Why does AI code always have syntax errors when I paste it?",
+    "layout_seed": 3,
+    "related_tools": [
+      "DeepSeek",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "share ai prompts with team without notion",
+    "slug": "share-ai-prompts-team-fast",
+    "title": "Instant Team AI Sync: Stop Copy-Pasting Prompts to Slack",
+    "problem_description": "Teams struggle to share 'what worked' with the AI in real-time.",
+    "how_to_solve": "BrainBridge's 'Share link' feature lets you send a 'Memory' directly to a teammate's Bridge bar.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Cursor",
+      "VSCode",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "why is copying from gemini so buggy",
+    "slug": "fix-gemini-copy-bugs",
+    "title": "Fixing the Gemini 'Messy Copy' Experience",
+    "problem_description": "Gemini's 'Export to Docs' is too slow, and direct copy-paste often includes weird HTML artifacts.",
+    "how_to_solve": "BrainBridge captures the clean text directly from the DOM, bypassing Gemini's messy clipboard handling.",
+    "category": "Developer",
+    "difficulty": 5,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Perplexity",
+      "ChatGPT",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "manage prompt engineering snippets across models",
+    "slug": "manage-prompt-engineering-library",
+    "title": "A Pro-Level Library for Your Prompt Engineering Snippets",
+    "problem_description": "Serious prompt engineers have hundreds of 'Few-Shot' examples they need to deploy instantly.",
+    "how_to_solve": "BrainBridge provides a 'Quick-Inject' menu for your most-used few-shot training blocks.",
+    "category": "Student",
+    "difficulty": 2,
+    "user_quote": "I'm tired of tab hunting for my AI conversations.",
+    "layout_seed": 1,
+    "related_tools": [
+      "Midjourney",
+      "Gemini",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "ai memory bridge for developer productivity",
+    "slug": "ai-memory-bridge-dev-productivity",
+    "title": "10x Your AI Flow with a Universal Memory Bridge",
+    "problem_description": "The 'Memory Gap' is the #1 reason why developers feel AI is 'stupid'—it simply lacks the context from the previous tab.",
+    "how_to_solve": "BrainBridge solves the 'Amnesia Problem' by making context portable.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Perplexity",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "transfer code from deepseek to cursor smoothly",
+    "slug": "deepseek-to-cursor-smooth-transfer",
+    "title": "From DeepSeek to Cursor: The Smoothest Code Transfer Method",
+    "problem_description": "DeepSeek R1's complex outputs are great, but Cursor's 'Apply' doesn't work on text you didn't generate *inside* Cursor.",
+    "how_to_solve": "BrainBridge formats DeepSeek code so it 'looks' like a native prompt to Cursor, improving its 'Apply' success rate.",
+    "category": "Developer",
+    "difficulty": 3,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "ChatGPT",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "organize ai research for thesis without chaos",
+    "slug": "organize-ai-research-thesis",
+    "title": "Writing a Thesis with AI? You Need a Context Bridge",
+    "problem_description": "Students lose track of which AI generated which citation, leading to academic integrity issues.",
+    "how_to_solve": "BrainBridge automatically attaches the Source URL to every saved memory, ensuring you always know the origin.",
+    "category": "Student",
+    "difficulty": 2,
+    "user_quote": "I spend more time formatting than coding!",
+    "layout_seed": 4,
+    "related_tools": [
+      "Gemini",
+      "Midjourney",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "fix formatting issues when pasting ai code into terminal",
+    "slug": "fix-ai-code-terminal-formatting",
+    "title": "Terminal-Safe AI Code: No More Weird Characters in Your Shell",
+    "problem_description": "Copying a bash script from AI and pasting it into iTerm2 often results in 'Command not found' due to hidden unicode characters.",
+    "how_to_solve": "BrainBridge's 'Terminal-Safe' copy mode flattens all text into ASCII-compatible strings.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "VSCode",
+      "DeepSeek",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "ai tool to bridge the gap between brain and code",
+    "slug": "bridge-brain-and-code-ai",
+    "title": "BrainBridge: Closing the Gap Between Thought and Implementation",
+    "problem_description": "The friction of moving an idea through multiple AI tools before it becomes code.",
+    "how_to_solve": "BrainBridge minimizes the 'clicks-to-code' ratio for AI-heavy workflows.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 4,
+    "related_tools": [
+      "VSCode",
+      "Claude",
+      "Perplexity",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "how to sync multiple ai chat histories",
+    "slug": "sync-multiple-ai-chat-histories",
+    "title": "A Unified History for Your Entire AI Stack",
+    "problem_description": "Searching through ChatGPT, Claude, and Gemini histories separately is a waste of time.",
+    "how_to_solve": "BrainBridge creates a 'Global Search' layer across all your captured AI moments.",
+    "category": "Student",
+    "difficulty": 4,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 1,
+    "related_tools": [
+      "ChatGPT",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "ai prompt manager for power users 2026",
+    "slug": "ai-prompt-manager-2026",
+    "title": "The Next-Gen Prompt Manager for the 2026 AI Ecosystem",
+    "problem_description": "Legacy prompt managers are static; 2026 users need 'Active Memory' that updates as they chat.",
+    "how_to_solve": "BrainBridge uses Realtime Sync to ensure your prompt library evolves with your project.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I spend more time formatting than coding!",
+    "layout_seed": 2,
+    "related_tools": [
+      "Midjourney",
+      "VSCode",
+      "Gemini",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "move context from o1-mini to cursor composer",
+    "slug": "move-o1-mini-to-cursor-composer",
+    "title": "High-Speed Logic: Syncing o1-mini Thoughts to Cursor",
+    "problem_description": "o1-mini is fast, but Cursor's built-in models might be slower. Use o1-mini to plan, and Bridge the plan to Cursor.",
+    "how_to_solve": "BrainBridge allows you to 'Stage' an o1-mini plan and 'Deploy' it into Cursor Composer in one click.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "I wish I could just drag context between AIs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "DeepSeek",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "sync my ai learning journey across tools",
+    "slug": "sync-ai-learning-journey",
+    "title": "Capture Your AI Aha! Moments Across the Web",
+    "problem_description": "Users learning to code with AI find that the most valuable explanations are scattered and lost.",
+    "how_to_solve": "Mark 'Explanations' in BrainBridge to create a personalized AI-powered textbook.",
+    "category": "Researcher",
+    "difficulty": 3,
+    "user_quote": "I need a better way to organize my AI snippets.",
+    "layout_seed": 1,
+    "related_tools": [
+      "LM Studio",
+      "Claude",
+      "DeepSeek",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "best universal ai clipboard for windows 11",
+    "slug": "best-universal-ai-clipboard-windows",
+    "title": "The Best AI-First Clipboard Manager for Windows 11",
+    "problem_description": "Win+V doesn't handle code blocks or AI markdown well.",
+    "how_to_solve": "BrainBridge is the specialized alternative for users whose clipboard is 90% AI-generated.",
+    "category": "Researcher",
+    "difficulty": 2,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 2,
+    "related_tools": [
+      "ChatGPT",
+      "Claude",
+      "LM Studio",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "how to save cursor chat history to external file",
+    "slug": "save-cursor-chat-history-external",
+    "title": "Export Cursor Logic: Taking Your IDE Chats Anywhere",
+    "problem_description": "Cursor makes it hard to export specific logic chains to share with the web version of Claude for deeper analysis.",
+    "how_to_solve": "BrainBridge captures Cursor chat panels and moves them to your browser-based AI in seconds.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "The markdown formatting from AI is driving me crazy.",
+    "layout_seed": 2,
+    "related_tools": [
+      "ChatGPT",
+      "LM Studio",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "copy-paste ai text without light gray background",
+    "slug": "copy-ai-text-no-background",
+    "title": "No More 'AI Shadow': Pasting Clean Text into Emails/Docs",
+    "problem_description": "Pasting from ChatGPT into Outlook or Google Docs often brings that annoying gray background color.",
+    "how_to_solve": "BrainBridge's 'Clean Style' copy removes all CSS styling, giving you perfectly integrated text.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I need a better way to organize my AI snippets.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "LM Studio",
+      "DeepSeek",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "sync ai research between home and office",
+    "slug": "sync-ai-research-home-office",
+    "title": "Cloud-Synced AI Memory: Your Research, Everywhere",
+    "problem_description": "Starting an AI deep-dive at the office and needing to finish it at home without re-searching.",
+    "how_to_solve": "Firebase-backed storage ensures your BrainBridge 'Timeline' is identical on every machine.",
+    "category": "Developer",
+    "difficulty": 1,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "alternative to manual copy-pasting for ai users",
+    "slug": "alternative-to-manual-ai-copy-paste",
+    "title": "Tired of Cmd+C / Cmd+V? There's a Better Way to Move AI Data",
+    "problem_description": "The manual labor of moving data between AI tools is the 'New Manual Work' of 2026.",
+    "how_to_solve": "BrainBridge automates the transfer with a 'Mark and Move' workflow.",
+    "category": "Developer",
+    "difficulty": 3,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "VSCode",
+      "Cursor",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "how to organize temporary ai snippets",
+    "slug": "organize-temporary-ai-snippets",
+    "title": "The 'Scratchpad' for Your AI Workflows",
+    "problem_description": "Not everything deserves a permanent place in Notion, but some things are too important to lose in a chat thread.",
+    "how_to_solve": "BrainBridge is the 'Intermediate Layer' for your temporary AI thoughts.",
+    "category": "Researcher",
+    "difficulty": 2,
+    "user_quote": "Why does copying from AI always break my code?",
+    "layout_seed": 1,
+    "related_tools": [
+      "Claude",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "bridge the gap between different llm providers",
+    "slug": "bridge-different-llm-providers",
+    "title": "Stop Model Lock-in: A Bridge Between OpenAI, Anthropic, and Google",
+    "problem_description": "Users feel stuck in one ecosystem because moving their 'Project Context' to another provider is too hard.",
+    "how_to_solve": "BrainBridge makes your context model-agnostic.",
+    "category": "Student",
+    "difficulty": 3,
+    "user_quote": "Why does copying from AI always break my code?",
+    "layout_seed": 3,
+    "related_tools": [
+      "DeepSeek",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "best ai developer tools for multi-model usage",
+    "slug": "best-multi-model-developer-tools",
+    "title": "The Essential Toolkit for the Multi-Model Developer",
+    "problem_description": "Developers use different models for different strengths (debugging vs architecture).",
+    "how_to_solve": "BrainBridge is the 'Glue' that makes a multi-model stack feel like a single ecosystem.",
+    "category": "Student",
+    "difficulty": 1,
+    "user_quote": "I wish I could save my best AI prompts for later.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Claude",
+      "Gemini",
+      "Ollama",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "why did my ai prompt lose formatting",
+    "slug": "fix-ai-prompt-formatting-loss",
+    "title": "Keep Your Prompt Structure: No More 'Flattened' AI Inputs",
+    "problem_description": "Pasting a structured prompt into some AI web UIs results in a single, unreadable block of text.",
+    "how_to_solve": "BrainBridge optimizes the 'Paste' event to ensure line breaks and indentation are preserved for the AI's parser.",
+    "category": "Researcher",
+    "difficulty": 1,
+    "user_quote": "I need a way to sync my AI research across devices.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Gemini",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "fastest way to move code from browser to cursor",
+    "slug": "fastest-browser-to-cursor-code-move",
+    "title": "Sub-Second Code Transfer: Browser AI to Cursor IDE",
+    "problem_description": "Every second spent navigating tabs is a second spent losing the 'Coding Flow'.",
+    "how_to_solve": "BrainBridge reduces the 'Context Switch' time from 10 seconds to 1 second.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "My code always has weird characters when I paste from AI.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Midjourney",
+      "VSCode",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "save ai generated regex without syntax errors",
+    "slug": "save-ai-regex-no-errors",
+    "title": "Perfect Regex Capture: From AI Chat to Your Codebase",
+    "problem_description": "Regex strings from AI often have extra escape characters or markdown bolds that make them fail.",
+    "how_to_solve": "BrainBridge identifies Regex blocks and extracts them with 100% literal accuracy.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 1,
+    "related_tools": [
+      "LM Studio",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "sync my ai-assisted coding history",
+    "slug": "sync-ai-coding-history",
+    "title": "Your AI Coding Legacy: Searchable, Syncable, and Secure",
+    "problem_description": "Looking for a logic solution you found 3 months ago in a defunct Claude session.",
+    "how_to_solve": "BrainBridge creates a long-term archive of your most important AI-assisted breakthroughs.",
+    "category": "Developer",
+    "difficulty": 5,
+    "user_quote": "I wish I could save my best AI prompts for later.",
+    "layout_seed": 1,
+    "related_tools": [
+      "ChatGPT",
+      "Midjourney",
+      "Ollama",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "how to build a prompt library for cursor ide",
+    "slug": "build-prompt-library-for-cursor",
+    "title": "Supercharge Cursor with a Custom-Built Prompt Library",
+    "problem_description": "Cursor's 'Rules for AI' is great, but it's not enough for complex, project-specific prompt blocks.",
+    "how_to_solve": "Use BrainBridge to maintain a 'Context Library' that you can pull into Cursor at any time.",
+    "category": "Writer",
+    "difficulty": 4,
+    "user_quote": "Why does copying from AI always break my code?",
+    "layout_seed": 1,
+    "related_tools": [
+      "Perplexity",
+      "Ollama",
+      "Claude",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "ai knowledge fragmentation problem in 2026",
+    "slug": "ai-knowledge-fragmentation-2026",
+    "title": "The AI Fragmentation Crisis: How to Reclaim Your Digital Context",
+    "problem_description": "A thought-leadership keyword for users feeling the burn of the 'Siloed AI' era.",
+    "how_to_solve": "BrainBridge is the first 'Context Infrastructure' tool built to solve fragmentation.",
+    "category": "Developer",
+    "difficulty": 5,
+    "user_quote": "Switching between different AI models is too much work.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Ollama",
+      "Midjourney",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "move ai summary from perplexity to obsidian",
+    "slug": "perplexity-to-obsidian-sync",
+    "title": "Knowledge Graph Bridge: Perplexity to Obsidian via BrainBridge",
+    "problem_description": "Academic researchers need to move verified AI summaries into their permanent PKM (Personal Knowledge Management).",
+    "how_to_solve": "Capture in Bridge, and use the 'Markdown-Ready' copy to paste into Obsidian without cleaning.",
+    "category": "Writer",
+    "difficulty": 5,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Claude",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "stop chatgpt from losing my context in long threads",
+    "slug": "fix-chatgpt-context-loss-long-threads",
+    "title": "Context Insurance: Never Lose Your Thread's Core Logic Again",
+    "problem_description": "As ChatGPT threads grow, it forgets the 'Initial Instructions'.",
+    "how_to_solve": "Keep the 'Core Logic' pinned in your BrainBridge floating bar and re-inject it whenever the AI starts wandering.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "I need a way to sync my AI research across devices.",
+    "layout_seed": 1,
+    "related_tools": [
+      "Midjourney",
+      "Claude",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "transfer complex prompt templates between lms",
+    "slug": "transfer-prompt-templates-between-lms",
+    "title": "The Universal Template: From ChatGPT to Claude and Back",
+    "problem_description": "Users spend hours fine-tuning a prompt for one model and want to test it on others without manual editing.",
+    "how_to_solve": "BrainBridge's 'Model-Agnostic Formatter' adjusts your prompt structure for the target AI's specific quirks.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Midjourney",
+      "Gemini",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "best productivity extension for heavy ai users",
+    "slug": "best-ai-productivity-extension",
+    "title": "The One Browser Extension Every AI Power User Needs",
+    "problem_description": "Standard productivity tools don't cater to the 'Chat-to-Code' or 'Research-to-Chat' workflow.",
+    "how_to_solve": "BrainBridge is built *by* and *for* people who live in AI tabs all day.",
+    "category": "Writer",
+    "difficulty": 2,
+    "user_quote": "I spend more time formatting than coding!",
+    "layout_seed": 4,
+    "related_tools": [
+      "Ollama",
+      "Perplexity",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "save and reuse cursor ai chat blocks",
+    "slug": "save-reuse-cursor-chat-blocks",
+    "title": "Stop Wasting Good AI Chat: Save and Reuse Your Cursor Logic",
+    "problem_description": "The logic in your Cursor sidebar is ephemeral. Once you close the chat, it's hard to find again.",
+    "how_to_solve": "Bridge the gap by moving those blocks to your permanent BrainBridge timeline.",
+    "category": "Writer",
+    "difficulty": 4,
+    "user_quote": "Copy-paste from AI never works right the first time.",
+    "layout_seed": 2,
+    "related_tools": [
+      "ChatGPT",
+      "DeepSeek",
+      "Perplexity",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "sync my ai workspace across different browsers",
+    "slug": "sync-ai-workspace-browsers",
+    "title": "Cross-Browser AI Harmony: Arc, Chrome, and Safari Synced",
+    "problem_description": "Using Arc for research and Chrome for dev tools, but the AI memory doesn't follow.",
+    "how_to_solve": "BrainBridge works on any Chromium-based browser with instant Firebase sync.",
+    "category": "Student",
+    "difficulty": 2,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "Midjourney",
+      "Claude",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "fix broken code snippets from chatgpt copy paste",
+    "slug": "fix-broken-chatgpt-code-copy",
+    "title": "The Fix for 'Broken AI Code': Clean Extraction for Developers",
+    "problem_description": "Why does AI code always seem to have one missing bracket or a weird space when pasted?",
+    "how_to_solve": "BrainBridge's parser validates the code block structure before copying to ensure integrity.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 2,
+    "related_tools": [
+      "Midjourney",
+      "DeepSeek",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "manage prompt context window for deepseek r1",
+    "slug": "manage-deepseek-r1-context",
+    "title": "Optimizing the DeepSeek R1 Flow with Smart Context Bridge",
+    "problem_description": "DeepSeek R1's 'Thinking' blocks are long. Users only need the *conclusion* to move into their IDE.",
+    "how_to_solve": "BrainBridge lets you select only the 'Result' while archiving the 'Reasoning' for future reference.",
+    "category": "Researcher",
+    "difficulty": 5,
+    "user_quote": "The markdown formatting from AI is driving me crazy.",
+    "layout_seed": 3,
+    "related_tools": [
+      "Claude",
+      "Gemini"
+    ]
+  },
+  {
+    "keyword": "how to stop retyping the same instructions for ai",
+    "slug": "stop-retyping-ai-instructions-forever",
+    "title": "The 'End of Retyping': Universal Instructions for All Your AIs",
+    "problem_description": "The 'Copy-Paste-Repeat' cycle is the most hated part of using multiple AIs.",
+    "how_to_solve": "BrainBridge provides a 'Context Injector' that eliminates retyping for good.",
+    "category": "Researcher",
+    "difficulty": 4,
+    "user_quote": "I need a way to sync my AI research across devices.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Midjourney",
+      "ChatGPT",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "ai snippets for vs code without github copilot",
+    "slug": "ai-snippets-vs-code-no-copilot",
+    "title": "Beyond Copilot: Manage Your Own AI-Generated Snippet Library",
+    "problem_description": "Copilot is predictive; BrainBridge is intentional. Sometimes you need the exact logic you just discussed, not a guess.",
+    "how_to_solve": "Move discussed logic from browser to VS Code via Bridge for 100% accuracy.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "I need a better way to organize my AI snippets.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "Midjourney",
+      "Cursor",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "sync ai research from perplexity to claude 3.5 artifacts",
+    "slug": "sync-perplexity-to-claude-artifacts",
+    "title": "Building Better Artifacts: Feed Perplexity Data into Claude",
+    "problem_description": "Claude Artifacts are only as good as the data you give them. Perplexity provides the data, but the bridge is missing.",
+    "how_to_solve": "BrainBridge allows you to 'Gather' from Perplexity and 'Deploy' to Claude Artifacts.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 3,
+    "related_tools": [
+      "VSCode",
+      "Cursor",
+      "Ollama",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "how to avoid context fragmentation in ai workflows",
+    "slug": "avoid-context-fragmentation-ai",
+    "title": "Solving the Context Fragmentation Problem in the AI-First Era",
+    "problem_description": "The definitive guide to keeping your 'Mental State' intact when using 5+ AI tools.",
+    "how_to_solve": "BrainBridge serves as the 'External RAM' for your multi-tool AI projects.",
+    "category": "Writer",
+    "difficulty": 3,
+    "user_quote": "I'm tired of tab hunting for my AI conversations.",
+    "layout_seed": 4,
+    "related_tools": [
+      "VSCode",
+      "DeepSeek",
+      "Cursor",
+      "LM Studio"
+    ]
+  },
+  {
+    "keyword": "bridge context from chatgpt o1-preview to cursor",
+    "slug": "bridge-o1-preview-to-cursor",
+    "title": "Thinking + Coding: Bridging ChatGPT o1-preview to Cursor",
+    "problem_description": "o1-preview is the brain, Cursor is the hands. BrainBridge is the nervous system connecting them.",
+    "how_to_solve": "Move the 'Reasoning Chain' from o1 into Cursor's system context for better code generation.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "I'm tired of tab hunting for my AI conversations.",
+    "layout_seed": 2,
+    "related_tools": [
+      "ChatGPT",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "save ai prompts for prompt engineering portfolio",
+    "slug": "save-prompts-for-portfolio",
+    "title": "Build Your Prompt Engineering Portfolio with BrainBridge",
+    "problem_description": "Prompt engineers need to prove their skill by showing their 'Iteration History'.",
+    "how_to_solve": "BrainBridge archives every version of a prompt as you 'Mark' it, creating a perfect audit trail.",
+    "category": "Developer",
+    "difficulty": 1,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 3,
+    "related_tools": [
+      "DeepSeek",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "ai tool for managing multiple llm chats",
+    "slug": "manage-multiple-llm-chats-tool",
+    "title": "One Tool to Manage Them All: The Universal AI Clipboard",
+    "problem_description": "The market is flooded with LLMs, but lacks tools to *connect* them.",
+    "how_to_solve": "BrainBridge is the platform-agnostic layer that connects any LLM interface.",
+    "category": "Researcher",
+    "difficulty": 2,
+    "user_quote": "I wish I could just drag context between AIs.",
+    "layout_seed": 3,
+    "related_tools": [
+      "VSCode",
+      "ChatGPT",
+      "LM Studio",
+      "Midjourney"
+    ]
+  },
+  {
+    "keyword": "reduce context switching fatigue for ai developers",
+    "slug": "reduce-ai-dev-context-fatigue",
+    "title": "Stop the Fatigue: How to Sync Your AI Mindset Across Tools",
+    "problem_description": "Switching between models causes 'Cognitive Overload'.",
+    "how_to_solve": "BrainBridge keeps the 'Goal' and 'Current Task' visible in a floating UI, reducing mental load.",
+    "category": "Student",
+    "difficulty": 4,
+    "user_quote": "The context window in AI tools is too limited.",
+    "layout_seed": 1,
+    "related_tools": [
+      "Gemini",
+      "LM Studio",
+      "ChatGPT",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "sync ai prompts for automated workflows",
+    "slug": "sync-ai-prompts-automation",
+    "title": "The Foundation for Automated AI Workflows: Shared Context",
+    "problem_description": "You can't automate what you can't sync.",
+    "how_to_solve": "BrainBridge provides the API-ready 'Memory blocks' that can be used to bridge manual chat and automated scripts.",
+    "category": "Researcher",
+    "difficulty": 2,
+    "user_quote": "I need a universal clipboard for all my AI tools.",
+    "layout_seed": 3,
+    "related_tools": [
+      "DeepSeek",
+      "Perplexity",
+      "Ollama"
+    ]
+  },
+  {
+    "keyword": "best way to save code blocks from claude",
+    "slug": "best-way-save-claude-code",
+    "title": "The Dev-Friendly Way to Save Claude Code Blocks",
+    "problem_description": "Claude's 'Copy' button is sometimes missing or requires scrolling. Users need a faster way.",
+    "how_to_solve": "Ctrl+Shift+S works anywhere on the screen, no need to find the tiny 'Copy' icon.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "I'm tired of retyping the same instructions to every AI.",
+    "layout_seed": 2,
+    "related_tools": [
+      "Cursor",
+      "ChatGPT"
+    ]
+  },
+  {
+    "keyword": "universal ai history for macos sequoia",
+    "slug": "universal-ai-history-macos",
+    "title": "Next-Gen AI History for macOS: Syncing All Your AI Tools",
+    "problem_description": "Apple Intelligence is limited; users need a tool that works with the *real* professional AIs they use.",
+    "how_to_solve": "BrainBridge fills the gap where OS-level AI falls short by focusing on professional LLM workflows.",
+    "category": "Student",
+    "difficulty": 3,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 1,
+    "related_tools": [
+      "VSCode",
+      "Midjourney",
+      "Perplexity"
+    ]
+  },
+  {
+    "keyword": "how to sync gemini 2.0 with vs code",
+    "slug": "sync-gemini-2-with-vs-code",
+    "title": "Google-Powered Coding: Syncing Gemini 2.0 to Your Editor",
+    "problem_description": "Gemini 2.0 is blazing fast, but getting its 1M+ context logic into a 2KB VS Code prompt is the challenge.",
+    "how_to_solve": "BrainBridge 'Summarizes and Ships' the best parts of your Gemini chat into your IDE.",
+    "category": "Student",
+    "difficulty": 5,
+    "user_quote": "Why can't my AI tools remember what I just talked about?",
+    "layout_seed": 4,
+    "related_tools": [
+      "Claude",
+      "DeepSeek"
+    ]
+  },
+  {
+    "keyword": "ai memory tool for non-tech users",
+    "slug": "ai-memory-tool-non-tech",
+    "title": "The Easy Way to Save AI Answers: No Tech Skills Required",
+    "problem_description": "Writers and marketers find AI history navigation too complex.",
+    "how_to_solve": "BrainBridge offers a 'Visual Timeline' that feels like a simple photo gallery for your AI thoughts.",
+    "category": "Developer",
+    "difficulty": 4,
+    "user_quote": "My AI chat history is a mess of lost ideas.",
+    "layout_seed": 4,
+    "related_tools": [
+      "DeepSeek",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "bridge the gap between chatgpt and terminal",
+    "slug": "bridge-chatgpt-and-terminal",
+    "title": "Chat-to-Terminal: Moving AI Commands Without the Mess",
+    "problem_description": "Copying shell commands often includes the '$' prompt or markdown, which breaks the terminal.",
+    "how_to_solve": "BrainBridge's 'Shell-Only' mode strips everything but the executable command.",
+    "category": "Student",
+    "difficulty": 3,
+    "user_quote": "Switching between AI tools is killing my productivity.",
+    "layout_seed": 3,
+    "related_tools": [
+      "ChatGPT",
+      "VSCode"
+    ]
+  },
+  {
+    "keyword": "prevent ai from forgetting project rules",
+    "slug": "prevent-ai-forgetting-project-rules",
+    "title": "Pinned Context: Keep Your AI on Track Forever",
+    "problem_description": "AI models tend to 'Drift' away from initial constraints as the conversation goes on.",
+    "how_to_solve": "Use BrainBridge to 'Re-up' the context every 10 messages with a single click.",
+    "category": "Student",
+    "difficulty": 4,
+    "user_quote": "Copy-paste from AI never works right the first time.",
+    "layout_seed": 2,
+    "related_tools": [
+      "LM Studio",
+      "ChatGPT",
+      "VSCode",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "sync my private ai prompts securely",
+    "slug": "sync-private-ai-prompts-securely",
+    "title": "Secure AI Sync: Your Prompts, Your Data, Your Memory",
+    "problem_description": "Users are worried about their 'Secret Sauce' prompts being public.",
+    "how_to_solve": "BrainBridge uses private Firebase Auth and encrypted storage to ensure your memories are for your eyes only.",
+    "category": "Student",
+    "difficulty": 2,
+    "user_quote": "My backticks are all over the place!",
+    "layout_seed": 1,
+    "related_tools": [
+      "ChatGPT",
+      "Cursor",
+      "Perplexity"
+    ]
+  },
+  {
+    "keyword": "how to transfer prompts from browser to cursor composer",
+    "slug": "transfer-prompts-browser-to-cursor-composer",
+    "title": "Mastering Cursor Composer: Feed it Better Context from Your Browser",
+    "problem_description": "Composer is powerful but 'hungry' for context. Feeding it manually is slow.",
+    "how_to_solve": "BrainBridge acts as a high-speed data pipe into Cursor's Composer mode.",
+    "category": "Writer",
+    "difficulty": 4,
+    "user_quote": "The markdown formatting from AI is driving me crazy.",
+    "layout_seed": 3,
+    "related_tools": [
+      "LM Studio",
+      "Claude",
+      "Gemini",
+      "Cursor"
+    ]
+  },
+  {
+    "keyword": "best ai snippet manager for 2026",
+    "slug": "best-ai-snippet-manager-2026",
+    "title": "BrainBridge: The Gold Standard for AI Snippet Management in 2026",
+    "problem_description": "A 'Best of' category keyword targeting users looking for the latest and greatest tool.",
+    "how_to_solve": "Positioning BrainBridge as the modern alternative to legacy clipboards.",
+    "category": "Writer",
+    "difficulty": 1,
+    "user_quote": "I lose my train of thought when switching between AI tabs.",
+    "layout_seed": 4,
+    "related_tools": [
+      "Midjourney",
+      "DeepSeek",
+      "LM Studio",
+      "Claude"
+    ]
+  },
+  {
+    "keyword": "bridge the memory gap between claude and cursor",
+    "slug": "bridge-memory-gap-claude-cursor",
+    "title": "Stop the AI Amnesia: Bridging the Memory Gap in Your Workflow",
+    "problem_description": "The core emotional hook: 'It's like they're not talking to each other.'",
+    "how_to_solve": "BrainBridge makes your AI tools talk, share, and remember together.",
+    "category": "Writer",
+    "difficulty": 3,
+    "user_quote": "I need a way to sync my AI research across devices.",
+    "layout_seed": 4,
+    "related_tools": [
+      "DeepSeek",
+      "Perplexity",
+      "ChatGPT"
+    ]
+  }
+]

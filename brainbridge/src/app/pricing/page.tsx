@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 
 export default function Pricing() {
@@ -50,19 +52,19 @@ export default function Pricing() {
               });
               
               if (response.ok) {
-                alert('恭喜！您已成功升级到 Pro 版本');
+                alert('Congratulations! You have successfully upgraded to Pro version');
                 setIsPro(true);
               } else {
-                alert('升级失败，请稍后再试');
+                alert('Upgrade failed, please try again later');
               }
             } catch (error) {
               console.error('Error upgrading to pro:', error);
-              alert('升级失败，请稍后再试');
+              alert('Upgrade failed, please try again later');
             }
           },
           onError: (error: any) => {
             console.error('PayPal error:', error);
-            alert('支付失败，请稍后再试');
+            alert('Payment failed, please try again later');
           }
         }).render(paypalRef.current!);
       }
@@ -76,15 +78,15 @@ export default function Pricing() {
     return (
       <div className="flex min-h-screen flex-col p-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8 text-center">价格方案</h1>
+          <h1 className="text-3xl font-bold mb-8 text-center">Pricing</h1>
           <div className="bg-card rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-semibold mb-4">🎉 您已升级到 Pro 版本</h2>
-            <p className="text-lg mb-6">享受无限记忆和所有高级功能！</p>
+            <h2 className="text-2xl font-semibold mb-4">🎉 You've upgraded to Pro version</h2>
+            <p className="text-lg mb-6">Enjoy unlimited memories and all premium features!</p>
             <a
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-primary-foreground transition-colors hover:bg-primary/90"
               href="/app"
             >
-              前往记忆库
+              Go to Memory Library
             </a>
           </div>
         </div>
@@ -95,31 +97,31 @@ export default function Pricing() {
   return (
     <div className="flex min-h-screen flex-col p-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center">价格方案</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center">Pricing</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-card rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-2">免费版</h2>
+            <h2 className="text-xl font-semibold mb-2">Free</h2>
             <p className="text-3xl font-bold mb-4">$0</p>
             <ul className="space-y-2 mb-6">
-              <li>最多 5 条记忆</li>
-              <li>基本功能</li>
-              <li>社区支持</li>
+              <li>Up to 5 memories</li>
+              <li>Basic features</li>
+              <li>Community support</li>
             </ul>
             <a
               className="flex h-10 items-center justify-center rounded-md border border-solid border-primary px-4 text-primary transition-colors hover:bg-primary/10"
               href="/app"
             >
-              开始使用
+              Get Started
             </a>
           </div>
           <div className="bg-card rounded-lg p-6 border-2 border-primary">
-            <h2 className="text-xl font-semibold mb-2">专业版</h2>
+            <h2 className="text-xl font-semibold mb-2">Pro</h2>
             <p className="text-3xl font-bold mb-4">$6.9</p>
-            <p className="text-sm text-muted-foreground mb-6">终身访问</p>
+            <p className="text-sm text-muted-foreground mb-6">Lifetime access</p>
             <ul className="space-y-2 mb-6">
-              <li>无限记忆</li>
-              <li>高级功能</li>
-              <li>优先支持</li>
+              <li>Unlimited memories</li>
+              <li>Advanced features</li>
+              <li>Priority support</li>
             </ul>
             <div ref={paypalRef}></div>
           </div>

@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
-import { database } from '@/lib/firebase';
-import { ref, onValue, remove, query, orderByChild, limitToLast } from 'firebase/database';
+import { getMemories, isDevelopment } from '@/lib/firebase';
+import { Memory } from '@/lib/firebase';
 
 export default function Dashboard() {
   const [memories, setMemories] = useState<any[]>([]);
@@ -10,48 +12,24 @@ export default function Dashboard() {
   const [memoryCount, setMemoryCount] = useState(0);
   const uid = useRef('test-user'); // 实际应用中应该从认证状态获取
 
-  // 实时获取记忆数据和用户状态
+  // 获取记忆数据和用户状态
   useEffect(() => {
-    if (!uid.current) return;
-
-    const userRef = ref(database, `users/${uid.current}`);
-    const memoriesRef = ref(database, `users/${uid.current}/memories`);
-    const memoriesQuery = query(memoriesRef, orderByChild('timestamp'), limitToLast(100));
-
-    // 监听用户状态
-    const userUnsubscribe = onValue(userRef, (snapshot) => {
-      if (snapshot.exists()) {
-        setIsPro(snapshot.val()?.isPro || false);
-      } else {
-        setIsPro(false);
-      }
-    });
-
-    // 监听记忆数据
-    const memoriesUnsubscribe = onValue(memoriesQuery, (snapshot) => {
-      if (snapshot.exists()) {
-        const memoryList: any[] = [];
-        snapshot.forEach((childSnapshot) => {
-          memoryList.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val(),
-          });
-        });
-        // 按时间倒序排列
-        memoryList.reverse();
+    const loadData = async () => {
+      try {
+        // 获取模拟记忆数据
+        const memoryList = await getMemories(uid.current);
         setMemories(memoryList);
         setMemoryCount(memoryList.length);
-      } else {
-        setMemories([]);
-        setMemoryCount(0);
+        // 模拟用户状态
+        setIsPro(false);
+      } catch (error) {
+        console.error('Error loading data:', error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
-    });
-
-    return () => {
-      userUnsubscribe();
-      memoriesUnsubscribe();
     };
+
+    loadData();
   }, []);
 
   // 过滤搜索结果
@@ -67,17 +45,35 @@ export default function Dashboard() {
 
   // 删除记忆
   const deleteMemory = (id: string) => {
-    if (confirm('确定要删除这条记忆吗？')) {
-      const memoryRef = ref(database, `users/${uid.current}/memories/${id}`);
-      remove(memoryRef);
+    if (confirm('Are you sure you want to delete this memory?')) {
+      if (isDevelopment) {
+        // 模拟删除记忆
+        setMemories(prevMemories => prevMemories.filter(memory => memory.id !== id));
+        setMemoryCount(prevCount => prevCount - 1);
+        console.log('Mock deleteMemory:', id);
+      } else {
+        // 实际删除记忆
+        const { database, ref, remove } = require('firebase/database');
+        const memoryRef = ref(database, `users/${uid.current}/memories/${id}`);
+        remove(memoryRef);
+      }
     }
   };
 
   // 清空所有记忆
   const clearAllMemories = () => {
-    if (confirm('确定要清空所有记忆吗？此操作不可恢复。')) {
-      const memoriesRef = ref(database, `users/${uid.current}/memories`);
-      remove(memoriesRef);
+    if (confirm('Are you sure you want to clear all memories? This action cannot be undone.')) {
+      if (isDevelopment) {
+        // 模拟清空所有记忆
+        setMemories([]);
+        setMemoryCount(0);
+        console.log('Mock clearAllMemories');
+      } else {
+        // 实际清空所有记忆
+        const { database, ref, remove } = require('firebase/database');
+        const memoriesRef = ref(database, `users/${uid.current}/memories`);
+        remove(memoriesRef);
+      }
     }
   };
 
@@ -96,7 +92,7 @@ export default function Dashboard() {
               onClick={clearAllMemories}
               className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
             >
-              清空所有记忆
+              Clear All Memories
             </button>
           </div>
         </div>
@@ -105,7 +101,7 @@ export default function Dashboard() {
         <div className="mb-8">
           <input
             type="text"
-            placeholder="搜索记忆内容..."
+            placeholder="Search memory content..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
@@ -118,10 +114,10 @@ export default function Dashboard() {
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
 
           {loading ? (
-            <div className="text-center py-10">加载中...</div>
+            <div className="text-center py-10">Loading...</div>
           ) : filteredMemories.length === 0 ? (
             <div className="text-center py-10 text-muted-foreground">
-              {searchTerm ? '没有找到匹配的记忆' : '还没有记忆，开始添加吧！'}
+              {searchTerm ? 'No matching memories found' : 'No memories yet, start adding!'}  
             </div>
           ) : (
             filteredMemories.map((memory) => (
@@ -139,7 +135,7 @@ export default function Dashboard() {
                       onClick={() => deleteMemory(memory.id)}
                       className="text-sm text-red-500 hover:text-red-700"
                     >
-                      删除
+                      Delete
                     </button>
                   </div>
                   <div className="mb-4 text-sm line-clamp-3">
