@@ -5,8 +5,9 @@ import { ChevronRight } from "lucide-react";
 // 读取关键词数据
 import keywords from "@/data/keywords.json";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const keyword = keywords.find(k => k.slug === params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } | Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const keyword = keywords.find(k => k.slug === resolvedParams.slug);
   
   if (!keyword) {
     return {
@@ -15,13 +16,21 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
   
+  // Generate dynamic title with template
+  const dynamicTitle = `${keyword.title} - The 2026 AI Workflow Guide`;
+  
+  // Generate unique og:image based on slug
+  // Using a placeholder image service with slug-based parameters
+  const ogImage = `https://neeko-copilot.bytedance.net/api/text2image?prompt=${encodeURIComponent(keyword.title)}&size=1200x630`;
+  
   return {
-    title: keyword.title,
+    title: dynamicTitle,
     description: keyword.how_to_solve.substring(0, 160),
     openGraph: {
-      title: keyword.title,
+      title: dynamicTitle,
       description: keyword.how_to_solve.substring(0, 160),
-      type: 'article'
+      type: 'article',
+      images: [ogImage]
     }
   };
 }
@@ -57,5 +66,5 @@ export default function SlugPage({ params }: { params: { slug: string } | Promis
     );
   }
   
-  return <SlugPageContent keyword={keyword} />;
+  return <SlugPageContent keyword={keyword} slug={resolvedParams.slug} />;
 }

@@ -6,6 +6,14 @@ import { Check, ChevronRight, Code, Copy, ExternalLink, Terminal } from "lucide-
 // 读取关键词数据
 import keywords from "@/data/keywords.json";
 
+// 内容增强器
+import { enhanceContent, categorizeKeyword } from "@/lib/content-enhancer";
+
+// 组件
+import RelatedSolutions from "@/components/RelatedSolutions";
+import JsonLd from "@/components/JsonLd";
+import PowerToolsSuite from "@/components/PowerToolsSuite";
+
 // 代码示例
 const codeExamples = {
   "convert-curl-to-axios": `import axios from 'axios';
@@ -189,8 +197,11 @@ interface Keyword {
   how_to_solve: string;
 }
 
-export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
+export default function SlugPageContent({ keyword, slug }: { keyword: Keyword; slug: string }) {
   const [copied, setCopied] = useState(false);
+  
+  // 增强内容
+  const enhancedContent = enhanceContent(keyword);
   
   const codeExample = codeExamples[keyword.slug as keyof typeof codeExamples] || codeExamples["convert-curl-to-axios"];
   
@@ -200,8 +211,37 @@ export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
     setTimeout(() => setCopied(false), 2000);
   };
   
+  // Generate structured data
+  const currentUrl = window.location.href;
+  const category = categorizeKeyword(keyword);
+  
+  const softwareApplicationData = {
+    name: keyword.title,
+    applicationCategory: category,
+    url: currentUrl,
+    description: keyword.how_to_solve.substring(0, 160),
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock'
+  };
+  
+  // Split how_to_solve into steps for HowTo schema
+  const steps = keyword.how_to_solve
+    .split('. ')
+    .filter(step => step.trim().length > 0)
+    .map(step => step.trim() + '.');
+  
+  const howToData = {
+    name: keyword.title,
+    description: keyword.problem_description,
+    steps: steps
+  };
+  
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      {/* JSON-LD Structured Data */}
+      <JsonLd type="SoftwareApplication" data={softwareApplicationData} />
+      <JsonLd type="HowTo" data={howToData} />
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -211,9 +251,18 @@ export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
               <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6">
                 {keyword.title}
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
                 {keyword.how_to_solve.substring(0, 160)}...
               </p>
+              {/* Trend Section (for Coding category) */}
+              {enhancedContent.trendSection && (
+                <div className="bg-slate-100 border border-slate-200 p-6 rounded-lg mb-8">
+                  <h2 className="text-xl font-bold text-slate-900 mb-4">2026 Latest Trends</h2>
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                    {enhancedContent.trendSection}
+                  </p>
+                </div>
+              )}
             </div>
             
             {/* Problem Section */}
@@ -287,6 +336,35 @@ export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
               </div>
             </div>
             
+            {/* Recall Content Section */}
+            <div className="bg-white border border-slate-200 p-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+                <div className="w-1 bg-red-600 h-8 mr-4"></div>
+                Context Example
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Use the following context with our /recall feature to quickly access this information in your development workflow:
+              </p>
+              <div className="border border-slate-200 rounded-md overflow-hidden">
+                <div className="bg-slate-100 px-4 py-2 flex items-center justify-between border-b border-slate-200">
+                  <div className="flex items-center gap-2">
+                    <Terminal size={18} className="text-slate-400" />
+                    <span className="text-sm font-medium text-slate-700">context.ts</span>
+                  </div>
+                  <button 
+                    onClick={() => copyToClipboard(enhancedContent.recallContent)}
+                    className="flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
+                    {copied ? <Check size={16} /> : <Copy size={16} />}
+                    {copied ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <pre className="bg-slate-50 p-4 overflow-x-auto text-sm font-mono text-slate-800">
+                  <code>{enhancedContent.recallContent}</code>
+                </pre>
+              </div>
+            </div>
+            
             {/* Code Section */}
             <div className="bg-white border border-slate-200 p-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
@@ -312,6 +390,29 @@ export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
                 </pre>
               </div>
             </div>
+            
+            {/* FAQ Section */}
+            <div className="bg-white border border-slate-200 p-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+                <div className="w-1 bg-red-600 h-8 mr-4"></div>
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-6">
+                {enhancedContent.faqs.map((faq, index) => (
+                  <div key={index} className="border-b border-slate-100 pb-6 last:border-0 last:pb-0">
+                    <h3 className="text-lg font-semibold text-slate-900 mb-3">
+                      {faq.question}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Related Solutions */}
+            <RelatedSolutions currentKeyword={keyword} allKeywords={keywords} />
           </div>
           
           {/* Sticky Sidebar */}
@@ -403,6 +504,11 @@ export default function SlugPageContent({ keyword }: { keyword: Keyword }) {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Power Tools Suite */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 mb-12">
+          <PowerToolsSuite currentSlug={slug} />
         </div>
       </div>
     </div>
