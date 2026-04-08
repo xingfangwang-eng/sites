@@ -5,11 +5,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "PersonaLock - Lock Your Creative Soul",
   description: "Extract your creative style DNA, make AI speak like you",
-  metadataBase: new URL("https://personalock.io"),
+  metadataBase: new URL("https://personalock.wangdadi.xyz"),
   openGraph: {
     title: "PersonaLock - Lock Your Creative Soul",
     description: "Extract your creative style DNA, make AI speak like you",
-    url: "https://personalock.io",
+    url: "https://personalock.wangdadi.xyz",
     type: "website",
   },
   twitter: {

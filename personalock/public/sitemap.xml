@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home Page -->
   <url>
-    <loc>https://personalock.vercel.app/</loc>
+    <loc>https://personalock.wangdadi.xyz/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -10,7 +10,7 @@
   
   <!-- Solutions Library (Aggregation Page) -->
   <url>
-    <loc>https://personalock.vercel.app/solutions/</loc>
+    <loc>https://personalock.wangdadi.xyz/solutions/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -18,871 +18,871 @@
   
   <!-- 100 Static Pages -->
   <url>
-    <loc>https://personalock.vercel.app/convert-curl-to-axios/</loc>
+    <loc>https://personalock.wangdadi.xyz/convert-curl-to-axios/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-react-app-performance/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-react-app-performance/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/secure-api-keys-nodejs/</loc>
+    <loc>https://personalock.wangdadi.xyz/secure-api-keys-nodejs/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/dockerize-nodejs-app/</loc>
+    <loc>https://personalock.wangdadi.xyz/dockerize-nodejs-app/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/mongodb-optimization-guide/</loc>
+    <loc>https://personalock.wangdadi.xyz/mongodb-optimization-guide/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-brand-persona-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-brand-persona-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-business-persona-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-business-persona-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-character-persona-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-character-persona-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-creative-persona-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-creative-persona-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-persona-for-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-persona-for-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/create-professional-persona-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/create-professional-persona-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-creativity/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-creativity/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-customer-support/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-customer-support/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-dialogue-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-dialogue-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-lyric-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-lyric-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-podcast-scripts/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-podcast-scripts/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-poetry-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-poetry-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-presentation-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-presentation-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-screenplay-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-screenplay-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-speech-writing/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-speech-writing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-storytelling/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-storytelling/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/enhance-ai-writing-style/</loc>
+    <loc>https://personalock.wangdadi.xyz/enhance-ai-writing-style/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-ai-hate-speech/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-ai-hate-speech/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-ai-misinformation/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-ai-misinformation/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-ai-plagiarism/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-ai-plagiarism/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-ai-scam-content/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-ai-scam-content/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-ai-spam-content/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-ai-spam-content/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/ban-cliche-phrases-ai/</loc>
+    <loc>https://personalock.wangdadi.xyz/ban-cliche-phrases-ai/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-facebook/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-facebook/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-linkedin/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-linkedin/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-linkedin-articles/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-linkedin-articles/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-linkedin-posts/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-linkedin-posts/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-pinterest/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-pinterest/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/adapt-ai-content-for-youtube/</loc>
+    <loc>https://personalock.wangdadi.xyz/adapt-ai-content-for-youtube/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-seo/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-seo/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-social-media/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-social-media/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-email-marketing/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-email-marketing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-sales/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-sales/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-customer-support/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-customer-support/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-product-descriptions/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-product-descriptions/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-blog-posts/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-blog-posts/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-website-copy/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-website-copy/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-podcast-scripts/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-podcast-scripts/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-video-scripts/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-video-scripts/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-speeches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-speeches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-press-releases/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-press-releases/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-case-studies/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-case-studies/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-white-papers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-white-papers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-e-books/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-e-books/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-courses/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-courses/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-workshops/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-workshops/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-webinars/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-webinars/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-conferences/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-conferences/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-networking-events/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-networking-events/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-job-interviews/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-job-interviews/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-salary-negotiations/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-salary-negotiations/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-performance-reviews/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-performance-reviews/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-team-meetings/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-team-meetings/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-client-presentations/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-client-presentations/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investor-pitches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investor-pitches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-fundraising/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-fundraising/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-grant-proposals/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-grant-proposals/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-business-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-business-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-marketing-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-marketing-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-sales-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-sales-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-product-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-product-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-development-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-development-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-testing-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-testing-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-deployment-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-deployment-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-monitoring-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-monitoring-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-maintenance-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-maintenance-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-upgrade-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-upgrade-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-migration-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-migration-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-integration-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-integration-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-automation-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-automation-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-security-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-security-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-compliance-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-compliance-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-risk-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-risk-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-disaster-recovery-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-disaster-recovery-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-business-continuity-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-business-continuity-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-exit-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-exit-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-succession-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-succession-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-retirement-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-retirement-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-estate-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-estate-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-legacy-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-legacy-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-philanthropic-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-philanthropic-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-educational-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-educational-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-career-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-career-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-personal-development-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-personal-development-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-health-and-wellness-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-health-and-wellness-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-plans/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-plans/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-retirement-planning/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-retirement-planning/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-tax-planning/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-tax-planning/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-estate-planning/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-estate-planning/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-insurance-planning/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-insurance-planning/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-debt-management/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-debt-management/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-credit-building/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-credit-building/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-budgeting/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-budgeting/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-saving/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-saving/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investing/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investing/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-wealth-building/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-wealth-building/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-freedom/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-freedom/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-independence/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-independence/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-early-retirement/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-early-retirement/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-fire-movement/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-fire-movement/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-literacy/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-literacy/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-management/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-management/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-planning-tools/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-planning-tools/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-tools/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-tools/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-calculators/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-calculators/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-budgeting-tools/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-budgeting-tools/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-saving-tools/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-saving-tools/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-platforms/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-platforms/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-robo-advisors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-robo-advisors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-advisors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-advisors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-planners/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-planners/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-advisors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-advisors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-tax-advisors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-tax-advisors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-estate-planners/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-estate-planners/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-insurance-advisors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-insurance-advisors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-debt-counselors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-debt-counselors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-credit-counselors/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-credit-counselors/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-coaches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-coaches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-coaches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-coaches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-coaches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-coaches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-retirement-coaches/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-retirement-coaches/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-educators/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-educators/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-educators/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-educators/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-educators/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-educators/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-writers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-writers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-writers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-writers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-writers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-writers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-bloggers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-bloggers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-bloggers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-bloggers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-bloggers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-bloggers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-podcasters/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-podcasters/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-podcasters/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-podcasters/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-podcasters/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-podcasters/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-youtubers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-youtubers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-youtubers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-youtubers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-youtubers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-youtubers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-financial-social-media-influencers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-financial-social-media-influencers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-money-social-media-influencers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-money-social-media-influencers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://personalock.vercel.app/optimize-ai-content-for-investment-social-media-influencers/</loc>
+    <loc>https://personalock.wangdadi.xyz/optimize-ai-content-for-investment-social-media-influencers/</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

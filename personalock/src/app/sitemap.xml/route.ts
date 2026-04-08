@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import keywordsData from '../../../data/keywords.json';
 
 export async function GET() {
-  const baseUrl = 'https://personalock.vercel.app';
+  const baseUrl = 'https://personalock.wangdadi.xyz';
   const lastmod = new Date().toISOString().split('T')[0];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import keywordsData from '../../../data/keywords.json';
 
 export default function SitemapPage() {
-  const baseUrl = 'https://personalock.vercel.app';
+  const baseUrl = 'https://personalock.wangdadi.xyz';
 
   return (
     <div className="bg-slate-50 min-h-screen">
