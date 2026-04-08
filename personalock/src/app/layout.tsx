@@ -29,7 +29,7 @@ export default function RootLayout({
       className="h-full antialiased"
     >
       <head>
-        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+       <meta name="google-site-verification" content="uTT2vLHXrvh44esSpln_EMc1QEFjkN0vjJZ04UgI0Qc" />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {
