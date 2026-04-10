@@ -43,7 +43,7 @@ export default function Sidebar() {
     }
   };
 
-  const handleImageError = (error: Event) => {
+  const handleImageError = (error: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = error.target as HTMLImageElement;
     console.error('Image loading error:', {
       src: target.src,
