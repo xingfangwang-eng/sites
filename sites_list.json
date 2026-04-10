@@ -279,6 +279,41 @@
       "category": "Gaming Tools",
       "created_at": "2026-04-08T10:04:00Z",
       "is_pushed": false
+    },
+    {
+      "subdomain": "https://chapterpredictor.wangdadi.xyz/",
+      "title": "ChapterPredictor - Chapter Prediction Tool",
+      "category": "AI Tools",
+      "created_at": "2026-04-10T09:53:08Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://giveawaytracker.wangdadi.xyz/",
+      "title": "GiveawayTracker - Giveaway Tracking Tool",
+      "category": "Marketing Tools",
+      "created_at": "2026-04-10T09:53:08Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stoptheswitch.wangdadi.xyz",
+      "title": "StopTheSwitch - Subscription Prevention",
+      "category": "Subscription Management",
+      "created_at": "2026-04-10T09:53:08Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://mememooncalculator.wangdadi.xyz",
+      "title": "MemeMoon Calculator - Meme Investment Calculator",
+      "category": "Finance Tools",
+      "created_at": "2026-04-10T09:53:08Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://autotask.wangdadi.xyz",
+      "title": "AutoTask - Task Automation Tool",
+      "category": "Productivity Tools",
+      "created_at": "2026-04-10T09:53:08Z",
+      "is_pushed": false
     }
   ]
 }
