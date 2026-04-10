@@ -1,0 +1,42 @@
+[
+  {
+    "name": "GitHub",
+    "url": "https://github.com"
+  },
+  {
+    "name": "Google",
+    "url": "https://google.com"
+  },
+  {
+    "name": "Twitter",
+    "url": "https://twitter.com"
+  },
+  {
+    "name": "LinkedIn",
+    "url": "https://linkedin.com"
+  },
+  {
+    "name": "Facebook",
+    "url": "https://facebook.com"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://instagram.com"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://youtube.com"
+  },
+  {
+    "name": "Reddit",
+    "url": "https://reddit.com"
+  },
+  {
+    "name": "Stack Overflow",
+    "url": "https://stackoverflow.com"
+  },
+  {
+    "name": "Medium",
+    "url": "https://medium.com"
+  }
+]
