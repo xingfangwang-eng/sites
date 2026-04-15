@@ -62,6 +62,8 @@ const TENANT_COMPONENTS = {
   noadobe: GenericApp,
   linguisticdnaextractor: GenericApp,
   humbled: GenericApp,
+  agents: GenericApp,
+  receptionkiller: GenericApp,
 };
 
 // 站点分类映射
@@ -120,6 +122,8 @@ const SITE_CATEGORIES: Record<string, string> = {
   noadobe: 'Design Tools',
   linguisticdnaextractor: 'AI Tools',
   humbled: 'Lifestyle Tools',
+  agents: 'AI Tools',
+  receptionkiller: 'Productivity Tools',
 };
 
 export default function Home() {

@@ -17,6 +17,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" data-tenant={tenant.id}>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // 动态注入项目名
+  gtag('config', 'G-WC4677QJMF', {
+    'project_name': 'multi-tenant-demo'
+  });
+</script>
       <body className={inter.className}>
         <BaseLayout tenant={tenant}>
           {children}

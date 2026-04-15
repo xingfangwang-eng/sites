@@ -727,6 +727,32 @@ const TENANTS: TenantConfig[] = [
       payment: false,
       analytics: true
     }
+  },
+  {
+    id: 'agents',
+    name: 'Agents Directory',
+    domain: 'agents.wangdadi.xyz',
+    theme: {
+      primaryColor: '#6366f1',
+      secondaryColor: '#8b5cf6'
+    },
+    features: {
+      payment: false,
+      analytics: true
+    }
+  },
+  {
+    id: 'receptionkiller',
+    name: 'Reception Killer',
+    domain: 'receptionkiller.wangdadi.xyz',
+    theme: {
+      primaryColor: '#ef4444',
+      secondaryColor: '#f87171'
+    },
+    features: {
+      payment: false,
+      analytics: true
+    }
   }
 ];
 
