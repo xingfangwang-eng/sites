@@ -1,0 +1,438 @@
+{
+  "sites": [
+    {
+      "subdomain": "https://songkrangenerator.wangdadi.xyz",
+      "title": "SongKrangenerator - Song Krangenerator Tool",
+      "category": "Audio Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://fanguard.wangdadi.xyz",
+      "title": "FanGuard - Protect Your Fandom",
+      "category": "Security",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://agents.wangdadi.xyz",
+      "title": "Agents - AI Agents Platform",
+      "category": "AI Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://receptionkiller.wangdadi.xyz",
+      "title": "ReceptionKiller - Kill Reception Noise",
+      "category": "Audio Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://nichecalccrusher.wangdadi.xyz",
+      "title": "NicheCalcCrusher - Niche Calculator Tool",
+      "category": "SEO Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://hooksurgeon.wangdadi.xyz",
+      "title": "HookSurgeon - Hook Creation Tool",
+      "category": "Content Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://gmailretrybeast.wangdadi.xyz",
+      "title": "GmailRetryBeast - Gmail Retry Tool",
+      "category": "Email Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://slopkiller.wangdadi.xyz",
+      "title": "SlopKiller - Slop Removal Tool",
+      "category": "Content Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://artemisreentry.wangdadi.xyz",
+      "title": "Artemis Reentry",
+      "category": "Space Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://coachellaviral.wangdadi.xyz",
+      "title": "Coachella Viral",
+      "category": "Social Media",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://billripper.wangdadi.xyz",
+      "title": "Bill Ripper",
+      "category": "Finance Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://boothell.wangdadi.xyz",
+      "title": "Boot Hell",
+      "category": "E-commerce",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://capsule-factory-saas.wangdadi.xyz",
+      "title": "Capsule Factory SaaS",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://cineskin.wangdadi.xyz",
+      "title": "CineSkin",
+      "category": "Video Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://crosspostfast.wangdadi.xyz",
+      "title": "Crosspost Fast",
+      "category": "Social Media",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://deadliner.wangdadi.xyz",
+      "title": "Deadliner",
+      "category": "Productivity",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killbillcard.wangdadi.xyz",
+      "title": "Kill Bill Card",
+      "category": "Finance Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killsaas.wangdadi.xyz",
+      "title": "Kill SaaS",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killsubscription.wangdadi.xyz",
+      "title": "Kill Subscription",
+      "category": "Finance Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://killswitchapi.wangdadi.xyz",
+      "title": "Kill Switch API",
+      "category": "API Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://lightningbrand.wangdadi.xyz",
+      "title": "Lightning Brand",
+      "category": "Branding",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://manualslib.wangdadi.xyz",
+      "title": "ManualsLib",
+      "category": "Documentation",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://mockupnuke.wangdadi.xyz",
+      "title": "Mockup Nuke",
+      "category": "Design Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://neveruploadio.wangdadi.xyz",
+      "title": "Never Upload IO",
+      "category": "File Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://noseotop.wangdadi.xyz",
+      "title": "No SEO Top",
+      "category": "SEO Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://nukeprivacy.wangdadi.xyz",
+      "title": "Nuke Privacy",
+      "category": "Security",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://oneclickapi.wangdadi.xyz",
+      "title": "One Click API",
+      "category": "API Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://onecommand.wangdadi.xyz",
+      "title": "One Command",
+      "category": "Productivity",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://onepagesaas.wangdadi.xyz",
+      "title": "One Page SaaS",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://rugradar.wangdadi.xyz",
+      "title": "Rug Radar",
+      "category": "E-commerce",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://scriptkill.wangdadi.xyz",
+      "title": "Script Kill",
+      "category": "Development Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://slimsnd.wangdadi.xyz",
+      "title": "Slim SND",
+      "category": "Audio Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://smesurvivalai.wangdadi.xyz",
+      "title": "SME Survival AI",
+      "category": "AI Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stopaicost.wangdadi.xyz",
+      "title": "Stop AI Cost",
+      "category": "AI Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stopsaas.wangdadi.xyz",
+      "title": "Stop SaaS",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://truck.wangdadi.xyz",
+      "title": "Truck Legal Factory",
+      "category": "Legal Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://viralhook.wangdadi.xyz",
+      "title": "Viral Hook",
+      "category": "Social Media",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://zerosub.wangdadi.xyz",
+      "title": "Zero Sub",
+      "category": "Social Media",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://zerocloud.wangdadi.xyz",
+      "title": "Zero Cloud",
+      "category": "Cloud Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://chapterpredictor.wangdadi.xyz",
+      "title": "Chapter Predictor",
+      "category": "Writing Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://cleancsvai.wangdadi.xyz",
+      "title": "Clean CSV AI",
+      "category": "Data Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://cronguard.wangdadi.xyz",
+      "title": "Cron Guard",
+      "category": "Development Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://dentaiagent.wangdadi.xyz",
+      "title": "Dent AI Agent",
+      "category": "AI Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://deshaefrost.wangdadi.xyz",
+      "title": "Deshae Frost",
+      "category": "Entertainment",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://focusinbox.wangdadi.xyz",
+      "title": "Focus Inbox",
+      "category": "Productivity",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://free_ebook_maker.wangdadi.xyz",
+      "title": "Free Ebook Maker",
+      "category": "Writing Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://giveawaytracker.wangdadi.xyz",
+      "title": "Giveaway Tracker",
+      "category": "Marketing Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://linguisticdnaextractor.wangdadi.xyz",
+      "title": "Linguistic DNA Extractor",
+      "category": "Language Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://mememooncalculator.wangdadi.xyz",
+      "title": "Meme Moon Calculator",
+      "category": "Fun Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://navslayer.wangdadi.xyz",
+      "title": "Nav Slayer",
+      "category": "Navigation Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://neverexplain.wangdadi.xyz",
+      "title": "Never Explain",
+      "category": "Communication Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://noaimd.wangdadi.xyz",
+      "title": "No AI MD",
+      "category": "Health Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://office-sync.wangdadi.xyz",
+      "title": "Office Sync",
+      "category": "Productivity",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://personallock.wangdadi.xyz",
+      "title": "Personal Lock",
+      "category": "Security",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://pingthemio.wangdadi.xyz",
+      "title": "Ping Them IO",
+      "category": "Network Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://postgresroast.wangdadi.xyz",
+      "title": "Postgres Roast",
+      "category": "Database Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://postgressurgeon.wangdadi.xyz",
+      "title": "Postgres Surgeon",
+      "category": "Database Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://saaskiller.wangdadi.xyz",
+      "title": "SaaS Killer",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://saasstripper.wangdadi.xyz",
+      "title": "SaaS Stripper",
+      "category": "SaaS Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://samirapulse.wangdadi.xyz",
+      "title": "Samira Pulse",
+      "category": "Health Tools",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://stoptheswitch.wangdadi.xyz",
+      "title": "Stop The Switch",
+      "category": "Productivity",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://tweetvirality.wangdadi.xyz",
+      "title": "Tweet Virality",
+      "category": "Social Media",
+      "created_at": "2026-04-12T12:37:39Z",
+      "is_pushed": false
+    }
+  ]
+}
