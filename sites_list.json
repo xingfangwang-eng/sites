@@ -433,6 +433,34 @@
       "category": "Social Media",
       "created_at": "2026-04-12T12:37:39Z",
       "is_pushed": false
+    },
+    {
+      "subdomain": "https://notiontablecleaner.wangdadi.xyz",
+      "title": "Notion Table Cleaner",
+      "category": "Productivity",
+      "created_at": "2026-04-19T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://laravelboilerplateslayer.wangdadi.xyz",
+      "title": "Laravel Boilerplate Slayer",
+      "category": "Development Tools",
+      "created_at": "2026-04-19T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://webhookslayer.wangdadi.xyz",
+      "title": "Webhook Slayer",
+      "category": "API Tools",
+      "created_at": "2026-04-19T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://toolcallkiller.wangdadi.xyz",
+      "title": "Toolcall Killer",
+      "category": "AI Tools",
+      "created_at": "2026-04-19T12:37:39Z",
+      "is_pushed": false
     }
   ]
 }
