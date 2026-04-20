@@ -461,6 +461,27 @@
       "category": "AI Tools",
       "created_at": "2026-04-19T12:37:39Z",
       "is_pushed": false
+    },
+    {
+      "subdomain": "https://deployguard.wangdadi.xyz",
+      "title": "DeployGuard",
+      "category": "Security Tools",
+      "created_at": "2026-04-20T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://contextlock.wangdadi.xyz",
+      "title": "ContextLock",
+      "category": "AI Tools",
+      "created_at": "2026-04-20T12:37:39Z",
+      "is_pushed": false
+    },
+    {
+      "subdomain": "https://noisekiller.wangdadi.xyz",
+      "title": "NoiseKiller",
+      "category": "AI Tools",
+      "created_at": "2026-04-20T12:37:39Z",
+      "is_pushed": false
     }
   ]
 }
