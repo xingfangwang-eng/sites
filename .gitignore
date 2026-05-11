@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# Vercel local config
+.vercel/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+*.tmp
+*.swp
+*.swo
+
+# Ignore all subdirectories except the root index.html and vercel.json
+/*/
+!index.html
+!vercel.json
+!.gitignore
