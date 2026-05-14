@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeCodeArmor - AI Code Refactoring & Architecture Guardrails Tool | Make Cursor Code Cleaner</title>
+    <meta name="description" content="Paste AI-generated messy code and get architecture boundaries, folder structure suggestions, and defensive code guardrails. Supports generating .cursorrules, follows SOLID principles, improves AI code maintainability.">
+    <meta name="keywords" content="AI code refactoring, Cursor rules generator, folder structure optimization, defensive programming, Clean Architecture, developer tools">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "HowTo",
+                "name": "How to Refactor AI-Generated Code",
+                "description": "Analyze AI-generated code with VibeCodeArmor tool to get architecture boundary suggestions, folder structure optimization, and defensive code guardrails",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "text": "Paste AI-generated code into the input box"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Click 'Generate Architecture Armor' button for analysis"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "View architecture score, refactoring suggestions, and folder structure"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Copy generated .cursorrules configuration to Cursor editor"
+                    }
+                ],
+                "tool": [
+                    {
+                        "@type": "SoftwareApplication",
+                        "name": "VibeCodeArmor",
+                        "description": "AI Code Refactoring and Architecture Guardrails Tool"
+                    }
+                ]
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "VibeCodeArmor",
+                "description": "Inject architectural soul into AI-generated code. Provides architecture boundary analysis, folder structure suggestions, and defensive code guardrails.",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Web",
+                "featureList": [
+                    "AI Code Scan Analysis",
+                    "Architecture Health Score",
+                    "Clean Architecture Layer Suggestions",
+                    "Folder Structure Generation",
+                    "Defensive Programming Guardrails",
+                    ".cursorrules Generation",
+                    "Before/After Comparison View"
+                ],
+                "url": "https://vibecodearmor.dev"
+            }
+        ]
+    }
+    </script>
+    <style>* {margin:0;padding:0;box-sizing:border-box;} body {background-color:#0a0a0b;color:#d1d5db;font-family:Consolas,Monaco,'Courier New',monospace;line-height:1.6;min-height:100vh;} .container {max-width:1000px;margin:0 auto;padding:20px;display:flex;flex-direction:column;min-height:100vh;} header {border-bottom:2px solid #3b82f6;padding-bottom:20px;margin-bottom:30px;text-align:center;} h1 {color:#3b82f6;font-size:2.5rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;} .subtitle {color:#9ca3af;font-size:1.1rem;} .input-zone {border:1px solid #3b82f6;padding:20px;margin-bottom:30px;background-color:#0a0a0b;} .input-label {color:#3b82f6;font-size:1.1rem;margin-bottom:10px;display:block;text-transform:uppercase;} textarea {width:100%;height:200px;padding:15px;background-color:#161b22;border:2px solid #3b82f6;color:#d1d5db;font-family:Consolas,Monaco,'Courier New',monospace;font-size:0.9rem;resize:none;margin-bottom:15px;} textarea::placeholder {color:#4b5563;} textarea:focus {outline:none;border-color:#3b82f6;} .action-btn {background-color:#3b82f6;color:#0a0a0b;border:2px solid #3b82f6;padding:15px 30px;cursor:pointer;font-family:'Courier New',monospace;text-transform:uppercase;font-size:1.1rem;font-weight:bold;width:100%;letter-spacing:2px;} .action-btn:hover {background-color:#0a0a0b;color:#3b82f6;} .output-zone {display:none;margin-bottom:30px;} .output-zone.show {display:block;} .result-panel {border:1px solid #3b82f6;padding:20px;background-color:#1f2937;margin-bottom:20px;position:relative;border-left:5px solid #3b82f6;} .result-panel-title {color:#3b82f6;font-size:1.2rem;margin-bottom:15px;text-transform:uppercase;border-bottom:1px solid #3b82f6;padding-bottom:10px;display:flex;justify-content:space-between;align-items:center;} .copy-btn {background-color:#0a0a0b;color:#3b82f6;border:1px solid #3b82f6;padding:5px 10px;cursor:pointer;font-family:'Courier New',monospace;font-size:0.8rem;text-transform:uppercase;} .copy-btn:hover {background-color:#3b82f6;color:#0a0a0b;} .result-content {font-size:0.9rem;line-height:1.8;} .result-content ul {list-style-type:none;padding-left:0;} .result-content li {padding:8px 0;border-bottom:1px solid #1f2937;padding-left:20px;position:relative;} .result-content li::before {content:'>';position:absolute;left:0;color:#3b82f6;} .result-content .layer-name {color:#3b82f6;font-weight:bold;} .result-content .layer-desc {color:#9ca3af;margin-left:10px;} .tree-structure {font-family:Consolas,Monaco,'Courier New',monospace;white-space:pre;font-size:0.85rem;color:#d1d5db;line-height:1.6;} .tree-folder {color:#3b82f6;} .tree-file {color:#9ca3af;} .guardrail-item {padding:10px;border-left:3px solid #3b82f6;margin-bottom:10px;background-color:rgba(59,130,246,0.1);} .guardrail-title {color:#3b82f6;font-weight:bold;margin-bottom:5px;} .guardrail-desc {color:#d1d5db;font-size:0.85rem;} footer {border-top:2px solid #3b82f6;padding-top:20px;text-align:center;font-size:0.85rem;color:#9ca3af;} .copied-notice {position:fixed;bottom:20px;right:20px;background-color:#3b82f6;color:#0a0a0b;padding:10px 20px;font-family:'Courier New',monospace;font-size:0.9rem;display:none;z-index:1000;} .copied-notice.show {display:block;} .health-score {text-align:center;padding:30px;margin-bottom:20px;background:linear-gradient(135deg,#1f2937 0%,#111827 100%);border:2px solid #3b82f6;border-radius:4px;} .score-number {font-size:4rem;font-weight:bold;color:#3b82f6;margin-bottom:10px;} .score-label {font-size:1.2rem;text-transform:uppercase;letter-spacing:2px;} .score-label.fragile {color:#ef4444;} .score-label.vulnerable {color:#f59e0b;} .score-label.healthy {color:#10b981;} .score-label.strong {color:#3b82f6;} .score-label.invincible {color:#8b5cf6;} .score-desc {font-size:0.9rem;color:#9ca3af;margin-top:10px;} .strategy-tabs {display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;} .strategy-tab {padding:12px 20px;background-color:#1f2937;border:1px solid #3b82f6;color:#3b82f6;cursor:pointer;font-family:Consolas,Monaco,monospace;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;} .strategy-tab:hover {background-color:#3b82f6;color:#0a0a0b;} .strategy-tab.active {background-color:#3b82f6;color:#0a0a0b;} .strategy-desc {font-size:0.85rem;color:#9ca3af;margin-bottom:20px;padding:10px;background-color:#1f2937;border-left:3px solid #3b82f6;} .cursorrules-section {background-color:#161b22;border:2px solid #3b82f6;padding:20px;margin-bottom:20px;} .cursorrules-title {color:#3b82f6;font-size:1.2rem;margin-bottom:15px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;} .cursorrules-content {background-color:#0a0a0b;border:1px solid #3b82f6;padding:15px;font-family:Consolas,Monaco,monospace;font-size:0.85rem;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow-y:auto;color:#d1d5db;} .checklist-item {display:flex;align-items:flex-start;padding:12px 0;border-bottom:1px solid #1f2937;cursor:pointer;} .checklist-checkbox {width:20px;height:20px;border:2px solid #3b82f6;background-color:#0a0a0b;margin-right:15px;flex-shrink:0;position:relative;cursor:pointer;} .checklist-checkbox.checked {background-color:#3b82f6;} .checklist-checkbox.checked::after {content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#0a0a0b;font-weight:bold;font-size:12px;} .checklist-content {flex:1;} .checklist-title {color:#3b82f6;font-weight:bold;margin-bottom:5px;} .checklist-desc {color:#9ca3af;font-size:0.85rem;} .comparison-view {display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;} .comparison-panel {background-color:#1f2937;border:1px solid #3b82f6;padding:20px;} .comparison-panel.before {border-left:5px solid #ef4444;} .comparison-panel.after {border-left:5px solid #10b981;} .comparison-title {font-size:1.1rem;text-transform:uppercase;margin-bottom:15px;letter-spacing:1px;} .comparison-panel.before .comparison-title {color:#ef4444;} .comparison-panel.after .comparison-title {color:#10b981;} .comparison-list {list-style:none;padding:0;} .comparison-item {padding:8px 0;border-bottom:1px solid #374151;font-size:0.9rem;padding-left:20px;position:relative;} .comparison-item::before {content:'•';position:absolute;left:0;color:#3b82f6;} .comparison-panel.before .comparison-item {color:#fca5a5;} .comparison-panel.after .comparison-item {color:#86efac;} .cursor-badge {background-color:#3b82f6;color:#0a0a0b;padding:2px 8px;font-size:0.7rem;text-transform:uppercase;font-weight:bold;} .breadcrumbs {margin-bottom:20px;font-size:0.85rem;} .breadcrumbs a {color:#3b82f6;text-decoration:none;} .breadcrumbs a:hover {text-decoration:underline;} .breadcrumbs span {color:#9ca3af;margin:0 5px;} .footer-links {display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:15px;} .footer-links a {color:#3b82f6;text-decoration:none;font-size:0.85rem;} .footer-links a:hover {text-decoration:underline;} .security-notice {background-color:rgba(59,130,246,0.1);border-left:3px solid #3b82f6;padding:15px;margin-bottom:20px;font-size:0.85rem;color:#9ca3af;} .faq-section {margin-top:30px;padding-top:20px;border-top:2px solid #3b82f6;} .faq-title {color:#3b82f6;font-size:1.2rem;margin-bottom:20px;text-transform:uppercase;} .faq-item {margin-bottom:20px;} .faq-question {color:#3b82f6;font-weight:bold;margin-bottom:5px;cursor:pointer;} .faq-answer {color:#9ca3af;font-size:0.9rem;padding-left:15px;border-left:2px solid #3b82f6;} .risk-severe {border-left-color:#ef4444;} .risk-warning {border-left-color:#f59e0b;} .risk-enhancement {border-left-color:#10b981;}</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="breadcrumb">
+                <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+                <span> / </span>
+                <span>VibeCodeArmor</span>
+            </nav>
+            <h1>VibeCodeArmor</h1>
+            <p class="subtitle">Inject Architectural Soul into AI-Generated Code</p>
+        </header>
+
+        <div class="input-zone">
+            <label class="input-label">Code Input</label>
+            <textarea id="codeInput" placeholder="Paste AI-generated code snippet here..."></textarea>
+            <button class="action-btn" onclick="armorifyCode()">Generate Architecture Armor</button>
+        </div>
+
+        <div class="disclaimer">
+            <span class="disclaimer-icon">🛡️</span>
+            <div class="disclaimer-text">
+                <strong>Security Notice:</strong> This tool runs 100% locally in your browser. Your code is never uploaded to any server. All analysis and processing happen on your device.
+            </div>
+        </div>
+
+        <div class="output-zone" id="outputZone">
+            <div class="health-score" id="healthScore">
+                <div class="score-number" id="scoreNumber">--</div>
+                <div class="score-label" id="scoreLabel">Evaluating...</div>
+                <div class="score-desc" id="scoreDesc">Waiting for code analysis...</div>
+            </div>
+
+            <div class="strategy-tabs">
+                <div class="strategy-tab active" onclick="selectStrategy('clean', event)">Clean Architecture</div>
+                <div class="strategy-tab" onclick="selectStrategy('feature', event)">Feature-Sliced</div>
+                <div class="strategy-tab" onclick="selectStrategy('atomic', event)">Atomic Design</div>
+            </div>
+
+            <div class="strategy-desc" id="strategyDesc">Clean Architecture emphasizes Separation of Concerns (SoC), achieves Dependency Inversion through Inversion of Control (IoC), ensuring business logic is independent of external dependencies.</div>
+
+            <div class="cursorrules-section" id="cursorrulesSection">
+                <div class="cursorrules-title">
+                    <span>Cursor Rules Configuration <span class="cursor-badge">.cursorrules</span></span>
+                    <button class="copy-btn" onclick="copyContent('cursorrulesContent')">Copy Config</button>
+                </div>
+                <div class="cursorrules-content" id="cursorrulesContent">Waiting for analysis...</div>
+            </div>
+
+            <div class="comparison-view" id="comparisonView">
+                <div class="comparison-panel before">
+                    <div class="comparison-title">Before (Code Smells)</div>
+                    <ul class="comparison-list" id="beforeList">
+                        <li class="comparison-item">Waiting for code analysis...</li>
+                    </ul>
+                </div>
+                <div class="comparison-panel after">
+                    <div class="comparison-title">After Armoring (Standard Form)</div>
+                    <ul class="comparison-list" id="afterList">
+                        <li class="comparison-item">Waiting for code analysis...</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="result-panel">
+                <div class="result-panel-title">
+                    <span>Module A: Architectural Boundaries</span>
+                    <button class="copy-btn" onclick="copyContent('boundaries')">Copy Suggestions</button>
+                </div>
+                <div class="result-content" id="boundaries">
+                    <ul>
+                        <li><span class="layer-name">Presentation Layer</span><span class="layer-desc">- Handles UI interactions and data presentation</span></li>
+                        <li><span class="layer-name">Application Layer</span><span class="layer-desc">- Orchestrates business logic and use cases</span></li>
+                        <li><span class="layer-name">Domain Layer</span><span class="layer-desc">- Core business entities and rules</span></li>
+                        <li><span class="layer-name">Infrastructure Layer</span><span class="layer-desc">- Data access and external service integration</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="result-panel">
+                <div class="result-panel-title">
+                    <span>Module B: Recommended Folder Structure</span>
+                    <button class="copy-btn" onclick="copyContent('folderStructure')">Copy Suggestions</button>
+                </div>
+                <div class="result-content tree-structure" id="folderStructure">
+<span class="tree-folder">src/</span>
+├── <span class="tree-folder">presentation/</span>
+│   ├── components/
+│   ├── pages/
+│   └── controllers/
+├── <span class="tree-folder">application/</span>
+│   ├── services/
+│   ├── useCases/
+│   └── dto/
+├── <span class="tree-folder">domain/</span>
+│   ├── entities/
+│   ├── repositories/
+│   └── valueObjects/
+├── <span class="tree-folder">infrastructure/</span>
+│   ├── database/
+│   ├── externalServices/
+│   └── adapters/
+└── <span class="tree-file">main.ts</span>
+                </div>
+            </div>
+
+            <div class="result-panel">
+                <div class="result-panel-title">
+                    <span>Module C: Code Security Guardrails</span>
+                    <button class="copy-btn" onclick="copyContent('guardrails')">Copy Suggestions</button>
+                </div>
+                <div class="result-content" id="guardrails">
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Parameter Validation</div>
+                        <div class="guardrail-desc">Strictly validate all input parameters using DTO pattern to ensure data integrity</div>
+                    </div>
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Exception Handling</div>
+                        <div class="guardrail-desc">Add try-catch blocks at all layers with unified exception handling mechanism</div>
+                    </div>
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Access Control</div>
+                        <div class="guardrail-desc">Implement Role-Based Access Control (RBAC) to ensure sensitive operations require authorization</div>
+                    </div>
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Input Sanitization</div>
+                        <div class="guardrail-desc">Apply XSS attack filtering and SQL injection protection to user inputs</div>
+                    </div>
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Log Auditing</div>
+                        <div class="guardrail-desc">Record key operation logs to support security auditing and issue tracking</div>
+                    </div>
+                    <div class="guardrail-item">
+                        <div class="guardrail-title">Dependency Injection</div>
+                        <div class="guardrail-desc">Use dependency injection container to manage component dependencies and reduce coupling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <div class="faq-title">Frequently Asked Questions (FAQ)</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Why is <span class="highlight-keyword">AI</span>-generated code often messy?</div>
+                <div class="faq-answer">
+                    A: When using tools like <span class="highlight-keyword">ChatGPT</span>, <span class="highlight-keyword">Claude 3.5</span>, <span class="highlight-keyword">Cursor</span>, or <span class="highlight-keyword">GitHub Copilot</span>, AI models prioritize functionality over architectural standards. They lack understanding of the overall project architecture, leading to issues like hardcoded strings, overly long functions, and mixed responsibilities. This is the core problem VibeCodeArmor solves.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: What is Code Armoring?</div>
+                <div class="faq-answer">
+                    A: Code Armoring is the process of adding architectural protection layers to <span class="highlight-keyword">AI</span>-generated code, including: 1) Establishing clear architectural boundaries; 2) Implementing <span class="highlight-keyword">SOLID</span> principles; 3) Adding defensive programming guardrails; 4) Standardizing folder structures. This is especially important in <span class="highlight-keyword">React</span>, <span class="highlight-keyword">TypeScript</span>, <span class="highlight-keyword">Node.js</span> projects.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: How to enforce folder structure rules for AI in <span class="highlight-keyword">Cursor</span>?</div>
+                <div class="faq-answer">
+                    A: Use the <code>.cursorrules</code> configuration file generated by VibeCodeArmor! Copy the generated rules to your project root directory, and <span class="highlight-keyword">Cursor</span> will automatically follow these constraints. You can also combine with <span class="highlight-keyword">Clean Architecture</span> or <span class="highlight-keyword">Feature-Sliced Design</span> strategies to ensure both team members and AI assistants follow unified code standards.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://agents.wangdadi.xyz" target="_blank">Agents</a>
+                <a href="http://artemisreentry.wangdadi.xyz/" target="_blank">Artemis Reentry</a>
+                <a href="https://boothell.wangdadi.xyz" target="_blank">Boot Hell</a>
+                <a href="https://cleancsvai.wangdadi.xyz" target="_blank">Clean CSV AI</a>
+                <a href="http://coachellaviral.wangdadi.xyz/" target="_blank">Coachella Viral</a>
+            </div>
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+            <p class="copyright">VibeCodeArmor | Inject Architectural Soul into AI Code | Pure Frontend Implementation</p>
+        </footer>
+    </div>
+
+    <div class="copied-notice" id="copiedNotice">Copied to clipboard</div>
+
+    <script>
+        'use strict';
+        
+        let currentStrategy = 'clean';
+        let currentScanResults = null;
+
+        function armorifyCode() {
+            const codeInput = document.getElementById('codeInput');
+            const outputZone = document.getElementById('outputZone');
+            
+            if (!codeInput || !outputZone) {
+                console.error('Required DOM elements not found');
+                return;
+            }
+            
+            if (codeInput.value.trim() === '') {
+                alert('Please enter a code snippet first');
+                return;
+            }
+            
+            const code = codeInput.value;
+            currentScanResults = scanCode(code);
+            
+            calculateHealthScore(currentScanResults);
+            generateCursorRules(currentScanResults);
+            generateComparisonView(currentScanResults);
+            generateArchitectureBoundaries(currentScanResults);
+            generateFolderStructure(currentScanResults);
+            generateGuardrails();
+            
+            outputZone.classList.add('show');
+        }
+
+        function calculateScore(code) {
+            let score = 100;
+            const lines = code.split('\n').filter(line => line.trim()).length;
+            const chars = code.length;
+            
+            if (lines > 150) score -= 15;
+            else if (lines > 80) score -= 8;
+            
+            if (chars > 10000) score -= 10;
+            else if (chars > 5000) score -= 5;
+            
+            const complexityIndicators = [
+                { pattern: /eval\(/g, penalty: 20 },
+                { pattern: /with\s*\(/g, penalty: 15 },
+                { pattern: /document\.write\(/g, penalty: 10 },
+                { pattern: /innerHTML\s*=/g, penalty: 8 },
+                { pattern: /new\s+Function\(/g, penalty: 15 },
+            ];
+            
+            complexityIndicators.forEach(indicator => {
+                const matches = code.match(indicator.pattern);
+                if (matches && matches.length > 0) {
+                    score -= indicator.penalty * matches.length;
+                }
+            });
+            
+            const qualityIndicators = [
+                { pattern: /try\s*\{/g, bonus: 5 },
+                { pattern: /interface\s+\w+/g, bonus: 3 },
+                { pattern: /type\s+\w+\s*=/g, bonus: 3 },
+                { pattern: /export\s+(function|const|let|var)/g, bonus: 2 },
+                { pattern: /@param/g, bonus: 2 },
+            ];
+            
+            qualityIndicators.forEach(indicator => {
+                const matches = code.match(indicator.pattern);
+                if (matches && matches.length > 0) {
+                    score += indicator.bonus * Math.min(matches.length, 5);
+                }
+            });
+            
+            const duplicateLines = code.split('\n').filter((line, i, arr) => 
+                arr.indexOf(line) !== i && line.trim().length > 20
+            ).length;
+            if (duplicateLines > 5) score -= duplicateLines * 2;
+            
+            return Math.max(0, Math.min(100, score));
+        }
+
+        function generateCursorRules(results) {
+            const cursorrulesContent = document.getElementById('cursorrulesContent');
+            
+            const codePatterns = [];
+            if (results.hasFetchOrAxios) codePatterns.push('API calls (fetch/axios)');
+            if (results.hasManyHooks) codePatterns.push('Multiple React Hooks');
+            if (results.hasComplexJSX) codePatterns.push('Complex JSX structures');
+            if (results.hasHardcodedStrings) codePatterns.push('Hardcoded strings');
+            if (results.hasInterface) codePatterns.push('TypeScript interfaces/types');
+            if (results.hasLocalStorage) codePatterns.push('LocalStorage usage');
+            if (results.hasMapRender) codePatterns.push('Array map rendering');
+            if (results.isLargeCode) codePatterns.push('Large code file');
+            
+            let rules = `# VibeCodeArmor - Cursor AI Rules
+# Generated based on code analysis
+# Detected patterns: ${codePatterns.join(', ')}
+
+## Overview
+This configuration enforces architectural boundaries and coding standards for AI-generated code.
+
+## Context Settings
+- Project-wide rule enforcement
+- Structured output format
+
+---
+
+## 1. Architectural Boundaries
+### Clean Architecture Layers
+- **Domain Layer**: Core business entities and rules
+- **Application Layer**: Use cases and business logic
+- **Presentation Layer**: UI components and hooks
+- **Infrastructure Layer**: External services and adapters
+
+## 2. Dependency Rules
+- Dependencies must point inward
+- Domain layer must remain pure (no external framework imports)
+- Infrastructure adapters implement domain interfaces
+
+## 3. Coding Standards
+- All function parameters require TypeScript types
+- Props interfaces must be defined for all components
+- Avoid hardcoded strings - use constants
+- Extract complex hooks to dedicated hooks directory
+
+## 4. Security Guardrails
+- Validate all input data with Zod/Joi
+- Wrap async operations in try-catch blocks
+- Sanitize user input to prevent XSS attacks
+- Use defensive programming techniques
+
+## 5. Cursor Editor Rules
+\`\`\`cursorrules
+[context]
+context_window = "project"
+output_style = "structured"
+
+[rules]
+# Domain layer purity
+rule "domain-purity" {
+  description = "Domain layer must not depend on external frameworks"
+  condition = "file_path.contains('domain/') && !file_path.contains('infrastructure/')"
+  action = "reject_if_violation"
+}
+
+# Type definitions required
+rule "type-safety" {
+  description = "All props and parameters must have TypeScript types"
+  condition = "code.contains('props') && !code.contains('interface|type')"
+  action = "warn_if_violation"
+}
+
+# API encapsulation
+rule "api-encapsulation" {
+  description = "API calls must be encapsulated in services/api layer"
+  condition = "code.contains('fetch|axios') && !file_path.contains('services/|api/')"
+  action = "suggest_refactor"
+}
+
+# Error handling required
+rule "error-handling" {
+  description = "Async operations must have try-catch blocks"
+  condition = "code.contains('await') && !code.contains('try|catch')"
+  action = "warn_if_violation"
+}
+
+# File size limit
+rule "file-size" {
+  description = "Keep files under 150 lines for maintainability"
+  condition = "file_line_count > 150"
+  action = "warn_if_violation"
+}
+\`\`\`
+
+## 6. Best Practices
+1. Apply SOLID principles to all components
+2. Follow Separation of Concerns (SoC)
+3. Implement Inversion of Control (IoC) where applicable
+4. Use defensive programming techniques
+5. Maintain consistent code formatting with Prettier
+
+---
+
+*Generated by VibeCodeArmor - Your AI Code Architecture Guardian*
+`;
+
+            cursorrulesContent.textContent = rules;
+        }
+
+        function generateComparisonView(results) {
+            const beforeList = document.getElementById('beforeList');
+            const afterList = document.getElementById('afterList');
+            
+            const beforeItems = [];
+            const afterItems = [];
+            
+            if (results.hasHardcodedStrings) {
+                beforeItems.push('Hardcoded strings scattered throughout code');
+                afterItems.push('Centralize in constants directory');
+            }
+            if (results.isLargeCode) {
+                beforeItems.push('Single file contains multiple responsibilities');
+                afterItems.push('Separate into UI-Logic-Data layers');
+            }
+            if (results.hasManyHooks) {
+                beforeItems.push('Hook logic mixed in components');
+                afterItems.push('Extract to dedicated hooks directory');
+            }
+            if (!results.hasInterface) {
+                beforeItems.push('Missing type definitions and interface constraints');
+                afterItems.push('Comprehensive TypeScript type definitions');
+            }
+            if (!results.hasProps) {
+                beforeItems.push('Component props lack type constraints');
+                afterItems.push('Add type definitions for all Props');
+            }
+            if (results.hasMapRender) {
+                beforeItems.push('map() rendering missing key attribute');
+                afterItems.push('Add unique key to list items');
+            }
+            if (results.hasLocalStorage) {
+                beforeItems.push('Direct localStorage API usage');
+                afterItems.push('Encapsulate in storage.helper.ts');
+            }
+            if (results.hasFetchOrAxios) {
+                beforeItems.push('API calls scattered everywhere');
+                afterItems.push('Unified encapsulation in services/api layer');
+            }
+            
+            if (beforeItems.length === 0) {
+                beforeItems.push('Code structure is good, no obvious issues');
+            }
+            if (afterItems.length === 0) {
+                afterItems.push('Code already meets standard architecture specifications');
+            }
+            
+            let beforeHtml = '';
+            beforeItems.forEach(item => {
+                beforeHtml += `<li class="comparison-item">${item}</li>`;
+            });
+            beforeList.innerHTML = beforeHtml;
+            
+            let afterHtml = '';
+            afterItems.forEach(item => {
+                afterHtml += `<li class="comparison-item">${item}</li>`;
+            });
+            afterList.innerHTML = afterHtml;
+        }
+
+        function calculateHealthScore(results) {
+            let score = 100;
+            
+            if (results.hasHardcodedStrings) score -= 15;
+            if (results.isLargeCode) score -= 10;
+            if (results.hasManyHooks) score -= 10;
+            if (!results.hasInterface) score -= 15;
+            if (!results.hasProps) score -= 10;
+            if (results.hasMapRender) score -= 10;
+            if (results.hasLocalStorage) score -= 10;
+            
+            score = Math.max(0, Math.min(100, score));
+            
+            const scoreNumber = document.getElementById('scoreNumber');
+            const scoreLabel = document.getElementById('scoreLabel');
+            const scoreDesc = document.getElementById('scoreDesc');
+            
+            scoreNumber.textContent = score;
+            
+            let label, desc;
+            if (score >= 85) {
+                label = 'Invincible';
+                desc = 'Excellent code structure, compliant with SOLID principles, with good defensive programming capabilities';
+                scoreLabel.className = 'score-label invincible';
+            } else if (score >= 70) {
+                label = 'Strong';
+                desc = 'Good code quality with room for improvement. Consider applying Inversion of Control (IoC) principles';
+                scoreLabel.className = 'score-label strong';
+            } else if (score >= 50) {
+                label = 'Healthy';
+                desc = 'Code is generally healthy. Recommend enhancing Separation of Concerns (SoC) for better modularity';
+                scoreLabel.className = 'score-label healthy';
+            } else if (score >= 30) {
+                label = 'Vulnerable';
+                desc = 'Code has significant architectural issues. Systemic refactoring and defensive programming are needed';
+                scoreLabel.className = 'score-label vulnerable';
+            } else {
+                label = 'Fragile';
+                desc = 'Code architecture is fragile. Immediate refactoring is strongly recommended using Clean Architecture principles';
+                scoreLabel.className = 'score-label fragile';
+            }
+            
+            scoreLabel.textContent = label;
+            scoreDesc.textContent = desc;
+        }
+
+        function selectStrategy(strategy, event) {
+            currentStrategy = strategy;
+            
+            const tabs = document.querySelectorAll('.strategy-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            const desc = document.getElementById('strategyDesc');
+            
+            const descriptions = {
+                clean: 'Clean Architecture emphasizes Separation of Concerns (SoC), achieves Dependency Inversion through Inversion of Control (IoC), ensuring business logic is independent of external dependencies. The core principle is that inner layers do not depend on outer layers, and all dependencies point inward.',
+                feature: 'Feature-Sliced Design vertically slices by business function, with each Feature containing complete UI, logic, and data layers. This approach supports Separation of Concerns, enabling parallel team development and independent feature delivery.',
+                atomic: 'Atomic Design decomposes UI components into five levels: Atoms, Molecules, Organisms, Templates, and Pages. Through component reuse and composition, it achieves high modularity and maintainability in the UI layer.'
+            };
+            
+            desc.textContent = descriptions[strategy];
+            
+            if (currentScanResults) {
+                generateArchitectureBoundaries(currentScanResults);
+                generateFolderStructure(currentScanResults);
+            }
+        }
+
+        function scanCode(code) {
+            const lines = code.split('\n').filter(line => line.trim()).length;
+            const results = {
+                hasFetchOrAxios: /\b(fetch|axios)\b/.test(code),
+                hasManyHooks: (code.match(/\buseState\b/g) || []).length >= 3 || 
+                             (code.match(/\buseEffect\b/g) || []).length >= 3,
+                hasComplexJSX: code.includes('<>') || code.includes('<div') || code.includes('<span'),
+                hasHardcodedStrings: /["']{3}[\s\S]*?["']{3}/.test(code) || 
+                                    (code.match(/["'][^"']{20,}["']/g) || []).length > 0,
+                hasInterface: /\binterface\b/.test(code) || /\btype\b\s+[A-Z]/.test(code),
+                hasProps: /\bprops\b/.test(code) || /\bProps\b/.test(code),
+                hasLocalStorage: /window\.localStorage|localStorage\./.test(code),
+                isLargeCode: lines > 50,
+                hasMapRender: /\.map\(\s*(\(|\()?.*=>.*(<)/.test(code)
+            };
+            return results;
+        }
+
+        function generateArchitectureBoundaries(results) {
+            const boundaries = document.getElementById('boundaries');
+            let suggestions = [];
+            
+            const getRiskLevel = (type) => {
+                const criticalTypes = ['hasHardcodedStrings', 'noInterface', 'noProps'];
+                const warningTypes = ['isLargeCode', 'hasManyHooks', 'hasMapRender', 'hasLocalStorage'];
+                if (criticalTypes.includes(type)) return 'risk-critical';
+                if (warningTypes.includes(type)) return 'risk-warning';
+                return 'risk-enhancement';
+            };
+            
+            const strategySuggestions = {
+                clean: {
+                    hasFetchOrAxios: [
+                        { layer: 'Repository Layer', desc: 'Create Repository interface to implement Dependency Inversion Principle (DIP)', risk: 'risk-enhancement' },
+                        { layer: 'Infrastructure', desc: 'Move API implementation to Infrastructure layer, following dependency rules', risk: 'risk-enhancement' }
+                    ],
+                    hasManyHooks: [
+                        { layer: 'Use Case Layer', desc: 'Extract business logic into Use Cases, implementing Inversion of Control (IoC)', risk: 'risk-warning' },
+                        { layer: 'Application Service', desc: 'Create Application Service to encapsulate business processes', risk: 'risk-warning' }
+                    ],
+                    hasComplexJSX: [
+                        { layer: 'Presentation', desc: 'Keep Presentation layer clean, responsible only for UI rendering', risk: 'risk-enhancement' },
+                        { layer: 'ViewModel', desc: 'Introduce ViewModel pattern to separate UI state from business logic', risk: 'risk-enhancement' }
+                    ],
+                    hasHardcodedStrings: [
+                        { layer: 'Constants Layer', desc: 'Extract hardcoded constants to constants directory, eliminate magic strings', risk: 'risk-critical' }
+                    ],
+                    default: [
+                        { layer: 'Entities', desc: 'Define core domain entities and encapsulate business rules', risk: 'risk-enhancement' },
+                        { layer: 'Use Cases', desc: 'Implement business use cases as application entry points', risk: 'risk-enhancement' },
+                        { layer: 'Interfaces', desc: 'Define abstract interfaces to achieve dependency inversion', risk: 'risk-enhancement' }
+                    ]
+                },
+                feature: {
+                    hasFetchOrAxios: [
+                        { layer: 'Feature API', desc: 'Create api subdirectory under corresponding Feature directory', risk: 'risk-enhancement' },
+                        { layer: 'Data Layer', desc: 'Define independent data access layer for each Feature', risk: 'risk-enhancement' }
+                    ],
+                    hasManyHooks: [
+                        { layer: 'Feature Logic', desc: 'Cohesively integrate Hooks logic into corresponding Feature', risk: 'risk-warning' },
+                        { layer: 'Shared', desc: 'Extract cross-Feature common logic to shared directory', risk: 'risk-warning' }
+                    ],
+                    hasComplexJSX: [
+                        { layer: 'Feature UI', desc: 'Organize components by Feature, implementing vertical slicing', risk: 'risk-enhancement' },
+                        { layer: 'Public API', desc: 'Define public API exposed for each Feature', risk: 'risk-enhancement' }
+                    ],
+                    hasHardcodedStrings: [
+                        { layer: 'Feature Config', desc: 'Manage configuration within Feature for independent deployment', risk: 'risk-critical' }
+                    ],
+                    default: [
+                        { layer: 'Features', desc: 'Organize by business function: auth/, dashboard/, profile/', risk: 'risk-enhancement' },
+                        { layer: 'Shared', desc: 'Shared utilities and components across Features' },
+                        { layer: 'App', desc: 'Application entry point and core configuration' }
+                    ]
+                },
+                atomic: {
+                    hasFetchOrAxios: [
+                        { layer: 'Organisms', desc: 'Create data-fetching Organism components', risk: 'risk-enhancement' },
+                        { layer: 'Templates', desc: 'Design page templates combining multiple Organisms', risk: 'risk-enhancement' }
+                    ],
+                    hasManyHooks: [
+                        { layer: 'Molecules', desc: 'Encapsulate related Hooks into Molecule components', risk: 'risk-warning' },
+                        { layer: 'Atoms', desc: 'Keep atomic components purely presentational, no business logic', risk: 'risk-warning' }
+                    ],
+                    hasComplexJSX: [
+                        { layer: 'Organisms', desc: 'Combine Molecules to form higher-level Organisms', risk: 'risk-enhancement' },
+                        { layer: 'Templates', desc: 'Build page skeleton and define layout structure', risk: 'risk-enhancement' }
+                    ],
+                    hasHardcodedStrings: [
+                        { layer: 'Tokens', desc: 'Define strings as Design Tokens for unified management', risk: 'risk-critical' }
+                    ],
+                    default: [
+                        { layer: 'Atoms', desc: 'Base atoms: Button, Input, Icon', risk: 'risk-enhancement' },
+                        { layer: 'Molecules', desc: 'Molecule components: FormGroup, Card, Navbar', risk: 'risk-enhancement' },
+                        { layer: 'Organisms', desc: 'Organism components: Header, Footer, Sidebar', risk: 'risk-enhancement' },
+                        { layer: 'Templates', desc: 'Page templates: PageLayout, DashboardLayout', risk: 'risk-enhancement' }
+                    ]
+                }
+            };
+            
+            const strategy = strategySuggestions[currentStrategy];
+            
+            if (results.hasFetchOrAxios && strategy.hasFetchOrAxios) {
+                suggestions.push(...strategy.hasFetchOrAxios);
+            }
+            if (results.hasManyHooks && strategy.hasManyHooks) {
+                suggestions.push(...strategy.hasManyHooks);
+            }
+            if (results.hasComplexJSX && strategy.hasComplexJSX) {
+                suggestions.push(...strategy.hasComplexJSX);
+            }
+            if (results.hasHardcodedStrings && strategy.hasHardcodedStrings) {
+                suggestions.push(...strategy.hasHardcodedStrings);
+            }
+            if (results.hasInterface) {
+                suggestions.push({ layer: 'Type Definitions', desc: 'Define TypeScript types for enhanced type safety' });
+            }
+            if (results.hasLocalStorage) {
+                suggestions.push({ layer: 'Storage Adapter', desc: 'Create storage.helper.ts for defensive programming' });
+            }
+            if (results.isLargeCode) {
+                suggestions.push({ layer: 'Separation of Concerns', desc: 'Apply SoC principle, separate code by responsibility' });
+            }
+            if (results.hasMapRender) {
+                suggestions.push({ layer: 'Key Guardrail', desc: 'Add unique key validation guardrail for map() rendering', risk: 'risk-warning' });
+            }
+            
+            if (suggestions.length === 0) {
+                suggestions.push(...strategy.default);
+            } else if (suggestions.length < 3) {
+                suggestions.push(...strategy.default.slice(0, 3 - suggestions.length));
+            }
+            
+            suggestions.push({ layer: 'SOLID Principles', desc: 'Follow SOLID principles to improve code maintainability', risk: 'risk-enhancement' });
+            suggestions.push({ layer: 'Defensive Programming', desc: 'Apply defensive programming to enhance code robustness', risk: 'risk-enhancement' });
+            
+            let html = '<ul>';
+            suggestions.forEach(item => {
+                const riskClass = item.risk || 'risk-enhancement';
+                html += `<li class="${riskClass}"><span class="layer-name">${item.layer}</span><span class="layer-desc">- ${item.desc}</span></li>`;
+            });
+            html += '</ul>';
+            
+            boundaries.innerHTML = html;
+        }
+
+        function generateFolderStructure(results) {
+            const folderStructure = document.getElementById('folderStructure');
+            
+            const strategyFolders = {
+                clean: [
+                    { name: 'src/', type: 'folder', children: [
+                        { name: 'domain/', type: 'folder', children: [
+                            { name: 'entities/', type: 'folder' },
+                            { name: 'useCases/', type: 'folder' },
+                            { name: 'repositories/', type: 'folder' },
+                            { name: 'valueObjects/', type: 'folder' }
+                        ]},
+                        { name: 'application/', type: 'folder', children: [
+                            { name: 'services/', type: 'folder' },
+                            { name: 'dto/', type: 'folder' }
+                        ]},
+                        { name: 'infrastructure/', type: 'folder', children: [
+                            { name: 'api/', type: 'folder' },
+                            { name: 'database/', type: 'folder' },
+                            { name: 'adapters/', type: 'folder' }
+                        ]},
+                        { name: 'presentation/', type: 'folder', children: [
+                            { name: 'components/', type: 'folder' },
+                            { name: 'hooks/', type: 'folder' },
+                            { name: 'pages/', type: 'folder' }
+                        ]},
+                        { name: 'shared/', type: 'folder', children: [
+                            { name: 'utils/', type: 'folder' },
+                            { name: 'constants/', type: 'folder' }
+                        ]}
+                    ]}
+                ],
+                feature: [
+                    { name: 'src/', type: 'folder', children: [
+                        { name: 'features/', type: 'folder', children: [
+                            { name: 'auth/', type: 'folder', children: [
+                                { name: 'ui/', type: 'folder' },
+                                { name: 'api/', type: 'folder' },
+                                { name: 'model/', type: 'folder' }
+                            ]},
+                            { name: 'dashboard/', type: 'folder', children: [
+                                { name: 'ui/', type: 'folder' },
+                                { name: 'api/', type: 'folder' },
+                                { name: 'model/', type: 'folder' }
+                            ]},
+                            { name: 'profile/', type: 'folder', children: [
+                                { name: 'ui/', type: 'folder' },
+                                { name: 'api/', type: 'folder' },
+                                { name: 'model/', type: 'folder' }
+                            ]}
+                        ]},
+                        { name: 'shared/', type: 'folder', children: [
+                            { name: 'ui/', type: 'folder' },
+                            { name: 'utils/', type: 'folder' },
+                            { name: 'api/', type: 'folder' }
+                        ]},
+                        { name: 'app/', type: 'folder', children: [
+                            { name: 'routes/', type: 'folder' },
+                            { name: 'providers/', type: 'folder' }
+                        ]}
+                    ]}
+                ],
+                atomic: [
+                    { name: 'src/', type: 'folder', children: [
+                        { name: 'components/', type: 'folder', children: [
+                            { name: 'atoms/', type: 'folder', children: [
+                                { name: 'Button/', type: 'folder' },
+                                { name: 'Input/', type: 'folder' },
+                                { name: 'Icon/', type: 'folder' }
+                            ]},
+                            { name: 'molecules/', type: 'folder', children: [
+                                { name: 'FormGroup/', type: 'folder' },
+                                { name: 'Card/', type: 'folder' },
+                                { name: 'Navbar/', type: 'folder' }
+                            ]},
+                            { name: 'organisms/', type: 'folder', children: [
+                                { name: 'Header/', type: 'folder' },
+                                { name: 'Footer/', type: 'folder' },
+                                { name: 'Sidebar/', type: 'folder' }
+                            ]},
+                            { name: 'templates/', type: 'folder', children: [
+                                { name: 'PageLayout/', type: 'folder' },
+                                { name: 'DashboardLayout/', type: 'folder' }
+                            ]}
+                        ]},
+                        { name: 'data/', type: 'folder', children: [
+                            { name: 'api/', type: 'folder' },
+                            { name: 'hooks/', type: 'folder' }
+                        ]},
+                        { name: 'tokens/', type: 'folder', children: [
+                            { name: 'colors/', type: 'folder' },
+                            { name: 'typography/', type: 'folder' }
+                        ]}
+                    ]}
+                ]
+            };
+            
+            let folders = strategyFolders[currentStrategy];
+            
+            if (results.hasInterface && !folders[0].children.some(f => f.name === 'types/')) {
+                folders[0].children.push({ name: 'types/', type: 'folder' });
+            }
+            if (results.hasLocalStorage) {
+                folders[0].children.push({ name: 'storage.helper.ts', type: 'file' });
+            }
+            
+            folders[0].children.push({ name: 'main.ts', type: 'file' });
+            
+            let tree = '';
+            function buildTree(items, prefix = '') {
+                items.forEach((item, index) => {
+                    const isLast = index === items.length - 1;
+                    const connector = isLast ? '└──' : '├──';
+                    const itemColor = item.type === 'folder' ? 'tree-folder' : 'tree-file';
+                    
+                    tree += `${prefix}${connector} <span class="${itemColor}">${item.name}</span>\n`;
+                    
+                    if (item.children) {
+                        const newPrefix = prefix + (isLast ? '    ' : '│   ');
+                        buildTree(item.children, newPrefix);
+                    }
+                });
+            }
+            buildTree(folders);
+            
+            folderStructure.innerHTML = tree;
+        }
+
+        function generateGuardrails() {
+            const guardrails = document.getElementById('guardrails');
+            
+            const guardrailItems = [
+                { title: 'Data Validation (Zod/Joi)', desc: 'Use Zod or Joi for strict validation on all input data, applying defensive programming principles' },
+                { title: 'Error Handling', desc: 'Add Try-Catch blocks for all async operations with unified exception handling mechanism' },
+                { title: 'Type Definitions', desc: 'Add TypeScript type definitions for all Props and function parameters to enhance type safety' },
+                { title: 'API Encapsulation', desc: 'Encapsulate all API requests in dedicated service layer for unified management and testing' },
+                { title: 'State Management', desc: 'For complex state, use Redux or Context API for centralized management following single source of truth' },
+                { title: 'Code Standards', desc: 'Configure ESLint and Prettier to ensure code style consistency and improve team collaboration' },
+                { title: 'Inversion of Control (IoC)', desc: 'Apply dependency injection principle to reduce module coupling' },
+                { title: 'Separation of Concerns (SoC)', desc: 'Separate code by responsibility to improve maintainability and testability' }
+            ];
+            
+            let html = '';
+            guardrailItems.forEach((item, index) => {
+                html += `
+                    <div class="checklist-item" onclick="toggleChecklist(${index})">
+                        <div class="checklist-checkbox" id="checklist-${index}"></div>
+                        <div class="checklist-content">
+                            <div class="checklist-title">${item.title}</div>
+                            <div class="checklist-desc">${item.desc}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            guardrails.innerHTML = html;
+        }
+
+        function copyContent(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) {
+                console.error('Element not found:', elementId);
+                return;
+            }
+            const text = element.innerText || element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const notice = document.getElementById('copiedNotice');
+                if (notice) {
+                    notice.textContent = 'Copied!';
+                    notice.classList.add('show');
+                    setTimeout(() => {
+                        notice.classList.remove('show');
+                        notice.textContent = 'Copied to clipboard';
+                    }, 2000);
+                }
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
+        }
+
+        function toggleChecklist(index) {
+            const checkbox = document.getElementById(`checklist-${index}`);
+            if (checkbox) {
+                checkbox.classList.toggle('checked');
+            }
+        }
+    </script>
+</body>
+</html>

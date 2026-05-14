@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextBuildSlayer - Next.js Cache Cleaner & Dev Server Reset Tool</title>
+    <meta name="description" content="Professional Next.js developer tool. One-click script generator to clear .next folder, kill port processes, and reset development server. Solve cache issues, HMR failures, and port conflicts.">
+    <meta name="keywords" content="Next.js, cache cleanup, .next folder, kill port 3000, dev server stuck, nodejs process killer, web development tools, React development">
+    <meta property="og:title" content="NextBuildSlayer - Next.js Cache Cleaner & Dev Server Reset Tool">
+    <meta property="og:description" content="Professional Next.js developer tool. One-click script generator to clear .next folder, kill port processes, and reset development server.">
+    <meta property="og:type" content="website">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NextBuildSlayer",
+        "description": "A specialized tool for Next.js developers to clear build cache and reset development servers with one-click scripts.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": ["Windows", "macOS", "Linux"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6;color:#fff;background-color:#0d0d0d;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:20px 20px;min-height:100vh}.container{max-width:800px;margin:0 auto;padding:0 20px}header{text-align:center;padding:40px 0 30px}header h1{font-size:28px;font-weight:bold;margin-bottom:8px;color:#fff}header p{font-size:14px;color:#999}main{display:flex;flex-direction:column;gap:24px}section{background-color:#2a2a2a;padding:20px;border:1px solid #444}section h2{font-size:18px;color:#fff;margin-bottom:16px}.tabs{display:flex;gap:8px;margin-bottom:16px}.tab{padding:8px 16px;background-color:#333;color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:bold}.tab.active{background-color:#ff4d4d;color:#000}.tab:hover:not(.active){background-color:#444}.levels{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}.level-btn{display:flex;flex-direction:column;align-items:flex-start;padding:12px;background-color:#333;color:#fff;border:2px solid #444;cursor:pointer;font-size:12px;text-align:left;min-width:160px}.level-btn.active{border-color:#ff4d4d;background-color:#2a2a2a}.level-btn:hover:not(.active){background-color:#444}.level-badge{font-size:14px;font-weight:bold;margin-bottom:4px}.level-badge.level-1{color:#00ff41}.level-badge.level-2{color:#ffaa00}.level-badge.level-3{color:#ff4d4d}.level-name{font-weight:bold;margin-bottom:2px}.level-desc{font-size:10px;color:#999}.code-block{background-color:#1a1a1a;border:1px solid #333;padding:1rem;overflow-x:auto;margin-bottom:16px;position:relative}.code-block .status-badge{position:absolute;top:8px;right:8px;display:flex;align-items:center;gap:4px;font-size:11px;color:#00ff41}.code-block .status-badge svg{width:14px;height:14px;fill:#00ff41}.code-block pre{margin:0}.code-block code{font-family:Monaco,Menlo,Consolas,'Courier New',monospace;font-size:13px;line-height:1.6;color:#00ff41;white-space:pre}.btn{display:inline-block;padding:10px 20px;background-color:#ff4d4d;color:#000;border:none;cursor:pointer;font-size:14px;font-weight:bold}.btn:hover{background-color:#ff6666}.btn svg{display:none}.copy-success{background-color:#00ff41 !important}section p.description{color:#999;margin-bottom:16px;font-size:14px}.explainer{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:16px;padding:16px;background-color:#1a1a1a;border:1px solid #333}.explainer-item{padding:12px;background-color:#2a2a2a;border-left:3px solid #00ff41}.explainer-item .command{font-family:Monaco,Menlo,Consolas,monospace;font-size:12px;color:#00ff41;margin-bottom:4px}.explainer-item .description{font-size:11px;color:#999;line-height:1.4}.alias-section{margin-top:16px;padding:16px;background-color:#1a1a1a;border:1px solid #333}.alias-section h3{font-size:14px;color:#fff;margin-bottom:12px}.alias-options{display:flex;gap:8px;margin-bottom:12px}.alias-tab{padding:6px 12px;background-color:#333;color:#fff;border:none;cursor:pointer;font-size:12px}.alias-tab.active{background-color:#00ff41;color:#000}.alias-input-wrapper{display:flex;align-items:center;gap:8px;margin-bottom:12px}.alias-input-wrapper label{font-size:12px;color:#999}.alias-input-wrapper input{flex:1;padding:8px 12px;background-color:#0d0d0d;border:1px solid #333;color:#fff;font-size:14px;font-family:Monaco,Menlo,Consolas,monospace}.alias-input-wrapper input:focus{outline:none;border-color:#00ff41}.alias-code{font-family:Monaco,Menlo,Consolas,monospace;font-size:12px;color:#00ff41;padding:12px;background-color:#0d0d0d;margin-bottom:12px;word-break:break-all}.checklist{background-color:#1a1a1a;border:1px solid #333;padding:20px}.checklist-item{display:flex;align-items:center;margin-bottom:12px;cursor:pointer;position:relative}.checklist-item:last-child{margin-bottom:0}.checkbox{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.checkmark{width:20px;height:20px;border:2px solid #333;background-color:#2a2a2a;margin-right:12px;position:relative;flex-shrink:0}.checkbox:checked+.checkmark{background-color:#00ff41;border-color:#00ff41}.checkbox:checked+.checkmark::after{content:'';position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #000;border-width:0 2px 2px 0;transform:rotate(45deg)}.checklist-text{font-size:14px;color:#fff}.checkbox:checked~.checklist-text{color:#00ff41}footer{text-align:center;padding:30px 0;color:#666;font-size:14px}footer .disclaimer{font-size:12px;color:#00ff41;margin-top:10px}.knowledge-base{margin-top:30px;padding:20px;background-color:#1a1a1a;border:1px solid #333;border-radius:4px}.knowledge-base h2{font-size:16px;color:#999;margin-bottom:16px;font-weight:normal}.knowledge-base details{margin-bottom:12px;border-bottom:1px solid #333;padding-bottom:12px}.knowledge-base details:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0}.knowledge-base summary{font-size:14px;color:#ccc;cursor:pointer;list-style:none;padding-left:20px;position:relative}.knowledge-base summary::before{content:'Q:';position:absolute;left:0;color:#00ff41;font-weight:bold}.knowledge-base summary::-webkit-details-marker{display:none}.knowledge-base p{font-size:13px;color:#999;margin-top:8px;padding-left:20px}.breadcrumb{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:#666}.breadcrumb a{color:#00ff41;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:16px}.footer-links a{color:#00ff41;text-decoration:none;font-size:12px}.footer-links a:hover{text-decoration:underline}.footer-link{color:#00ff41;text-decoration:none}.footer-link:hover{text-decoration:underline}</style>
+</head>
+<body>
+    <header>
+        <h1>NextBuildSlayer</h1>
+        <p>Production-grade tool for React + Next.js developers. Follow Vercel best practices, supports Node.js, npm/yarn/pnpm environments. Boost development efficiency.</p>
+        <nav class="breadcrumb">
+            <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+            <span>/</span>
+            <span>NextBuildSlayer</span>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <article>
+            <section id="script-generator">
+                <h2>
+                    <span>⚡</span>
+                    .next & Node Process Crusher
+                </h2>
+                <p class="description">Follow production best practices. Supports Webpack & Turbopack build modes. Intelligently clean Node.js processes, release port bindings, clear cache files. Significantly boost development efficiency.</p>
+                
+                <div class="tabs">
+                    <button class="tab active" data-os="unix" aria-label="Switch to macOS/Linux script">macOS/Linux</button>
+                    <button class="tab" data-os="windows" aria-label="Switch to Windows PowerShell script">Windows (PowerShell)</button>
+                </div>
+                
+                <div class="levels">
+                    <button class="level-btn active" data-level="1" aria-label="Select Soft Reset mode">
+                        <span class="level-badge level-1">L1</span>
+                        <span class="level-name">Soft Reset</span>
+                        <span class="level-desc">Page data not updating</span>
+                    </button>
+                    <button class="level-btn" data-level="2" aria-label="Select Slayer mode">
+                        <span class="level-badge level-2">L2</span>
+                        <span class="level-name">Slayer Mode</span>
+                        <span class="level-desc">Build errors / HMR failed</span>
+                    </button>
+                    <button class="level-btn" data-level="3" aria-label="Select Nuclear mode">
+                        <span class="level-badge level-3">L3</span>
+                        <span class="level-name">Nuclear Option</span>
+                        <span class="level-desc">Dependency conflict crash</span>
+                    </button>
+                </div>
+                
+                <div class="code-block">
+                    <div class="status-badge">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Production Safe
+                    </div>
+                    <pre><code id="script-code">rm -rf .next/cache && npm run dev</code></pre>
+                </div>
+                
+                <button class="btn" id="copy-script-btn" aria-label="Copy cleanup script to clipboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Script
+                </button>
+            
+            <div class="explainer">
+                <div class="explainer-item">
+                    <div class="command">rm -rf .next</div>
+                    <div class="description">Delete Next.js build output, clear compilation cache</div>
+                </div>
+                <div class="explainer-item">
+                    <div class="command">rm -rf node_modules/.cache</div>
+                    <div class="description">Clear npm/yarn cache, resolve dependency cache issues</div>
+                </div>
+                <div class="explainer-item">
+                    <div class="command">lsof -ti:3000 | xargs kill -9</div>
+                    <div class="description">Find and force kill processes on port 3000</div>
+                </div>
+                <div class="explainer-item">
+                    <div class="command">npm cache clean --force</div>
+                    <div class="description">Force clear npm global cache, resolve version conflicts</div>
+                </div>
+            </div>
+            
+            <div class="alias-section">
+                <h3>💡 Add to Shell Alias (Permanent)</h3>
+                <div class="alias-options">
+                    <button class="alias-tab active" data-shell="zsh" aria-label="Select .zshrc config">.zshrc</button>
+                    <button class="alias-tab" data-shell="bash" aria-label="Select .bashrc config">.bashrc</button>
+                </div>
+                <div class="alias-input-wrapper">
+                    <label for="alias-input">Alias name:</label>
+                    <input type="text" id="alias-input" placeholder="e.g., fixnext" value="slayer">
+                </div>
+                <div class="alias-code" id="alias-code">echo 'alias slayer="rm -rf .next/cache && npm run dev"' >> ~/.zshrc && source ~/.zshrc</div>
+                <button class="btn" id="copy-alias-btn" aria-label="Copy alias command to clipboard">Copy Alias Command</button>
+            </div>
+            </section>
+            
+            <section>
+                <h2>
+                    <span>🔍</span>
+                    Browser Cache Diagnostic
+                </h2>
+                
+                <p class="description">Follow production best practices. Run this script in DevTools Console to check localStorage and Cookie pollution. Boost development efficiency.</p>
+                
+                <div class="code-block">
+                    <div class="status-badge">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Production Safe
+                    </div>
+                    <pre><code id="diagnostic-code">(function(){console.log("%c╔══════════════════════════════════════════════════════════════════════╗","color: #00ff41;");console.log("%c║                    NextBuildSlayer Health Report                     ║","color: #00ff41;");console.log("%c╚══════════════════════════════════════════════════════════════════════╝","color: #00ff41;");console.log("");var e={};e.nextData=document.querySelector('script[id="__NEXT_DATA__"]')?{status:"✅",msg:"next-data script tag found"}:{status:"❌",msg:"next-data script tag not found"};var t=["__NEXT_LOADED_PAGES__","__NEXT_INITIAL_DATA__","__next_preloadReady","NEXT_PUBLIC_"];e.hydration=function(){for(var e=0;e<t.length;e++)if(window[t[e]])return{status:"⚠️",msg:"Global var conflict: "+t[e]};return{status:"✅",msg:"No hydration conflicts detected"}}();e.serviceWorker=navigator.serviceWorker&&navigator.serviceWorker.controller?{status:"⚠️",msg:"Service Worker intercepting requests"}:{status:"✅",msg:"No Service Worker"};e.localStorage=Object.keys(localStorage).filter(function(e){return e.toLowerCase().includes("next")});e.sessionStorage=Object.keys(sessionStorage).filter(function(e){return e.toLowerCase().includes("next")});e.cookies=document.cookie.split(";").filter(function(e){return e.trim().toLowerCase().includes("next")});console.log("%c┌────────────────────────────────────────────────────────────────────┐","color: #00ff41;");console.log("%c│                      Diagnostic Results                            │","color: #00ff41;");console.log("%c├──────────────────────────┬────────────────────────────────────────┤","color: #00ff41;");console.log("%c│ next-data Tag            │ ","color: #00ff41;",e.nextData.status,"%c ",e.nextData.msg,"%c │","color: #fff;","color: #00ff41;");console.log("%c│ Hydration Check          │ ","color: #00ff41;",e.hydration.status,"%c ",e.hydration.msg,"%c │","color: #fff;","color: #00ff41;");console.log("%c│ Service Worker Status    │ ","color: #00ff41;",e.serviceWorker.status,"%c ",e.serviceWorker.msg,"%c │","color: #fff;","color: #00ff41;");console.log("%c├──────────────────────────┼────────────────────────────────────────┤","color: #00ff41;");console.log("%c│ localStorage next items  │ ","color: #00ff41;",e.localStorage.length,"%c items","%c │","color: #fff;","color: #00ff41;");console.log("%c│ sessionStorage next items│ ","color: #00ff41;",e.sessionStorage.length,"%c items","%c │","color: #fff;","color: #00ff41;");console.log("%c│ Cookies next related     │ ","color: #00ff41;",e.cookies.length,"%c items","%c │","color: #fff;","color: #00ff41;");console.log("%c└──────────────────────────┴────────────────────────────────────────┘","color: #00ff41;");console.log("");console.log("%c💡 Tip: If page not updating, clear site data in Application tab","color: #ffaa00;");console.log("%c🔧 Shortcut: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Win) for hard refresh","color: #ffaa00;")})();</code></pre>
+                </div>
+                
+                <button class="btn" id="copy-diagnostic-btn" aria-label="Copy browser diagnostic script to clipboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Diagnostic Code
+                </button>
+            </section>
+        </article>
+        
+        <section>
+            <h2>
+                <span>✅</span>
+                Next.js Deployment Checklist
+            </h2>
+            
+            <div class="checklist">
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Have you cleared the .next cache?</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Is .env.local environment variable loaded correctly?</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Is port 3000 released?</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Have you tried Hard Refresh (Cmd+Shift+R)?</span>
+                </label>
+            </div>
+        </section>
+        
+        <section class="knowledge-base">
+            <h2>Why does Next.js dev server hang?</h2>
+            
+            <details>
+                <summary>Q: How to manually clear Next.js cache?</summary>
+                <p>A: Manually delete the .next folder in your project root and restart the terminal.</p>
+            </details>
+            
+            <details>
+                <summary>Q: What if port 3000 is occupied?</summary>
+                <p>A: Use `lsof -ti:3000 | xargs kill -9` to force release the port.</p>
+            </details>
+            
+            <details>
+                <summary>Q: Why does Hot Module Replacement (HMR) fail?</summary>
+                <p>A: Usually due to file permission issues or insufficient disk space in .next/cache.</p>
+            </details>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2026 NextBuildSlayer. All rights reserved.</p>
+        <p class="disclaimer">🔒 100% Client-side. We do not collect your code or path information. Scripts are transparent and safe.</p>
+        <div class="footer-links">
+            <a href="https://agents.wangdadi.xyz" target="_blank">Agents</a>
+            <a href="http://artemisreentry.wangdadi.xyz/" target="_blank">Artemis Reentry</a>
+            <a href="https://boothell.wangdadi.xyz" target="_blank">Boot Hell</a>
+            <a href="https://cleancsvai.wangdadi.xyz" target="_blank">Clean CSV AI</a>
+            <a href="http://coachellaviral.wangdadi.xyz/" target="_blank">Coachella Viral</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com" class="footer-link">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" class="footer-link">home</a></p>
+    </footer>
+
+    <script>
+        const SCRIPTS = {
+            soft: {
+                title: "Soft Reset",
+                desc: "Clear cache, keep dependencies",
+                bash: `rm -rf .next/cache && npm run dev`,
+                powershell: `Remove-Item -Recurse -Force .next/cache; npm run dev`
+            },
+            slayer: {
+                title: "Slayer Mode",
+                desc: "Kill processes, destroy cache",
+                bash: `rm -rf .next && rm -rf node_modules/.cache && ps aux | grep node | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null; lsof -ti:3000 | xargs kill -9 2>/dev/null; npm run dev`,
+                powershell: `Stop-Process -Name "node" -Force; Remove-Item -Recurse -Force .next; Remove-Item -Recurse -Force node_modules/.cache; npm run dev`
+            },
+            nuclear: {
+                title: "Nuclear Option",
+                desc: "Reinstall dependencies, complete purge",
+                bash: `rm -rf .next && rm -rf node_modules/.cache && rm -f package-lock.json && rm -f yarn.lock && ps aux | grep node | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null; npm cache clean --force; npm install && npm run dev`,
+                powershell: `Stop-Process -Name "node" -Force; Remove-Item -Recurse -Force .next; Remove-Item -Recurse -Force node_modules/.cache; Remove-Item package-lock.json -ErrorAction SilentlyContinue; Remove-Item yarn.lock -ErrorAction SilentlyContinue; npm cache clean --force; npm install; npm run dev`
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const levelBtns = document.querySelectorAll('.level-btn');
+            const aliasTabs = document.querySelectorAll('.alias-tab');
+            const aliasInput = document.getElementById('alias-input');
+            const codeElement = document.getElementById('script-code');
+            const aliasCodeElement = document.getElementById('alias-code');
+            const copyScriptBtn = document.getElementById('copy-script-btn');
+            const copyDiagnosticBtn = document.getElementById('copy-diagnostic-btn');
+            const copyAliasBtn = document.getElementById('copy-alias-btn');
+
+            function getActiveScript() {
+                const activeLevel = document.querySelector('.level-btn.active').dataset.level;
+                const levelMap = { '1': 'soft', '2': 'slayer', '3': 'nuclear' };
+                return SCRIPTS[levelMap[activeLevel]];
+            }
+
+            function getActiveShell() {
+                return document.querySelector('.alias-tab.active').dataset.shell;
+            }
+
+            function getActiveOs() {
+                return document.querySelector('.tab.active').dataset.os;
+            }
+
+            function updateScript() {
+                const script = getActiveScript();
+                const os = getActiveOs();
+                codeElement.textContent = os === 'unix' ? script.bash : script.powershell;
+                updateAlias();
+            }
+
+            function updateAlias() {
+                const script = getActiveScript();
+                const shell = getActiveShell();
+                const aliasName = aliasInput.value.trim() || 'slayer';
+                const scriptCmd = shell === 'zsh' ? script.bash : script.bash;
+                const rcFile = shell === 'zsh' ? '.zshrc' : '.bashrc';
+                const escapedCmd = scriptCmd.replace(/'/g, "'\\''");
+                aliasCodeElement.textContent = `echo 'alias ${aliasName}="${escapedCmd}"' >> ~/${rcFile} && source ~/${rcFile}`;
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    updateScript();
+                });
+            });
+
+            levelBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    levelBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    updateScript();
+                });
+            });
+
+            aliasTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    aliasTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    updateAlias();
+                });
+            });
+
+            aliasInput.addEventListener('input', function() {
+                updateAlias();
+            });
+
+            function copyToClipboard(text, button) {
+                try {
+                    navigator.clipboard.writeText(text);
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('copy-success');
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('copy-success');
+                    }, 3000);
+                } catch (err) {
+                    console.error('Copy failed:', err);
+                }
+            }
+
+            copyScriptBtn.addEventListener('click', function() {
+                const text = codeElement.textContent;
+                copyToClipboard(text, this);
+            });
+
+            copyDiagnosticBtn.addEventListener('click', function() {
+                const text = document.getElementById('diagnostic-code').textContent;
+                copyToClipboard(text, this);
+            });
+
+            copyAliasBtn.addEventListener('click', function() {
+                const text = aliasCodeElement.textContent;
+                copyToClipboard(text, this);
+            });
+        });
+    </script>
+</body>
+</html>

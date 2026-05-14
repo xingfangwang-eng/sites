@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A local-first, privacy-focused AI model benchmarking tool. Compare Claude, Cursor, and Codex outputs side-by-side with real-time diff highlighting and speed metrics. No API key required.">
+    <meta name="keywords" content="AI comparison, Claude vs Cursor, local diff tool, prompt engineering, AI productivity, LLM benchmark">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="canonical" href="https://www.wangdadi.xyz/claudekiller">
+    <link rel="manifest" href="manifest.json">
+    
+    <meta property="og:title" content="ClaudeKiller | Claude vs Cursor vs Codex Side-by-Side Comparison Tool">
+    <meta property="og:description" content="A local-first, privacy-focused AI model benchmarking tool. Compare Claude, Cursor, and Codex outputs side-by-side with real-time diff highlighting and speed metrics. No API key required.">
+    <meta property="og:type" content="web application">
+    <meta property="og:url" content="https://www.wangdadi.xyz/claudekiller">
+    <meta property="og:image" content="https://www.wangdadi.xyz/claudekiller/og-image.png">
+    <meta property="og:locale" content="en-US">
+    <meta property="og:site_name" content="ClaudeKiller">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ClaudeKiller | Claude vs Cursor vs Codex Side-by-Side Comparison Tool">
+    <meta name="twitter:description" content="A local-first, privacy-focused AI model benchmarking tool. Compare Claude, Cursor, and Codex outputs side-by-side with real-time diff highlighting and speed metrics. No API key required.">
+    <meta name="twitter:image" content="https://www.wangdadi.xyz/claudekiller/twitter-image.png">
+    <meta name="twitter:creator" content="@ClaudeKiller">
+    
+    <title>ClaudeKiller | Claude vs Cursor vs Codex Side-by-Side Comparison Tool (Local & Private)</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            width: 60px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-toggle {
+            padding: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 1px solid #4a6075;
+            transition: none;
+        }
+
+        .sidebar-toggle:hover {
+            background-color: #3d5266;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: none;
+        }
+
+        .sidebar.open .sidebar-content {
+            display: block;
+        }
+
+        .sidebar-header {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #4a6075;
+        }
+
+        .btn-danger {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 12px;
+            cursor: pointer;
+            transition: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #a93226;
+        }
+
+        .sidebar-list {
+            margin-bottom: 20px;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 0;
+            margin-bottom: 4px;
+            transition: none;
+            border: 1px solid transparent;
+        }
+
+        .history-item:hover {
+            background-color: #3d5266;
+        }
+
+        .history-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .history-content {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .history-title {
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .history-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+            font-size: 11px;
+            color: #95a5a6;
+        }
+
+        .winner-tag {
+            background-color: #27ae60;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 12px;
+            padding: 20px;
+        }
+
+        .cite-widget {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #4a6075;
+        }
+
+        .cite-widget h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .cite-formats {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .cite-btn {
+            flex: 1;
+            padding: 6px 8px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 11px;
+            cursor: pointer;
+            transition: none;
+        }
+
+        .cite-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .cite-preview {
+            background-color: #1a252f;
+            padding: 10px;
+            border-radius: 0;
+            font-size: 11px;
+            overflow-x: auto;
+        }
+
+        .cite-preview code {
+            font-family: monospace;
+            color: #ecf0f1;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 60px;
+            display: flex;
+            flex-direction: column;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .sidebar.open + .main-content {
+            margin-left: 280px;
+        }
+
+        .breadcrumb {
+            padding: 10px 20px;
+            background-color: #e8ecef;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: #95a5a6;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .prompt-section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        #promptInput {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            background-color: #fff5ee;
+            margin-bottom: 12px;
+        }
+
+        #promptInput:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .template-select {
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 0;
+            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+            min-width: 180px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: none;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn:active {
+            background-color: #2471a3;
+        }
+
+        .btn-template {
+            background-color: #f39c12;
+        }
+
+        .btn-template:hover {
+            background-color: #d68910;
+        }
+
+        .core-section {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .ai-container {
+            flex: 1;
+            background-color: white;
+            border: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .ai-container.fastest {
+            border-color: #27ae60;
+            box-shadow: 0 0 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .ai-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .winner-badge {
+            background-color: #27ae60;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 400;
+        }
+
+        .ai-content {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .status-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .status-waiting {
+            background-color: #e8ecef;
+            color: #6c757d;
+        }
+
+        .status-processing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .timer {
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .ai-content textarea {
+            flex: 1;
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 13px;
+            resize: none;
+            background-color: #fff5ee;
+            min-height: 150px;
+        }
+
+        .ai-content textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .result-area {
+            flex: 1;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-y: auto;
+            min-height: 150px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 11px;
+            cursor: pointer;
+            transition: none;
+        }
+
+        .copy-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .score-card {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        .score-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .score-label {
+            color: #6c757d;
+        }
+
+        .score-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .progress-section {
+            margin-top: 12px;
+        }
+
+        .progress-item {
+            margin-bottom: 10px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: #e8ecef;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: none;
+        }
+
+        .progress-fill.speed {
+            background-color: #27ae60;
+        }
+
+        .progress-fill.conciseness {
+            background-color: #3498db;
+        }
+
+        .progress-fill.code-density {
+            background-color: #9b59b6;
+        }
+
+        .progress-value {
+            font-size: 11px;
+            color: #6c757d;
+            float: right;
+            margin-top: 2px;
+        }
+
+        .footer {
+            background-color: white;
+            padding: 20px 30px;
+            margin: 20px;
+            border-radius: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-mode {
+            background-color: #f39c12;
+        }
+
+        .btn-mode:hover {
+            background-color: #d68910;
+        }
+
+        .btn-mode.active {
+            background-color: #e67e22;
+        }
+
+        .btn-reset {
+            background-color: #95a5a6;
+        }
+
+        .btn-reset:hover {
+            background-color: #7f8c8d;
+        }
+
+        .btn-report {
+            background-color: #9b59b6;
+        }
+
+        .btn-report:hover {
+            background-color: #8e44ad;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 13px;
+        }
+
+        .footer-links a {
+            color: #5dade2;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: none;
+        }
+
+        .footer-divider {
+            color: #7f8c8d;
+        }
+
+        .footer-links span:not(.footer-divider) {
+            color: #bdc3c7;
+        }
+
+        .faq-section {
+            background-color: white;
+            margin: 0 20px 20px;
+            padding: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .faq-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+        }
+
+        .faq-item details {
+            border: 1px solid #eee;
+            border-radius: 0;
+        }
+
+        .faq-item summary {
+            padding: 12px 16px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            position: relative;
+        }
+
+        .faq-item summary::before {
+            content: '▶';
+            margin-right: 8px;
+            font-size: 10px;
+            color: #3498db;
+            transition: none;
+        }
+
+        .faq-item details[open] summary::before {
+            content: '▼';
+        }
+
+        .faq-content {
+            padding: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #495057;
+        }
+
+        .diff-highlight {
+            background-color: #ffff00;
+            color: #000000;
+            padding: 1px 3px;
+            border-radius: 2px;
+        }
+
+        .diff-lines {
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .diff-line {
+            display: flex;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .diff-marker {
+            width: 24px;
+            padding: 2px 4px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .diff-content {
+            flex: 1;
+            padding: 2px 4px;
+        }
+
+        .diff-add {
+            background-color: #e3f2fd;
+        }
+
+        .diff-add .diff-marker {
+            color: #1976d2;
+            background-color: #bbdefb;
+        }
+
+        .diff-remove {
+            background-color: #ffebee;
+        }
+
+        .diff-remove .diff-marker {
+            color: #c62828;
+            background-color: #ffcdd2;
+        }
+
+        .diff-change {
+            background-color: #fff8e1;
+        }
+
+        .diff-change .diff-marker {
+            color: #f57c00;
+            background-color: #ffecb3;
+        }
+
+        .diff-equal {
+            background-color: #f5f5f5;
+        }
+
+        .diff-equal .diff-marker {
+            color: #9e9e9e;
+            background-color: #e0e0e0;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: none;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-toggle" id="sidebarToggle">
+            <span class="toggle-icon">☰</span>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <h2>History Records</h2>
+                <button class="btn-danger" id="clearHistoryBtn" aria-label="Clear all history records">Clear All</button>
+            </div>
+            <div class="sidebar-list" id="sidebarList">
+                <div class="empty-state">No records yet</div>
+            </div>
+            
+            <div class="cite-widget">
+                <h3>Cite ClaudeKiller</h3>
+                <div class="cite-formats">
+                    <div class="cite-format">
+                        <button class="cite-btn" data-format="text" aria-label="Copy text citation format">Text</button>
+                    </div>
+                    <div class="cite-format">
+                        <button class="cite-btn" data-format="apa" aria-label="Copy APA citation format">APA</button>
+                    </div>
+                    <div class="cite-format">
+                        <button class="cite-btn" data-format="bibtex" aria-label="Copy BibTeX citation format">BibTeX</button>
+                    </div>
+                </div>
+                <div class="cite-preview" id="citePreview">
+                    <code>ClaudeKiller (2024). Local-first AI output comparison engine.</code>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+            <a href="https://www.wangdadi.xyz/claudekiller" aria-label="Go to homepage">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span aria-current="page">ClaudeKiller</span>
+        </nav>
+        <div class="header">ClaudeKiller</div>
+
+        <div class="prompt-section">
+            <label id="promptLabel" for="promptInput" class="visually-hidden">Prompt Input</label>
+            <textarea id="promptInput" placeholder="Enter your prompt here..." aria-labelledby="promptLabel"></textarea>
+            <div class="prompt-actions">
+                <label for="templateSelector" class="visually-hidden">Template Selection</label>
+                <select id="templateSelector" class="template-select" aria-label="Select prompt template">
+                    <option value="">Templates</option>
+                    <optgroup label="Built-in Templates">
+                        <option value="refactor">Code Refactoring</option>
+                        <option value="bugfix">Bug Fixing</option>
+                        <option value="polish">Text Polishing</option>
+                        <option value="logic">Logical Reasoning</option>
+                        <option value="unittest">Unit Test Generation</option>
+                    </optgroup>
+                    <optgroup label="Custom Templates" id="customTemplatesGroup">
+                    </optgroup>
+                </select>
+                <button class="btn btn-template" id="saveTemplateBtn" aria-label="Save current prompt as template">Save as Template</button>
+                <button class="btn" id="distributeBtn" aria-label="Distribute prompt and start timers">Distribute</button>
+            </div>
+        </div>
+
+        <div class="core-section" role="region" aria-label="AI Model Comparison Area">
+            <div class="ai-container" role="group" aria-label="Claude Model Output">
+                <div class="ai-header">Claude</div>
+                <div class="ai-content">
+                    <span class="status-tag status-waiting" role="status">Waiting</span>
+                    <div class="timer" aria-label="Response Time">00:00:00</div>
+                    <label for="claudeInput" class="visually-hidden">Claude Output</label>
+                    <textarea id="claudeInput" placeholder="Paste Claude's output..." aria-label="Claude model output input"></textarea>
+                    <div class="result-area" role="region" aria-label="Claude Comparison Result"></div>
+                    <div class="score-card">
+                        <div class="score-header">Performance Scorecard</div>
+                        <div class="score-row">
+                            <span class="score-label">Characters</span>
+                            <span class="score-value" id="claude-chars">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Token Estimate</span>
+                            <span class="score-value" id="claude-tokens">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Speed</span>
+                            <span class="score-value" id="claude-speed">0 chars/s</span>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-item">
+                                <span class="progress-label">Speed</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill speed" id="claude-speed-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Conciseness</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill conciseness" id="claude-conciseness-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Code Density</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill code-density" id="claude-density-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-container" role="group" aria-label="Cursor Model Output">
+                <div class="ai-header">Cursor</div>
+                <div class="ai-content">
+                    <span class="status-tag status-waiting" role="status">Waiting</span>
+                    <div class="timer" aria-label="Response Time">00:00:00</div>
+                    <label for="cursorInput" class="visually-hidden">Cursor Output</label>
+                    <textarea id="cursorInput" placeholder="Paste Cursor's output..." aria-label="Cursor model output input"></textarea>
+                    <div class="result-area" role="region" aria-label="Cursor Comparison Result"></div>
+                    <div class="score-card">
+                        <div class="score-header">Performance Scorecard</div>
+                        <div class="score-row">
+                            <span class="score-label">Characters</span>
+                            <span class="score-value" id="cursor-chars">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Token Estimate</span>
+                            <span class="score-value" id="cursor-tokens">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Speed</span>
+                            <span class="score-value" id="cursor-speed">0 chars/s</span>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-item">
+                                <span class="progress-label">Speed</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill speed" id="cursor-speed-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Conciseness</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill conciseness" id="cursor-conciseness-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Code Density</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill code-density" id="cursor-density-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-container" role="group" aria-label="Codex Model Output">
+                <div class="ai-header">Codex</div>
+                <div class="ai-content">
+                    <span class="status-tag status-waiting" role="status">Waiting</span>
+                    <div class="timer" aria-label="Response Time">00:00:00</div>
+                    <label for="codexInput" class="visually-hidden">Codex Output</label>
+                    <textarea id="codexInput" placeholder="Paste Codex's output..." aria-label="Codex model output input"></textarea>
+                    <div class="result-area" role="region" aria-label="Codex Comparison Result"></div>
+                    <div class="score-card">
+                        <div class="score-header">Performance Scorecard</div>
+                        <div class="score-row">
+                            <span class="score-label">Characters</span>
+                            <span class="score-value" id="codex-chars">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Token Estimate</span>
+                            <span class="score-value" id="codex-tokens">0</span>
+                        </div>
+                        <div class="score-row">
+                            <span class="score-label">Speed</span>
+                            <span class="score-value" id="codex-speed">0 chars/s</span>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-item">
+                                <span class="progress-label">Speed</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill speed" id="codex-speed-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Conciseness</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill conciseness" id="codex-conciseness-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Code Density</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill code-density" id="codex-density-bar"></div>
+                                </div>
+                                <span class="progress-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="btn" id="compareBtn" aria-label="Start comparison analysis of all model outputs">Compare</button>
+            <button class="btn btn-mode" id="modeBtn" aria-label="Toggle comparison mode: word-by-word vs line-by-line">Line Mode</button>
+            <button class="btn btn-reset" id="resetBtn" aria-label="Reset all data and start new test">New Test</button>
+            <button class="btn btn-report" id="reportBtn" aria-label="Generate and download comparison report">Generate Report</button>
+        </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions about ClaudeKiller</h2>
+            
+            <article class="faq-item">
+                <details>
+                    <summary>How to compare Claude and Cursor performance?</summary>
+                    <div class="faq-content">
+                        <p>ClaudeKiller makes AI model comparison simple and powerful. Just input your Prompt, click "Distribute", paste outputs from Claude, Cursor, and Codex into their respective boxes, and watch the real-time speed tracking. The tool automatically marks the fastest responder with a WINNER badge. Click "Compare" to see word-by-word or line-by-line diff highlighting. Performance scoring cards provide metrics like character count, token estimation, response speed, conciseness, and code density.</p>
+                    </div>
+                </details>
+            </article>
+            
+            <article class="faq-item">
+                <details>
+                    <summary>Is my data safe with ClaudeKiller?</summary>
+                    <div class="faq-content">
+                        <p>Absolutely! ClaudeKiller is a <strong>local-first</strong> application that runs entirely in your browser. <strong>No API key required</strong> and <strong>no data leaves your device</strong>. All processing happens in memory, and history is stored locally using localStorage. Your prompts, AI outputs, and comparison results never touch external servers. <strong>Privacy</strong> is our top priority.</p>
+                    </div>
+                </details>
+            </article>
+            
+            <article class="faq-item">
+                <details>
+                    <summary>Why use a local diff tool for AI?</summary>
+                    <div class="faq-content">
+                        <p>Using a <strong>local-first</strong> diff tool ensures <strong>privacy</strong> and security for sensitive prompts and AI outputs. Unlike cloud-based tools, ClaudeKiller requires <strong>no API key</strong> and works offline. Real-time comparison happens instantly without network latency. Local processing means your intellectual property stays protected, and you can work with confidential code or proprietary data without concerns.</p>
+                    </div>
+                </details>
+            </article>
+        </section>
+
+        <div class="footer-links">
+            <a href="https://agents.wangdadi.xyz" target="_blank" rel="noopener">Agents</a>
+            <a href="http://artemisreentry.wangdadi.xyz/" target="_blank" rel="noopener">Artemis Reentry</a>
+            <a href="https://boothell.wangdadi.xyz" target="_blank" rel="noopener">Boot Hell</a>
+            <a href="https://cleancsvai.wangdadi.xyz" target="_blank" rel="noopener">Clean CSV AI</a>
+            <a href="http://coachellaviral.wangdadi.xyz/" target="_blank" rel="noopener">Coachella Viral</a>
+            <span class="footer-divider">|</span>
+            <span>Support:</span>
+            <a href="mailto:457239850@qq.com">457239850@qq.com</a>
+            <span class="footer-divider">|</span>
+            <a href="https://www.wangdadi.xyz/claudekiller" target="_blank" rel="noopener">home</a>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ClaudeKiller",
+        "description": "A local-first, privacy-focused AI model benchmarking tool. Compare Claude, Cursor, and Codex outputs side-by-side with real-time diff highlighting and speed metrics. No API key required.",
+        "applicationCategory": ["DeveloperApplication", "ProductivityTool"],
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "description": "Free"
+        },
+        "featureList": [
+            "Side-by-side AI model comparison",
+            "Real-time local diff highlighting",
+            "Speed tracking and performance metrics",
+            "Prompt template library",
+            "History records with one-click restore",
+            "Markdown report generation",
+            "Performance scoring cards"
+        ],
+        "keywords": "AI comparison, Claude vs Cursor, local diff tool, prompt engineering, AI productivity, LLM benchmark",
+        "author": {
+            "@type": "Person",
+            "name": "ClaudeKiller Team"
+        }
+    }
+    </script>
+
+    <script>
+        class AIArena {
+            constructor() {
+                this.distributeBtn = document.getElementById('distributeBtn');
+                this.compareBtn = document.getElementById('compareBtn');
+                this.resetBtn = document.getElementById('resetBtn');
+                this.reportBtn = document.getElementById('reportBtn');
+                this.modeBtn = document.getElementById('modeBtn');
+                this.sidebarToggle = document.getElementById('sidebarToggle');
+                this.sidebar = document.getElementById('sidebar');
+                this.sidebarList = document.getElementById('sidebarList');
+                this.clearHistoryBtn = document.getElementById('clearHistoryBtn');
+                this.promptInput = document.getElementById('promptInput');
+                this.templateSelector = document.getElementById('templateSelector');
+                this.saveTemplateBtn = document.getElementById('saveTemplateBtn');
+                this.containers = document.querySelectorAll('.ai-container');
+                
+                this.timers = {};
+                this.startTimes = {};
+                this.elapsedTimes = {};
+                this.completedCount = 0;
+                this.currentPrompt = '';
+                this.lineMode = false;
+                this.sidebarOpen = false;
+                
+                this.templates = {
+                    refactor: 'Refactor the following code to improve structure, readability, and eliminate duplication.\n\nCode:\n',
+                    bugfix: 'Analyze potential bugs and issues in the following code and provide fixes.\n\nCode:\n',
+                    polish: 'Polish the following text to make it more professional, fluent, and readable.\n\nOriginal:\n',
+                    logic: 'Analyze the logical structure of the following problem and provide clear reasoning and solutions.\n\nProblem:\n',
+                    unittest: 'Write unit tests for the following code to ensure correctness and robustness.\n\nCode:\n'
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.loadHistory();
+                this.loadCustomTemplates();
+            }
+            
+            bindEvents() {
+                this.distributeBtn.addEventListener('click', () => this.distribute());
+                this.compareBtn.addEventListener('click', () => this.compare());
+                this.resetBtn.addEventListener('click', () => this.resetAll());
+                this.reportBtn.addEventListener('click', () => this.generateReport());
+                this.modeBtn.addEventListener('click', () => this.toggleMode());
+                this.sidebarToggle.addEventListener('click', () => this.toggleSidebar());
+                this.clearHistoryBtn.addEventListener('click', () => this.clearAllHistory());
+                this.templateSelector.addEventListener('change', () => this.applyTemplate());
+                this.saveTemplateBtn.addEventListener('click', () => this.saveTemplate());
+                
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const textarea = container.querySelector('textarea');
+                    textarea.addEventListener('input', () => this.handleInput(name, container));
+                });
+                
+                document.querySelectorAll('.cite-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.handleCiteClick(e));
+                });
+            }
+            
+            toggleSidebar() {
+                this.sidebarOpen = !this.sidebarOpen;
+                this.sidebar.classList.toggle('open');
+                this.sidebarToggle.querySelector('.toggle-icon').textContent = this.sidebarOpen ? '✕' : '☰';
+            }
+            
+            toggleMode() {
+                this.lineMode = !this.lineMode;
+                this.modeBtn.textContent = this.lineMode ? 'Word Mode' : 'Line Mode';
+                this.modeBtn.classList.toggle('active');
+            }
+            
+            applyTemplate() {
+                const selectedValue = this.templateSelector.value;
+                if (!selectedValue) return;
+                
+                if (this.templates[selectedValue]) {
+                    this.promptInput.value = this.templates[selectedValue];
+                } else {
+                    const customTemplates = this.getCustomTemplates();
+                    const template = customTemplates.find(t => t.id === selectedValue);
+                    if (template) {
+                        this.promptInput.value = template.content;
+                    }
+                }
+                
+                this.templateSelector.value = '';
+            }
+            
+            saveTemplate() {
+                const content = this.promptInput.value.trim();
+                if (!content) {
+                    alert('Please enter prompt content first');
+                    return;
+                }
+                
+                const title = content.substring(0, 20) + (content.length > 20 ? '...' : '');
+                const newTemplate = {
+                    id: 'custom_' + Date.now(),
+                    title: title,
+                    content: content
+                };
+                
+                const customTemplates = this.getCustomTemplates();
+                customTemplates.push(newTemplate);
+                localStorage.setItem('claudeKillerTemplates', JSON.stringify(customTemplates));
+                
+                this.addCustomTemplateOption(newTemplate);
+                alert('Template saved successfully!');
+            }
+            
+            getCustomTemplates() {
+                try {
+                    const data = localStorage.getItem('claudeKillerTemplates');
+                    return data ? JSON.parse(data) : [];
+                } catch {
+                    return [];
+                }
+            }
+            
+            loadCustomTemplates() {
+                const customTemplates = this.getCustomTemplates();
+                const group = document.getElementById('customTemplatesGroup');
+                group.innerHTML = '';
+                
+                if (customTemplates.length === 0) {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'No custom templates';
+                    option.disabled = true;
+                    group.appendChild(option);
+                } else {
+                    customTemplates.forEach(template => {
+                        this.addCustomTemplateOption(template);
+                    });
+                }
+            }
+            
+            addCustomTemplateOption(template) {
+                const option = document.createElement('option');
+                option.value = template.id;
+                option.textContent = template.title;
+                document.getElementById('customTemplatesGroup').appendChild(option);
+            }
+            
+            distribute() {
+                const prompt = this.promptInput.value.trim();
+                if (!prompt) {
+                    alert('Please enter prompt content first');
+                    return;
+                }
+                
+                this.currentPrompt = prompt;
+                this.resetAll();
+                
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const statusTag = container.querySelector('.status-tag');
+                    statusTag.className = 'status-tag status-processing';
+                    statusTag.textContent = 'Processing';
+                    
+                    this.startTimer(name, container);
+                });
+            }
+            
+            resetAll() {
+                this.timers = {};
+                this.startTimes = {};
+                this.elapsedTimes = {};
+                this.completedCount = 0;
+                
+                this.containers.forEach(container => {
+                    const timer = container.querySelector('.timer');
+                    timer.textContent = '00:00:00';
+                    
+                    const statusTag = container.querySelector('.status-tag');
+                    statusTag.className = 'status-tag status-waiting';
+                    statusTag.textContent = 'Waiting';
+                    
+                    const textarea = container.querySelector('textarea');
+                    textarea.value = '';
+                    textarea.style.display = '';
+                    
+                    const resultArea = container.querySelector('.result-area');
+                    resultArea.textContent = '';
+                    
+                    const header = container.querySelector('.ai-header');
+                    header.innerHTML = header.textContent.replace(/<[^>]*>/g, '');
+                    
+                    container.classList.remove('fastest');
+                    
+                    const name = header.textContent.replace(/<[^>]*>/g, '');
+                    this.resetScoreCard(name);
+                });
+                
+                this.promptInput.value = '';
+                this.currentPrompt = '';
+            }
+            
+            resetScoreCard(name) {
+                const charElement = document.getElementById(`${name.toLowerCase()}-chars`);
+                const tokenElement = document.getElementById(`${name.toLowerCase()}-tokens`);
+                const speedElement = document.getElementById(`${name.toLowerCase()}-speed`);
+                
+                if (charElement) charElement.textContent = '0';
+                if (tokenElement) tokenElement.textContent = '0';
+                if (speedElement) speedElement.textContent = '0 chars/s';
+                
+                this.setProgressBar(`${name.toLowerCase()}-speed-bar`, 0);
+                this.setProgressBar(`${name.toLowerCase()}-conciseness-bar`, 0);
+                this.setProgressBar(`${name.toLowerCase()}-density-bar`, 0);
+            }
+            
+            startTimer(name, container) {
+                const timerElement = container.querySelector('.timer');
+                this.startTimes[name] = Date.now();
+                this.elapsedTimes[name] = 0;
+                
+                this.timers[name] = setInterval(() => {
+                    this.elapsedTimes[name] = Date.now() - this.startTimes[name];
+                    timerElement.textContent = this.formatTime(this.elapsedTimes[name]);
+                }, 1);
+            }
+            
+            stopTimer(name) {
+                if (this.timers[name]) {
+                    clearInterval(this.timers[name]);
+                    this.timers[name] = null;
+                }
+            }
+            
+            formatTime(ms) {
+                const hours = Math.floor(ms / 3600000);
+                const minutes = Math.floor((ms % 3600000) / 60000);
+                const seconds = Math.floor((ms % 60000) / 1000);
+                const milliseconds = Math.floor(ms % 1000);
+                
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(milliseconds).padStart(3, '0')}`;
+            }
+            
+            handleInput(name, container) {
+                const textarea = container.querySelector('textarea');
+                const content = textarea.value.trim();
+                
+                if (content && this.timers[name]) {
+                    this.stopTimer(name);
+                    
+                    const statusTag = container.querySelector('.status-tag');
+                    statusTag.className = 'status-tag status-completed';
+                    statusTag.textContent = 'Completed';
+                    
+                    this.updateScoreCard(name, container);
+                    
+                    this.completedCount++;
+                    
+                    if (this.completedCount === this.containers.length) {
+                        this.determineWinner();
+                    }
+                }
+            }
+            
+            updateScoreCard(name, container) {
+                const textarea = container.querySelector('textarea');
+                const content = textarea.value;
+                
+                const charCount = content.length;
+                const tokenCount = Math.floor(charCount / 4);
+                const elapsedSeconds = this.elapsedTimes[name] / 1000;
+                const speed = elapsedSeconds > 0 ? Math.floor(charCount / elapsedSeconds) : 0;
+                
+                const charElement = document.getElementById(`${name.toLowerCase()}-chars`);
+                const tokenElement = document.getElementById(`${name.toLowerCase()}-tokens`);
+                const speedElement = document.getElementById(`${name.toLowerCase()}-speed`);
+                
+                if (charElement) charElement.textContent = charCount;
+                if (tokenElement) tokenElement.textContent = tokenCount;
+                if (speedElement) speedElement.textContent = `${speed} chars/s`;
+                
+                this.updateProgressBars(name, charCount, speed);
+            }
+            
+            updateProgressBars(name, charCount, speed) {
+                const maxSpeed = 1000;
+                const speedPercent = Math.min(100, Math.floor((speed / maxSpeed) * 100));
+                
+                const avgChars = 500;
+                const concisenessPercent = charCount > 0 ? Math.min(100, Math.floor((avgChars / charCount) * 100)) : 0;
+                
+                const codeDensity = this.calculateCodeDensity(name);
+                const densityPercent = Math.min(100, Math.floor(codeDensity * 100));
+                
+                this.setProgressBar(`${name.toLowerCase()}-speed-bar`, speedPercent);
+                this.setProgressBar(`${name.toLowerCase()}-conciseness-bar`, concisenessPercent);
+                this.setProgressBar(`${name.toLowerCase()}-density-bar`, densityPercent);
+            }
+            
+            calculateCodeDensity(name) {
+                const container = this.containers.find(c => 
+                    c.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '') === name
+                );
+                if (!container) return 0;
+                
+                const textarea = container.querySelector('textarea');
+                const content = textarea.value;
+                
+                const codeKeywords = ['function', 'const', 'let', 'var', 'if', 'else', 'for', 'while', 'return', 'import', 'export', 'class', 'def', 'print', '#include', 'void', 'int', 'float', 'string', 'bool'];
+                let codeCount = 0;
+                const words = content.toLowerCase().split(/\s+/);
+                
+                words.forEach(word => {
+                    if (codeKeywords.includes(word)) {
+                        codeCount++;
+                    }
+                });
+                
+                return words.length > 0 ? codeCount / words.length : 0;
+            }
+            
+            setProgressBar(elementId, percent) {
+                const bar = document.getElementById(elementId);
+                if (bar) {
+                    bar.style.width = `${percent}%`;
+                    const parent = bar.parentElement;
+                    const valueSpan = parent.nextElementSibling;
+                    if (valueSpan && valueSpan.classList.contains('progress-value')) {
+                        valueSpan.textContent = `${percent}%`;
+                    }
+                }
+            }
+            
+            determineWinner() {
+                let fastestName = null;
+                let fastestTime = Infinity;
+                
+                Object.keys(this.elapsedTimes).forEach(name => {
+                    if (this.elapsedTimes[name] < fastestTime) {
+                        fastestTime = this.elapsedTimes[name];
+                        fastestName = name;
+                    }
+                });
+                
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    if (name === fastestName) {
+                        const header = container.querySelector('.ai-header');
+                        header.innerHTML = `${name} <span class="winner-badge">WINNER - Fastest Response</span>`;
+                        container.classList.add('fastest');
+                    }
+                });
+                
+                return fastestName;
+            }
+            
+            compare() {
+                const texts = {};
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const textarea = container.querySelector('textarea');
+                    texts[name] = textarea.value;
+                });
+
+                const sortedNames = Object.keys(texts).sort((a, b) => {
+                    const timeA = this.elapsedTimes[a] || Infinity;
+                    const timeB = this.elapsedTimes[b] || Infinity;
+                    return timeA - timeB;
+                });
+                const baseName = sortedNames[0];
+                const baseText = texts[baseName];
+
+                const diffResults = this.diffCompare(baseText, texts);
+
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const statusTag = container.querySelector('.status-tag');
+                    if (statusTag.textContent === 'Waiting') {
+                        statusTag.className = 'status-tag status-completed';
+                        statusTag.textContent = 'Completed';
+                    }
+
+                    const textarea = container.querySelector('textarea');
+                    textarea.style.display = 'none';
+
+                    const resultArea = container.querySelector('.result-area');
+                    resultArea.innerHTML = `<button class="copy-btn" data-name="${name}">Copy Code</button>${diffResults[name]}`;
+
+                    const copyBtn = resultArea.querySelector('.copy-btn');
+                    copyBtn.addEventListener('click', () => this.copyCode(name));
+                });
+
+                if (this.completedCount === this.containers.length) {
+                    const winner = this.determineWinner();
+                    this.saveResult(winner);
+                }
+            }
+            
+            copyCode(name) {
+                const container = this.containers.find(c => 
+                    c.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '') === name
+                );
+                if (!container) return;
+                
+                const textarea = container.querySelector('textarea');
+                const textToCopy = textarea.value;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    this.showToast(`${name}'s code copied to clipboard!`);
+                }).catch(() => {
+                    const textareaTemp = document.createElement('textarea');
+                    textareaTemp.value = textToCopy;
+                    document.body.appendChild(textareaTemp);
+                    textareaTemp.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textareaTemp);
+                    this.showToast(`${name}'s code copied to clipboard!`);
+                });
+            }
+            
+            showToast(message) {
+                let toast = document.getElementById('toast');
+                if (!toast) {
+                    toast = document.createElement('div');
+                    toast.id = 'toast';
+                    toast.className = 'toast';
+                    document.body.appendChild(toast);
+                }
+                
+                toast.textContent = message;
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+
+            saveResult(winner) {
+                const history = this.getHistory();
+                const outputs = {};
+                
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const textarea = container.querySelector('textarea');
+                    outputs[name] = textarea.value;
+                });
+                
+                const record = {
+                    id: Date.now(),
+                    prompt: this.currentPrompt,
+                    title: this.currentPrompt.substring(0, 20) + (this.currentPrompt.length > 20 ? '...' : ''),
+                    winner: winner,
+                    times: { ...this.elapsedTimes },
+                    outputs: outputs,
+                    date: new Date().toLocaleString('en-US')
+                };
+                
+                history.unshift(record);
+                if (history.length > 10) {
+                    history.pop();
+                }
+                
+                localStorage.setItem('claudeKillerHistory', JSON.stringify(history));
+                this.loadHistory();
+            }
+            
+            getHistory() {
+                try {
+                    const data = localStorage.getItem('claudeKillerHistory');
+                    return data ? JSON.parse(data) : [];
+                } catch {
+                    return [];
+                }
+            }
+            
+            loadHistory() {
+                const history = this.getHistory();
+                this.sidebarList.innerHTML = '';
+                
+                if (history.length === 0) {
+                    this.sidebarList.innerHTML = '<div class="empty-state">No records yet</div>';
+                    return;
+                }
+                
+                history.forEach(record => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item';
+                    item.dataset.id = record.id;
+                    
+                    const icon = this.getModelIcon(record.winner);
+                    
+                    item.innerHTML = `
+                        <div class="history-icon">${icon}</div>
+                        <div class="history-content">
+                            <div class="history-title">${record.title}</div>
+                            <div class="history-meta">
+                                <span class="winner-tag">${record.winner}</span>
+                                <span class="history-date">${record.date}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    item.addEventListener('click', () => this.restoreRecord(record));
+                    this.sidebarList.appendChild(item);
+                });
+            }
+            
+            getModelIcon(modelName) {
+                const icons = {
+                    'Claude': '🤖',
+                    'Cursor': '💡',
+                    'Codex': '⚡'
+                };
+                return icons[modelName] || '🔷';
+            }
+            
+            restoreRecord(record) {
+                this.resetAll();
+                
+                this.currentPrompt = record.prompt;
+                this.promptInput.value = record.prompt;
+                
+                this.completedCount = this.containers.length;
+                this.elapsedTimes = { ...record.times };
+                
+                this.containers.forEach(container => {
+                    const name = container.querySelector('.ai-header').textContent.replace(/<[^>]*>/g, '');
+                    const textarea = container.querySelector('textarea');
+                    textarea.value = record.outputs[name] || '';
+                    
+                    const timer = container.querySelector('.timer');
+                    timer.textContent = this.formatTime(record.times[name] || 0);
+                    
+                    const statusTag = container.querySelector('.status-tag');
+                    statusTag.className = 'status-tag status-completed';
+                    statusTag.textContent = 'Completed';
+                    
+                    if (name === record.winner) {
+                        const header = container.querySelector('.ai-header');
+                        header.innerHTML = `${name} <span class="winner-badge">WINNER - Fastest Response</span>`;
+                        container.classList.add('fastest');
+                    }
+                    
+                    this.updateScoreCard(name, container);
+                });
+                
+                this.toggleSidebar();
+                this.showToast('History record restored!');
+            }
+            
+            clearAllHistory() {
+                if (!confirm('Are you sure you want to clear all history records? This action cannot be undone!')) {
+                    return;
+                }
+                
+                localStorage.removeItem('claudeKillerHistory');
+                this.loadHistory();
+                this.showToast('All records cleared');
+            }
+
+            diffCompare(baseText, texts) {
+                const results = {};
+
+                if (this.lineMode) {
+                    const baseLines = this.splitIntoLines(baseText);
+                    Object.keys(texts).forEach(name => {
+                        const targetLines = this.splitIntoLines(texts[name]);
+                        results[name] = this.compareLines(baseLines, targetLines);
+                    });
+                } else {
+                    const baseTokens = this.tokenize(baseText);
+                    Object.keys(texts).forEach(name => {
+                        const targetTokens = this.tokenize(texts[name]);
+                        results[name] = this.highlightDifferences(baseTokens, targetTokens);
+                    });
+                }
+
+                return results;
+            }
+            
+            splitIntoLines(text) {
+                const lines = [];
+                const blocks = this.extractCodeBlocks(text);
+                let currentLine = '';
+                
+                blocks.forEach(block => {
+                    if (block.type === 'text') {
+                        const textLines = block.content.split('\n');
+                        textLines.forEach((line, index) => {
+                            if (index > 0 && currentLine) {
+                                lines.push({ text: currentLine, isCode: false });
+                                currentLine = '';
+                            }
+                            currentLine += line;
+                        });
+                    } else {
+                        if (currentLine) {
+                            lines.push({ text: currentLine, isCode: false });
+                            currentLine = '';
+                        }
+                        const codeLines = block.content.split('\n');
+                        codeLines.forEach(line => {
+                            lines.push({ text: line, isCode: true });
+                        });
+                    }
+                });
+                
+                if (currentLine) {
+                    lines.push({ text: currentLine, isCode: false });
+                }
+                
+                return lines;
+            }
+            
+            extractCodeBlocks(text) {
+                const blocks = [];
+                const codeBlockRegex = /```(\w*)\n([\s\S]*?)```/g;
+                let lastIndex = 0;
+                let match;
+                
+                while ((match = codeBlockRegex.exec(text)) !== null) {
+                    if (match.index > lastIndex) {
+                        blocks.push({ type: 'text', content: text.substring(lastIndex, match.index) });
+                    }
+                    blocks.push({ type: 'code', language: match[1], content: match[2] });
+                    lastIndex = codeBlockRegex.lastIndex;
+                }
+                
+                if (lastIndex < text.length) {
+                    blocks.push({ type: 'text', content: text.substring(lastIndex) });
+                }
+                
+                return blocks;
+            }
+            
+            compareLines(baseLines, targetLines) {
+                let result = '<div class="diff-lines">';
+                const maxLen = Math.max(baseLines.length, targetLines.length);
+                
+                for (let i = 0; i < maxLen; i++) {
+                    const baseLine = baseLines[i];
+                    const targetLine = targetLines[i];
+                    
+                    if (!baseLine) {
+                        if (targetLine) {
+                            result += `<div class="diff-line diff-add">`;
+                            result += `<span class="diff-marker">+</span>`;
+                            result += `<span class="diff-content">${this.escapeHtml(targetLine.text)}</span>`;
+                            result += `</div>`;
+                        }
+                        continue;
+                    }
+                    
+                    if (!targetLine) {
+                        result += `<div class="diff-line diff-remove">`;
+                        result += `<span class="diff-marker">-</span>`;
+                        result += `<span class="diff-content">${this.escapeHtml(baseLine.text)}</span>`;
+                        result += `</div>`;
+                        continue;
+                    }
+                    
+                    if (baseLine.text === targetLine.text) {
+                        result += `<div class="diff-line diff-equal">`;
+                        result += `<span class="diff-marker"> </span>`;
+                        result += `<span class="diff-content">${this.escapeHtml(targetLine.text)}</span>`;
+                        result += `</div>`;
+                    } else {
+                        const diffResult = this.compareSingleLine(baseLine.text, targetLine.text);
+                        result += `<div class="diff-line diff-change">`;
+                        result += `<span class="diff-marker">~</span>`;
+                        result += `<span class="diff-content">${diffResult}</span>`;
+                        result += `</div>`;
+                    }
+                }
+                
+                result += '</div>';
+                return result;
+            }
+            
+            compareSingleLine(base, target) {
+                const baseTokens = this.tokenize(base);
+                const targetTokens = this.tokenize(target);
+                return this.highlightDifferences(baseTokens, targetTokens);
+            }
+
+            tokenize(text) {
+                const tokens = [];
+                let currentWord = '';
+                let currentPunctuation = '';
+
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+
+                    if (char.match(/[\s\n\r\t]/)) {
+                        if (currentWord) {
+                            tokens.push({ type: 'word', value: currentWord });
+                            currentWord = '';
+                        }
+                        if (currentPunctuation) {
+                            tokens.push({ type: 'punctuation', value: currentPunctuation });
+                            currentPunctuation = '';
+                        }
+                        tokens.push({ type: 'whitespace', value: char });
+                    } else if (char.match(/[a-zA-Z0-9\u4e00-\u9fa5]/)) {
+                        if (currentPunctuation) {
+                            tokens.push({ type: 'punctuation', value: currentPunctuation });
+                            currentPunctuation = '';
+                        }
+                        currentWord += char;
+                    } else {
+                        if (currentWord) {
+                            tokens.push({ type: 'word', value: currentWord });
+                            currentWord = '';
+                        }
+                        currentPunctuation += char;
+                    }
+                }
+
+                if (currentWord) {
+                    tokens.push({ type: 'word', value: currentWord });
+                }
+                if (currentPunctuation) {
+                    tokens.push({ type: 'punctuation', value: currentPunctuation });
+                }
+
+                return tokens;
+            }
+
+            highlightDifferences(baseTokens, targetTokens) {
+                let result = '';
+                let i = 0;
+                let j = 0;
+
+                while (i < baseTokens.length || j < targetTokens.length) {
+                    const baseToken = baseTokens[i];
+                    const targetToken = targetTokens[j];
+
+                    if (!baseToken) {
+                        if (targetToken) {
+                            if (targetToken.type === 'word') {
+                                result += `<span class="diff-highlight">${this.escapeHtml(targetToken.value)}</span>`;
+                            } else {
+                                result += this.escapeHtml(targetToken.value);
+                            }
+                            j++;
+                        }
+                        continue;
+                    }
+
+                    if (!targetToken) {
+                        i++;
+                        continue;
+                    }
+
+                    if (baseToken.type === 'whitespace' && targetToken.type === 'whitespace') {
+                        result += this.escapeHtml(targetToken.value);
+                        i++;
+                        j++;
+                    } else if (baseToken.type === targetToken.type) {
+                        if (baseToken.value === targetToken.value) {
+                            result += this.escapeHtml(targetToken.value);
+                        } else {
+                            if (targetToken.type === 'word') {
+                                result += `<span class="diff-highlight">${this.escapeHtml(targetToken.value)}</span>`;
+                            } else {
+                                result += this.escapeHtml(targetToken.value);
+                            }
+                        }
+                        i++;
+                        j++;
+                    } else {
+                        if (targetToken.type === 'word') {
+                            result += `<span class="diff-highlight">${this.escapeHtml(targetToken.value)}</span>`;
+                        } else {
+                            result += this.escapeHtml(targetToken.value);
+                        }
+                        j++;
+                    }
+                }
+
+                return result;
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            generateReport() {
+                if (!this.currentPrompt) {
+                    alert('Please run a test before generating a report');
+                    return;
+                }
+
+                const reportData = this.collectReportData();
+                const markdown = this.generateMarkdown(reportData);
+                
+                this.downloadReport(markdown);
+            }
+            
+            collectReportData() {
+                const data = {
+                    prompt: this.currentPrompt,
+                    timestamp: new Date().toLocaleString('en-US'),
+                    winner: null,
+                    models: {}
+                };
+
+                let fastestTime = Infinity;
+                let winnerName = null;
+
+                this.containers.forEach(container => {
+                    const header = container.querySelector('.ai-header');
+                    const name = header.textContent.replace(/<[^>]*>/g, '');
+                    const isWinner = header.querySelector('.winner-badge') !== null;
+                    const timer = container.querySelector('.timer').textContent;
+                    const textarea = container.querySelector('textarea');
+                    const resultArea = container.querySelector('.result-area');
+                    
+                    const chars = document.getElementById(`${name.toLowerCase()}-chars`)?.textContent || '0';
+                    const tokens = document.getElementById(`${name.toLowerCase()}-tokens`)?.textContent || '0';
+                    const speed = document.getElementById(`${name.toLowerCase()}-speed`)?.textContent || '0 chars/s';
+                    
+                    const speedBar = document.getElementById(`${name.toLowerCase()}-speed-bar`);
+                    const concisenessBar = document.getElementById(`${name.toLowerCase()}-conciseness-bar`);
+                    const densityBar = document.getElementById(`${name.toLowerCase()}-density-bar`);
+                    
+                    const speedPercent = speedBar ? speedBar.style.width || '0%' : '0%';
+                    const concisenessPercent = concisenessBar ? concisenessBar.style.width || '0%' : '0%';
+                    const densityPercent = densityBar ? densityBar.style.width || '0%' : '0%';
+
+                    data.models[name] = {
+                        time: timer,
+                        isWinner: isWinner,
+                        content: textarea.value,
+                        resultHtml: resultArea.innerHTML,
+                        chars: chars,
+                        tokens: tokens,
+                        speed: speed,
+                        speedPercent: speedPercent,
+                        concisenessPercent: concisenessPercent,
+                        densityPercent: densityPercent
+                    };
+
+                    if (isWinner) {
+                        data.winner = name;
+                    }
+                });
+
+                return data;
+            }
+            
+            generateMarkdown(data) {
+                let markdown = `# ClaudeKiller AI Arena - Comparison Report\n\n`;
+                markdown += `Generated: ${data.timestamp}\n\n`;
+                markdown += `---\n\n`;
+                
+                markdown += `## 📝 Original Prompt\n\n`;
+                markdown += `\`\`\`\n${data.prompt}\n\`\`\`\n\n`;
+                
+                markdown += `## 🏆 Competition Results\n\n`;
+                
+                const modelNames = Object.keys(data.models).sort((a, b) => {
+                    const timeA = this.parseTime(data.models[a].time);
+                    const timeB = this.parseTime(data.models[b].time);
+                    return timeA - timeB;
+                });
+                
+                modelNames.forEach((name, index) => {
+                    const model = data.models[name];
+                    const rank = index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉';
+                    const winnerMark = model.isWinner ? ' 🏅 WINNER' : '';
+                    
+                    markdown += `### ${rank} ${name}${winnerMark}\n\n`;
+                    markdown += `| Metric | Value |\n`;
+                    markdown += `|--------|-------|\n`;
+                    markdown += `| Response Time | ${model.time} |\n`;
+                    markdown += `| Characters | ${model.chars} |\n`;
+                    markdown += `| Token Estimate | ${model.tokens} |\n`;
+                    markdown += `| Speed | ${model.speed} |\n`;
+                    markdown += `| Speed Score | ${model.speedPercent} |\n`;
+                    markdown += `| Conciseness | ${model.concisenessPercent} |\n`;
+                    markdown += `| Code Density | ${model.densityPercent} |\n\n`;
+                    
+                    markdown += `**Output:**\n\n`;
+                    markdown += `\`\`\`\n${model.content || '(empty)'}\n\`\`\`\n\n`;
+                    
+                    if (model.resultHtml) {
+                        markdown += `**Diff Analysis:**\n\n`;
+                        markdown += this.htmlToMarkdown(model.resultHtml) + '\n\n';
+                    }
+                    
+                    markdown += `---\n\n`;
+                });
+                
+                markdown += `## 📊 Performance Summary\n\n`;
+                markdown += `- **Fastest Response:** ${data.winner || 'None'} \n`;
+                markdown += `- **Test Time:** ${data.timestamp}\n`;
+                
+                return markdown;
+            }
+            
+            parseTime(timeStr) {
+                const parts = timeStr.split(':');
+                const hours = parseInt(parts[0]) || 0;
+                const minutes = parseInt(parts[1]) || 0;
+                const secondsParts = (parts[2] || '0').split('.');
+                const seconds = parseInt(secondsParts[0]) || 0;
+                const ms = parseInt(secondsParts[1]) || 0;
+                
+                return hours * 3600000 + minutes * 60000 + seconds * 1000 + ms;
+            }
+            
+            htmlToMarkdown(html) {
+                let text = html;
+                text = text.replace(/<span class="diff-highlight">([^<]+)<\/span>/g, '**$1**');
+                text = text.replace(/<[^>]+>/g, '');
+                text = text.replace(/&lt;/g, '<');
+                text = text.replace(/&gt;/g, '>');
+                text = text.replace(/&amp;/g, '&');
+                
+                return text;
+            }
+            
+            downloadReport(content) {
+                const timestamp = Date.now();
+                const filename = `ClaudeKiller_Report_${timestamp}.md`;
+                
+                const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                URL.revokeObjectURL(url);
+                
+                this.showToast('Report downloaded successfully!');
+            }
+            
+            handleCiteClick(e) {
+                const format = e.target.dataset.format;
+                let citation = '';
+                
+                switch (format) {
+                    case 'text':
+                        citation = 'ClaudeKiller (2024). Local-first AI output comparison engine.';
+                        break;
+                    case 'apa':
+                        citation = 'ClaudeKiller. (2024). ClaudeKiller [Computer software]. https://www.wangdadi.xyz/claudekiller';
+                        break;
+                    case 'bibtex':
+                        citation = '@software{ClaudeKiller,\n  author = {{ClaudeKiller Team}},\n  title = {ClaudeKiller: Local-first AI output comparison engine},\n  year = {2024},\n  url = {https://www.wangdadi.xyz/claudekiller},\n}';
+                        break;
+                }
+                
+                document.getElementById('citePreview').innerHTML = `<code>${this.escapeHtml(citation)}</code>`;
+                
+                navigator.clipboard.writeText(citation).then(() => {
+                    e.target.textContent = '✓ Copied';
+                    setTimeout(() => {
+                        e.target.textContent = format.charAt(0).toUpperCase() + format.slice(1);
+                    }, 2000);
+                }).catch(() => {
+                    alert('Copy failed, please copy manually');
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new AIArena();
+        });
+    </script>
+</body>
+</html>

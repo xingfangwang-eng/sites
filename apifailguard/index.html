@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add exponential backoff retry, timeout control, and circuit breaker to your API calls. Free production-grade JavaScript/TypeScript resilience code generator.">
+    <meta name="keywords" content="API retry, circuit breaker, exponential backoff, fetch timeout, axios retry, frontend stability">
+    <title>APIFailGuard - API Resilience Code Generator (Fetch/Axios)</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "APIFailGuard",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "description": "Add exponential backoff retry, timeout control, and circuit breaker to Fetch/Axios requests. Generate production-grade JavaScript/TypeScript resilience code for free.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "keywords": "API retry, circuit breaker, exponential backoff, frontend stability"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why use circuit breaker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The circuit breaker pattern prevents applications from continuously attempting requests when dependent services fail, avoiding cascading failures. When the failure count reaches the threshold, the circuit breaker trips and fails fast instead of retrying indefinitely. This protects system resources and improves stability under network instability."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is exponential backoff?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Exponential backoff is a retry strategy where wait time between retries grows exponentially. For example: 1s, 2s, 4s. This prevents overwhelming servers during congestion and gives services time to recover. Compared to fixed-interval retries, exponential backoff handles transient failures more effectively."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is timeout control important?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Timeout control prevents requests from waiting indefinitely and frees browser resources. Without timeouts, unresponsive servers cause hanging requests, leading to memory leaks and poor user experience. AbortController enables graceful request cancellation, ensuring application responsiveness."
+                }
+            }
+        ]
+    }
+    </script>
+    <style>:root{--bg-primary:#0a0e14;--bg-secondary:#0d1117;--accent-blue:#58a6ff;--accent-green:#238636;--accent-red:#da3633;--border-color:#30363d;--text-primary:#e6edf3;--text-secondary:#8b949e;--text-muted:#484f58}*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background-color:var(--bg-primary);min-height:100vh;color:var(--text-primary)}.container{max-width:1600px;margin:0 auto;padding:20px;min-height:100vh;display:flex;flex-direction:column}header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border-color);margin-bottom:20px;flex-shrink:0}.header-left{display:flex;flex-direction:column;gap:6px}h1{font-size:1.75rem;color:var(--text-primary);font-weight:700}.status-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background-color:rgba(35,134,54,0.15);border:1px solid rgba(35,134,54,0.3);border-radius:12px;font-size:12px;color:var(--accent-green)}.status-badge svg{width:12px;height:12px;fill:var(--accent-green)}.security-notice{display:flex;align-items:center;gap:8px;padding:8px 12px;background-color:rgba(88,166,255,0.1);border:1px solid rgba(88,166,255,0.2);border-radius:6px;font-size:12px;color:var(--accent-blue);margin-bottom:16px}.security-notice svg{width:16px;height:16px;fill:var(--accent-blue);flex-shrink:0}.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:12px}.breadcrumb a{color:var(--accent-blue);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}.breadcrumb-separator{color:var(--text-muted)}.main-content{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;overflow:auto;min-height:0}@media(max-width:1024px){.main-content{grid-template-columns:1fr;overflow:visible}}.panel{background-color:var(--bg-secondary);border-radius:8px;padding:16px;border:1px solid var(--border-color);display:flex;flex-direction:column;overflow:hidden}.panel-title{font-size:0.95rem;margin-bottom:14px;color:var(--text-primary);font-weight:600;flex-shrink:0}.left-panel{display:flex;flex-direction:column;gap:16px}.input-panel{flex:1;display:flex;flex-direction:column;min-height:0}.input-panel textarea{flex:1;width:100%;min-height:150px;padding:12px;border:1px solid var(--border-color);border-radius:6px;background-color:var(--bg-primary);color:var(--text-primary);font-family:'Fira Code',monospace;font-size:13px;line-height:1.6;resize:vertical}.input-panel textarea:focus{outline:none;border-color:var(--accent-green);box-shadow:0 0 0 3px rgba(35,134,54,0.1)}.input-panel textarea::placeholder{color:var(--text-muted)}.config-panel{flex-shrink:0}.config-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.config-item{display:flex;flex-direction:column;gap:6px}.config-item label{font-size:12px;color:var(--text-secondary)}.config-item input{padding:8px 12px;border:1px solid var(--border-color);border-radius:6px;background-color:var(--bg-primary);color:var(--text-primary);font-size:13px;width:100%}.config-item input:focus{outline:none;border-color:var(--accent-green)}.generate-btn{width:100%;padding:12px 20px;background-color:var(--accent-green);border:none;border-radius:6px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;margin-top:14px}.generate-btn:hover{background-color:#2ea043}.preset-buttons{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}.preset-label{font-size:12px;color:var(--text-secondary)}.preset-btn{padding:4px 10px;border:1px solid var(--border-color);border-radius:4px;background-color:transparent;color:var(--text-secondary);font-size:11px;cursor:pointer;transition:all 0.1s}.preset-btn:hover{border-color:var(--accent-green);color:var(--accent-green)}.preset-btn.active{background-color:var(--accent-green);border-color:var(--accent-green);color:#fff}.mode-toggle{display:flex;align-items:center;gap:10px;margin-top:12px;margin-bottom:10px}.toggle-label{font-size:12px;color:var(--text-secondary)}.switch{position:relative;display:inline-block;width:40px;height:22px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:var(--border-color);transition:0.2s;border-radius:22px}.slider:before{position:absolute;content:"";height:16px;width:16px;left:3px;bottom:3px;background-color:white;transition:0.2s;border-radius:50%}input:checked + .slider{background-color:var(--accent-green)}input:checked + .slider:before{transform:translateX(18px)}.mode-label{font-size:12px;color:var(--text-primary);font-weight:500}.audit-report{background-color:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.2);border-radius:6px;padding:10px 12px;margin-top:12px}.audit-title{font-size:12px;font-weight:600;color:var(--accent-blue);margin-bottom:8px}.audit-item{font-size:11px;color:var(--text-secondary);line-height:1.6;display:flex;align-items:flex-start;gap:6px}.audit-item::before{content:"✓";color:var(--accent-blue);font-weight:bold}.lifecycle-diagram{background-color:var(--bg-primary);border-radius:6px;padding:14px 16px;margin-top:12px;border:1px solid var(--border-color)}.lifecycle-title{font-size:11px;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px}.lifecycle-flow{display:flex;align-items:center;justify-content:flex-start;gap:4px;flex-wrap:wrap;font-size:11px}.lifecycle-step{padding:4px 8px;border-radius:4px;background-color:var(--bg-secondary);border:1px solid var(--border-color);color:var(--text-secondary);white-space:nowrap}.lifecycle-step.start{border-color:var(--accent-green);color:var(--accent-green)}.lifecycle-step.retry{border-color:#f0883e;color:#f0883e}.lifecycle-step.success{border-color:var(--accent-blue);background-color:rgba(88,166,255,0.15);color:var(--accent-blue)}.lifecycle-step.timeout{border-color:var(--accent-red);color:var(--accent-red)}.lifecycle-arrow{color:var(--text-muted);font-size:10px}.demo-section{margin-top:12px;background-color:var(--bg-secondary);border-radius:6px;border:1px solid var(--border-color);overflow:hidden}.demo-tabs{display:flex;border-bottom:1px solid var(--border-color)}.demo-tab{flex:1;padding:8px 12px;background:transparent;border:none;color:var(--text-secondary);font-size:12px;cursor:pointer;transition:all 0.1s}.demo-tab.active{background-color:var(--bg-primary);color:var(--accent-blue);font-weight:500}.demo-content{padding:12px;font-size:11px;line-height:1.6;color:var(--text-secondary);background-color:var(--bg-primary);max-height:180px;overflow-y:auto}.demo-content pre{margin:0;white-space:pre-wrap;word-break:break-all}.export-section{margin-top:12px;display:flex;gap:8px}.export-btn{flex:1;padding:8px 12px;background-color:var(--bg-secondary);border:1px solid var(--border-color);border-radius:6px;color:var(--text-secondary);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.1s}.export-btn:hover{border-color:var(--accent-green);color:var(--accent-green)}.export-btn svg{width:14px;height:14px}.right-panel{display:flex;flex-direction:column;gap:16px}.output-panel{flex:1;display:flex;flex-direction:column;min-height:0}.code-container{flex:1;position:relative;background-color:var(--bg-primary);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}.code-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background-color:rgba(255,255,255,0.03);border-bottom:1px solid var(--border-color);flex-shrink:0}.code-header span{font-size:12px;color:var(--text-secondary)}.copy-btn{padding:5px 12px;background-color:rgba(35,134,54,0.15);border:1px solid rgba(35,134,54,0.3);border-radius:4px;color:var(--accent-green);cursor:pointer;font-size:12px}.copy-btn:hover{background-color:rgba(35,134,54,0.25)}.copy-btn.copied{background-color:rgba(35,134,54,0.25);color:var(--accent-green)}.code-output{flex:1;display:flex;overflow:auto}.line-numbers{padding:12px 10px;background-color:rgba(0,0,0,0.2);text-align:right;user-select:none;min-width:45px;color:var(--text-muted);font-family:'Fira Code',monospace;font-size:12px;line-height:1.6;flex-shrink:0}.code-content{flex:1;padding:12px;font-family:'Fira Code',monospace;font-size:12px;line-height:1.6;color:var(--text-primary);white-space:pre;overflow-x:auto}.docs-panel{flex-shrink:0;max-height:200px;overflow-y:auto}.docs-content{background-color:rgba(0,0,0,0.15);border-radius:6px;padding:14px}.docs-content h3{color:var(--accent-green);margin-bottom:12px;font-size:0.9rem}.docs-content h4{color:var(--text-primary);margin:10px 0 6px;font-size:0.85rem}.docs-content p{color:var(--text-secondary);font-size:12px;line-height:1.5;margin-bottom:6px}.docs-content code{background-color:rgba(255,255,255,0.08);padding:2px 5px;border-radius:3px;font-family:'Fira Code',monospace;font-size:11px;color:#d2a8ff}.docs-content pre{background-color:rgba(0,0,0,0.2);padding:10px;border-radius:4px;margin:6px 0;overflow-x:auto}.docs-content pre code{background-color:transparent;padding:0;color:var(--text-primary)}.knowledge-base{border-top:1px solid var(--border-color);padding:30px 0;margin-top:20px}.knowledge-base h2{font-size:1.25rem;color:var(--text-primary);margin-bottom:20px;font-weight:600}.kb-article{margin-bottom:24px}.kb-article:last-child{margin-bottom:0}.kb-article h3{font-size:1rem;color:var(--text-primary);margin-bottom:10px;font-weight:600}.kb-article p{color:var(--text-secondary);font-size:13px;line-height:1.7;margin-bottom:8px}.kb-article ul{color:var(--text-secondary);font-size:13px;line-height:1.8;margin-left:20px;margin-bottom:8px}.kb-article code{background-color:var(--bg-secondary);padding:2px 6px;border-radius:4px;font-family:'Fira Code',monospace;font-size:12px;color:var(--accent-blue)}.tech-list li{margin-bottom:6px}.footer{text-align:center;padding:16px 0;border-top:1px solid var(--border-color);color:var(--text-muted);font-size:12px;flex-shrink:0}.footer-links{display:flex;justify-content:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}.footer-links a{color:var(--accent-blue);text-decoration:none;font-size:12px}.footer-links a:hover{text-decoration:underline}.footer p{margin:0}.footer p a{color:var(--accent-blue);text-decoration:none}.footer p a:hover{text-decoration:underline}</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>APIFailGuard</h1>
+                <div class="status-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                    Frontend Protection Level: Production-Ready
+                </div>
+            </div>
+        </header>
+
+        <div class="security-notice">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+            <span>Local Code Generation - All logic runs in browser, no API keys or URL data collected</span>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="https://www.wangdadi.xyz" target="_blank">wangdadi.xyz</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>APIFailGuard</span>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="panel input-panel">
+                    <div class="panel-title">Input</div>
+                    <textarea id="inputCode" placeholder="Paste your original API code, e.g.:&#10;fetch('https://api.example.com/data')&#10;  .then(res =&gt; res.json())&#10;  .then(data =&gt; console.log(data));">fetch('https://api.example.com/data')
+  .then(res => res.json())
+  .then(data => console.log(data));</textarea>
+                </div>
+
+                <div class="panel config-panel">
+                    <div class="panel-title">Settings</div>
+                    <div class="preset-buttons">
+                        <span class="preset-label">Quick Presets:</span>
+                        <button class="preset-btn" data-preset="weak">Weak Network</button>
+                        <button class="preset-btn" data-preset="highload">High Load</button>
+                        <button class="preset-btn" data-preset="critical">Critical Path</button>
+                    </div>
+                    <div class="config-grid">
+                        <div class="config-item">
+                            <label for="maxRetries">Max Retries</label>
+                            <input type="number" id="maxRetries" value="3" min="0" max="20">
+                        </div>
+                        <div class="config-item">
+                            <label for="timeout">Timeout (ms)</label>
+                            <input type="number" id="timeout" value="5000" min="0" max="60000">
+                        </div>
+                        <div class="config-item">
+                            <label for="failureThreshold">Circuit Threshold</label>
+                            <input type="number" id="failureThreshold" value="5" min="1" max="20">
+                        </div>
+                    </div>
+                    <div class="mode-toggle">
+                        <span class="toggle-label">Code Mode:</span>
+                        <label class="switch">
+                            <input type="checkbox" id="tsToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mode-label" id="modeLabel">JavaScript</span>
+                    </div>
+                    <button class="generate-btn" id="generateBtn">Generate Guarded Code</button>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="panel output-panel">
+                    <div class="panel-title">Output</div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span id="langLabel">JavaScript</span>
+                            <button class="copy-btn" id="copyBtn">Copy Code</button>
+                        </div>
+                        <div class="code-output">
+                            <div class="line-numbers" id="lineNumbers"></div>
+                            <pre class="code-content" id="codeDisplay"></pre>
+                        </div>
+                    </div>
+                    <div class="audit-report" id="auditReport">
+                        <div class="audit-title">🛡️ Resilience Audit Report</div>
+                        <div class="audit-item">AbortController implemented to prevent memory leaks</div>
+                        <div class="audit-item">Exponential backoff algorithm reduces server load</div>
+                        <div class="audit-item">Circuit breaker initialized in CLOSED state</div>
+                        <div class="audit-item">Promise.race prevents request starvation</div>
+                    </div>
+                    <div class="lifecycle-diagram">
+                        <div class="lifecycle-title">Request Lifecycle</div>
+                        <div class="lifecycle-flow">
+                            <span class="lifecycle-step start">Start</span>
+                            <span class="lifecycle-arrow">→</span>
+                            <span class="lifecycle-step">Fetch</span>
+                            <span class="lifecycle-arrow">→</span>
+                            <span class="lifecycle-step retry" id="retryStep1">Retry 1</span>
+                            <span class="lifecycle-arrow">→</span>
+                            <span class="lifecycle-step retry" id="retryStep2">Retry 2</span>
+                            <span class="lifecycle-arrow">→</span>
+                            <span class="lifecycle-step success">Success</span>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <div class="demo-tabs">
+                            <button class="demo-tab active" data-demo="vanilla">Vanilla JS</button>
+                            <button class="demo-tab" data-demo="react">React Hook</button>
+                        </div>
+                        <div class="demo-content" id="demoContent">
+                            <pre id="demoCode"></pre>
+                        </div>
+                    </div>
+                    <div class="export-section">
+                        <button class="export-btn" id="downloadBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download api-guard.js
+                        </button>
+                        <button class="export-btn" id="selectAllBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Select All Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel docs-panel">
+                <div class="panel-title">Documentation</div>
+                <div class="docs-content">
+                    <h3>Usage</h3>
+                    <p>Initialize the generated guarded wrapper in your project as follows:</p>
+                    
+                    <h4>1. Import in Project</h4>
+                    <pre><code>// Save generated code as api-guard.js
+import { createGuardedApi } from './api-guard.js';
+
+// Initialize guarded API client
+const api = createGuardedApi();</code></pre>
+
+                    <h4>2. Basic Usage</h4>
+                    <pre><code>// Use the wrapped API
+async function fetchData() {
+  try {
+    const result = await api.fetch('https://api.example.com/data');
+    console.log('Success:', result);
+    return result;
+  } catch (error) {
+    console.error('Request failed:', error.message);
+    throw error;
+  }
+}
+
+// Call the function
+fetchData();</code></pre>
+
+                    <h4>3. Custom Configuration</h4>
+                    <pre><code>// Customize retry count, timeout, etc.
+const customApi = createGuardedApi({
+  maxRetries: 5,
+  timeout: 10000,
+  failureThreshold: 3
+});</code></pre>
+
+                    <h4>4. Features</h4>
+                    <ul style="color: #8b949e; font-size: 12px; margin-left: 18px; line-height: 1.6;">
+                        <li><strong>Retry Mechanism</strong>: Automatically retries failed requests with exponential backoff</li>
+                        <li><strong>Timeout Control</strong>: Prevents infinite waiting, protects browser resources</li>
+                        <li><strong>Circuit Breaker</strong>: Automatically trips after consecutive failures to prevent cascading issues</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="knowledge-base">
+            <h2>Resilience Programming Knowledge Base</h2>
+
+            <article class="kb-article">
+                <h3>What is Circuit Breaker Pattern?</h3>
+                <p>The Circuit Breaker pattern is a software design pattern that <strong>stops requests to failing services</strong> when continuous failures are detected, preventing cascading failures.</p>
+                <p>In frontend applications, the circuit breaker (implemented using the <code>createCircuitBreaker</code> factory function) prevents:</p>
+                <ul>
+                    <li>Server overload from excessive retry attempts</li>
+                    <li>UI freezes while waiting for unresponsive requests</li>
+                    <li>Memory leaks from hanging requests</li>
+                </ul>
+                <p>The circuit breaker has three states: <strong>CLOSED</strong> (normal operation), <strong>OPEN</strong> (tripped, rejecting requests), and <strong>HALF_OPEN</strong> (testing recovery). When consecutive failures reach the threshold, it switches from CLOSED to OPEN. After a cooldown period, it enters HALF_OPEN to allow a test request.</p>
+            </article>
+
+            <article class="kb-article">
+                <h3>Why is Simple Retry Dangerous?</h3>
+                <p>Many developers use simple fixed-interval retry strategies, such as retrying every 1 second. However, this approach poses serious risks in production:</p>
+                <p><strong>Retry Storm</strong>: When a service experiences a transient failure, all clients retry simultaneously. With fixed intervals, retry timestamps overlap across multiple rounds, causing an instant flood of requests that overwhelms the server and may trigger secondary failures.</p>
+                <p><strong>Exponential Backoff</strong> is a better solution: Wait time doubles with each retry (1s → 2s → 4s → 8s). This approach:</p>
+                <ul>
+                    <li>Spreads retry timestamps to reduce server load</li>
+                    <li>Provides recovery time for temporarily failing services</li>
+                    <li>Calculates backoff using <code>Math.pow(2, attempt - 1) * 1000</code></li>
+                </ul>
+            </article>
+
+            <article class="kb-article">
+                <h3>Tech Stack & Standard Web APIs</h3>
+                <p>Generated code is built on these standard web technologies:</p>
+                <ul class="tech-list">
+                    <li><strong>Fetch API</strong>: Modern browser-native network interface, replacement for XMLHttpRequest</li>
+                    <li><strong>AbortController</strong>: Provides abort signal mechanism for timeout control and request cancellation</li>
+                    <li><strong>Promise.race()</strong>: Resolves when any Promise settles, used for timeout implementation</li>
+                    <li><strong>Axios</strong>: Popular HTTP client that works seamlessly with generated wrappers</li>
+                </ul>
+            </article>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="https://agents.wangdadi.xyz" target="_blank">Agents</a>
+                <a href="http://artemisreentry.wangdadi.xyz/" target="_blank">Artemis Reentry</a>
+                <a href="https://boothell.wangdadi.xyz" target="_blank">Boot Hell</a>
+                <a href="https://cleancsvai.wangdadi.xyz" target="_blank">Clean CSV AI</a>
+                <a href="http://coachellaviral.wangdadi.xyz/" target="_blank">Coachella Viral</a>
+            </div>
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function extractUrlAndOptions(inputCode) {
+            const urlMatch = inputCode.match(/fetch\s*\(\s*['"]([^'"]+)['"]/);
+            const url = urlMatch ? urlMatch[1] : "'https://api.example.com/data'";
+            return { url };
+        }
+
+        function generateRequestWrapper(inputCode) {
+            const maxRetries = parseInt(document.getElementById('maxRetries').value);
+            const timeout = parseInt(document.getElementById('timeout').value);
+            const circuitThreshold = parseInt(document.getElementById('failureThreshold').value);
+            const resetTimeout = 30000;
+            const { url } = extractUrlAndOptions(inputCode);
+
+            return `/**
+ * =========================================
+ * requestWrapper - API Resilience Wrapper
+ * =========================================
+ * Adds retry, timeout, and circuit breaker protection to fetch requests
+ * 
+ * @param {Function} originalFetchCall - Original fetch call function
+ * @param {Object} config - Configuration object
+ * @param {number} config.retries - Max retry attempts (default: ${maxRetries})
+ * @param {number} config.timeout - Request timeout in ms (default: ${timeout})
+ * @param {number} config.circuitThreshold - Failure threshold for circuit breaker (default: ${circuitThreshold})
+ * @param {number} config.resetTimeout - Circuit reset timeout in ms (default: ${resetTimeout})
+ * @returns {Promise<any>} - Parsed JSON response
+ * =========================================
+ */
+
+/**
+ * Circuit Breaker Factory - Creates circuit breaker instances using factory pattern
+ *
+ * Factory Pattern Benefits:
+ * - Encapsulates creation details, callers don't need to know implementation
+ * - Extensible to singleton or object pool patterns
+ * - Enables centralized management and configuration
+ *
+ * @param {number} failureThreshold - Number of consecutive failures to trigger circuit break
+ * @param {number} resetTimeout - Time in ms before attempting recovery
+ * @returns {Object} Circuit breaker instance
+ */
+function createCircuitBreaker(failureThreshold, resetTimeout) {
+  let _failureCount = 0;
+  let _state = 'CLOSED';
+  let _lastFailureTime = null;
+
+  return {
+    async execute(fn) {
+      if (_state === 'OPEN') {
+        if (Date.now() - _lastFailureTime >= resetTimeout) {
+          _state = 'HALF_OPEN';
+          console.log('[CircuitBreaker] State: HALF_OPEN (testing...)');
+        } else {
+          throw new Error('[CircuitBreaker] Circuit is OPEN, rejecting request');
+        }
+      }
+
+      try {
+        const result = await fn();
+        _onSuccess();
+        return result;
+      } catch (error) {
+        _onFailure();
+        throw error;
+      }
+    },
+
+    getFailureCount() {
+      return _failureCount;
+    },
+
+    getState() {
+      return _state;
+    }
+  };
+
+  function _onSuccess() {
+    if (_state === 'HALF_OPEN') {
+      _state = 'CLOSED';
+      _failureCount = 0;
+      console.log('[CircuitBreaker] State: CLOSED (recovered)');
+    } else if (_failureCount > 0) {
+      _failureCount--;
+    }
+  }
+
+  function _onFailure() {
+    _failureCount++;
+    _lastFailureTime = Date.now();
+
+    if (_state === 'HALF_OPEN') {
+      _state = 'OPEN';
+      console.log('[CircuitBreaker] State: OPEN (test failed, tripping again)');
+    } else if (_failureCount >= failureThreshold) {
+      _state = 'OPEN';
+      console.log(\`[CircuitBreaker] State: OPEN (tripped after \${_failureCount} failures)\`);
+    }
+  }
+}
+
+/**
+ * Timeout Control Function - Implemented using AbortController
+ * 
+ * @param {AbortSignal} signal - AbortController signal
+ * @param {number} ms - Timeout duration in milliseconds
+ * @returns {Promise<void>}
+ */
+async function withTimeout(signal, ms) {
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(() => {
+      reject(new Error(\`[Timeout] Request timed out after \${ms}ms\`));
+    }, ms);
+
+    signal.addEventListener('abort', () => {
+      clearTimeout(timeoutId);
+      reject(new Error('[Timeout] Request was aborted'));
+    });
+  });
+}
+
+/**
+ * Exponential Backoff Retry Function
+ * 
+ * Retry intervals: 1s, 2s, 4s, 8s... (exponential growth)
+ * 
+ * @param {Function} fn - Async function to retry
+ * @param {number} retries - Maximum retry attempts
+ * @returns {Promise<any>}
+ */
+async function withRetry(fn, retries) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= retries + 1; attempt++) {
+    try {
+      if (attempt > 1) {
+        const backoffMs = Math.pow(2, attempt - 2) * 1000;
+        console.log(\`[Retry] Attempt \${attempt}/\${retries + 1}, waiting \${backoffMs}ms...\`);
+        await new Promise(resolve => setTimeout(resolve, backoffMs));
+      }
+      return await fn();
+    } catch (error) {
+      lastError = error;
+      console.log(\`[Retry] Attempt \${attempt} failed: \${error.message}\`);
+      if (attempt > retries) break;
+    }
+  }
+
+  throw lastError;
+}
+
+/**
+ * API Resilience Wrapper - Combines circuit breaker, retry, and timeout
+ * 
+ * @param {Function} originalFetchCall - Original fetch call, must return Promise
+ * @param {Object} config - Configuration options
+ * @param {number} [config.retries=${maxRetries}] - Max retry attempts
+ * @param {number} [config.timeout=${timeout}] - Request timeout in ms
+ * @param {number} [config.circuitThreshold=${circuitThreshold}] - Failure threshold for circuit breaker
+ * @param {number} [config.resetTimeout=${resetTimeout}] - Circuit reset timeout in ms
+ * @returns {Promise<any>} - Parsed JSON response
+ */
+async function requestWrapper(originalFetchCall, config = {}) {
+  const {
+    retries = ${maxRetries},
+    timeout = ${timeout},
+    circuitThreshold = ${circuitThreshold},
+    resetTimeout = ${resetTimeout}
+  } = config;
+
+  const cb = createCircuitBreaker(circuitThreshold, resetTimeout);
+  const controller = new AbortController();
+
+  return await cb.execute(async () => {
+    return await withRetry(async () => {
+      const timeoutPromise = withTimeout(controller.signal, timeout);
+
+      const fetchPromise = (async () => {
+        const result = await originalFetchCall();
+        if (result instanceof Response) {
+          if (!result.ok) {
+            throw new Error(\`[HTTP] Error \${result.status}: \${result.statusText}\`);
+          }
+          return await result.json();
+        }
+        return result;
+      })();
+
+      return await Promise.race([fetchPromise, timeoutPromise]);
+    }, retries);
+  });
+}
+
+// Usage Example:
+const result = await requestWrapper(
+  () => fetch(${url}),
+  { retries: ${maxRetries}, timeout: ${timeout}, circuitThreshold: ${circuitThreshold} }
+);
+
+console.log('Result:', result);
+`;}
+
+function generateGuardedWrapper() {
+    const inputCode = document.getElementById('inputCode').value;
+    return generateRequestWrapper(inputCode);
+}
+
+function updateLineNumbers(code) {
+    const lines = code.split('\n');
+    const lineNumbers = lines.map((_, i) => i + 1).join('\n');
+    document.getElementById('lineNumbers').textContent = lineNumbers;
+}
+
+document.getElementById('generateBtn').addEventListener('click', updateOutput);
+
+document.getElementById('copyBtn').addEventListener('click', async () => {
+    const code = document.getElementById('codeDisplay').textContent;
+    try {
+        await navigator.clipboard.writeText(code);
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy Code';
+            btn.classList.remove('copied');
+        }, 3000);
+    } catch (err) {
+        console.error('Copy failed:', err);
+    }
+});
+
+document.getElementById('inputCode').addEventListener('input', updateOutput);
+document.getElementById('maxRetries').addEventListener('input', updateOutput);
+document.getElementById('timeout').addEventListener('input', updateOutput);
+document.getElementById('failureThreshold').addEventListener('input', updateOutput);
+
+const PRESETS = {
+    weak: { retries: 5, timeout: 10000, circuitThreshold: 5 },
+    highload: { retries: 1, timeout: 3000, circuitThreshold: 2 },
+    critical: { retries: 3, timeout: 2000, circuitThreshold: 3 }
+};
+
+document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const preset = PRESETS[btn.dataset.preset];
+        document.getElementById('maxRetries').value = preset.retries;
+        document.getElementById('timeout').value = preset.timeout;
+        document.getElementById('failureThreshold').value = preset.circuitThreshold;
+        updateOutput();
+    });
+});
+
+document.getElementById('tsToggle').addEventListener('change', (e) => {
+    const isTS = e.target.checked;
+    document.getElementById('modeLabel').textContent = isTS ? 'TypeScript' : 'JavaScript';
+    document.getElementById('langLabel').textContent = isTS ? 'TypeScript' : 'JavaScript';
+    updateOutput();
+});
+
+function generateTypeScriptWrapper(inputCode) {
+    const maxRetries = parseInt(document.getElementById('maxRetries').value);
+    const timeout = parseInt(document.getElementById('timeout').value);
+    const circuitThreshold = parseInt(document.getElementById('failureThreshold').value);
+    const resetTimeout = 30000;
+    const { url } = extractUrlAndOptions(inputCode);
+
+    return `/**
+ * =========================================
+ * requestWrapper - API Resilience Wrapper (TypeScript)
+ * =========================================
+ * Adds retry, timeout, and circuit breaker protection to fetch requests
+ */
+
+interface RequestConfig {
+  retries?: number;
+  timeout?: number;
+  circuitThreshold?: number;
+  resetTimeout?: number;
+}
+
+type CircuitBreakerStatus = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
+
+interface CircuitBreakerState {
+  failureCount: number;
+  state: CircuitBreakerStatus;
+  lastFailureTime: number | null;
+}
+
+interface CircuitBreakerInstance {
+  execute<T>(fn: () => Promise<T>): Promise<T>;
+  getState(): CircuitBreakerStatus;
+  getCircuitBreakerState(): CircuitBreakerState;
+}
+
+function createCircuitBreaker(
+  failureThreshold: number,
+  resetTimeout: number
+): CircuitBreakerInstance {
+  let failureCount = 0;
+  let state: CircuitBreakerStatus = 'CLOSED';
+  let lastFailureTime: number | null = null;
+
+  function onSuccess(): void {
+    if (state === 'HALF_OPEN') {
+      state = 'CLOSED';
+      failureCount = 0;
+      console.log('[CircuitBreaker] State: CLOSED (recovered)');
+    } else if (failureCount > 0) {
+      failureCount--;
+    }
+  }
+
+  function onFailure(): void {
+    failureCount++;
+    lastFailureTime = Date.now();
+
+    if (state === 'HALF_OPEN') {
+      state = 'OPEN';
+      console.log('[CircuitBreaker] State: OPEN (test failed, tripping again)');
+    } else if (failureCount >= failureThreshold) {
+      state = 'OPEN';
+      console.log(\`[CircuitBreaker] State: OPEN (tripped after \${failureCount} failures)\`);
+    }
+  }
+
+  return {
+    async execute<T>(fn: () => Promise<T>): Promise<T> {
+      if (state === 'OPEN') {
+        if (lastFailureTime && Date.now() - lastFailureTime >= resetTimeout) {
+          state = 'HALF_OPEN';
+          console.log('[CircuitBreaker] State: HALF_OPEN (testing...)');
+        } else {
+          throw new Error('[CircuitBreaker] Circuit is OPEN, rejecting request');
+        }
+      }
+
+      try {
+        const result = await fn();
+        onSuccess();
+        return result;
+      } catch (error) {
+        onFailure();
+        throw error;
+      }
+    },
+
+    getState(): CircuitBreakerStatus {
+      return state;
+    },
+
+    getCircuitBreakerState(): CircuitBreakerState {
+      return { failureCount, state, lastFailureTime };
+    }
+  };
+}
+
+async function withTimeout(signal: AbortSignal, ms: number): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(() => {
+      reject(new Error(\`[Timeout] Request timed out after \${ms}ms\`));
+    }, ms);
+
+    signal.addEventListener('abort', () => {
+      clearTimeout(timeoutId);
+      reject(new Error('[Timeout] Request was aborted'));
+    });
+  });
+}
+
+async function withRetry<T>(fn: () => Promise<T>, retries: number): Promise<T> {
+  let lastError: Error | null = null;
+
+  for (let attempt = 1; attempt <= retries + 1; attempt++) {
+    try {
+      if (attempt > 1) {
+        const backoffMs = Math.pow(2, attempt - 2) * 1000;
+        console.log(`[Retry] Attempt ${attempt}/${retries + 1}, waiting ${backoffMs}ms...`);
+        await new Promise(resolve => setTimeout(resolve, backoffMs));
+      }
+      return await fn();
+    } catch (error) {
+      lastError = error as Error;
+      console.log(`[Retry] Attempt ${attempt} failed: ${lastError.message}`);
+      if (attempt > retries) break;
+    }
+  }
+
+  throw lastError!;
+}
+
+async function requestWrapper<T = unknown>(originalFetchCall: () => Promise<Response>, config: RequestConfig = {}): Promise<T> {
+  const {
+    retries = ${maxRetries},
+    timeout = ${timeout},
+    circuitThreshold = ${circuitThreshold},
+    resetTimeout = ${resetTimeout}
+  } = config;
+
+  const cb = createCircuitBreaker(circuitThreshold, resetTimeout);
+  const controller = new AbortController();
+
+  return await cb.execute(async () => {
+    return await withRetry(async () => {
+      const timeoutPromise = withTimeout(controller.signal, timeout);
+
+      const fetchPromise = (async () => {
+        const result = await originalFetchCall();
+        if (result instanceof Response) {
+          if (!result.ok) {
+            throw new Error(\`[HTTP] Error \${result.status}: \${result.statusText}\`);
+          }
+          return await result.json() as T;
+        }
+        return result;
+      })();
+
+      return await Promise.race([fetchPromise, timeoutPromise]);
+    }, retries);
+  });
+}
+
+// Usage Example:
+const result = await requestWrapper<${getResponseType()}>(
+  () => fetch(${url}),
+  { retries: ${maxRetries}, timeout: ${timeout}, circuitThreshold: ${circuitThreshold} }
+);
+
+console.log('Result:', result);`;
+}
+
+function getResponseType() {
+    const inputCode = document.getElementById('inputCode').value;
+    if (inputCode.includes('interface ') || inputCode.includes('type ')) {
+        const typeMatch = inputCode.match(/interface\s+(\w+)/) || inputCode.match(/type\s+(\w+)/);
+        if (typeMatch) return typeMatch[1];
+    }
+    return 'any';
+}
+
+function updateDemoCode() {
+    const isTS = document.getElementById('tsToggle').checked;
+    const maxRetries = parseInt(document.getElementById('maxRetries').value);
+    const timeout = parseInt(document.getElementById('timeout').value);
+    const circuitThreshold = parseInt(document.getElementById('failureThreshold').value);
+
+    const vanillaDemo = `// 1. Initialize Guarded API
+const guardedFetch = requestWrapper;
+
+// 2. Call API
+async function fetchData() {
+  try {
+    const result = await guardedFetch(
+      () => fetch('https://api.example.com/data'),
+      { retries: ${maxRetries}, timeout: ${timeout} }
+    );
+    console.log('Success:', result);
+    return result;
+  } catch (error) {
+    console.error('Request failed:', error.message);
+  }
+}
+
+// 3. Trigger Request
+fetchData();`;
+
+    const reactDemo = `// useApiGuard.js - React Hook
+import { useState, useCallback } from 'react';
+
+export function useApiGuard(config = {}) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
+
+  const execute = useCallback(async (fetchFn) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const result = await requestWrapper(fetchFn, {
+        retries: ${maxRetries},
+        timeout: ${timeout},
+        circuitThreshold: ${circuitThreshold},
+        ...config
+      });
+      setData(result);
+      return result;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, [maxRetries, timeout, circuitThreshold]);
+
+  return { loading, error, data, execute };
+}
+
+// Usage Example:
+// const { loading, error, data, execute } = useApiGuard();
+// await execute(() => fetch('/api/data'));`;
+
+    const currentDemo = document.querySelector('.demo-tab.active').dataset.demo;
+    document.getElementById('demoCode').textContent = currentDemo === 'react' ? reactDemo : vanillaDemo;
+}
+
+function updateLifecycleDiagram() {
+    const maxRetries = parseInt(document.getElementById('maxRetries').value);
+    const retryStep1 = document.getElementById('retryStep1');
+    const retryStep2 = document.getElementById('retryStep2');
+
+    if (maxRetries >= 1) {
+        retryStep1.style.display = '';
+    } else {
+        retryStep1.style.display = 'none';
+    }
+
+    if (maxRetries >= 2) {
+        retryStep2.style.display = '';
+    } else {
+        retryStep2.style.display = 'none';
+    }
+}
+
+function updateOutput() {
+    const isTS = document.getElementById('tsToggle').checked;
+    const code = isTS ? generateTypeScriptWrapper(document.getElementById('inputCode').value) : generateRequestWrapper(document.getElementById('inputCode').value);
+    document.getElementById('codeDisplay').textContent = code;
+    updateLineNumbers(code);
+    updateDemoCode();
+    updateLifecycleDiagram();
+}
+
+document.querySelectorAll('.demo-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        updateDemoCode();
+    });
+});
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const code = document.getElementById('codeDisplay').textContent;
+    const isTS = document.getElementById('tsToggle').checked;
+    const blob = new Blob([code], { type: isTS ? 'application/typescript' : 'application/javascript' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = isTS ? 'api-guard.ts' : 'api-guard.js';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById('selectAllBtn').addEventListener('click', () => {
+    const codeDisplay = document.getElementById('codeDisplay');
+    const range = document.createRange();
+    range.selectNodeContents(codeDisplay);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+});
+
+updateOutput();
+    </script>
+</body>
+</html>

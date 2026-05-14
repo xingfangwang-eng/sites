@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSBeast - TypeScript Performance Analyzer | Debug Slow tsserver & Compiler Bottlenecks</title>
+    <meta name="description" content="Identify TypeScript performance bottlenecks instantly. Analyze recursive types, circular dependencies, and compiler lag in your browser. Local-first, private, and no API keys required.">
+    <meta name="keywords" content="TypeScript performance, slow tsserver, TS build optimization, compiler profiling, deep type analysis tool">
+    <link rel="canonical" href="https://www.wangdadi.xyz/tsbeast">
+    
+    <meta property="og:title" content="TSBeast - TypeScript Performance Analyzer">
+    <meta property="og:description" content="Identify TypeScript performance bottlenecks instantly. Analyze recursive types, circular dependencies, and compiler lag.">
+    <meta property="og:url" content="https://www.wangdadi.xyz/tsbeast">
+    <meta property="og:type" content="software">
+    <meta property="og:image" content="https://www.wangdadi.xyz/tsbeast/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TSBeast - TypeScript Performance Analyzer">
+    <meta name="twitter:description" content="Debug slow tsserver & compiler bottlenecks in your browser.">
+    <meta name="twitter:image" content="https://www.wangdadi.xyz/tsbeast/twitter-image.png">
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TSBeast",
+        "description": "TypeScript Performance Analyzer - Debug slow tsserver & compiler bottlenecks",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": ["Local AST analysis", "tsserver pressure simulation", "tsconfig optimization", "Circular dependency detection"],
+        "url": "https://www.wangdadi.xyz/tsbeast",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Analyze TypeScript Project Performance",
+        "step": [
+            {"@type": "HowToStep", "text": "Drag and drop your TypeScript project folder into the drop zone"},
+            {"@type": "HowToStep", "text": "Click 'Run Pressure Simulation' to analyze your code"},
+            {"@type": "HowToStep", "text": "Review the heatmap and optimization suggestions"},
+            {"@type": "HowToStep", "text": "Export the audit report for documentation"}
+        ]
+    }
+    </script>
+
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: #0d1117;
+    color: #cccccc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 16px 20px;
+    background: #161b22;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+header .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+    margin: 4px 0 0 0;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #8b949e;
+    margin-bottom: 8px;
+}
+
+.breadcrumb a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    margin: 0 6px;
+    color: #484f58;
+}
+
+.breadcrumb span[aria-current="page"] {
+    color: #8b949e;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 30px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    font-size: 12px;
+    color: #8b949e;
+    margin: 0;
+}
+
+footer p a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+.drop-zone {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #333;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #161b22;
+    cursor: pointer;
+    user-select: none;
+}
+
+.drop-zone.drag-over {
+    border-color: #ffffff;
+}
+
+.drop-zone-text {
+    font-size: 18px;
+    color: #8b949e;
+    text-align: center;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    padding: 16px;
+    gap: 16px;
+    min-height: 0;
+}
+
+.panel {
+    background: #161b22;
+    border: 1px solid #333;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+    font-weight: 600;
+    color: #cccccc;
+    background: #21262d;
+}
+
+.panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-corner {
+    background: #0d1117;
+}
+
+.file-list {
+    width: 30%;
+}
+
+.file-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-name {
+    font-size: 13px;
+    color: #cccccc;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.complexity-badge {
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 11px;
+    border: 1px solid;
+}
+
+.complexity-low {
+    background: #00ff00;
+    color: #000000;
+    border-color: #00ff00;
+}
+
+.complexity-medium {
+    background: #ffff00;
+    color: #000000;
+    border-color: #ffff00;
+}
+
+.complexity-high {
+    background: #ff0000;
+    color: #ffffff;
+    border-color: #ff0000;
+}
+
+.heatmap-container {
+    width: 40%;
+}
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+}
+
+.heatmap-cell {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #333;
+}
+
+.heatmap-label {
+    font-size: 11px;
+    color: #cccccc;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #333;
+}
+
+.suggestions-panel {
+    width: 30%;
+}
+
+.suggestion-section {
+    margin-bottom: 16px;
+}
+
+.suggestion-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #cccccc;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #333;
+}
+
+.suggestion-item {
+    font-size: 13px;
+    color: #cccccc;
+    padding: 6px 0;
+    border-bottom: 1px solid #333;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.stat-label {
+    color: #8b949e;
+}
+
+.stat-value {
+    color: #cccccc;
+}
+
+.bottom-bar {
+    padding: 16px;
+    border-top: 1px solid #333;
+    background: #161b22;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.run-button {
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #238636;
+    color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.run-button:hover {
+    background: #2ea043;
+}
+
+.run-button.small-button {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.empty-state {
+    color: #484f58;
+    font-size: 13px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.history-panel {
+    width: 100%;
+    margin: 0 16px 16px;
+}
+
+.history-item {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.history-project {
+    font-size: 13px;
+    font-weight: 600;
+    color: #cccccc;
+}
+
+.history-time {
+    font-size: 11px;
+    color: #8b949e;
+}
+
+.history-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.kill-button {
+    background: #da3633;
+}
+
+.kill-button:hover {
+    background: #f85149;
+}
+
+.critical-tag {
+    background: rgba(218, 54, 51, 0.2);
+    color: #f85149;
+    border-left: 3px solid #f85149;
+}
+
+.critical-item {
+    background: rgba(218, 54, 51, 0.15);
+    color: #f85149;
+}
+
+.warning-item {
+    background: rgba(240, 180, 0, 0.15);
+    color: #d29922;
+}
+
+.info-item {
+    background: rgba(64, 128, 255, 0.15);
+    color: #58a6ff;
+}
+
+.config-panel {
+    width: 100%;
+    margin: 0 16px 16px;
+}
+
+.config-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.config-comparison {
+    display: flex;
+    gap: 16px;
+    padding: 12px;
+}
+
+.config-panel-left,
+.config-panel-right {
+    flex: 1;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.config-header {
+    padding: 8px 12px;
+    background: #21262d;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8b949e;
+    border-bottom: 1px solid #333;
+}
+
+.config-content {
+    padding: 12px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cccccc;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.config-content .diff-add {
+    background: rgba(46, 160, 67, 0.3);
+}
+
+.config-content .diff-remove {
+    background: rgba(218, 54, 51, 0.3);
+}
+
+.config-actions {
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.faq-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.faq-section h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #cccccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.faq-section details {
+    margin-bottom: 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.faq-section summary {
+    padding: 12px 15px;
+    background: #21262d;
+    color: #cccccc;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    list-style: none;
+}
+
+.faq-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-section summary::before {
+    content: '▶';
+    display: inline-block;
+    width: 14px;
+    font-size: 10px;
+    color: #8b949e;
+    margin-right: 8px;
+}
+
+.faq-section details[open] summary::before {
+    content: '▼';
+}
+
+.faq-section details[open] summary {
+    border-bottom: 1px solid #333;
+}
+
+.faq-section div[itemprop="acceptedAnswer"] {
+    padding: 15px;
+    background: #0d1117;
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.faq-section p {
+    margin: 0;
+}
+
+.faq-section code {
+    background: #21262d;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    color: #58a6ff;
+}
+
+.faq-section strong {
+    color: #f0883e;
+    font-weight: 600;
+}
+
+.comparison-panel {
+    width: 100%;
+    margin: 0 16px 16px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.comparison-table th {
+    background: #21262d;
+    font-weight: 600;
+    color: #8b949e;
+}
+
+.comparison-table .value-cell {
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.comparison-table .improvement {
+    color: #3fb950;
+    font-weight: 600;
+}
+
+.comparison-table .regression {
+    color: #f85149;
+    font-weight: 600;
+}
+
+.comparison-table .no-change {
+    color: #8b949e;
+}
+
+.conversion-hint {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(46, 160, 67, 0.1);
+    border-left: 3px solid #3fb950;
+    color: #3fb950;
+    font-size: 13px;
+}
+
+.baseline-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    background: #3fb950;
+    color: #0d1117;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+.cite-audit {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 16px;
+    background: #161b22;
+    border: 1px solid #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cite-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8b949e;
+    white-space: nowrap;
+}
+
+.cite-content {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cite-content code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    color: #58a6ff;
+    background: #0d1117;
+    padding: 6px 12px;
+    border-radius: 3px;
+    display: block;
+    word-break: break-all;
+}
+
+.cite-audit .small-button {
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .panel {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .file-list,
+    .heatmap-container,
+    .suggestions-panel {
+        flex: none;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .drop-zone {
+        height: 150px;
+    }
+
+    .drop-zone-text {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        padding: 4px;
+        gap: 8px;
+    }
+
+    .panel-header {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .panel-body {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .file-item {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .file-item-name {
+        max-width: 150px;
+    }
+
+    .file-item-meta {
+        font-size: 10px;
+    }
+
+    .heatmap-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    }
+
+    .heatmap-cell {
+        padding: 8px 4px;
+        font-size: 9px;
+    }
+
+    .config-comparison {
+        flex-direction: column;
+    }
+
+    .config-panel-left,
+    .config-panel-right {
+        max-height: 200px;
+    }
+
+    .config-content {
+        font-size: 11px;
+    }
+
+    .comparison-table {
+        font-size: 11px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 6px 4px;
+    }
+
+    .bottom-bar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .run-button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .faq-section {
+        padding: 0 10px;
+    }
+
+    .faq-section summary {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .faq-section div[itemprop="acceptedAnswer"] {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .drop-zone {
+        height: 120px;
+    }
+
+    .drop-zone-text {
+        font-size: 12px;
+    }
+
+    .heatmap-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .heatmap-cell {
+        padding: 6px 3px;
+        font-size: 8px;
+    }
+
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .file-item-name {
+        max-width: 100%;
+        word-break: break-all;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .bottom-bar {
+        padding: 8px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="https://www.wangdadi.xyz" aria-label="home">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span aria-current="page">TSBeast</span>
+        </nav>
+        <h1>TSBeast - TypeScript Performance Analyzer</h1>
+        <p class="subtitle">Debug slow tsserver & compiler bottlenecks</p>
+    </header>
+
+    <div id="dropZone" class="drop-zone" aria-label="Drop Zone - Drop TypeScript project folder or core code files here">
+        <div class="drop-zone-text">
+            <div>📁 Drop TypeScript Project Folder</div>
+            <div style="font-size: 14px; color: #8b949e; margin-top: 8px;">or select individual .ts/.tsx files</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="panel file-list" id="fileListPanel">
+            <div class="panel-header">📋 File Scan List</div>
+            <div class="panel-body" id="fileListBody">
+                <div class="empty-state">No .ts/.tsx files</div>
+            </div>
+        </div>
+
+        <div class="panel heatmap-container" id="heatmapPanel">
+            <div class="panel-header">🔥 Performance Heatmap</div>
+            <div class="panel-body" id="heatmapBody">
+                <div class="heatmap-label">File Parsing Pressure Distribution</div>
+                <div class="heatmap-grid">
+                    <div class="empty-state">Waiting for files...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel suggestions-panel" id="suggestionsPanel">
+            <div class="panel-header">⚙️ Optimization Suggestions</div>
+            <div class="panel-body">
+                <div id="concurrencySuggestions" class="suggestion-section">
+                    <div class="suggestion-title">Concurrency Settings</div>
+                    <div class="empty-state">Waiting for data...</div>
+                </div>
+                <div id="bottleneckFiles" class="suggestion-section">
+                    <div class="suggestion-title">Bottleneck Files</div>
+                    <div class="empty-state">Click a cell to view details</div>
+                </div>
+                <div id="memoryStats" class="suggestion-section">
+                    <div class="suggestion-title">Memory Estimation</div>
+                    <div class="empty-state">Waiting for data...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <button id="runButton" class="run-button" aria-label="Run Pressure Simulation">Run Pressure Simulation</button>
+        <button id="generateReportButton" class="run-button" aria-label="Generate Report">Generate Report</button>
+        <button id="exportAuditButton" class="run-button" aria-label="Export Audit Report">Export Audit Report</button>
+        <button id="killSessionButton" class="run-button kill-button" aria-label="Kill Session - Clear all data">KILL SESSION</button>
+    </div>
+
+    <div class="history-panel panel" id="historyPanel">
+        <div class="panel-header">📊 Scan History</div>
+        <div class="panel-body" id="scanHistory">
+            <div class="empty-state">No scan records</div>
+        </div>
+    </div>
+
+    <div class="comparison-panel panel" id="comparisonPanel" style="display: none;">
+        <div class="panel-header">
+            <span>📈 Baseline Comparison</span>
+            <button id="saveBaselineButton" class="run-button small-button" aria-label="Save as Baseline">Save as Baseline</button>
+        </div>
+        <div class="panel-body">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Baseline</th>
+                        <th>Current</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonTableBody"></tbody>
+            </table>
+            <div id="conversionHint" class="conversion-hint"></div>
+        </div>
+    </div>
+
+    <div class="config-panel panel" id="configPanel">
+        <div class="panel-header">
+            <span>🔧 tsconfig Optimization</span>
+            <button id="exportConfigButton" class="run-button small-button" aria-label="Export Optimized Config">Export Config</button>
+        </div>
+        <div class="panel-body">
+            <div class="config-comparison">
+                <div class="config-panel-left">
+                    <div class="config-header">Current Config</div>
+                    <pre class="config-content" id="currentConfig">-</pre>
+                </div>
+                <div class="config-panel-right">
+                    <div class="config-header">TSBeast Suggestion</div>
+                    <pre class="config-content" id="suggestedConfig">-</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cite-audit" id="citeAudit">
+        <span class="cite-label">Cite this Audit:</span>
+        <div class="cite-content">
+            <code id="citeCode">Analyzed with https://www.wangdadi.xyz/tsbeast - TypeScript Performance Insights</code>
+        </div>
+        <button id="citeButton" class="run-button small-button" aria-label="Copy citation to clipboard">Copy</button>
+    </div>
+
+    <section class="faq-section">
+        <h2>❓ FAQ</h2>
+        <details itemscope itemtype="https://schema.org/Question">
+            <summary itemprop="name">Why is my tsserver so slow in VSCode?</summary>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <p>Slow tsserver performance is often caused by <strong>recursive types</strong>, <strong>giant Union Types</strong>, or <strong>excessive generics nesting</strong>. The TypeScript compiler struggles with deeply nested generic types like <code>A&lt;B&lt;C&lt;D&gt;&gt;</code> and union types with many members. TSBeast analyzes your code's AST to identify these performance bottlenecks.</p>
+            </div>
+        </details>
+        <details itemscope itemtype="https://schema.org/Question">
+            <summary itemprop="name">How to optimize TypeScript compilation time?</summary>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <p>Key optimizations include: enabling <code>incremental: true</code> for faster incremental builds, setting <code>skipLibCheck: true</code> to skip type checking of declaration files, and reducing type complexity. For large projects, consider breaking monolithic <code>index.ts</code> files into smaller modules.</p>
+            </div>
+        </details>
+        <details itemscope itemtype="https://schema.org/Question">
+            <summary itemprop="name">Is TSBeast safe for private enterprise code?</summary>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <p>Yes! TSBeast is a <strong>local-first</strong> application. All <strong>AST analysis</strong> happens in your browser - no code is uploaded to any server. The TypeScript parser runs entirely in the browser thread using the official TypeScript compiler library. Your code stays private and never leaves your machine.</p>
+            </div>
+        </details>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://agents.wangdadi.xyz" target="_blank" rel="noopener" aria-label="Agents">Agents</a>
+            <a href="http://artemisreentry.wangdadi.xyz/" target="_blank" rel="noopener" aria-label="Artemis Reentry">Artemis Reentry</a>
+            <a href="https://boothell.wangdadi.xyz" target="_blank" rel="noopener" aria-label="Boot Hell">Boot Hell</a>
+            <a href="https://cleancsvai.wangdadi.xyz" target="_blank" rel="noopener" aria-label="Clean CSV AI">Clean CSV AI</a>
+            <a href="http://coachellaviral.wangdadi.xyz/" target="_blank" rel="noopener" aria-label="Coachella Viral">Coachella Viral</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com" aria-label="Email support">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" rel="noopener" aria-label="Home">home</a></p>
+    </footer>
+
+    <script>
+var tsParser = null;
+var fileDataList = [];
+var fileContents = {};
+var currentTsConfig = { compilerOptions: {} };
+var suggestedTsConfig = { compilerOptions: {} };
+var baselineSnapshot = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    var dropZone = document.getElementById('dropZone');
+    var runButton = document.getElementById('runButton');
+    var generateReportButton = document.getElementById('generateReportButton');
+    var exportAuditButton = document.getElementById('exportAuditButton');
+    var killSessionButton = document.getElementById('killSessionButton');
+    var saveBaselineButton = document.getElementById('saveBaselineButton');
+    var exportConfigButton = document.getElementById('exportConfigButton');
+    var citeButton = document.getElementById('citeButton');
+
+    if (runButton) {
+        runButton.addEventListener('click', function() {
+            waitForTypeScript(function() {
+                runButton.textContent = 'Running simulation...';
+                runButton.disabled = true;
+                setTimeout(function() {
+                    runButton.textContent = 'Run Pressure Simulation';
+                    runButton.disabled = false;
+                }, 2000);
+            });
+        });
+    }
+
+    if (dropZone) {
+        dropZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+
+        dropZone.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+        });
+
+        dropZone.addEventListener('drop', async function(e) {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            var items = e.dataTransfer.items;
+            if (items && items.length > 0) {
+                await handleDataTransferItems(items);
+            }
+        });
+    }
+
+    if (generateReportButton) {
+        generateReportButton.addEventListener('click', function() {
+            generateReport();
+        });
+    }
+
+    if (exportAuditButton) {
+        exportAuditButton.addEventListener('click', function() {
+            exportAuditReport();
+        });
+    }
+
+    if (killSessionButton) {
+        killSessionButton.addEventListener('click', function() {
+            killSession();
+        });
+    }
+
+    if (saveBaselineButton) {
+        saveBaselineButton.addEventListener('click', function() {
+            saveBaseline();
+        });
+    }
+
+    if (exportConfigButton) {
+        exportConfigButton.addEventListener('click', function() {
+            downloadOptimizedConfig();
+        });
+    }
+
+    if (citeButton) {
+        citeButton.addEventListener('click', function() {
+            copyCitation();
+        });
+    }
+
+    renderScanHistory();
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js')
+                .then(function(r) { console.log('SW registered:', r.scope); })
+                .catch(function(e) { console.log('SW registration failed:', e); });
+        });
+    }
+});
+
+function waitForTypeScript(callback) {
+    if (typeof ts !== 'undefined') {
+        tsParser = ts;
+        callback();
+    } else {
+        setTimeout(function() {
+            waitForTypeScript(callback);
+        }, 100);
+    }
+}
+
+async function handleDataTransferItems(items) {
+    var allFiles = [];
+
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        if (item.kind === 'file') {
+            var entry = item.webkitGetAsEntry ? item.webkitGetAsEntry() : null;
+            if (entry) {
+                var files = await readEntry(entry);
+                allFiles = allFiles.concat(files);
+            } else {
+                var file = item.getAsFile();
+                if (file) {
+                    allFiles.push(file);
+                }
+            }
+        }
+    }
+
+    var tsFiles = allFiles.filter(function(file) {
+        return file.name.endsWith('.ts') || file.name.endsWith('.tsx');
+    });
+
+    if (tsFiles.length > 0) {
+        await initParser();
+        await processFiles(tsFiles);
+        generateOptimizedConfig();
+    }
+}
+
+function readEntry(entry) {
+    return new Promise(function(resolve) {
+        if (entry.isFile) {
+            entry.file(function(file) {
+                resolve([file]);
+            });
+        } else if (entry.isDirectory) {
+            var reader = entry.createReader();
+            var allFiles = [];
+            var readCount = 0;
+            var readCallback = function(entries) {
+                readCount++;
+                var pending = entries.length;
+                if (pending === 0) {
+                    if (readCount > 1) {
+                        readCallback = function() {};
+                    }
+                    resolve(allFiles);
+                    return;
+                }
+                var pendingCount = pending;
+                for (var i = 0; i < entries.length; i++) {
+                    (function(entry) {
+                        if (entry.isFile) {
+                            entry.file(function(file) {
+                                allFiles.push(file);
+                                pendingCount--;
+                                if (pendingCount === 0) {
+                                    if (readCount === 1) {
+                                        readCallback = function(moreEntries) {
+                                            if (moreEntries.length > 0) {
+                                                for (var j = 0; j < moreEntries.length; j++) {
+                                                    entries.push(moreEntries[j]);
+                                                }
+                                            }
+                                            readCount = 0;
+                                            readCallback(entries);
+                                        };
+                                        readCallback([]);
+                                    }
+                                }
+                            });
+                        } else {
+                            pendingCount--;
+                            if (pendingCount === 0) {
+                                if (readCount === 1) {
+                                    readCallback = function() {};
+                                }
+                            }
+                        }
+                    })(entries[i]);
+                }
+            };
+            reader.readEntries(readCallback);
+        } else {
+            resolve([]);
+        }
+    });
+}
+
+async function initParser() {
+    if (tsParser) return;
+
+    return new Promise(function(resolve, reject) {
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/typescript@latest/lib/typescript.js';
+        script.onload = function() {
+            tsParser = TypeScript;
+            resolve();
+        };
+        script.onerror = function() {
+            tsParser = null;
+            resolve();
+        };
+        document.head.appendChild(script);
+    });
+}
+
+async function processFiles(files) {
+    fileDataList = [];
+    fileContents = {};
+
+    var processedCount = 0;
+    var batchSize = 3;
+
+    function processBatch() {
+        return new Promise(function(resolve) {
+            requestIdleCallback(async function(deadline) {
+                while (processedCount < files.length && deadline.timeRemaining() > 0) {
+                    var endIndex = Math.min(processedCount + batchSize, files.length);
+                    
+                    for (var i = processedCount; i < endIndex; i++) {
+                        var file = files[i];
+                        var content = await readFileContent(file);
+                        fileContents[file.name] = content;
+                        var stats = analyzeContent(content, file.name);
+                        var pressureResult = calculateTSServerPressure(content);
+                        fileDataList.push({
+                            name: file.name,
+                            lines: stats.lines,
+                            characters: stats.characters,
+                            importCount: stats.importCount,
+                            imports: stats.imports,
+                            typeAliasCount: stats.typeAliasCount,
+                            interfaceCount: stats.interfaceCount,
+                            genericDepth: stats.genericDepth,
+                            complexity: calculateComplexity(stats),
+                            pressureResult: pressureResult,
+                            issues: stats.issues,
+                            hasCycle: false
+                        });
+                    }
+                    
+                    processedCount = endIndex;
+                    
+                    renderFileList(fileDataList);
+                    renderHeatmap(fileDataList);
+                    renderSuggestions(fileDataList);
+                }
+
+                if (processedCount < files.length) {
+                    setTimeout(processBatch, 50);
+                } else {
+                    detectCycles();
+                    saveToLocalStorage();
+                    renderScanHistory();
+                    renderComparison();
+                    resolve();
+                }
+            });
+        });
+    }
+
+    await processBatch();
+}
+
+function readFileContent(file) {
+    return new Promise(function(resolve) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            resolve(e.target.result);
+        };
+        reader.onerror = function() {
+            resolve('');
+        };
+        reader.readAsText(file);
+    });
+}
+
+function analyzeContent(content, fileName) {
+    var lines = content.split('\n').length;
+    var characters = content.length;
+    var importCount = 0;
+    var imports = [];
+
+    var importRegex = /import\s+.*?from\s+['"](.*?)['"]/g;
+    var match;
+    while ((match = importRegex.exec(content)) !== null) {
+        importCount++;
+        imports.push(match[1]);
+    }
+
+    var typeAliasCount = 0;
+    var interfaceCount = 0;
+    var genericDepth = 0;
+    var maxGenericDepth = 0;
+
+    var issues = {
+        critical: [],
+        warning: [],
+        info: []
+    };
+
+    var giantInterfaces = [];
+    var giantTypes = [];
+    var deepIntersections = [];
+    var nonConstEnums = [];
+
+    if (tsParser) {
+        try {
+            var sourceFile = tsParser.createSourceFile(
+                fileName,
+                content,
+                tsParser.ScriptTarget.Latest,
+                true,
+                tsParser.ScriptKind.TSX
+            );
+
+            function visit(node) {
+                if (tsParser.SyntaxKind[node.kind] === 'TypeAliasDeclaration') {
+                    typeAliasCount++;
+                    if (node.type && node.type.kind === tsParser.SyntaxKind.TypeLiteral) {
+                        var members = node.type.members;
+                        if (members && members.length > 20) {
+                            giantTypes.push(node.name.getText());
+                        }
+                    }
+                }
+
+                if (tsParser.SyntaxKind[node.kind] === 'InterfaceDeclaration') {
+                    interfaceCount++;
+                    var members = node.members;
+                    if (members && members.length > 20) {
+                        giantInterfaces.push(node.name.getText());
+                    }
+                }
+
+                if (node.kind === tsParser.SyntaxKind.IntersectionTypeNode) {
+                    var depth = countIntersectionDepth(node);
+                    if (depth > 3) {
+                        deepIntersections.push({ depth: depth, text: node.getText() });
+                    }
+                }
+
+                if (tsParser.SyntaxKind[node.kind] === 'EnumDeclaration') {
+                    if (!node.constKeyword) {
+                        nonConstEnums.push(node.name.getText());
+                    }
+                }
+
+                if (node.kind === tsParser.SyntaxKind.TypeReference ||
+                    node.kind === tsParser.SyntaxKind.ArrayTypeNode ||
+                    node.kind === tsParser.SyntaxKind.TupleTypeNode) {
+                    var depth = countGenericDepth(node);
+                    if (depth > maxGenericDepth) {
+                        maxGenericDepth = depth;
+                    }
+                }
+
+                tsParser.forEachChild(node, visit);
+            }
+
+            function countGenericDepth(node) {
+                var depth = 0;
+                if (node.typeArguments && node.typeArguments.length > 0) {
+                    depth = 1;
+                    for (var i = 0; i < node.typeArguments.length; i++) {
+                        var childDepth = countGenericDepth(node.typeArguments[i]);
+                        if (childDepth + 1 > depth) {
+                            depth = childDepth + 1;
+                        }
+                    }
+                } else if (node.elementType) {
+                    depth = 1 + countGenericDepth(node.elementType);
+                }
+                return depth;
+            }
+
+            function countIntersectionDepth(node) {
+                var depth = 1;
+                if (node.types) {
+                    for (var i = 0; i < node.types.length; i++) {
+                        var child = node.types[i];
+                        if (child.kind === tsParser.SyntaxKind.IntersectionTypeNode) {
+                            var childDepth = countIntersectionDepth(child);
+                            if (childDepth + 1 > depth) {
+                                depth = childDepth + 1;
+                            }
+                        }
+                    }
+                }
+                return depth;
+            }
+
+            visit(sourceFile);
+            genericDepth = maxGenericDepth;
+
+            if (giantInterfaces.length > 0) {
+                issues.critical.push('Giant Interface: ' + giantInterfaces.join(', ') + ' (>20 members)');
+            }
+            if (giantTypes.length > 0) {
+                issues.warning.push('Giant Type: ' + giantTypes.join(', ') + ' (>20 members)');
+            }
+            if (deepIntersections.length > 0) {
+                issues.warning.push('Deep Intersection Types: ' + deepIntersections.length + ' (nesting depth > 3)');
+            }
+            if (nonConstEnums.length > 0) {
+                issues.info.push('Non-const enum: ' + nonConstEnums.join(', ') + ' (consider using const enum)');
+            }
+            if (maxGenericDepth > 3) {
+                issues.warning.push('Deep Generic Nesting: max depth ' + maxGenericDepth);
+            }
+
+        } catch (e) {}
+    }
+
+    return {
+        lines: lines,
+        characters: characters,
+        importCount: importCount,
+        imports: imports,
+        typeAliasCount: typeAliasCount,
+        interfaceCount: interfaceCount,
+        genericDepth: genericDepth,
+        issues: issues
+    };
+}
+
+function calculateComplexity(stats) {
+    var complexity = 1;
+    complexity += Math.floor(stats.lines / 100);
+    complexity += stats.importCount;
+    complexity += stats.typeAliasCount * 2;
+    complexity += stats.interfaceCount * 2;
+    complexity += stats.genericDepth * 3;
+    return Math.min(complexity, 10);
+}
+
+function detectCycles() {
+    if (fileDataList.length < 2) return;
+
+    var graph = {};
+    var fileNameMap = {};
+
+    for (var i = 0; i < fileDataList.length; i++) {
+        var file = fileDataList[i];
+        var baseName = file.name.replace(/\.(ts|tsx)$/, '');
+        fileNameMap[baseName] = file;
+        graph[baseName] = [];
+
+        if (file.imports) {
+            for (var j = 0; j < file.imports.length; j++) {
+                var imported = file.imports[j];
+                var importedBase = imported.replace(/\.(ts|tsx)$/, '');
+                if (fileNameMap[importedBase]) {
+                    graph[baseName].push(importedBase);
+                }
+            }
+        }
+    }
+
+    var visited = {};
+    var recStack = {};
+    var cycles = [];
+
+    function dfs(node, path) {
+        if (!visited[node]) {
+            visited[node] = true;
+            recStack[node] = true;
+
+            if (graph[node]) {
+                for (var k = 0; k < graph[node].length; k++) {
+                    var neighbor = graph[node][k];
+                    if (!visited[neighbor]) {
+                        var newPath = path.concat([neighbor]);
+                        var cycle = dfs(neighbor, newPath);
+                        if (cycle) return cycle;
+                    } else if (recStack[neighbor]) {
+                        var cycleStart = path.indexOf(neighbor);
+                        if (cycleStart !== -1) {
+                            return path.slice(cycleStart).concat([neighbor]);
+                        }
+                    }
+                }
+            }
+        }
+        recStack[node] = false;
+        return null;
+    }
+
+    for (var name in graph) {
+        if (!visited[name]) {
+            var cycle = dfs(name, [name]);
+            if (cycle) {
+                cycles.push(cycle);
+            }
+        }
+    }
+
+    for (var c = 0; c < cycles.length; c++) {
+        var cycle = cycles[c];
+        for (var f = 0; f < cycle.length; f++) {
+            var cycleFile = fileNameMap[cycle[f]];
+            if (cycleFile) {
+                cycleFile.hasCycle = true;
+                if (!cycleFile.issues) cycleFile.issues = { critical: [], warning: [], info: [] };
+                if (cycleFile.issues.critical.indexOf('Circular Dependency') === -1) {
+                    cycleFile.issues.critical.push('Circular Dependency: ' + cycle.join(' -> '));
+                }
+            }
+        }
+    }
+
+    if (cycles.length > 0) {
+        console.log('Detected circular dependencies:', cycles);
+    }
+}
+
+function calculateTSServerPressure(code) {
+    var result = {
+        nestedGenerics: 0,
+        complexUnionTypes: 0,
+        anyUsage: 0,
+        circularImports: 0,
+        avgParseTime: 0,
+        crashIndex: 0,
+        scoreBreakdown: {
+            nestedGenerics: 0,
+            complexUnionTypes: 0,
+            anyUsage: 0,
+            circularImports: 0
+        }
+    };
+
+    if (!tsParser || !code) {
+        return result;
+    }
+
+    var nestedGenericRegex = /<[^<>]+<[^<>]+>>/g;
+    var match;
+    while ((match = nestedGenericRegex.exec(code)) !== null) {
+        result.nestedGenerics++;
+    }
+
+    var unionTypeRegex = /(\w+\s*\|\s*){5,}/g;
+    while ((match = unionTypeRegex.exec(code)) !== null) {
+        result.complexUnionTypes++;
+    }
+
+    var anyRegex = /\bany\b|\bas\s+any\b/g;
+    while ((match = anyRegex.exec(code)) !== null) {
+        result.anyUsage++;
+    }
+
+    var importMap = {};
+    var importRegex = /import\s+.*?from\s+['"](.*?)['"]/g;
+    while ((match = importRegex.exec(code)) !== null) {
+        var imported = match[1];
+        if (!importMap[imported]) {
+            importMap[imported] = [];
+        }
+    }
+
+    var reExportRegex = /export\s*\{\s*.*?\s*\}\s*from\s+['"](.*?)['"]/g;
+    var exportMap = {};
+    while ((match = reExportRegex.exec(code)) !== null) {
+        var reExported = match[1];
+        if (!exportMap[reExported]) {
+            exportMap[reExported] = [];
+        }
+    }
+
+    var totalParseTime = 0;
+    var iterations = 100;
+
+    for (var i = 0; i < iterations; i++) {
+        var startTime = Date.now();
+        try {
+            tsParser.createSourceFile(
+                'temp_' + i + '.ts',
+                code,
+                tsParser.ScriptTarget.Latest,
+                true,
+                tsParser.ScriptKind.TS
+            );
+        } catch (e) {
+        }
+        totalParseTime += Date.now() - startTime;
+    }
+
+    result.avgParseTime = totalParseTime / iterations;
+
+    result.scoreBreakdown.nestedGenerics = result.nestedGenerics * 10;
+    result.scoreBreakdown.complexUnionTypes = result.complexUnionTypes * 15;
+    result.scoreBreakdown.anyUsage = result.anyUsage * 1;
+    result.scoreBreakdown.circularImports = result.circularImports * 50;
+
+    var totalScore = result.scoreBreakdown.nestedGenerics +
+                     result.scoreBreakdown.complexUnionTypes +
+                     result.scoreBreakdown.anyUsage +
+                     result.scoreBreakdown.circularImports;
+
+    var parseTimeFactor = result.avgParseTime * 2;
+    var memoryEstimate = code.length * 0.8;
+    var typeDensityFactor = (result.nestedGenerics + result.complexUnionTypes) * 5;
+
+    result.crashIndex = Math.round(totalScore + parseTimeFactor + (memoryEstimate / 1000) + typeDensityFactor);
+
+    return result;
+}
+
+function renderFileList(data) {
+    var fileListBody = document.getElementById('fileListBody');
+    if (!fileListBody) return;
+
+    if (data.length === 0) {
+        fileListBody.innerHTML = '<div class="empty-state">No .ts/.tsx files</div>';
+        return;
+    }
+
+    var html = '';
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var complexityClass = item.complexity <= 3 ? 'complexity-low' : (item.complexity <= 7 ? 'complexity-medium' : 'complexity-high');
+        html += '<div class="file-item">';
+        html += '<span class="file-name">' + item.name + '</span>';
+        html += '<div class="file-meta">';
+        html += '<span>' + item.lines + ' lines</span>';
+        html += '<span class="complexity-badge ' + complexityClass + '">' + item.complexity + '</span>';
+        html += '</div>';
+        html += '</div>';
+    }
+    fileListBody.innerHTML = html;
+}
+
+function renderHeatmap(data) {
+    var heatmapBody = document.getElementById('heatmapBody');
+    if (!heatmapBody) return;
+
+    if (data.length === 0) {
+        heatmapBody.innerHTML = '<div class="heatmap-label">File Parsing Pressure Distribution</div><div class="heatmap-grid"><div class="empty-state">Waiting for data...</div></div>';
+        return;
+    }
+
+    var maxLines = 0;
+    var maxComplexity = 0;
+    for (var k = 0; k < data.length; k++) {
+        if (data[k].lines > maxLines) maxLines = data[k].lines;
+        if (data[k].complexity > maxComplexity) maxComplexity = data[k].complexity;
+    }
+
+    var html = '<div class="heatmap-label">File Parsing Pressure Distribution (click for details)</div>';
+    html += '<div class="heatmap-grid">';
+    var totalCells = Math.max(36, data.length);
+    for (var i = 0; i < totalCells; i++) {
+        var index = i % data.length;
+        var item = data[index];
+        var sizePercent = maxLines > 0 ? 50 + (item.lines / maxLines) * 50 : 75;
+        var pressure = item.complexity;
+        var colorIndex = Math.min(Math.floor(pressure / 2), 5);
+        var color = getHeatmapColor(colorIndex);
+        html += '<div class="heatmap-cell" data-index="' + index + '" style="background:#' + color + ';width:' + sizePercent + '%;height:' + sizePercent + '%;font-size:' + (6 + sizePercent / 10) + 'px;cursor:pointer;" onclick="showFileDetail(' + index + ')">' + (i + 1) + '</div>';
+    }
+    html += '</div>';
+    heatmapBody.innerHTML = html;
+}
+
+function getHeatmapColor(index) {
+    var colors = ['0d1117', '238636', '3fb950', '89d185', 'da3633', 'f85149'];
+    return colors[Math.min(index, 5)];
+}
+
+function showFileDetail(index) {
+    if (!fileDataList || !fileDataList[index]) return;
+
+    var item = fileDataList[index];
+    var bottleneckHtml = '<div class="suggestion-title">File Details: ' + item.name + '</div>';
+
+    if (item.hasCycle) {
+        bottleneckHtml += '<div class="suggestion-item critical-tag">⚠️ Has circular dependency</div>';
+    }
+
+    bottleneckHtml += '<div class="suggestion-item">Lines: ' + item.lines + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Characters: ' + item.characters + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Imports: ' + item.importCount + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Type Aliases: ' + item.typeAliasCount + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Interfaces: ' + item.interfaceCount + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Generic Depth: ' + item.genericDepth + '</div>';
+    bottleneckHtml += '<div class="suggestion-item">Complexity: ' + item.complexity + '</div>';
+
+    if (item.issues) {
+        if (item.issues.critical && item.issues.critical.length > 0) {
+            bottleneckHtml += '<div class="suggestion-title">CRITICAL</div>';
+            for (var c = 0; c < item.issues.critical.length; c++) {
+                bottleneckHtml += '<div class="suggestion-item critical-item">🔴 ' + item.issues.critical[c] + '</div>';
+            }
+        }
+
+        if (item.issues.warning && item.issues.warning.length > 0) {
+            bottleneckHtml += '<div class="suggestion-title">WARNING</div>';
+            for (var w = 0; w < item.issues.warning.length; w++) {
+                bottleneckHtml += '<div class="suggestion-item warning-item">🟡 ' + item.issues.warning[w] + '</div>';
+            }
+        }
+
+        if (item.issues.info && item.issues.info.length > 0) {
+            bottleneckHtml += '<div class="suggestion-title">INFO</div>';
+            for (var i = 0; i < item.issues.info.length; i++) {
+                bottleneckHtml += '<div class="suggestion-item info-item">🔵 ' + item.issues.info[i] + '</div>';
+            }
+        }
+    }
+
+    if (item.pressureResult) {
+        bottleneckHtml += '<div class="suggestion-title">Performance Metrics</div>';
+        bottleneckHtml += '<div class="suggestion-item">Avg Parse Time: ' + item.pressureResult.avgParseTime.toFixed(2) + ' ms</div>';
+        bottleneckHtml += '<div class="suggestion-item">TSServer Crash Index: ' + item.pressureResult.crashIndex + '</div>';
+    }
+
+    var bottleneckFilesEl = document.getElementById('bottleneckFiles');
+    if (bottleneckFilesEl) {
+        bottleneckFilesEl.innerHTML = bottleneckHtml;
+    }
+}
+
+function renderSuggestions(data) {
+    var concurrencySuggestionsEl = document.getElementById('concurrencySuggestions');
+    var bottleneckFilesEl = document.getElementById('bottleneckFiles');
+    var memoryStatsEl = document.getElementById('memoryStats');
+
+    if (!concurrencySuggestionsEl || !bottleneckFilesEl || !memoryStatsEl) return;
+
+    if (data.length === 0) {
+        concurrencySuggestionsEl.innerHTML = '<div class="empty-state">Waiting for data...</div>';
+        bottleneckFilesEl.innerHTML = '<div class="empty-state">Waiting for data...</div>';
+        memoryStatsEl.innerHTML = '<div class="empty-state">Waiting for data...</div>';
+        return;
+    }
+
+    var totalComplexity = 0;
+    var totalParseTime = 0;
+    var totalLines = 0;
+    var totalImports = 0;
+    var totalTypeAliases = 0;
+    var totalInterfaces = 0;
+    var hasIndexExport = false;
+    var hasGiantIndex = false;
+
+    for (var j = 0; j < data.length; j++) {
+        totalComplexity += data[j].complexity;
+        if (data[j].pressureResult) {
+            totalParseTime += data[j].pressureResult.avgParseTime;
+        }
+        totalLines += data[j].lines;
+        totalImports += data[j].importCount;
+        totalTypeAliases += data[j].typeAliasCount;
+        totalInterfaces += data[j].interfaceCount;
+
+        if (data[j].name === 'index.ts' || data[j].name === 'index.tsx') {
+            hasIndexExport = true;
+            if (data[j].lines > 500 || data[j].importCount > 20) {
+                hasGiantIndex = true;
+            }
+        }
+    }
+
+    var avgComplexity = totalComplexity / data.length;
+    var avgParseTime = data.length > 0 ? totalParseTime / data.length : 0;
+
+    var concurrencyHtml = '';
+
+    if (avgComplexity > 80) {
+        concurrencyHtml += '<div class="suggestion-item">[Suggestion] Enable incremental: true</div>';
+    }
+
+    concurrencyHtml += '<div class="suggestion-item">Enable parallel parsing for TypeScript projects</div>';
+    concurrencyHtml += '<div class="suggestion-item">Optimize dependency graph traversal order</div>';
+
+    if (data.length > 5) {
+        concurrencyHtml += '<div class="suggestion-item">Enable incremental compilation mode</div>';
+    }
+
+    if (hasGiantIndex) {
+        concurrencyHtml += '<div class="suggestion-item">[Warning] Export convergence bottleneck</div>';
+    }
+
+    var suggestedMemory = Math.max(2048, Math.floor(data.length * 128 + avgParseTime * 10));
+    concurrencyHtml += '<div class="suggestion-item">Suggested max-old-space-size: ' + suggestedMemory + '</div>';
+
+    concurrencySuggestionsEl.innerHTML = concurrencyHtml;
+
+    var sortedByComplexity = data.slice().sort(function(a, b) {
+        return b.complexity - a.complexity;
+    });
+    var bottleneckHtml = '';
+    for (var i = 0; i < Math.min(3, sorted
