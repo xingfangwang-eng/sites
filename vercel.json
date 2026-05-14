@@ -11,6 +11,22 @@
       "use": "@vercel/static"
     },
     {
+      "src": "**/*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.svg",
+      "use": "@vercel/static"
+    },
+    {
       "src": "**/package.json",
       "use": "@vercel/next"
     }
@@ -26,11 +42,15 @@
       }
     },
     {
-      "src": "/([^/]+)/",
+      "src": "/([^/]+)$",
       "dest": "/$1/index.html"
     },
     {
-      "src": "/([^/]+)/(.+)",
+      "src": "/([^/]+)/$",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "/([^/]+)/(.*)$",
       "dest": "/$1/$2"
     },
     {
