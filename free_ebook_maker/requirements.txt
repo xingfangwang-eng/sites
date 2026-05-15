@@ -1,4 +1,0 @@
-ddgs
-requests
-google-generativeai
-pypandoc
