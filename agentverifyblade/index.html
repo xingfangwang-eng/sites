@@ -175,9 +175,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; }
         header { background-color: #0d0d0d; padding: 20px; border-bottom: 2px solid #ff8c00; }
+        .header-content, main, .section-content, .footer-content { max-width: 1400px; margin: 0 auto; width: 100%; padding: 0; }
         header h1 { color: #ff8c00; font-size: 28px; margin-bottom: 5px; letter-spacing: 2px; }
         header p { color: #888; font-size: 14px; }
-        main { flex: 1; display: flex; flex-direction: column; padding: 30px; max-width: 1400px; margin: 0 auto; width: 100%; }
+        main { flex: 1; display: flex; flex-direction: column; padding: 30px 0; }
         .button-container { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
         .button-container button { padding: 15px 40px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
         #analyzeBtn { background-color: #ff8c00; color: #000; }
@@ -245,15 +246,17 @@
 </head>
 <body>
     <header>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">Home</a><meta property="position" content="1"></span>
-            <span class="separator">›</span>
-            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">AI Tools</a><meta property="position" content="2"></span>
-            <span class="separator">›</span>
-            <span property="itemListElement" typeof="ListItem"><span property="name">AgentVerify Blade</span><meta property="position" content="3"></span>
-        </nav>
-        <h1>AgentVerify Blade</h1>
-        <p>Local AI Hallucination Fact-Checker | Zero-knowledge Verification Report Generator | Local Markdown Report Generator for AI Agents</p>
+        <div class="header-content">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">Home</a><meta property="position" content="1"></span>
+                <span class="separator">›</span>
+                <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">AI Tools</a><meta property="position" content="2"></span>
+                <span class="separator">›</span>
+                <span property="itemListElement" typeof="ListItem"><span property="name">AgentVerify Blade</span><meta property="position" content="3"></span>
+            </nav>
+            <h1>AgentVerify Blade</h1>
+            <p>Local AI Hallucination Fact-Checker | Zero-knowledge Verification Report Generator | Local Markdown Report Generator for AI Agents</p>
+        </div>
     </header>
 
     <main>
