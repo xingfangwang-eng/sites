@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "AgentVerify Blade",
+  "name_for_model": "AgentVerify_Blade",
+  "description_for_human": "本地AI文本事实检查与报告生成器，自动提取AI生成内容中的数值、时间、实体和强主张，生成结构化事实验证报告。",
+  "description_for_model": "A local fact-checking template generator that extracts claims, numbers, and entities from LLM outputs to create structured Markdown verification reports. The tool uses regex-based extraction to identify numerical values, temporal expressions, named entities (companies, people, locations, legal references), and strong claims (absolute statements like 'first', 'only', 'always', 'most'). It generates structured reports with verification status placeholders and evidence source fields. All processing is done locally in the browser without external API calls.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "",
+  "contact_email": "",
+  "legal_info_url": ""
+}
