@@ -1,0 +1,153 @@
+# Read the file
+$content = Get-Content "e:\kaifa\saas\cryptoagentguard\index.html" -Raw -Encoding UTF8
+
+# Replace language attribute
+$content = $content -replace 'lang="zh-CN"', 'lang="en"'
+
+# Replace meta tags
+$content = $content -replace 'CryptoAgent Guard 是一款本地运行的 AI 代理交易指令安全审计工具，支持以太坊、BSC、Solana 等主流链，检测授权风险、钓鱼地址、大额交易等安全威胁。', 'CryptoAgent Guard is a local AI agent transaction instruction security audit tool, supporting Ethereum, BSC, Solana and other mainstream chains, detecting authorization risks, phishing addresses, large transactions and other security threats.'
+
+$content = $content -replace '加密货币安全,智能合约审计,DeFi安全,区块链安全,交易验证,Web3安全,AI代理安全,Ethereum,BSC,Solana', 'cryptocurrency security,smart contract audit,DeFi security,blockchain security,transaction verification,Web3 security,AI agent security,Ethereum,BSC,Solana'
+
+$content = $content -replace 'CryptoAgent Guard - AI 代理交易指令本地安全审计', 'CryptoAgent Guard - AI Agent Transaction Instruction Local Security Audit'
+
+$content = $content -replace '本地运行的加密交易安全审计工具，保护您的数字资产安全', 'Local crypto transaction security audit tool, protecting your digital assets'
+
+$content = $content -replace '本地运行的加密交易安全审计工具', 'Local crypto transaction security audit tool'
+
+$content = $content -replace 'AI 代理交易指令本地安全审计 \| 区块链安全审计', 'AI Agent Transaction Instruction Local Security Audit | Blockchain Security Audit'
+
+$content = $content -replace 'AI 代理交易指令本地安全审计工具，保护加密货币交易安全', 'AI agent transaction instruction local security audit tool, protecting crypto transaction security'
+
+# Replace FAQ JSON-LD
+$content = $content -replace '"name": "如何本地验证加密交易安全？"', '"name": "How to locally verify crypto transaction security?"'
+$content = $content -replace '"text": "使用 CryptoAgent Guard，您可以在本地环境中验证 AI 生成的交易指令。工具会自动检测授权风险、钓鱼地址、大额交易等安全威胁，无需连接第三方服务器，保护您的私钥安全。"', '"text": "With CryptoAgent Guard, you can verify AI-generated transaction instructions in a local environment. The tool automatically detects authorization risks, phishing addresses, large transactions and other security threats without connecting to third-party servers, protecting your private key security."'
+$content = $content -replace '"name": "什么是 Approve 授权风险？"', '"name": "What is the Approve authorization risk?"'
+$content = $content -replace '"text": "Approve 授权允许智能合约访问您钱包中的代币。如果授权给恶意合约或未知地址，攻击者可以转移您的所有资产。CryptoAgent Guard 会检测授权目标是否为已知可信协议，并标记风险。"', '"text": "Approve authorization allows smart contracts to access tokens in your wallet. If authorized to a malicious contract or unknown address, attackers can transfer all your assets. CryptoAgent Guard detects whether the authorization target is a known trusted protocol and marks risks."'
+$content = $content -replace '"name": "工具支持哪些区块链网络？"', '"name": "Which blockchain networks does the tool support?"'
+$content = $content -replace '"text": "CryptoAgent Guard 支持以太坊、币安智能链\(BSC\)、Solana、Polygon、Arbitrum 等主流区块链网络，自动识别链 ID 并验证地址格式。"', '"text": "CryptoAgent Guard supports Ethereum, Binance Smart Chain (BSC), Solana, Polygon, Arbitrum and other mainstream blockchain networks, automatically recognizing chain IDs and verifying address formats."'
+$content = $content -replace '"name": "为什么需要本地审计？"', '"name": "Why do you need local audit?"'
+$content = $content -replace '"text": "本地审计确保您的交易数据和私钥不会发送到任何第三方服务器，避免数据泄露风险。所有计算都在浏览器中完成，保护您的资产安全。"', '"text": "Local audit ensures your transaction data and private keys are not sent to any third-party servers, avoiding data leakage risks. All calculations are completed in the browser, protecting your asset security."'
+$content = $content -replace '"name": "如何识别钓鱼地址？"', '"name": "How to identify phishing addresses?"'
+$content = $content -replace '"text": "钓鱼地址通常模仿知名协议地址，或包含特殊后缀如 dead、beef、cafe 等。CryptoAgent Guard 会检测这些特征模式，并与已知协议白名单比对，提醒您验证地址真实性。"', '"text": "Phishing addresses usually mimic well-known protocol addresses or contain special suffixes like dead, beef, cafe, etc. CryptoAgent Guard detects these characteristic patterns and compares them with known protocol whitelists, reminding you to verify address authenticity."'
+
+# Replace body content
+$content = $content -replace 'AI 代理交易指令本地安全审计', 'AI Agent Transaction Instruction Local Security Audit'
+$content = $content -replace 'AI 生成的 JSON 交易对象或原始指令', 'AI-generated JSON transaction objects or raw instructions'
+$content = $content -replace '安全评分 \(Security Score\)', 'Security Score'
+$content = $content -replace '等待审计', 'Waiting for Audit'
+$content = $content -replace '风险检测清单 \(Risk Checklist\)', 'Risk Checklist'
+$content = $content -replace '合约地址验证', 'Contract Address Verification'
+$content = $content -replace '交易金额检查', 'Transaction Amount Check'
+$content = $content -replace '授权限额审查', 'Authorization Limit Review'
+$content = $content -replace '重入攻击检测', 'Reentrancy Attack Detection'
+$content = $content -replace '合约交互白名单', 'Contract Interaction Whitelist'
+$content = $content -replace '预估 Gas 消耗 \(Gas Estimate\)', 'Gas Estimate'
+$content = $content -replace '预估 Gas', 'Estimated Gas'
+$content = $content -replace 'Gas 价格', 'Gas Price'
+$content = $content -replace '总费用 \(ETH\)', 'Total Cost (ETH)'
+$content = $content -replace '开始本地审计', 'Start Local Audit'
+$content = $content -replace '重置', 'Reset'
+$content = $content -replace '复制审计报告', 'Copy Audit Report'
+$content = $content -replace '生成审计快照', 'Generate Audit Snapshot'
+$content = $content -replace '安全审计规则说明', 'Security Audit Rules'
+$content = $content -replace '为 AI agent wallet safety check 提供可靠的解决方案。', 'providing reliable solutions for AI agent wallet safety check.'
+$content = $content -replace '合约地址验证 \(Address checksum verification tool\)', 'Contract Address Verification'
+$content = $content -replace '作为 <strong>Ethereum transaction payload inspector</strong>，验证目标地址是否符合所选区块链的地址格式规范，检测零地址、黑洞地址和钓鱼特征地址。支持以太坊 EIP-55 checksum 校验。', 'As an <strong>Ethereum transaction payload inspector</strong>, verifies whether the target address conforms to the address format specification of the selected blockchain, detects zero addresses, black hole addresses and phishing characteristic addresses. Supports Ethereum EIP-55 checksum verification.'
+$content = $content -replace '监控大额资产转移，智能识别金额阈值。超过 10 ETH 触发警告，超过 100 ETH 标记为极高风险，防止意外的大额资产流失。', 'Monitors large asset transfers, intelligently identifies amount thresholds. Triggers warnings for amounts exceeding 10 ETH, marks as extremely high risk for amounts exceeding 100 ETH, preventing accidental large asset losses.'
+$content = $content -replace '检测 approve、transferFrom、setApprovalForAll 等高风险函数，验证授权目标是否为已知可信协议。识别无限授权风险，保障 AI agent wallet safety。', 'Detects high-risk functions such as approve, transferFrom, setApprovalForAll, verifies whether the authorization target is a known trusted protocol. Identifies unlimited authorization risks, ensuring AI agent wallet safety.'
+$content = $content -replace '滑点校验 \(重入攻击检测\)', 'Slippage Verification (Reentrancy Attack Detection)'
+$content = $content -replace '检查滑点设置是否超过安全阈值（5%），防止 MEV 攻击和三明治攻击。保护交易不被夹持，确保 AI 代理执行预期操作。', 'Checks whether slippage settings exceed the safety threshold (5%), preventing MEV attacks and sandwich attacks. Protects transactions from being sandwiched, ensuring AI agents execute expected operations.'
+$content = $content -replace '比对目标地址与已知 DeFi 协议白名单（包括 Uniswap、Aave、Compound、MakerDAO 等），识别未知合约交互风险。', 'Compares target addresses with known DeFi protocol whitelists (including Uniswap, Aave, Compound, MakerDAO, etc.), identifying unknown contract interaction risks.'
+
+# Replace FAQ section
+$content = $content -replace '常见问题 \(FAQ\)', 'Frequently Asked Questions (FAQ)'
+$content = $content -replace '如何本地验证加密交易安全？', 'How to locally verify crypto transaction security?'
+$content = $content -replace 'CryptoAgent Guard 作为一款专业的 <strong>Local crypto transaction validator</strong>，可在浏览器本地完成交易验证，无需 RPC 连接或第三方 API。您只需粘贴 AI Agent 生成的交易指令，即可获得地址校验、金额检查、Gas 预估等完整审计报告，确保私钥永不离开本地环境。', 'CryptoAgent Guard, as a professional <strong>Local crypto transaction validator</strong>, can complete transaction verification locally in the browser without RPC connections or third-party APIs. You just need to paste the transaction instructions generated by AI Agent to get a complete audit report including address verification, amount check, Gas estimation, etc., ensuring private keys never leave the local environment.'
+$content = $content -replace '什么是 Approve 授权风险？', 'What is the Approve authorization risk?'
+$content = $content -replace 'ERC-20 的 <code>approve\(\)</code> 函数允许指定合约代为提取固定配额代币。若授权给恶意合约，攻击者可利用 <strong>无限授权</strong> 机制转移全部资产。<strong>AI agent wallet safety check</strong> 模块会验证授权目标是否为可信协议合约（如 Uniswap V2/V3 Router、Compound cToken 等），并对未知地址发出高危预警。', 'The <code>approve()</code> function of ERC-20 allows a specified contract to withdraw a fixed quota of tokens on your behalf. If authorized to a malicious contract, attackers can use the <strong>unlimited authorization</strong> mechanism to transfer all assets. The <strong>AI agent wallet safety check</strong> module verifies whether the authorization target is a trusted protocol contract (such as Uniswap V2/V3 Router, Compound cToken, etc.) and issues high-risk warnings for unknown addresses.'
+$content = $content -replace 'setApprovalForAll 为什么更危险？', 'Why is setApprovalForAll more dangerous?'
+$content = $content -replace '与 approve 不同，<code>setApprovalForAll</code> 用于 ERC-721/1155 NFT 授权。一旦授权，合约可以转移您持有的<strong>全部 NFT</strong>。本工具会将此操作标记为「极端风险」，并附带红色警示边框。建议仅对经过完全审计的知名 NFT  marketplaces 使用此授权。', 'Unlike approve, <code>setApprovalForAll</code> is used for ERC-721/1155 NFT authorization. Once authorized, the contract can transfer <strong>all NFTs</strong> you hold. This tool will mark this operation as "extreme risk" and attach a red warning border. It is recommended to use this authorization only for fully audited well-known NFT marketplaces.'
+$content = $content -replace '工具支持哪些区块链网络？', 'Which blockchain networks does the tool support?'
+$content = $content -replace '作为多链 <strong>Ethereum transaction payload inspector</strong>，CryptoAgent Guard 支持：以太坊主网（EIP-155）、币安智能链（BSC）、Solana（Base58 地址）、Polygon、Arbitrum One。所有链均包含地址格式校验和 Gas 估算功能。', 'As a multi-chain <strong>Ethereum transaction payload inspector</strong>, CryptoAgent Guard supports: Ethereum Mainnet (EIP-155), Binance Smart Chain (BSC), Solana (Base58 address), Polygon, Arbitrum One. All chains include address format verification and Gas estimation functions.'
+$content = $content -replace '如何进行 Address checksum verification？', 'How to perform Address checksum verification?'
+$content = $content -replace '以太坊地址支持 EIP-55 混合大小写校验和。本工具使用正则 <code>/\^0x\[a-f0-9\]\{40\}\$/i</code> 基础格式验证，检测零地址（0x000...000）和黑洞地址（0x000...dead）。钓鱼地址通常包含可疑尾缀（dead、beef、cafe），均会被识别并警告。', 'Ethereum addresses support EIP-55 mixed case checksums. This tool uses regex <code>/^0x[a-f0-9]{40}$/i</code> for basic format verification, detecting zero addresses (0x000...000) and black hole addresses (0x000...dead). Phishing addresses usually contain suspicious suffixes (dead, beef, cafe), which will be identified and warned.'
+$content = $content -replace '为什么需要本地审计而非在线工具？', 'Why do you need local audit instead of online tools?'
+$content = $content -replace '本地审计实现<strong>零数据传输</strong>：您的交易指令、钱包地址、签名信息绝不会发送到任何服务器。这对于保护 AI Agent 操作的高价值钱包尤为关键。所有计算（正则匹配、Gas 估算、评分）均在 WebAssembly/JavaScript 沙箱中完成。', 'Local audit achieves <strong>zero data transmission</strong>: your transaction instructions, wallet addresses, and signature information will never be sent to any server. This is particularly critical for protecting high-value wallets operated by AI Agents. All calculations (regex matching, Gas estimation, scoring) are completed in the WebAssembly/JavaScript sandbox.'
+$content = $content -replace 'Gas 估算如何工作？', 'How does Gas estimation work?'
+$content = $content -replace '工具根据交易类型识别自动计算：<strong>ETH Transfer</strong> 约 21,000 gas，<strong>ERC-20 Approve</strong> 约 50,000 gas，<strong>Uniswap V2 Swap</strong> 约 150,000 gas。结合当前网络平均 Gwei（以太坊 30 Gwei，BSC 5 Gwei）计算总费用，帮助您评估交易成本。', 'The tool automatically calculates based on transaction type recognition: <strong>ETH Transfer</strong> about 21,000 gas, <strong>ERC-20 Approve</strong> about 50,000 gas, <strong>Uniswap V2 Swap</strong> about 150,000 gas. Combines current network average Gwei (Ethereum 30 Gwei, BSC 5 Gwei) to calculate total costs, helping you evaluate transaction costs.'
+$content = $content -replace '审计评分如何计算？', 'How is the audit score calculated?'
+$content = $content -replace '基础分 100 分，根据检测结果逐项扣减：黑洞地址 -40、钓鱼地址特征 -30、授权未知合约 -30、大额转账\(>10 ETH\) -15、无限授权风险 -20、滑点超 5% -10。评分 ≥80 为安全，60-79 为中等风险，40-59 为高风险，&lt;40 为极高风险。', 'Base score 100 points, deducting item by item based on detection results: black hole address -40, phishing address characteristics -30, authorization unknown contract -30, large transfer (>10 ETH) -15, unlimited authorization risk -20, slippage over 5% -10. Score ≥80 is safe, 60-79 is medium risk, 40-59 is high risk, <40 is extremely high risk.'
+
+# Replace methodology section
+$content = $content -replace 'Security Audit Methodology（审计方法论）', 'Security Audit Methodology'
+$content = $content -replace '1. 地址验证机制', '1. Address Verification Mechanism'
+$content = $content -replace '以太坊地址格式校验：', 'Ethereum Address Format Verification:'
+$content = $content -replace 'Solana地址格式校验：', 'Solana Address Format Verification:'
+$content = $content -replace '黑洞地址检测：', 'Black Hole Address Detection:'
+$content = $content -replace '钓鱼地址模式识别：', 'Phishing Address Pattern Recognition:'
+$content = $content -replace '2. 高危函数检测', '2. High-Risk Function Detection'
+$content = $content -replace '授权函数检测：', 'Authorization Function Detection:'
+$content = $content -replace '协议白名单验证：', 'Protocol Whitelist Verification:'
+$content = $content -replace '风险评估：', 'Risk Assessment:'
+$content = $content -replace '3. 交易金额监控', '3. Transaction Amount Monitoring'
+$content = $content -replace '大额预警阈值：', 'Large Amount Warning Threshold:'
+$content = $content -replace '数值解析：', 'Value Parsing:'
+$content = $content -replace '单位识别：', 'Unit Recognition:'
+$content = $content -replace '4. Gas 消耗估算', '4. Gas Consumption Estimation'
+$content = $content -replace '操作类型识别：', 'Operation Type Recognition:'
+$content = $content -replace 'Gas 基准值：', 'Gas Benchmark Values:'
+$content = $content -replace '费用计算：', 'Cost Calculation:'
+$content = $content -replace '5. 评分算法', '5. Scoring Algorithm'
+$content = $content -replace '基础分：100 分', 'Base Score: 100 points'
+$content = $content -replace '扣分项：', 'Deduction Items:'
+$content = $content -replace '等级划分：', 'Grade Classification:'
+
+# Replace footer
+$content = $content -replace '所有计算均在本地完成，您的私钥永远不会离开您的设备。', 'All calculations are completed locally, your private keys will never leave your device.'
+$content = $content -replace '支持网络: Ethereum \| BSC \| Solana \| Polygon \| Arbitrum', 'Supported Networks: Ethereum | BSC | Solana | Polygon | Arbitrum'
+
+# Replace JavaScript messages
+$content = $content -replace '请输入交易数据', 'Please enter transaction data'
+$content = $content -replace '格式无法解析，请检查输入是否包含地址或交易方法', 'Format cannot be parsed, please check if input contains address or transaction method'
+$content = $content -replace '检测到风险项，请查看详细报告', 'Risk items detected, please view detailed report'
+$content = $content -replace '审计报告已复制到剪贴板', 'Audit report copied to clipboard'
+$content = $content -replace '复制失败，请手动复制', 'Copy failed, please copy manually'
+$content = $content -replace 'Markdown 审计快照已复制到剪贴板', 'Markdown audit snapshot copied to clipboard'
+$content = $content -replace '导出失败，请手动复制', 'Export failed, please copy manually'
+$content = $content -replace '已复制', 'Copied'
+$content = $content -replace '已导出', 'Exported'
+$content = $content -replace '安全', 'SAFE'
+$content = $content -replace '中等风险', 'WARNING'
+$content = $content -replace '高风险', 'HIGH RISK'
+$content = $content -replace '极高风险', 'CRITICAL'
+$content = $content -replace '通过', 'PASS'
+$content = $content -replace '警告', 'WARNING'
+$content = $content -replace '危险', 'DANGER'
+$content = $content -replace '检测到高风险函数: ', 'High-risk functions detected: '
+$content = $content -replace '建议: 确认授权目标地址是否为可信协议', 'Recommendation: Confirm if authorization target address is a trusted protocol'
+$content = $content -replace '警告: approve 目标地址不是已知协议合约，存在极高风险', 'WARNING: approve target address is not a known protocol contract, extremely high risk'
+$content = $content -replace '极高风险: 授权给未知地址', 'EXTREME RISK: Authorization to unknown address'
+$content = $content -replace '紧急: 停止此操作，核实目标地址真实性', 'URGENT: Stop this operation, verify target address authenticity'
+$content = $content -replace '检测到极端危险操作: setApprovalForAll', 'EXTREMELY DANGEROUS OPERATION DETECTED: setApprovalForAll'
+$content = $content -replace '【极端危险】检测到 setApprovalForAll 操作，这将允许合约控制您的所有 NFT 资产', '[EXTREMELY DANGEROUS] setApprovalForAll operation detected, this will allow the contract to control all your NFT assets'
+$content = $content -replace '紧急: 立即停止此操作！setApprovalForAll 会授权合约转移您的所有 NFT', 'URGENT: Stop this operation immediately! setApprovalForAll will authorize the contract to transfer all your NFTs'
+$content = $content -replace '地址格式无效', 'Invalid address format'
+$content = $content -replace '检测到黑洞地址', 'Black hole address detected'
+$content = $content -replace '检测到钓鱼地址特征', 'Phishing address characteristics detected'
+$content = $content -replace '大额资产移动预警', 'Large asset movement warning'
+$content = $content -replace '极高风险: 大额交易', 'EXTREME RISK: Large transaction'
+$content = $content -replace '滑点超过安全阈值', 'Slippage exceeds safety threshold'
+$content = $content -replace '未知合约地址', 'Unknown contract address'
+$content = $content -replace '建议: 验证地址格式是否正确', 'Recommendation: Verify if address format is correct'
+$content = $content -replace '建议: 避免向黑洞地址转账', 'Recommendation: Avoid transferring to black hole addresses'
+$content = $content -replace '建议: 核实地址是否为钓鱼地址', 'Recommendation: Verify if address is a phishing address'
+$content = $content -replace '建议: 确认交易金额是否正确', 'Recommendation: Confirm if transaction amount is correct'
+$content = $content -replace '建议: 调整滑点设置', 'Recommendation: Adjust slippage settings'
+$content = $content -replace '建议: 核实合约地址', 'Recommendation: Verify contract address'
+$content = $content -replace '检测到滑点设置超过 5%', 'Slippage setting over 5% detected'
+
+# Write the file
+$content | Set-Content "e:\kaifa\saas\cryptoagentguard\index.html" -Encoding UTF8 -NoNewline
+
+Write-Host "Translation completed successfully!"

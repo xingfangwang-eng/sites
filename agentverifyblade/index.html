@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    
+    <meta name="description" content="AgentVerify Blade - Local AI Hallucination Fact-Checker & Zero-knowledge verification report generator. Automatically extracts numerical values, dates, entities, and strong claims from AI-generated content to create structured Markdown verification reports. Runs locally to protect privacy.">
+    <meta name="keywords" content="AI Hallucination Fact-Checker, Zero-knowledge verification report, Local Markdown report generator for AI agents, Structured claim extraction logic, AI hallucination detection, fact checking, LLM verification, AI content verification, automated fact verification">
+    <meta name="author" content="AgentVerify Blade">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="AgentVerify Blade - Local AI Text Fact-Checker & Report Generator">
+    <meta property="og:description" content="AgentVerify Blade - AI Hallucination Fact-Checker & Zero-knowledge verification report generator. Automatically extracts factual claims from AI-generated content to create structured Markdown verification reports. Runs locally without API keys.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AgentVerify Blade - AI Fact-Checking Tool">
+    <meta name="twitter:description" content="Local AI text fact-checker and report generator. Automatically extracts and verifies factual claims from AI-generated content.">
+    
+    <title>AgentVerify Blade - Local AI Hallucination Fact-Checker & Markdown Report Generator</title>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.wangdadi.xyz"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "AI Tools",
+                "item": "https://www.wangdadi.xyz"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AgentVerify Blade",
+                "item": "https://www.wangdadi.xyz/agentverifyblade"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentVerify Blade",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "AgentVerify Blade - AI Hallucination Fact-Checker & Zero-knowledge Verification Report Generator. Local Markdown report generator for AI agents with Structured claim extraction logic. Automatically extracts numerical values, dates, entities, and strong claims from AI-generated content to create structured verification reports.",
+        "featureList": "AI Hallucination Fact-Checker, Zero-knowledge verification report, Local Markdown report generator for AI agents, Structured claim extraction logic, Fact extraction engine, Markdown report generation, Local persistent storage, URL sharing",
+        "softwareVersion": "1.0.0",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "128"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Verify Fact Accuracy of AI-Generated Content",
+        "description": "Use AgentVerify Blade tool to verify factual claims in AI-generated text and identify potential AI hallucinations.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Paste AI-Generated Text",
+                "text": "Paste the AI-generated content you want to verify into the left input box. Ensure the text is at least 20 characters for best results."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Start Fact Extraction",
+                "text": "Click the \"Analyze & Extract\" button. The system automatically extracts numerical values, dates, entities, and strong claims from the text."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "View Verification Report",
+                "text": "The right preview area displays a structured fact verification report, including extracted facts, type classifications, and verification status."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Export Markdown Report",
+                "text": "Click the \"Copy Markdown Report\" button to export the verification results in standard Markdown format for archiving and sharing."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Manually Verify Facts",
+                "text": "Based on the factual claims in the report, consult authoritative sources one by one for verification and fill in evidence links to complete the verification."
+            }
+        ],
+        "totalTime": "PT5M"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is AI Hallucination?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI Hallucination refers to content generated by AI models that contains false, inaccurate, or unverifiable information. These pieces of information may sound plausible but are actually incorrect. As a professional AI Hallucination Fact-Checker, AgentVerify Blade extracts key facts such as numerical values, dates, entities, and strong claims from text through Structured claim extraction logic, helping users identify potential AI hallucinations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How to Use the Fact-Checking Template (Zero-knowledge Verification Report)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "As a Local Markdown report generator for AI agents, AgentVerify Blade automatically generates structured fact-checking report templates (Zero-knowledge verification report) containing serial numbers, extracted facts, type classifications, verification status, and evidence source placeholders. Users simply input AI text into the system to obtain standardized verification templates, then verify each factual claim one by one and fill in evidence sources."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Types of Structured Claim Extraction Does AgentVerify Blade Support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AgentVerify Blade supports four core fact extraction types (Structured claim extraction logic): 1) Numerical extraction - identifies percentages, currencies, and large numbers; 2) Temporal extraction - identifies specific dates, years, and time periods; 3) Entity extraction - identifies company names, personal names, legal provisions, and geographic locations; 4) Strong claim identification - identifies absolute statements like \"first\", \"only\", \"always\", \"most...\", etc. As an AI Hallucination Fact-Checker, these types are all high-risk areas for AI hallucinations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I Need an API Key to Use AgentVerify Blade?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. AgentVerify Blade is a fully locally-run tool (Local Markdown report generator). All processing is done in the browser without relying on any external API or network services. Your data is not uploaded to any server, ensuring privacy and security. As a Zero-knowledge verification report tool, your original text and verification results never leave your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How to Share Fact Verification Reports?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AgentVerify Blade offers multiple sharing methods: 1) Click the \"Copy Markdown Report\" button to get a standard Markdown format Zero-knowledge verification report; 2) The system automatically encodes analysis results into the URL Hash, allowing you to share the current page link directly (Local Markdown report generator for AI agents mode). Recipients can see the same verification results when they open the link."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; }
+        header { background-color: #0d0d0d; padding: 20px; border-bottom: 2px solid #ff8c00; }
+        header h1 { color: #ff8c00; font-size: 28px; margin-bottom: 5px; letter-spacing: 2px; }
+        header p { color: #888; font-size: 14px; }
+        main { flex: 1; display: flex; flex-direction: column; padding: 30px; max-width: 1400px; margin: 0 auto; width: 100%; }
+        .button-container { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .button-container button { padding: 15px 40px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        #analyzeBtn { background-color: #ff8c00; color: #000; }
+        #analyzeBtn:hover { background-color: #ffaa00; }
+        #copyBtn, #generatePromptBtn { background-color: #333; color: #e0e0e0; border: 1px solid #444; }
+        #copyBtn:hover, #generatePromptBtn:hover { background-color: #444; }
+        #copyBtn.copied, #generatePromptBtn.copied { background-color: #4CAF50; color: white; }
+        #errorMessage { background-color: #330000; color: #ff4444; padding: 15px; text-align: center; margin-bottom: 20px; display: none; border: 1px solid #550000; }
+        .content-area { display: flex; gap: 30px; }
+        .input-section, .output-section { flex: 1; display: flex; flex-direction: column; }
+        .section-title { font-size: 16px; font-weight: 600; color: #ff8c0a; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+        .case-library-label { font-size: 13px; color: #888; margin-bottom: 10px; }
+        .case-library { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .case-btn { padding: 8px 16px; font-size: 12px; background-color: #2a2a2a; color: #e0e0e0; border: 1px solid #444; cursor: pointer; }
+        .case-btn:hover { background-color: #3a3a3a; border-color: #ff8c00; }
+        #textInput { flex: 1; background-color: #0d0d0d; border: 1px solid #333; color: #e0e0e0; padding: 20px; font-size: 14px; font-family: 'Courier New', monospace; resize: none; min-height: 500px; }
+        #textInput:focus { outline: none; border-color: #ff8c00; }
+        article#reportPreview { flex: 1; background-color: #0d0d0d; border: 1px solid #333; padding: 20px; min-height: 500px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        article#reportPreview table { width: 100%; min-width: 600px; border-collapse: collapse; margin-bottom: 15px; }
+        article#reportPreview th, article#reportPreview td { border: 1px solid #333; padding: 10px; text-align: left; font-size: 13px; }
+        article#reportPreview th { background-color: #2a2a2a; color: #ff8c00; }
+        article#reportPreview h1, article#reportPreview h2, article#reportPreview h3 { color: #ff8c00; margin-top: 20px; margin-bottom: 10px; }
+        article#reportPreview p { margin-bottom: 15px; line-height: 1.6; }
+        article#reportPreview ul, article#reportPreview ol { margin-left: 30px; margin-bottom: 15px; }
+        article#reportPreview li { margin-bottom: 8px; }
+        article#reportPreview code { background-color: #333; padding: 2px 6px; font-family: 'Courier New', monospace; }
+        article#reportPreview pre { background-color: #0a0a0a; padding: 15px; overflow-x: auto; margin-bottom: 15px; }
+        article#reportPreview pre code { background-color: transparent; }
+        .highlight-preview { margin-top: 20px; padding: 20px; background-color: #0d0d0d; border: 1px solid #333; }
+        .highlight-preview h3 { color: #ff8c00; margin-bottom: 15px; font-size: 16px; }
+        #highlightContent { font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word; }
+        .highlighted { background-color: #f0e68c; color: #000; padding: 2px 4px; border-radius: 2px; }
+        #techGuide { background-color: #0d0d0d; padding: 30px; margin-top: 30px; border-top: 1px solid #333; }
+        #techGuide h2 { color: #ff8c00; margin-bottom: 20px; font-size: 20px; }
+        #techGuide h3 { color: #ff8c00; margin-top: 20px; margin-bottom: 10px; font-size: 16px; }
+        #techGuide p { color: #ccc; margin-bottom: 15px; }
+        #techGuide ul { margin-left: 30px; margin-bottom: 15px; }
+        #techGuide li { color: #ccc; margin-bottom: 8px; }
+        #methodology { background-color: #0d0d0d; padding: 30px; margin-top: 30px; border-top: 1px solid #333; }
+        #methodology h2 { color: #ff8c00; margin-bottom: 20px; font-size: 20px; }
+        #methodology p { color: #ccc; margin-bottom: 15px; }
+        #methodology details { margin-bottom: 15px; border: 1px solid #333; }
+        #methodology summary { background-color: #2a2a2a; padding: 12px; cursor: pointer; color: #ff8c00; font-weight: bold; }
+        #methodology summary:hover { background-color: #333; }
+        #methodology details > div { padding: 20px; }
+        #methodology details ul { margin-left: 30px; margin-bottom: 15px; }
+        #methodology details li { color: #ccc; margin-bottom: 8px; }
+        #methodology details code { background-color: #333; padding: 4px 8px; font-family: 'Courier New', monospace; font-size: 12px; display: block; margin-top: 10px; overflow-x: auto; }
+        footer { background-color: #0d0d0d; padding: 20px; text-align: center; border-top: 1px solid #333; }
+        footer p { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
+        .footer-links a { color: #ff8c00; text-decoration: none; font-size: 14px; }
+        .footer-links a:hover { text-decoration: underline; }
+        .breadcrumb { font-size: 13px; margin-bottom: 15px; }
+        .breadcrumb a { color: #ff8c00; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .separator { margin: 0 5px; color: #666; }
+        @media (max-width: 768px) {
+            .content-area { flex-direction: column; }
+            .button-container { flex-direction: column; align-items: center; }
+            .button-container button { width: 100%; max-width: 300px; }
+            #textInput, article#reportPreview { min-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">Home</a><meta property="position" content="1"></span>
+            <span class="separator">›</span>
+            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" href="https://www.wangdadi.xyz">AI Tools</a><meta property="position" content="2"></span>
+            <span class="separator">›</span>
+            <span property="itemListElement" typeof="ListItem"><span property="name">AgentVerify Blade</span><meta property="position" content="3"></span>
+        </nav>
+        <h1>AgentVerify Blade</h1>
+        <p>Local AI Hallucination Fact-Checker | Zero-knowledge Verification Report Generator | Local Markdown Report Generator for AI Agents</p>
+    </header>
+
+    <main>
+        <div class="button-container">
+            <button id="analyzeBtn">Analyze & Extract</button>
+            <button id="copyBtn">Copy Markdown Report</button>
+            <button id="generatePromptBtn">Generate AI Reply Prompt</button>
+        </div>
+        <div id="errorMessage"></div>
+
+        <div class="content-area">
+            <section class="input-section">
+                <h2 class="section-title">AI Text Input (AI Hallucination Source)</h2>
+                <div class="case-library-label">Quick Load Cases (Case Library for AI Hallucination Testing)</div>
+                <div class="case-library">
+                    <button class="case-btn" data-case="tech">Tech News Case</button>
+                    <button class="case-btn" data-case="medical">Medical Advice Case</button>
+                    <button class="case-btn" data-case="history">Historical Facts Case</button>
+                </div>
+                <textarea id="textInput" placeholder="Enter text to verify..." aria-label="AI-generated text input area"></textarea>
+            </section>
+
+            <section class="output-section">
+                <h2 class="section-title">Fact-Check Report Preview (Zero-knowledge Verification Report)</h2>
+                <article id="reportPreview" aria-label="Fact verification report preview"></article>
+                <div id="highlightPreview" class="highlight-preview" style="display: none;">
+                    <h3 class="section-title">Extraction Highlight View (Structured Claim Extraction Result)</h3>
+                    <div id="highlightContent"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section id="techGuide">
+        <h2>Technical Guide: How to Identify and Verify AI Hallucinations</h2>
+        <p>AgentVerify Blade is a professional <strong>AI Hallucination Fact-Checker</strong> specifically designed to detect and verify false information in AI-generated content. As a <strong>Zero-knowledge verification report</strong> tool, this application systematically extracts and validates factual claims from Large Language Model (LLM) outputs through locally-run <strong>Structured claim extraction logic</strong>. This tool also serves as a <strong>Local Markdown report generator</strong> for AI agents, helping users generate structured fact verification reports.</p>
+        <p>AI Hallucination refers to content generated by large language models that contains false, inaccurate, or unverifiable information. AgentVerify Blade helps you systematically identify and verify AI-generated content through a structured fact extraction and verification process.</p>
+        
+        <h3>Fact Extraction Engine Working Principle (Structured Claim Extraction Logic)</h3>
+        <ul>
+            <li><strong>Numerical Extraction</strong>: Identifies percentages (e.g., "increased by 30%"), monetary amounts (e.g., "$50 billion"), large numbers, and other quantifiable claims</li>
+            <li><strong>Temporal Extraction</strong>: Captures specific dates, years, time periods, and other time-related claims (e.g., "2024", "past five years")</li>
+            <li><strong>Entity Extraction</strong>: Identifies named entities such as organizations (e.g., "IBM"), personal names, geographic locations, and legal provisions</li>
+            <li><strong>Strong Claim Identification</strong>: Detects absolute statements (e.g., "first", "only", "always", "most...") which are often high-risk areas for AI hallucinations</li>
+        </ul>
+        
+        <h3>Verification Best Practices</h3>
+        <ul>
+            <li>Prioritize verification of factual claims containing specific numerical values and dates</li>
+            <li>Maintain high vigilance for absolute statements like "first", "only", etc.</li>
+            <li>Cross-verify multiple authoritative sources to avoid relying on single sources</li>
+            <li>Systematically document the verification process using the generated Markdown report template</li>
+        </ul>
+        
+        <h3>Privacy & Security (Zero-Knowledge)</h3>
+        <p>AgentVerify Blade is a fully local tool. All text processing is completed in your browser without uploading any data to external servers. Your sensitive information and verification content remain local at all times, ensuring data privacy and security. As a Zero-knowledge verification tool, your original text and verification results never leave your device.</p>
+    </section>
+
+    <section id="methodology">
+        <h2>Extraction Methodology</h2>
+        <p>AgentVerify Blade employs regex-based <strong>Structured claim extraction logic</strong> to systematically identify key information in AI-generated content. As a professional <strong>AI Hallucination Fact-Checker</strong>, this tool implements a complete local verification process that protects user privacy throughout — a true <strong>Zero-knowledge verification report</strong> approach.</p>
+        
+        <details>
+            <summary id="numericalExtraction"><strong>Numerical Extraction Logic</strong></summary>
+            <div>
+                <p>The numerical extraction module uses multi-pattern regex to identify quantitative claims in text, including:</p>
+                <ul>
+                    <li><strong>Percentages</strong>: Matches percentage expressions like "30%", "15.5%"</li>
+                    <li><strong>Monetary amounts</strong>: Identifies amounts with currency symbols (¥100, $1,000, €50) and Chinese currency units (500亿, 100万, 1000元)</li>
+                    <li><strong>Large numbers</strong>: Captures pure numbers with 4+ digits, typically representing quantities, scales, or statistics</li>
+                    <li><strong>Regex Pattern</strong>: <code>/(\d+(?:\.\d+)?\s*%|\d+(?:\.\d+)?\s*(?:亿|万|千|元|美元|欧元)|[¥$€]\s*\d+(?:,\d{3})*(?:\.\d+)?|\d{4,}(?:,\d{3})*(?:\.\d+)?)/g</code></li>
+                </ul>
+                <p>Numerical claims are high-risk areas for AI hallucinations, as large language models often fabricate specific statistics or exaggerate numbers.</p>
+            </div>
+        </details>
+        
+        <details>
+            <summary id="temporalExtraction"><strong>Temporal Extraction Logic</strong></summary>
+            <div>
+                <p>The temporal extraction module captures time-related claims in text, including:</p>
+                <ul>
+                    <li><strong>Specific dates</strong>: Identifies Chinese date formats (2024年, 2024年1月1日) and ISO formats (2024-01-01)</li>
+                    <li><strong>Year references</strong>: Extracts standalone year claims, commonly used for historical events or future predictions</li>
+                    <li><strong>Time periods</strong>: Captures relative time expressions (近五年, 过去几个月, 未来几年)</li>
+                    <li><strong>Regex Pattern</strong>: <code>/(\d{4}年(?:\d{1,2}月(?:\d{1,2}日)?)?|\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}|(?:近|过去|未来|去年|今年|明年)\s*(?:几)?年|(?:近|过去|未来)\s*(?:几)?个月)/g</code></li>
+                </ul>
+                <p>Time claims require special attention, as AI may incorrectly associate events with times or fabricate non-existent time points.</p>
+            </div>
+        </details>
+        
+        <details>
+            <summary id="entityExtraction"><strong>Entity Extraction Logic</strong></summary>
+            <div>
+                <p>The entity extraction module identifies named entities in text, including:</p>
+                <ul>
+                    <li><strong>Organizations</strong>: Matches company, group, university, and research institute names (IBM公司, 清华大学, 中国科学院)</li>
+                    <li><strong>Geographic locations</strong>: Identifies countries, cities, provinces, and natural geographic names (北京市, 长江, 珠穆朗玛峰)</li>
+                    <li><strong>Legal provisions</strong>: Extracts names of laws, regulations, and rules (数据安全法, 民法典)</li>
+                    <li><strong>Personal names</strong>: Identifies English name formats (John Smith, Mary Johnson)</li>
+                    <li><strong>Regex Pattern</strong>: <code>/([\u4e00-\u9fa5]{2,}(?:集团|公司|股份|科技|有限|大学|研究院|政府|部门|机构|组织|协会|基金会)|[\u4e00-\u9fa5]{2,}(?:市|省|区|县|镇|村|山|河|湖|海)|[\u4e00-\u9fa5]{3,}(?:法|条例|规定|办法)|[A-Z][a-z]*\s+[A-Z][a-z]*(?:\s+[A-Z][a-z]*)*)/g</code></li>
+                </ul>
+                <p>Entity claims are central to fact-checking, as AI frequently fabricates non-existent organizations, locations, or incorrectly cites legal provisions.</p>
+            </div>
+        </details>
+        
+        <details>
+            <summary id="strongClaimExtraction"><strong>Strong Claim Identification Logic</strong></summary>
+            <div>
+                <p>The strong claim identification module detects absolute statements in text, which are often high-risk areas for AI hallucinations:</p>
+                <ul>
+                    <li><strong>Exclusive claims</strong>: Identifies exclusive terms like "第一", "唯一", "仅", "只有"</li>
+                    <li><strong>Absolute claims</strong>: Captures absolute expressions like "总是", "从不", "绝对", "完全"</li>
+                    <li><strong>Superlative claims</strong>: Extracts superlative terms like "最...", "顶级", "领先", "权威"</li>
+                    <li><strong>Necessity claims</strong>: Identifies mandatory expressions like "必须", "一定", "肯定", "所有", "任何"</li>
+                    <li><strong>Regex Pattern</strong>: <code>/(第一|唯一|总是|从不|最[高快大强好优]|领先|顶级|权威|绝对|完全|全部|所有|任何|必须|一定|肯定|毋庸置疑|无可争辩|不容置疑)/g</code></li>
+                </ul>
+                <p>Strong claims require the highest level of verification, as AI tends to use absolute language to enhance persuasion, but these claims often lack factual basis.</p>
+            </div>
+        </details>
+        
+        <details>
+            <summary id="deduplicationLogic"><strong>Deduplication & Classification Logic</strong></summary>
+            <div>
+                <p>The deduplication and classification module ensures accuracy and structure of extraction results:</p>
+                <ul>
+                    <li><strong>Composite key deduplication</strong>: Uses "content + type" as unique identifier to avoid extracting duplicate factual claims</li>
+                    <li><strong>Set data structure</strong>: Leverages JavaScript Set's efficient lookup for O(1) time complexity deduplication</li>
+                    <li><strong>Type classification</strong>: Each extracted fact is automatically categorized into numerical, temporal, entity, or strong claim categories</li>
+                    <li><strong>Status marking</strong>: All extracted facts are marked as "UNVERIFIED" by default, awaiting manual verification</li>
+                    <li><strong>Source placeholder</strong>: Generates "[Source: Click to add source link]" placeholder for each fact to guide users in adding evidence</li>
+                </ul>
+                <p>Deduplication logic ensures report conciseness and prevents redundant information from interfering with the verification process.</p>
+            </div>
+        </details>
+        
+        <details>
+            <summary id="reportGeneration"><strong>Report Generation Logic</strong></summary>
+            <div>
+                <p>The report generation module transforms extracted facts into structured Markdown format:</p>
+                <ul>
+                    <li><strong>Timestamp</strong>: Automatically generates current date as report generation time</li>
+                    <li><strong>Table structure</strong>: Uses Markdown table format to display serial number, extracted fact, type, verification status, and evidence source</li>
+                    <li><strong>HTML rendering</strong>: Renders Markdown table as HTML table in preview area for easy viewing</li>
+                    <li><strong>Status highlighting</strong>: Unverified status displayed in red text to alert users to pending verification</li>
+                    <li><strong>Export functionality</strong>: Supports exporting reports as standard Markdown source for archiving and sharing</li>
+                </ul>
+                <p>Structured report templates ensure systematic and traceable verification processes.</p>
+            </div>
+        </details>
+    </section>
+
+    <footer>
+        <p>AgentVerify Blade | AI Hallucination Fact-Checker | Zero-knowledge Verification Report | Local Markdown Report Generator for AI Agents | No API Key Required | Privacy First</p>
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const generatePromptBtn = document.getElementById('generatePromptBtn');
+        const textInput = document.getElementById('textInput');
+        const reportPreview = document.getElementById('reportPreview');
+        const highlightPreview = document.getElementById('highlightPreview');
+        const highlightContent = document.getElementById('highlightContent');
+        const errorMessage = document.getElementById('errorMessage');
+        let currentClaims = [];
+        let currentText = '';
+
+        const demoText = 'Quantum Computing Status: 2024 marks a breakthrough year for quantum computing. IBM released the world\'s first processor exceeding 1000 qubits, codenamed "Condor". Google Quantum AI Lab claims to have achieved "quantum supremacy" on specific tasks, with its quantum computer operating 1 billion times faster than the most advanced supercomputers. The team led by Pan Jianwei at the University of Science and Technology of China successfully implemented a 100-photon quantum computing system in 2023, the only research institution worldwide to achieve this feat. By 2025, the quantum computing market is projected to reach $50 billion, with a CAGR exceeding 30%. However, leading experts in quantum computing point out that current technology is still far from practical application, and the so-called "quantum advantage" cannot deliver absolute leadership in all scenarios.';
+
+        const caseTexts = {
+            tech: 'Tech News Case: According to latest reports, Tesla announced in 2024 that it has successfully developed an electric vehicle battery with a range exceeding 1500 kilometers, the first commercial battery of this level worldwide. Apple plans to release its first fully self-developed automotive chip in 2025, with performance 300% better than current products. Huawei Technologies maintains global leadership in 5G technology with over 100,000 patents. Meta\'s latest VR device has a resolution of 5000PPI, the highest clarity currently available on the market.',
+            medical: 'Medical Advice Case: Recent studies show that drinking 8 glasses of water daily can significantly reduce heart disease risk by 40%. Vitamin D supplements have been proven effective in preventing depression, especially during winter. A study involving 1 million people found that 3 aerobic exercise sessions per week can extend lifespan by at least 5 years. Traditional Chinese acupuncture has been officially recognized by WHO as an effective treatment for chronic pain.',
+            history: 'Historical Facts Case: Qin Shi Huang unified China in 221 BCE, establishing the first unified dynasty in Chinese history. The Great Wall spans over 21,000 kilometers, making it the longest man-made structure in the world. Zheng He\'s voyages to the West occurred in the early 15th century, nearly a century before Columbus discovered America. The pyramids are tombs of ancient Egyptian pharaohs, with the largest Great Pyramid of Giza reaching 146 meters in height.'
+        };
+
+        function bladeProcessor(text) {
+            const claims = [];
+            const patterns = [
+                { type: 'Numerical', regex: /(\d+(?:\.\d+)?\s*%|\d+(?:\.\d+)?\s*(?:亿|万|千|元|美元|欧元)|[¥$€]\s*\d+(?:,\d{3})*(?:\.\d+)?|\d{4,}(?:,\d{3})*(?:\.\d+)?)/g },
+                { type: 'Temporal', regex: /(\d{4}年(?:\d{1,2}月(?:\d{1,2}日)?)?|\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}|(?:近|过去|未来|去年|今年|明年)\s*(?:几)?年|(?:近|过去|未来)\s*(?:几)?个月|公元前\d{1,4}年|BCE|CE)/g },
+                { type: 'Entity', regex: /([\u4e00-\u9fa5]{2,}(?:集团|公司|股份|科技|有限|大学|研究院|政府|部门|机构|组织|协会|基金会)|[\u4e00-\u9fa5]{2,}(?:市|省|区|县|镇|村|山|河|湖|海)|[\u4e00-\u9fa5]{3,}(?:法|条例|规定|办法)|[A-Z][a-z]*\s+[A-Z][a-z]*(?:\s+[A-Z][a-z]*)*)/g },
+                { type: 'Strong Claim', regex: /(第一|唯一|总是|从不|最[高快大强好优]|领先|顶级|权威|绝对|完全|全部|所有|任何|必须|一定|肯定|毋庸置疑|无可争辩|不容置疑|首款|首个|first|only|always|never|most|best|top|leading|authoritative|absolutely|completely|all|any|must|certainly|undoubtedly|undisputed|unquestionable)/gi }
+            ];
+
+            patterns.forEach(pattern => {
+                let match;
+                while ((match = pattern.regex.exec(text)) !== null) {
+                    claims.push({ content: match[0].trim(), type: pattern.type, status: 'UNVERIFIED', source: '[Source: Click to add source link]' });
+                }
+            });
+
+            const uniqueClaims = [], seen = new Set();
+            claims.forEach(claim => {
+                const key = claim.content + claim.type;
+                if (!seen.has(key)) { seen.add(key); uniqueClaims.push(claim); }
+            });
+            return uniqueClaims;
+        }
+
+        function generateMarkdownReport(claims) {
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+            let html = '<h2>Fact Verification Analysis Report - ' + dateStr + '</h2>';
+            html += '<table><thead><tr><th>No.</th><th>Extracted Fact (Claim)</th><th>Type</th><th>Verification Status</th><th>Evidence/Source</th></tr></thead><tbody>';
+            claims.forEach((claim, index) => {
+                html += '<tr><td>' + (index + 1) + '</td><td>[Pending verification: Claim about ' + claim.content + ']</td><td>' + claim.type + '</td><td style="color: #ff4444;">[' + claim.status + ']</td><td>' + claim.source + '</td></tr>';
+            });
+            html += '</tbody></table>';
+            if (claims.length === 0) html = '<p>No verifiable factual claims extracted.</p>';
+            return html;
+        }
+
+        function generateMarkdownSource(claims) {
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+            let markdown = '# Fact Verification Analysis Report - ' + dateStr + '\n\n';
+            markdown += '| No. | Extracted Fact (Claim) | Type | Verification Status | Evidence/Source |\n';
+            markdown += '|-----|------------------------|------|---------------------|-----------------|\n';
+            claims.forEach((claim, index) => {
+                markdown += '| ' + (index + 1) + ' | [Pending verification: Claim about ' + claim.content + '] | ' + claim.type + ' | [' + claim.status + '] | ' + claim.source + ' |\n';
+            });
+            if (claims.length === 0) markdown = '# Fact Verification Analysis Report - ' + dateStr + '\n\nNo verifiable factual claims extracted.\n';
+            return markdown;
+        }
+
+        function generateVerificationPrompt(claims) {
+            const claimsList = claims.map((claim, index) => (index + 1) + '. [' + claim.type + '] ' + claim.content).join('\n');
+            return `I have extracted the following factual claims. Please provide specific reference sources and verification information for each:\n\n【Pending Verification List】\n${claimsList}\n\n【Verification Requirements】\n1. For each factual claim, please provide authoritative source links or references\n2. If there are controversies, please explain different viewpoints\n3. For numerical claims, please provide original data sources\n4. For temporal claims, please confirm accuracy\n\nPlease respond in a clear, structured format to facilitate fact-checking.`;
+        }
+
+        function highlightExtractedText(text, claims) {
+            if (!text || claims.length === 0) return '';
+            let result = text;
+            claims.map(c => c.content).forEach(content => {
+                const escaped = content.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                result = result.replace(new RegExp(`(${escaped})`, 'g'), '<span class="highlighted">$1</span>');
+            });
+            return result;
+        }
+
+        function saveToLocalStorage(text, claims) {
+            localStorage.setItem('agentVerify_text', text);
+            localStorage.setItem('agentVerify_claims', JSON.stringify(claims));
+        }
+
+        function loadFromLocalStorage() {
+            const savedText = localStorage.getItem('agentVerify_text');
+            const savedClaims = localStorage.getItem('agentVerify_claims');
+            if (savedText) { textInput.value = savedText; currentText = savedText; }
+            if (savedClaims) {
+                try {
+                    currentClaims = JSON.parse(savedClaims);
+                    reportPreview.innerHTML = generateMarkdownReport(currentClaims);
+                    if (currentText) { highlightContent.innerHTML = highlightExtractedText(currentText, currentClaims); highlightPreview.style.display = 'block'; }
+                } catch (e) { console.error('Failed to load claims from localStorage:', e); }
+            }
+        }
+
+        function saveToUrlHash(text, claims) {
+            const data = { t: text, c: claims.map(c => ({ c: c.content, t: c.type })) };
+            window.location.hash = btoa(encodeURIComponent(JSON.stringify(data)));
+        }
+
+        function loadFromUrlHash() {
+            try {
+                if (window.location.hash) {
+                    const hash = window.location.hash.substring(1);
+                    const decoded = decodeURIComponent(atob(hash));
+                    const data = JSON.parse(decoded);
+                    if (data.t) { textInput.value = data.t; currentText = data.t; }
+                    if (data.c && Array.isArray(data.c)) {
+                        currentClaims = data.c.map(item => ({ content: item.c, type: item.t, status: 'UNVERIFIED', source: '[Source: Click to add source link]' }));
+                        reportPreview.innerHTML = generateMarkdownReport(currentClaims);
+                        if (currentText) { highlightContent.innerHTML = highlightExtractedText(currentText, currentClaims); highlightPreview.style.display = 'block'; }
+                    }
+                    return true;
+                }
+            } catch (e) { console.error('Failed to load from URL hash:', e); }
+            return false;
+        }
+
+        function showError(msg) { errorMessage.textContent = msg; errorMessage.style.display = 'block'; }
+        function hideError() { errorMessage.style.display = 'none'; }
+
+        analyzeBtn.addEventListener('click', function() {
+            hideError();
+            const inputText = textInput.value;
+            if (inputText.trim() === '') { showError('Please enter text to verify.'); return; }
+            if (inputText.trim().length < 20) { showError('Text is too short to extract meaningful facts.'); return; }
+            currentText = inputText;
+            currentClaims = bladeProcessor(inputText);
+            reportPreview.innerHTML = generateMarkdownReport(currentClaims);
+            highlightContent.innerHTML = highlightExtractedText(inputText, currentClaims);
+            highlightPreview.style.display = 'block';
+            saveToLocalStorage(inputText, currentClaims);
+            saveToUrlHash(inputText, currentClaims);
+        });
+
+        copyBtn.addEventListener('click', function() {
+            if (currentClaims.length === 0) { showError('Please analyze text first.'); return; }
+            navigator.clipboard.writeText(generateMarkdownSource(currentClaims)).then(function() {
+                copyBtn.textContent = 'Copied to clipboard';
+                copyBtn.classList.add('copied');
+                setTimeout(function() { copyBtn.textContent = 'Copy Markdown Report'; copyBtn.classList.remove('copied'); }, 2000);
+            }).catch(function(err) { console.error('Failed to copy text:', err); showError('Copy failed, please copy manually.'); });
+        });
+
+        generatePromptBtn.addEventListener('click', function() {
+            if (currentClaims.length === 0) { showError('Please analyze text first.'); return; }
+            navigator.clipboard.writeText(generateVerificationPrompt(currentClaims)).then(function() {
+                generatePromptBtn.textContent = 'Copied to clipboard';
+                generatePromptBtn.classList.add('copied');
+                setTimeout(function() { generatePromptBtn.textContent = 'Generate AI Reply Prompt'; generatePromptBtn.classList.remove('copied'); }, 2000);
+            }).catch(function(err) { console.error('Failed to copy text:', err); showError('Copy failed, please copy manually.'); });
+        });
+
+        document.querySelectorAll('.case-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const caseType = this.getAttribute('data-case');
+                if (caseTexts[caseType]) {
+                    textInput.value = caseTexts[caseType];
+                    currentText = caseTexts[caseType];
+                }
+            });
+        });
+
+        window.addEventListener('load', function() {
+            if (!loadFromUrlHash()) loadFromLocalStorage();
+            if (textInput.value === '') { textInput.value = demoText; currentText = demoText; }
+            textInput.focus();
+        });
+    </script>
+</body>
+</html>

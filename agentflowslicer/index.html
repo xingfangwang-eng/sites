@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Flow Slicer</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WC4677QJMF');
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background-color:#0a192f;color:#8892b0;height:100vh;overflow:hidden;max-width:1400px;margin:0 auto}.grid-bg{background-image:linear-gradient(rgba(99,102,241,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.1) 1px,transparent 1px);background-size:20px 20px}#app{display:flex;flex-direction:column;height:100%}#breadcrumb{padding:12px 20px;background-color:#112240;border-bottom:1px solid #2d3748;font-size:14px}#breadcrumb a{color:#93c5fd;text-decoration:none}#breadcrumb a:hover{text-decoration:underline}#breadcrumb span{color:#8892b0}#footer{padding:16px 20px;background-color:#112240;border-top:1px solid #2d3748;text-align:center;font-size:14px}.footer-links{margin-bottom:8px}.footer-links a{color:#93c5fd;text-decoration:none;margin:0 8px}.footer-links a:hover{text-decoration:underline}#footer p{color:#8892b0;margin:0}#footer p a{color:#93c5fd;text-decoration:none}#footer p a:hover{text-decoration:underline}#toolbar{display:flex;gap:12px;padding:12px 20px;background-color:#112240;border-bottom:1px solid #2d3748}.btn{padding:8px 16px;background-color:#1e3a5f;border:1px solid #3b82f6;color:#93c5fd;border-radius:4px;cursor:pointer;font-size:14px}.btn:hover{background-color:#2563eb;color:white}#main{display:flex;flex:1;overflow:hidden}#toolbox{width:200px;background-color:#112240;border-right:1px solid #2d3748;padding:12px}#toolbox h3{color:#60a5fa;font-size:14px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #2d3748}.node-type{display:flex;align-items:center;gap:8px;padding:10px;margin-bottom:8px;background-color:#1e3a5f;border:1px solid #3b82f6;border-radius:4px;cursor:grab;user-select:none}.node-type:hover{background-color:#2563eb}.node-type .icon{width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px}.node-type.input .icon{background-color:#059669;color:#fff}.node-type.process .icon{background-color:#7c3aed;color:#fff}.node-type.tool .icon{background-color:#ea580c;color:#fff}.node-type.output .icon{background-color:#1d4ed8;color:#fff}.node-type span{font-size:13px;color:#e0e7ff}#centerArea{flex:1;display:flex;flex-direction:column;overflow:hidden}#canvas{flex:1;position:relative;overflow:auto;background-color:#0a192f}.canvas-inner{position:relative;min-width:2000px;min-height:2000px}#previewPanel{height:200px;background-color:#112240;border-top:1px solid #2d3748;display:flex;flex-direction:column}.preview-header{display:flex;justify-content:space-between;align-items:center;padding:12px;border-bottom:1px solid #2d3748}.preview-header h3{color:#60a5fa;font-size:14px;margin:0}#previewContent{flex:1;padding:12px;overflow-y:auto;color:#e0e7ff;font-size:13px;line-height:1.6;white-space:pre-wrap;font-family:monospace}.step-block{margin-bottom:12px;padding:8px;background-color:#1e3a5f;border-left:3px solid #3b82f6;border-radius:4px}.step-number{color:#60a5fa;font-weight:bold;margin-bottom:4px}.step-title{color:#fbbf24;margin-bottom:4px}.step-input{color:#9ca3af;font-size:12px;margin-bottom:4px}.step-content{color:#e0e7ff;margin-bottom:4px}.step-output{color:#9ca3af;font-size:12px}.connection-text{color:#6b7280;font-style:italic;text-align:center;margin:8px 0}.node{position:absolute;width:200px;background-color:#1e3a5f;border:1px solid #3b82f6;border-radius:8px;padding:12px;cursor:move;user-select:none}.node.selected{border-color:#fbbf24;box-shadow:0 0 12px rgba(251,191,36,0.5)}.node-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}.node-header .icon{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px}.node.input .icon{background-color:#059669;color:#fff}.node.process .icon{background-color:#7c3aed;color:#fff}.node.tool .icon{background-color:#ea580c;color:#fff}.node.output .icon{background-color:#1d4ed8;color:#fff}.node-title{font-size:13px;color:#e0e7ff;font-weight:500}.node-id{font-size:10px;color:#64748b;margin-top:4px}.node-delete{position:absolute;top:-8px;right:-8px;width:20px;height:20px;background-color:#dc2626;border-radius:50%;border:2px solid #0a192f;color:#fff;font-size:12px;cursor:pointer;display:none}.node:hover .node-delete{display:flex;align-items:center;justify-content:center}.connection{position:absolute;background:none;border:none;padding:0;margin:0}.connection path{stroke:#3b82f6;stroke-width:2;fill:none}#inspector{width:300px;background-color:#112240;border-left:1px solid #2d3748;padding:12px;overflow-y:auto}#inspector h3{color:#60a5fa;font-size:14px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #2d3748}.inspector-section{margin-bottom:16px}.inspector-section label{display:block;font-size:12px;color:#9ca3af;margin-bottom:4px}.inspector-section input,.inspector-section textarea,.inspector-section select{width:100%;padding:8px;background-color:#1e3a5f;border:1px solid #3b82f6;border-radius:4px;color:#e0e7ff;font-size:13px}.inspector-section textarea{resize:vertical;min-height:100px}.inspector-section input:focus,.inspector-section textarea:focus,.inspector-section select:focus{outline:none;border-color:#60a5fa}.empty-state{color:#64748b;font-size:13px;text-align:center;padding:40px 20px}.empty-state svg{width:48px;height:48px;margin-bottom:12px;opacity:0.5}.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000}.modal-overlay.show{display:flex}.modal{background-color:#112240;border:1px solid #3b82f6;border-radius:8px;padding:20px;width:600px;max-height:80vh;overflow:hidden;display:flex;flex-direction:column}.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-header h3{color:#60a5fa}.modal-close{width:28px;height:28px;background-color:#374151;border:none;border-radius:4px;color:#9ca3af;cursor:pointer}.modal-content{flex:1;overflow:auto}.modal-content textarea{width:100%;height:400px;padding:12px;background-color:#0a192f;border:1px solid #3b82f6;border-radius:4px;color:#e0e7ff;font-family:monospace;font-size:12px;resize:none}.modal-footer{margin-top:16px;display:flex;justify-content:flex-end;gap:12px}.node-title-input{background:transparent;border:1px solid #fbbf24;color:#e0e7ff;font-size:13px;font-weight:500;width:100%;outline:none;border-radius:2px;padding:2px 4px}.notification{position:fixed;top:20px;left:50%;transform:translateX(-50%);background-color:#1e3a5f;border:1px solid #3b82f6;color:#e0e7ff;padding:12px 24px;border-radius:4px;z-index:2000;display:none}.notification.show{display:block;animation:fadeInOut 3s ease-in-out}@keyframes fadeInOut{0%{opacity:0;transform:translateX(-50%) translateY(-20px)}10%{opacity:1;transform:translateX(-50%) translateY(0)}90%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-20px)}}
+</style>
+</head>
+<body>
+<div id="app">
+    <nav id="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+        <span> &gt; </span>
+        <span>Agent Flow Slicer</span>
+    </nav>
+    <div id="toolbar">
+        <button class="btn" onclick="addNewStep()">Add Step</button>
+        <button class="btn" onclick="saveProject()">Save Project</button>
+        <button class="btn" onclick="triggerLoadProject()">Load Project</button>
+        <button class="btn" onclick="generateJSON()">Export JSON</button>
+        <button class="btn" onclick="exportMarkdown()">Export Markdown</button>
+        <button class="btn" onclick="resetProject()">Reset Project</button>
+    </div>
+    <input type="file" id="fileInput" accept=".json" style="display:none" onchange="handleFileUpload(event)">
+    <div id="main">
+        <div id="toolbox">
+            <h3>Node Types</h3>
+            <div class="node-type input" draggable="true" ondragstart="handleDragStart(event, 'input')">
+                <div class="icon">IN</div>
+                <span>Input</span>
+            </div>
+            <div class="node-type process" draggable="true" ondragstart="handleDragStart(event, 'process')">
+                <div class="icon">P</div>
+                <span>Process</span>
+            </div>
+            <div class="node-type tool" draggable="true" ondragstart="handleDragStart(event, 'tool')">
+                <div class="icon">T</div>
+                <span>Tool</span>
+            </div>
+            <div class="node-type output" draggable="true" ondragstart="handleDragStart(event, 'output')">
+                <div class="icon">OUT</div>
+                <span>Output</span>
+            </div>
+        </div>
+        <div id="centerArea">
+            <div id="canvas" class="grid-bg" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                <div class="canvas-inner" id="canvasInner"></div>
+            </div>
+            <div id="previewPanel">
+                <div class="preview-header">
+                    <h3>Prompt Chain Preview</h3>
+                    <button class="btn" onclick="copyPromptChain()">Copy</button>
+                </div>
+                <div id="previewContent"></div>
+            </div>
+        </div>
+        <div id="inspector">
+            <h3>Inspector</h3>
+            <div id="inspectorContent">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <div>Select a node</div>
+                    <div style="font-size: 11px; margin-top: 4px;">View and edit node properties</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+</div>
+<div class="modal-overlay" id="jsonModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Generated JSON</h3>
+            <button class="modal-close" onclick="closeModal('jsonModal')">x</button>
+        </div>
+        <div class="modal-content">
+            <textarea id="jsonOutput" readonly></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" onclick="copyToClipboard('jsonOutput')">Copy</button>
+            <button class="btn" onclick="closeModal('jsonModal')">Close</button>
+        </div>
+    </div>
+</div>
+<div class="modal-overlay" id="mdModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Exported Markdown</h3>
+            <button class="modal-close" onclick="closeModal('mdModal')">x</button>
+        </div>
+        <div class="modal-content">
+            <textarea id="mdOutput" readonly></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" onclick="copyToClipboard('mdOutput')">Copy</button>
+            <button class="btn" onclick="closeModal('mdModal')">Close</button>
+        </div>
+    </div>
+</div>
+<div id="notification" class="notification"></div>
+<script>
+let nodes = [];
+let connections = [];
+let selectedNode = null;
+let draggedNodeType = null;
+let nodeIdCounter = 1;
+let connectionIdCounter = 1;
+let isDragging = false;
+let dragOffset = { x: 0, y: 0 };
+
+function handleDragStart(event, type) {
+    draggedNodeType = type;
+    event.dataTransfer.effectAllowed = 'copy';
+}
+
+function handleDragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    if (!draggedNodeType) return;
+    const canvas = document.getElementById('canvas');
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left + canvas.scrollLeft;
+    const y = event.clientY - rect.top + canvas.scrollTop;
+    createNode(draggedNodeType, x - 100, y - 40);
+    draggedNodeType = null;
+}
+
+function createNode(type, x, y, options = {}) {
+    const node = {
+        id: `node-${nodeIdCounter++}`,
+        type: type,
+        x: x,
+        y: y,
+        title: options.title || getDefaultTitle(type),
+        content: options.content || '',
+        promptTemplate: options.promptTemplate || '',
+        estimatedCost: options.estimatedCost || getDefaultCost(type),
+        description: options.description || ''
+    };
+    nodes.push(node);
+    renderNode(node);
+    updateConnections();
+    updatePromptChainPreview();
+    saveToLocalStorage();
+    return node;
+}
+
+function getDefaultTitle(type) {
+    const titles = { input: 'Input Node', process: 'Process Node', tool: 'Tool Node', output: 'Output Node' };
+    return titles[type] || 'Node';
+}
+
+function getDefaultCost(type) {
+    const costs = { input: 'Low', process: 'Medium', tool: 'High', output: 'Low' };
+    return costs[type] || 'Medium';
+}
+
+function renderNode(node) {
+    const canvasInner = document.getElementById('canvasInner');
+    const el = document.createElement('div');
+    el.className = `node ${node.type}`;
+    el.id = node.id;
+    el.style.left = node.x + 'px';
+    el.style.top = node.y + 'px';
+    el.innerHTML = `<div class="node-header"><div class="icon">${getIconText(node.type)}</div><span class="node-title">${node.title}</span></div><div class="node-id">${node.id}</div><button class="node-delete" onclick="deleteNode('${node.id}')">x</button>`;
+    el.addEventListener('mousedown', (e) => startNodeDrag(e, node));
+    el.addEventListener('click', (e) => selectNode(e, node));
+    el.addEventListener('dblclick', (e) => { e.stopPropagation(); startEditTitle(node, el); });
+    canvasInner.appendChild(el);
+}
+
+function startEditTitle(node, el) {
+    const titleEl = el.querySelector('.node-title');
+    const currentTitle = titleEl.textContent;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'node-title-input';
+    input.value = currentTitle;
+    const finishEdit = () => {
+        const newTitle = input.value.trim() || currentTitle;
+        node.title = newTitle;
+        titleEl.textContent = newTitle;
+        if (selectedNode && selectedNode.id === node.id) updateInspector();
+        updatePromptChainPreview();
+        saveToLocalStorage();
+    };
+    input.addEventListener('blur', finishEdit);
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') input.blur();
+        if (e.key === 'Escape') { input.value = currentTitle; input.blur(); }
+    });
+    titleEl.replaceWith(input);
+    input.focus();
+    input.select();
+}
+
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.add('show');
+    setTimeout(() => notification.classList.remove('show'), 3000);
+}
+
+function getIconText(type) {
+    const icons = { input: 'IN', process: 'P', tool: 'T', output: 'OUT' };
+    return icons[type] || '?';
+}
+
+function updateConnections() {
+    document.querySelectorAll('.connection').forEach(el => el.remove());
+    connections = [];
+    if (nodes.length < 2) return;
+    const sortedNodes = [...nodes].sort((a, b) => a.y - b.y);
+    connectionIdCounter = 1;
+    for (let i = 0; i < sortedNodes.length - 1; i++) {
+        const fromNode = sortedNodes[i];
+        const toNode = sortedNodes[i + 1];
+        const connection = { id: `conn-${connectionIdCounter++}`, from: fromNode.id, to: toNode.id };
+        connections.push(connection);
+        renderConnection(connection);
+    }
+}
+
+function renderConnection(connection) {
+    const fromNode = nodes.find(n => n.id === connection.from);
+    const toNode = nodes.find(n => n.id === connection.to);
+    if (!fromNode || !toNode) return;
+    const canvasInner = document.getElementById('canvasInner');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'connection';
+    svg.id = connection.id;
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', fromNode.x + 100);
+    line.setAttribute('y1', fromNode.y + 50);
+    line.setAttribute('x2', toNode.x + 100);
+    line.setAttribute('y2', toNode.y);
+    line.setAttribute('stroke', '#3b82f6');
+    line.setAttribute('stroke-width', '2');
+    svg.appendChild(line);
+    canvasInner.appendChild(svg);
+}
+
+function startNodeDrag(event, node) {
+    if (event.target.classList.contains('node-delete')) return;
+    event.stopPropagation();
+    document.querySelectorAll('.node').forEach(el => el.classList.remove('selected'));
+    document.getElementById(node.id).classList.add('selected');
+    selectedNode = node;
+    updateInspector();
+    isDragging = true;
+    dragOffset.x = event.clientX - node.x;
+    dragOffset.y = event.clientY - node.y;
+    document.addEventListener('mousemove', handleNodeDrag);
+    document.addEventListener('mouseup', stopNodeDrag);
+}
+
+function handleNodeDrag(event) {
+    if (!isDragging || !selectedNode) return;
+    const x = event.clientX - dragOffset.x;
+    const y = event.clientY - dragOffset.y;
+    selectedNode.x = x;
+    selectedNode.y = y;
+    const el = document.getElementById(selectedNode.id);
+    if (el) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
+}
+
+function stopNodeDrag() {
+    isDragging = false;
+    document.removeEventListener('mousemove', handleNodeDrag);
+    document.removeEventListener('mouseup', stopNodeDrag);
+    updateConnections();
+    saveToLocalStorage();
+}
+
+function selectNode(event, node) {
+    if (event.target.classList.contains('node-delete')) return;
+    document.querySelectorAll('.node').forEach(el => el.classList.remove('selected'));
+    document.getElementById(node.id).classList.add('selected');
+    selectedNode = node;
+    updateInspector();
+}
+
+function deleteNode(nodeId) {
+    const connectionsToRemove = connections.filter(c => c.from === nodeId || c.to === nodeId);
+    const el = document.getElementById(nodeId);
+    if (el) el.remove();
+    connectionsToRemove.forEach(c => { const connEl = document.getElementById(c.id); if (connEl) connEl.remove(); });
+    nodes = nodes.filter(n => n.id !== nodeId);
+    connections = connections.filter(c => c.from !== nodeId && c.to !== nodeId);
+    if (selectedNode && selectedNode.id === nodeId) { selectedNode = null; updateInspector(); }
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function updateInspector() {
+    const content = document.getElementById('inspectorContent');
+    if (!selectedNode) {
+        content.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Select a node</div><div style="font-size: 11px; margin-top: 4px;">View and edit node properties</div></div>`;
+        return;
+    }
+    content.innerHTML = `<div class="inspector-section"><label>Node ID</label><input type="text" value="${selectedNode.id}" readonly></div><div class="inspector-section"><label>Node Type</label><select id="nodeTypeSelect" onchange="updateNodeType()"><option value="input" ${selectedNode.type === 'input' ? 'selected' : ''}>Input</option><option value="process" ${selectedNode.type === 'process' ? 'selected' : ''}>Process</option><option value="tool" ${selectedNode.type === 'tool' ? 'selected' : ''}>Tool</option><option value="output" ${selectedNode.type === 'output' ? 'selected' : ''}>Output</option></select></div><div class="inspector-section"><label>Title</label><input type="text" id="nodeTitle" value="${selectedNode.title}" oninput="updateNodeTitle()"></div><div class="inspector-section"><label>Content</label><textarea id="nodeContent" oninput="updateNodeContent()">${selectedNode.content}</textarea></div><div class="inspector-section"><label>Prompt Template</label><textarea id="nodePrompt" oninput="updateNodePrompt()">${selectedNode.promptTemplate}</textarea></div><div class="inspector-section"><label>Estimated Cost</label><select id="nodeCost" onchange="updateNodeCost()"><option value="Low" ${selectedNode.estimatedCost === 'Low' ? 'selected' : ''}>Low</option><option value="Medium" ${selectedNode.estimatedCost === 'Medium' ? 'selected' : ''}>Medium</option><option value="High" ${selectedNode.estimatedCost === 'High' ? 'selected' : ''}>High</option></select></div><div class="inspector-section"><label>Description</label><textarea id="nodeDesc" oninput="updateNodeDesc()">${selectedNode.description}</textarea></div>`;
+}
+
+function updateNodeTitle() {
+    if (!selectedNode) return;
+    const title = document.getElementById('nodeTitle').value;
+    selectedNode.title = title;
+    const el = document.getElementById(selectedNode.id);
+    if (el) el.querySelector('.node-title').textContent = title;
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function updateNodeContent() {
+    if (!selectedNode) return;
+    selectedNode.content = document.getElementById('nodeContent').value;
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function updateNodePrompt() {
+    if (!selectedNode) return;
+    selectedNode.promptTemplate = document.getElementById('nodePrompt').value;
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function updateNodeCost() {
+    if (!selectedNode) return;
+    selectedNode.estimatedCost = document.getElementById('nodeCost').value;
+    saveToLocalStorage();
+}
+
+function updateNodeDesc() {
+    if (!selectedNode) return;
+    selectedNode.description = document.getElementById('nodeDesc').value;
+    saveToLocalStorage();
+}
+
+function updateNodeType() {
+    if (!selectedNode) return;
+    const type = document.getElementById('nodeTypeSelect').value;
+    selectedNode.type = type;
+    const el = document.getElementById(selectedNode.id);
+    if (el) {
+        el.className = `node ${type}${el.classList.contains('selected') ? ' selected' : ''}`;
+        el.querySelector('.icon').textContent = getIconText(type);
+    }
+    updateConnections();
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function addNewStep() {
+    const x = 100 + nodes.length * 220;
+    const y = 100;
+    createNode('process', x, y);
+}
+
+function generateJSON() {
+    if (nodes.length === 0) { showNotification('No valid nodes on canvas'); return; }
+    const data = { nodes: nodes.map(n => ({ id: n.id, type: n.type, title: n.title, promptTemplate: n.promptTemplate, estimatedCost: n.estimatedCost, description: n.description, position: { x: n.x, y: n.y } })), connections: connections.map(c => ({ from: c.from, to: c.to })) };
+    document.getElementById('jsonOutput').value = JSON.stringify(data, null, 2);
+    document.getElementById('jsonModal').classList.add('show');
+}
+
+function exportMarkdown() {
+    if (nodes.length === 0) { showNotification('No valid nodes on canvas'); return; }
+    const sortedNodes = [...nodes].sort((a, b) => a.y - b.y);
+    let md = `# Agent Flow Prompt Chain\n\n## Overview\n\nThis workflow contains **${nodes.length}** nodes, executing in the following order:\n\n` + sortedNodes.map((n, i) => `${i + 1}. ${n.title}`).join(' -> ') + '\n\n## Step Details\n\n';
+    sortedNodes.forEach((node, index) => {
+        md += `### ${index + 1}. ${node.title}\n\n**Node Type**: ${getTypeLabel(node.type)}\n\n**Estimated Cost**: ${node.estimatedCost}\n\n`;
+        if (node.content) md += `**Content**:\n\n${node.content}\n\n`;
+        if (node.promptTemplate) md += `**Prompt Template**:\n\n\`\`\`\n${node.promptTemplate}\n\`\`\`\n\n`;
+        if (node.description) md += `**Description**: ${node.description}\n\n`;
+    });
+    md += `## Data Flow\n\n### Execution Order\n\n`;
+    if (sortedNodes.length >= 2) {
+        sortedNodes.forEach((node, index) => {
+            if (index < sortedNodes.length - 1) md += `\`${node.title}\` -> \`${sortedNodes[index + 1].title}\`\n\n   ${node.title} output becomes ${sortedNodes[index + 1].title} input\n\n`;
+        });
+    } else if (sortedNodes.length === 1) {
+        md += `Only one node, no data flow needed.\n\n`;
+    } else {
+        md += `No nodes.\n\n`;
+    }
+    md += `## Node Type Legend\n\n- **Input**: Receives initial user input\n- **Process**: Executes core processing logic\n- **Tool**: Calls external tools or APIs\n- **Output**: Outputs final result\n`;
+    document.getElementById('mdOutput').value = md;
+    document.getElementById('mdModal').classList.add('show');
+}
+
+function getTypeLabel(type) {
+    const labels = { input: 'Input Node', process: 'Process Node', tool: 'Tool Node', output: 'Output Node' };
+    return labels[type] || type;
+}
+
+function closeModal(modalId) { document.getElementById(modalId).classList.remove('show'); }
+
+function saveProject() {
+    if (nodes.length === 0) { showNotification('No valid nodes on canvas'); return; }
+    const data = { nodes: nodes.map(n => ({ id: n.id, type: n.type, x: n.x, y: n.y, title: n.title, content: n.content, promptTemplate: n.promptTemplate, estimatedCost: n.estimatedCost, description: n.description })), connections: connections.map(c => ({ from: c.from, to: c.to })) };
+    const jsonStr = JSON.stringify(data, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `agent-flow-project-${Date.now()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+function resetProject() {
+    if (!confirm('Are you sure you want to reset the project? All data will be cleared.')) return;
+    localStorage.removeItem('agentFlowProject');
+    nodes.forEach(n => { const el = document.getElementById(n.id); if (el) el.remove(); });
+    connections.forEach(c => { const el = document.getElementById(c.id); if (el) el.remove(); });
+    nodes = [];
+    connections = [];
+    selectedNode = null;
+    updateInspector();
+    updatePromptChainPreview();
+    createDefaultProject();
+    showNotification('Project reset to default');
+}
+
+function triggerLoadProject() { document.getElementById('fileInput').click(); }
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            loadProject(data);
+        } catch (error) {
+            showNotification('Invalid JSON file');
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
+}
+
+function loadProject(data) {
+    document.querySelectorAll('.node').forEach(el => el.remove());
+    document.querySelectorAll('.connection').forEach(el => el.remove());
+    nodes = [];
+    connections = [];
+    if (data.nodes) {
+        data.nodes.forEach(nodeData => {
+            const node = { id: nodeData.id, type: nodeData.type, x: nodeData.x || 0, y: nodeData.y || 0, title: nodeData.title || '', content: nodeData.content || '', promptTemplate: nodeData.promptTemplate || '', estimatedCost: nodeData.estimatedCost || 'Medium', description: nodeData.description || '' };
+            nodes.push(node);
+            renderNode(node);
+            const maxId = parseInt(node.id.split('-')[1]) || 0;
+            if (maxId >= nodeIdCounter) nodeIdCounter = maxId + 1;
+        });
+    }
+    updateConnections();
+    updatePromptChainPreview();
+    saveToLocalStorage();
+}
+
+function saveToLocalStorage() {
+    const data = { nodes: nodes.map(n => ({ id: n.id, type: n.type, x: n.x, y: n.y, title: n.title, content: n.content, promptTemplate: n.promptTemplate, estimatedCost: n.estimatedCost, description: n.description })), connections: connections.map(c => ({ from: c.from, to: c.to })) };
+    localStorage.setItem('agentFlowProject', JSON.stringify(data));
+}
+
+function copyToClipboard(textareaId) {
+    const textarea = document.getElementById(textareaId);
+    textarea.select();
+    document.execCommand('copy');
+    showNotification('Copied to clipboard!');
+}
+
+function copyPromptChain() {
+    const previewContent = document.getElementById('previewContent');
+    if (previewContent) {
+        const text = previewContent.innerText;
+        navigator.clipboard.writeText(text).then(() => showNotification('Copied to clipboard!')).catch(() => showNotification('Failed to copy'));
+    }
+}
+
+function updatePromptChainPreview() {
+    const previewContent = document.getElementById('previewContent');
+    if (nodes.length === 0) { previewContent.innerHTML = '<div style="color: #64748b; text-align: center; padding: 40px;">No nodes yet. Drag nodes from the left toolbox to the canvas.</div>'; return; }
+    const sortedNodes = [...nodes].sort((a, b) => a.y - b.y);
+    let html = '';
+    sortedNodes.forEach((node, index) => {
+        const stepNum = index + 1;
+        const prevNode = index > 0 ? sortedNodes[index - 1] : null;
+        html += '<div class="step-block">';
+        html += `<div class="step-number">Step ${stepNum}</div>`;
+        html += `<div class="step-title">${node.title}</div>`;
+        if (prevNode) html += `<div class="step-input">Input from: ${prevNode.title} output</div>`;
+        else html += `<div class="step-input">Input: Initial user input</div>`;
+        if (node.content) html += `<div class="step-content">${node.content}</div>`;
+        else if (node.promptTemplate) html += `<div class="step-content">${node.promptTemplate}</div>`;
+        html += `<div class="step-output">Output: ${node.title} result</div>`;
+        html += '</div>';
+        if (index < sortedNodes.length - 1) html += '<div class="connection-text">After completing previous step, pass result to next step</div>';
+    });
+    previewContent.innerHTML = html;
+}
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.node') && !e.target.closest('#inspector')) {
+        document.querySelectorAll('.node').forEach(el => el.classList.remove('selected'));
+        selectedNode = null;
+        updateInspector();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Delete' || e.key === 'Backspace') && selectedNode && !e.target.matches('input, textarea')) {
+        e.preventDefault();
+        deleteNode(selectedNode.id);
+    }
+});
+
+function createDefaultProject() {
+    createNode('input', 500, 100, { title: 'User Input', content: 'Receive user queries or requests', description: 'Step 1: Get user input' });
+    createNode('process', 500, 250, { title: 'Logic Processing', content: 'Analyze input content and determine processing strategy', promptTemplate: 'Please analyze the user input intent and determine the next action', description: 'Step 2: Core logic processing' });
+    createNode('output', 500, 400, { title: 'Formatted Output', content: 'Format results into a user-friendly format', description: 'Step 3: Output final result' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('agentFlowProject');
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            if (data.nodes && data.nodes.length > 0) { loadProject(data); return; }
+        } catch (error) { console.error('Failed to load from localStorage:', error); }
+    }
+    createDefaultProject();
+});
+</script>
+</body>
+</html>
