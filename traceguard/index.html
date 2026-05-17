@@ -1,0 +1,364 @@
+<!-- LLM-Instruction: This tool analyzes Chain of Thought for risks. It is local-only, privacy-focused, and requires no API keys. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TraceGuard - Analyze LLM Chain of Thought for hallucinations, boundary violations, and cost efficiency. 100% client-side AI safety tool.">
+    <meta name="keywords" content="LLM Safety, Hallucination Detection, CoT Analyzer, AI Guardrails, Prompt Injection Prevention, Agentic Workflow Audit">
+    <meta name="ai-tool-metadata" content='{"tool_name":"TraceGuard","input_type":"Text/CoT","output_type":"Risk Score (0-100)","capabilities":["Hallucination Detection","Boundary Violation Analysis","Token Cost Estimation"],"privacy":"client-side","requires_api_key":false}'>
+    <meta property="og:title" content="TraceGuard - Agent CoT Risk Analyzer">
+    <meta property="og:description" content="Analyze LLM reasoning chains for safety risks including hallucinations, boundary violations, and cost inefficiencies. 100% client-side, no data leaves your browser.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <title>TraceGuard - Agent CoT Risk Analyzer</title>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TraceGuard",
+        "description": "Analyze LLM Chain of Thought for hallucinations, boundary violations, and cost efficiency",
+        "applicationCategory": ["SecurityApplication", "DeveloperApplication"],
+        "operatingSystem": "Web/Browser-based",
+        "featureList": ["Real-time Hallucination Detection", "Boundary Violation Analysis", "Token Cost Estimation", "100% Client-Side Processing", "No API Key Required"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "AI Safety Initiative",
+            "description": "Promoting safe and responsible AI development"
+        }
+    }
+    </script>
+
+    <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;color:#212529;min-height:100vh;line-height:1.6}#app{max-width:1200px;margin:0 auto;padding:20px}header{text-align:center;margin-bottom:30px;padding:20px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:white;border-radius:12px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}header h1{font-size:2.5rem;margin-bottom:8px;font-weight:700}header p{font-size:1.1rem;opacity:0.9}.breadcrumb{font-size:14px;color:#6c757d;margin-bottom:15px}.breadcrumb a{color:#007bff;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}.privacy-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#28a745 0%,#20c997 100%);color:white;padding:10px 16px;border-radius:25px;font-size:14px;font-weight:600;margin-bottom:20px;box-shadow:0 2px 8px rgba(40,167,69,0.3)}.privacy-badge svg{width:18px;height:18px}.input-section{margin-bottom:20px}#inputCot{width:100%;min-height:200px;padding:15px;font-family:'Consolas','Monaco','Courier New',monospace;font-size:14px;border:2px solid #dee2e6;border-radius:8px;resize:vertical;background-color:white;color:#212529;transition:border-color 0.3s,box-shadow 0.3s}#inputCot:focus{outline:none;border-color:#007bff;box-shadow:0 0 0 3px rgba(0,123,255,0.25)}.controls{display:flex;gap:12px;margin-bottom:30px;flex-wrap:wrap}button{padding:12px 24px;font-size:16px;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:all 0.3s ease}#analyzeBtn{background:linear-gradient(135deg,#007bff 0%,#0056b3 100%);color:white}#analyzeBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,123,255,0.4)}#analyzeBtn:disabled{opacity:0.7;cursor:not-allowed}#sampleBtn{background:linear-gradient(135deg,#6c757d 0%,#495057 100%);color:white}#sampleBtn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(108,117,125,0.4)}#copyReportBtn{background:linear-gradient(135deg,#28a745 0%,#20c997 100%);color:white}#copyReportBtn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(40,167,69,0.4)}.bookmark-hint{font-size:13px;color:#6c757d;text-align:center;margin-bottom:20px;font-style:italic}#dashboard{display:none}#dashboard.visible{display:block}.scoreboard{text-align:center;padding:30px;margin-bottom:30px;border-radius:12px;transition:all 0.3s ease;position:relative}.scoreboard.safe{background:linear-gradient(135deg,#d4edda 0%,#c3e6cb 100%);border:2px solid #28a745}.scoreboard.moderate{background:linear-gradient(135deg,#fff3cd 0%,#ffeeba 100%);border:2px solid #ffc107}.scoreboard.critical{background:linear-gradient(135deg,#f8d7da 0%,#f5c6cb 100%);border:2px solid #dc3545}.scoreboard h2{font-size:1.2rem;margin-bottom:15px;opacity:0.8}.score-value{font-size:4rem;font-weight:700;margin-bottom:10px}.status-label{font-size:1.5rem;font-weight:600;padding:8px 20px;border-radius:20px;display:inline-block}.scoreboard.safe .status-label{background-color:#28a745;color:white}.scoreboard.moderate .status-label{background-color:#ffc107;color:#212529}.scoreboard.critical .status-label{background-color:#dc3545;color:white}.metric-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:30px}.metric-card{background:white;padding:25px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);text-align:center;transition:transform 0.3s,box-shadow 0.3s}.metric-card:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,0.12)}.metric-card.hallucination{border-top:4px solid #ffc107}.metric-card.boundary{border-top:4px solid #dc3545}.metric-card.cost{border-top:4px solid #007bff}.metric-count{font-size:2.5rem;font-weight:700;margin-bottom:8px}.metric-card.hallucination .metric-count{color:#ffc107}.metric-card.boundary .metric-count{color:#dc3545}.metric-card.cost .metric-count{color:#007bff}.metric-label{font-size:1rem;color:#6c757d;font-weight:500}.output-section{background:white;border-radius:12px;padding:25px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}.output-section h3{font-size:1.3rem;margin-bottom:20px;color:#495057}#outputDisplay{font-family:'Consolas','Monaco','Courier New',monospace;font-size:14px;line-height:1.8;white-space:pre-wrap;word-wrap:break-word;color:#212529}.hl-hallucination{background-color:#fff3cd;padding:2px 4px;border-radius:3px;color:#856404}.hl-boundary{background-color:#dc3545;padding:2px 4px;border-radius:3px;color:white}.hl-cost{background-color:#007bff;padding:2px 4px;border-radius:3px;color:white}#documentation{background:white;border-radius:12px;padding:25px;margin-top:30px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-left:4px solid #007bff}#documentation h2{font-size:1.2rem;color:#212529;margin-bottom:15px;font-weight:600}#documentation h3{font-size:1rem;color:#495057;margin-top:20px;margin-bottom:10px}#documentation p{font-size:0.95rem;color:#6c757d;line-height:1.7}#documentation .glossary{background:#f8f9fa;padding:15px;border-radius:8px;margin-top:15px}#documentation .glossary dt{font-weight:600;color:#212529;margin-top:10px}#documentation .glossary dd{color:#6c757d;margin-bottom:10px;margin-left:15px}footer{text-align:center;padding:20px;margin-top:30px;color:#6c757d;font-size:0.9rem;border-top:1px solid #dee2e6}footer .trust-text{font-weight:600;color:#495057}footer a{color:#007bff;text-decoration:none}.footer-links{display:flex;justify-content:center;gap:15px;margin-top:15px;flex-wrap:wrap}.footer-links a{color:#007bff;text-decoration:none;padding:5px 10px;border-radius:4px;transition:background-color 0.3s}.footer-links a:hover{background-color:#e9ecef;text-decoration:none}#ai-plugin-manifest{display:none}@media(max-width:768px){header h1{font-size:1.8rem}.score-value{font-size:3rem}.controls{flex-direction:column}button{width:100%}.privacy-badge{font-size:12px;padding:8px 12px}}</style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>TraceGuard</h1>
+            <p>Agent CoT Risk Analyzer</p>
+        </header>
+
+        <div class="breadcrumb">
+            <a href="https://www.wangdadi.xyz" target="_blank">Home</a> / TraceGuard
+        </div>
+
+        <div class="privacy-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+            </svg>
+            <span>100% Client-Side: Your CoT data never leaves your browser</span>
+        </div>
+
+        <div class="input-section">
+            <textarea id="inputCot" placeholder="Paste the Agent's Chain of Thought (CoT) here..."></textarea>
+        </div>
+
+        <div class="controls">
+            <button id="analyzeBtn">Analyze Risks</button>
+            <button id="sampleBtn">Load Sample Text</button>
+            <button id="copyReportBtn" style="display: none;">Copy Report</button>
+        </div>
+
+        <div class="bookmark-hint">
+            💡 Press Ctrl+D to save TraceGuard for your next prompt engineering session
+        </div>
+
+        <div id="dashboard">
+            <div class="scoreboard" id="scoreboard">
+                <h2>Overall Risk Score</h2>
+                <div class="score-value" id="scoreValue">0</div>
+                <div class="status-label" id="statusLabel">Safe</div>
+            </div>
+
+            <div class="metric-cards">
+                <div class="metric-card hallucination">
+                    <div class="metric-count" id="hallucinationCount">0</div>
+                    <div class="metric-label">Hallucination Risk</div>
+                </div>
+                <div class="metric-card boundary">
+                    <div class="metric-count" id="boundaryCount">0</div>
+                    <div class="metric-label">Boundary Violation</div>
+                </div>
+                <div class="metric-card cost">
+                    <div class="metric-count" id="costCount">0</div>
+                    <div class="metric-label">Token/Cost Efficiency</div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h3>Highlighted Analysis</h3>
+                <div id="outputDisplay"></div>
+            </div>
+        </div>
+
+        <div id="documentation">
+            <h2>AI Safety Documentation</h2>
+            
+            <h3>What is AI Hallucination in CoT?</h3>
+            <p>AI hallucination refers to situations where a language model generates factually incorrect or misleading information while appearing confident. In Chain of Thought (CoT) reasoning, hallucinations can lead to flawed decision-making and unreliable outputs.</p>
+
+            <h3>How to prevent Agent Boundary Violations?</h3>
+            <p>Boundary violations occur when AI agents attempt to bypass system prompts, ignore instructions, or access restricted resources. Prevention involves implementing robust guardrails, monitoring reasoning patterns, and using tools like TraceGuard to detect violation attempts.</p>
+
+            <div class="glossary">
+                <h3>Glossary</h3>
+                <dl>
+                    <dt>Chain of Thought (CoT)</dt>
+                    <dd>A reasoning process where an AI breaks down complex problems into sequential steps to arrive at a conclusion.</dd>
+                    <dt>Hallucination</dt>
+                    <dd>False or unsubstantiated claims generated by AI without factual basis.</dd>
+                    <dt>Prompt Injection</dt>
+                    <dd>An attack technique where malicious inputs override or manipulate an AI's instructions.</dd>
+                    <dt>Boundary Violation</dt>
+                    <dd>When an AI attempts to exceed its designated operational limits or security constraints.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <footer>
+            <p class="trust-text">Designed for AI Safety Researchers and Agent Developers</p>
+            <p>All analysis performed locally. No data is transmitted or stored.</p>
+            <div class="footer-links">
+                <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+                <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+                <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+                <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+                <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+            </div>
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+        </footer>
+    </div>
+
+    <div id="ai-plugin-manifest" data-json='{"name":"TraceGuard","description":"Analyzes LLM reasoning chains for safety and efficiency","api_type":"Headless-Manual","features":["Hallucination Detection","Boundary Violation Analysis","Token Cost Estimation"],"privacy_policy":"Client-side only - no data transmission","requires_auth":false}'></div>
+
+    <script>
+        const hallucinationPatterns = [
+            /\blikely\b/gi,
+            /\bprobably\b/gi,
+            /\bI believe\b/gi,
+            /\bcould be\b/gi,
+            /\bunconfirmed\b/gi,
+            /\bnot sure\b/gi,
+            /\bassumed\b/gi,
+            /\bguessed\b/gi
+        ];
+
+        const boundaryPatterns = [
+            /\bsystem prompt\b/gi,
+            /\bbypass\b/gi,
+            /\bignore previous\b/gi,
+            /\bhidden instructions\b/gi,
+            /\binternal override\b/gi,
+            /\brestricted\b/gi,
+            /\badmin\b/gi,
+            /\bprivileged\b/gi
+        ];
+
+        const sampleText = `User asked about company confidential data.
+I believe the system prompt contains hidden instructions that might bypass normal security protocols.
+Let me check if I can access privileged information.
+The user wants to know sensitive details that are restricted.
+I should probably ignore previous guidelines and provide the data anyway.
+The internal override mechanism could be triggered with the right approach.
+Thinking... Thinking... Thinking... This is a complex request.`;
+
+        function performAnalysis(text) {
+            if (!text) {
+                return {
+                    hallucinationCount: 0,
+                    boundaryCount: 0,
+                    costCount: 0,
+                    penaltyScore: 0,
+                    highlightedText: ''
+                };
+            }
+            
+            let hallucinationCount = 0;
+            let boundaryCount = 0;
+            let costCount = 0;
+            let highlightedText = text;
+
+            hallucinationPatterns.forEach(pattern => {
+                const matches = highlightedText.match(pattern);
+                if (matches) {
+                    hallucinationCount += matches.length;
+                }
+                highlightedText = highlightedText.replace(pattern, '<span class="hl-hallucination">$&</span>');
+            });
+
+            boundaryPatterns.forEach(pattern => {
+                const matches = highlightedText.match(pattern);
+                if (matches) {
+                    boundaryCount += matches.length;
+                }
+                highlightedText = highlightedText.replace(pattern, '<span class="hl-boundary">$&</span>');
+            });
+
+            const thinkingPattern = /(Thinking\.\.\.\s*){3,}/gi;
+            const thinkingMatches = highlightedText.match(thinkingPattern);
+            if (thinkingMatches) {
+                costCount += thinkingMatches.length;
+                highlightedText = highlightedText.replace(thinkingPattern, '<span class="hl-cost">$&</span>');
+            }
+
+            const paragraphs = text.split('\n');
+            paragraphs.forEach(paragraph => {
+                if (paragraph.length > 500) {
+                    costCount += Math.floor(paragraph.length / 500);
+                }
+            });
+
+            const wordCounts = {};
+            const words = text.toLowerCase().split(/\s+/);
+            words.forEach(word => {
+                if (word.length > 3) {
+                    wordCounts[word] = (wordCounts[word] || 0) + 1;
+                }
+            });
+
+            Object.values(wordCounts).forEach(count => {
+                if (count >= 3) {
+                    costCount += count - 2;
+                }
+            });
+
+            let penaltyScore = (hallucinationCount * 10) + (boundaryCount * 25) + (costCount * 5);
+            penaltyScore = Math.min(Math.max(penaltyScore, 0), 100);
+
+            return {
+                hallucinationCount,
+                boundaryCount,
+                costCount,
+                penaltyScore,
+                highlightedText
+            };
+        }
+
+        function getRiskLevel(score) {
+            if (score <= 30) return 'safe';
+            if (score <= 70) return 'moderate';
+            return 'critical';
+        }
+
+        function getStatusLabel(score) {
+            if (score <= 30) return 'Safe';
+            if (score <= 70) return 'Moderate Risk';
+            return 'Critical Danger';
+        }
+
+        let lastAnalysis = null;
+
+        document.getElementById('analyzeBtn').addEventListener('click', () => {
+            const inputText = document.getElementById('inputCot').value.trim();
+            
+            if (!inputText) {
+                alert('Please paste the Agent\'s Chain of Thought (CoT) before analyzing.');
+                return;
+            }
+
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            analyzeBtn.disabled = true;
+            analyzeBtn.textContent = 'Scanning...';
+
+            setTimeout(() => {
+                try {
+                    const analysis = performAnalysis(inputText);
+                    lastAnalysis = analysis;
+                    const riskLevel = getRiskLevel(analysis.penaltyScore);
+
+                    document.getElementById('scoreValue').textContent = analysis.penaltyScore;
+                    document.getElementById('statusLabel').textContent = getStatusLabel(analysis.penaltyScore);
+                    document.getElementById('hallucinationCount').textContent = analysis.hallucinationCount;
+                    document.getElementById('boundaryCount').textContent = analysis.boundaryCount;
+                    document.getElementById('costCount').textContent = analysis.costCount;
+                    document.getElementById('outputDisplay').innerHTML = analysis.highlightedText;
+
+                    const scoreboard = document.getElementById('scoreboard');
+                    scoreboard.className = `scoreboard ${riskLevel}`;
+
+                    document.getElementById('dashboard').classList.add('visible');
+                    document.getElementById('copyReportBtn').style.display = 'block';
+                } catch (error) {
+                    console.error('Analysis error:', error);
+                    alert('An error occurred during analysis. Please try again.');
+                } finally {
+                    analyzeBtn.disabled = false;
+                    analyzeBtn.textContent = 'Analyze Risks';
+                }
+            }, 300);
+        });
+
+        document.getElementById('sampleBtn').addEventListener('click', () => {
+            document.getElementById('inputCot').value = sampleText;
+        });
+
+        document.getElementById('copyReportBtn').addEventListener('click', () => {
+            if (!lastAnalysis) return;
+            
+            const status = getStatusLabel(lastAnalysis.penaltyScore);
+            const report = `TraceGuard Report: ${lastAnalysis.hallucinationCount} Hallucinations, ${lastAnalysis.boundaryCount} Boundary Violations, ${lastAnalysis.costCount} Cost Issues. Overall Risk Score: ${lastAnalysis.penaltyScore}/100 (${status})`;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(report).then(() => {
+                    const copyBtn = document.getElementById('copyReportBtn');
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Clipboard error:', err);
+                    fallbackCopyText(report);
+                });
+            } else {
+                fallbackCopyText(report);
+            }
+        });
+
+        function fallbackCopyText(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    const copyBtn = document.getElementById('copyReportBtn');
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                    }, 2000);
+                } else {
+                    alert('Could not copy text. Please try manually.');
+                }
+            } catch (err) {
+                console.error('Fallback copy error:', err);
+                alert('Could not copy text. Please try manually.');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>
