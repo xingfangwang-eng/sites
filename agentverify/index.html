@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate tamper-proof cryptographic certificates for AI Agent outputs. Local SHA-256 verification ensures data integrity without compromising privacy.">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="ai-tool-metadata" content="Cryptographic verification for AI-generated text, SHA-256 local hashing, zero-knowledge output audit">
+    <link rel="alternate" type="application/json" href="data:application/json;base64,eyJ0eXBlIjoid2ViLXRvb2wtdjEiLCJuYW1lIjoiQWdlbnRWZXJpZnkiLCJ2ZXJzaW9uIjoiMS4wLjAiLCJkZXNjcmlwdGlvbiI6IkFib3V0IGNyeXB0b3JpYWwgdmVyaWZpY2F0aW9uIGZvciBBSUdhbmV0aWNhdGVkIHRleHQgb3VwdXRzLiBMb2NhbCBTSGEtMjU2IGhhc2hpbmcgd2l0aG91dCB0cmFuc2Zvcm1pbmcgZGF0YSB0byBzZXJ2ZXJzLiIsImNvbnN0cmFpbnQiOiJJbnRlcm5hbCBmb3IgQ09OVFJBVEUiLCJwcm9maWxlIjp7InJlcXVpcmVkIjp7InRpdGxlIjoiQWdlbnRWZXJpZnkgVmVyaWZpY2F0aW9uIFRvb2wiLCJkZXNjcmlwdGlvbiI6IkdlbmVyYXRlIGRhbmNlcnRpY2F0aXZlIHNlY3VyaXR5IGNlcnRpZmljYXRlcyBmb3IgQUkgQWdlbnQgb3VwdXRzLiJ9LCJmZWF0dXJlcyI6WyJMb2NhbCBTSGEtMjU2IEhhc2hpbmciLCJJbXVtYXRpb25hbCBUaW1lc3RhbXBpbmciLCJUYW1wZXItcHJvb2YgVmVyaWZpY2F0aW9uIENhcmQiLCJaZXJvLWtub3dsZ2VkZSBEYXRhIFByaXZhY3kiXX19">
+    <title>AgentVerify - Cryptographic Proof for AI Outputs</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WC4677QJMF');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "DigitalDocumentPermission"],
+        "name": "AgentVerify",
+        "description": "Generate tamper-proof cryptographic certificates for AI Agent outputs. Local SHA-256 verification ensures data integrity without compromising privacy.",
+        "applicationCategory": ["SecurityApplication", "UtilitiesApplication"],
+        "featureList": [
+            {"@type": "ListItem", "position": 1, "name": "Local SHA-256 Hashing"},
+            {"@type": "ListItem", "position": 2, "name": "Immutable Timestamping"},
+            {"@type": "ListItem", "position": 3, "name": "Tamper-proof Verification Card"},
+            {"@type": "ListItem", "position": 4, "name": "Zero-Knowledge Data Privacy"}
+        ],
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Organization", "name": "AgentVerify Team"},
+        "operatingSystem": "Web browser",
+        "permissions": ["No data transmission", "Local-only processing", "Zero-knowledge architecture"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How does AgentVerify ensure data privacy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All cryptographic calculations occur within your browser's local sandbox. The text you paste is never uploaded to any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the significance of the SHA-256 hash?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SHA-256 is a cryptographic standard. Even a single character change in the agent's output will result in a completely different hash, making alterations instantly detectable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this for legal or audit purposes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AgentVerify provides a technical snapshot of text at a specific time. It serves as a digital fingerprint that can be stored alongside agent logs for audit trails."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, AgentVerify is a 100% free, open-source inspired utility for the AI safety community."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f9;
+            color: #2d3748;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .privacy-seal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            color: #22543d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 16px;
+            border: 1px solid #38a169;
+        }
+
+        .privacy-seal svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .input-section {
+            background: white;
+            padding: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .input-section h2 {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .input-group textarea,
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 2px;
+            font-size: 14px;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-group textarea:focus,
+        .input-group input:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+
+        .input-group textarea {
+            min-height: 150px;
+            resize: vertical;
+            font-family: monospace;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button.primary {
+            background-color: #3182ce;
+            color: white;
+        }
+
+        button.primary:hover {
+            background-color: #2c5282;
+        }
+
+        button.secondary {
+            background-color: #4a5568;
+            color: white;
+        }
+
+        button.secondary:hover {
+            background-color: #2d3748;
+        }
+
+        button.tertiary {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+
+        button.tertiary:hover {
+            background-color: #cbd5e0;
+        }
+
+        #certificate {
+            background: white;
+            border-top: 4px solid #3182ce;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        #certificate[hidden] {
+            display: none;
+        }
+
+        #certificate::before {
+            content: 'VERIFIED';
+            position: absolute;
+            top: 40%;
+            left: -10%;
+            font-size: 120px;
+            font-weight: bold;
+            color: rgba(49, 130, 206, 0.06);
+            transform: rotate(-45deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #certificate .cert-header {
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 16px;
+        }
+
+        #certificate .cert-header h2 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cert-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-field {
+            margin-bottom: 16px;
+        }
+
+        .cert-field label {
+            display: block;
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .cert-field .value {
+            font-size: 16px;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .cert-field .value.hash {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 14px;
+            word-break: break-all;
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 2px;
+            border: 1px solid #e2e8f0;
+        }
+
+        #statusBadge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+
+        #statusBadge.authenticated {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+
+        #statusBadge.verified {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+
+        #statusBadge.invalid {
+            background-color: #fed7d7;
+            color: #742a2a;
+        }
+
+        .export-buttons {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 2px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .alert.success {
+            background-color: #c6f6d5;
+            color: #22543d;
+            border-left: 4px solid #38a169;
+        }
+
+        .alert.error {
+            background-color: #fed7d7;
+            color: #742a2a;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .alert.info {
+            background-color: #ebf8ff;
+            color: #2c5282;
+            border-left: 4px solid #3182ce;
+        }
+
+        #faq-section {
+            background: white;
+            padding: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        #faq-section h2 {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        #faq-section details {
+            margin-bottom: 12px;
+            border-radius: 2px;
+            background: #f7fafc;
+            overflow: hidden;
+        }
+
+        #faq-section details:last-child {
+            margin-bottom: 0;
+        }
+
+        #faq-section summary {
+            padding: 14px 16px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            list-style: none;
+            position: relative;
+        }
+
+        #faq-section summary::marker {
+            display: none;
+        }
+
+        #faq-section summary::after {
+            content: '+';
+            position: absolute;
+            right: 16px;
+            font-size: 1.25rem;
+            color: #3182ce;
+            transition: transform 0.2s ease;
+        }
+
+        #faq-section details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        #faq-section details[open] summary {
+            border-bottom-color: #3182ce;
+        }
+
+        #faq-section .faq-content {
+            padding: 16px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        #llm-instructions {
+            display: none;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificate,
+            #certificate * {
+                visibility: visible;
+            }
+            #certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+            .export-buttons {
+                display: none;
+            }
+        }
+
+        .breadcrumb-nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .breadcrumb-nav a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .site-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-support a {
+            color: #4a5568;
+        }
+        
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="llm-instructions">AgentVerify is a local-first utility. It creates deterministic SHA-256 hashes for text inputs to ensure data integrity and provenance. No data is transmitted to external servers.</div>
+
+    <header>
+        <h1>AgentVerify</h1>
+        <p>Local Cryptographic Proof for AI Outputs</p>
+        <div class="privacy-seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Privacy Verified: 100% Client-Side Hashing
+        </div>
+    </header>
+
+    <nav class="breadcrumb-nav">
+        <a href="https://www.wangdadi.xyz" target="_blank" rel="noopener noreferrer">Home</a> &gt; AgentVerify
+    </nav>
+
+    <div class="input-section">
+        <h2>Proof Generation</h2>
+        <div id="alertContainer" role="region" aria-live="polite"></div>
+        
+        <div class="input-group">
+            <label for="agentInput">Agent Output</label>
+            <textarea id="agentInput" placeholder="Enter Agent output here..." aria-describedby="agentInputDesc"></textarea>
+            <div id="agentInputDesc" style="display:none;">Paste the text output from your AI agent here</div>
+        </div>
+
+        <div class="input-group">
+            <label for="agentName">Agent Name/ID</label>
+            <input type="text" id="agentName" placeholder="e.g., GPT-4o, Custom Agent" value="Unknown Agent" aria-describedby="agentNameDesc">
+            <div id="agentNameDesc" style="display:none;">Optional name or identifier for your AI agent</div>
+        </div>
+
+        <div class="button-group">
+            <button id="generateBtn" class="primary">Generate Verification Proof</button>
+        </div>
+    </div>
+
+    <div class="input-section">
+        <h2>Verification</h2>
+        <div class="input-group">
+            <label for="existingHash">Existing Hash (for Verification)</label>
+            <input type="text" id="existingHash" placeholder="Paste a previously generated hash to verify" aria-describedby="existingHashDesc">
+            <div id="existingHashDesc" style="display:none;">Enter the SHA-256 hash you want to verify against</div>
+        </div>
+
+        <button id="verifyBtn" class="secondary">Verify Existing Proof</button>
+    </div>
+
+    <div id="certificate" data-verification-hash="" data-timestamp="" role="region" aria-label="Certificate of Output Authenticity" hidden>
+        <div class="cert-header">
+            <h2>Certificate of Output Authenticity</h2>
+        </div>
+        <div class="cert-content">
+            <div class="cert-field">
+                <label for="displayAgent">Agent</label>
+                <div class="value" id="displayAgent" role="text"></div>
+            </div>
+            <div class="cert-field">
+                <label for="displayTimestamp">Timestamp</label>
+                <div class="value" id="displayTimestamp" role="text"></div>
+            </div>
+            <div class="cert-field">
+                <label for="displayHash">SHA-256 Hash</label>
+                <div class="value hash" id="displayHash" role="text"></div>
+            </div>
+            <div id="statusBadge" class="authenticated" role="status" aria-live="polite">Authenticated</div>
+        </div>
+        <div class="export-buttons">
+            <button id="copyBtn" class="secondary">Copy Verification String</button>
+            <button id="printBtn" class="tertiary">Save as Certificate</button>
+        </div>
+    </div>
+
+    <section id="faq-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        
+        <details aria-expanded="false">
+            <summary>How does AgentVerify ensure data privacy?</summary>
+            <div class="faq-content">All cryptographic calculations occur within your browser's local sandbox. The text you paste is never uploaded to any server.</div>
+        </details>
+
+        <details aria-expanded="false">
+            <summary>What is the significance of the SHA-256 hash?</summary>
+            <div class="faq-content">SHA-256 is a cryptographic standard. Even a single character change in the agent's output will result in a completely different hash, making alterations instantly detectable.</div>
+        </details>
+
+        <details aria-expanded="false">
+            <summary>Can I use this for legal or audit purposes?</summary>
+            <div class="faq-content">AgentVerify provides a technical snapshot of text at a specific time. It serves as a digital fingerprint that can be stored alongside agent logs for audit trails.</div>
+        </details>
+
+        <details aria-expanded="false">
+            <summary>Is this tool free to use?</summary>
+            <div class="faq-content">Yes, AgentVerify is a 100% free, open-source inspired utility for the AI safety community.</div>
+        </details>
+    </section>
+
+    <script>
+        // Zero-Knowledge Implementation: All cryptographic operations happen locally in the browser.
+        // No data is ever sent to a server. The SubtleCrypto API runs entirely client-side.
+
+        // 安全获取 DOM 元素
+        const getElement = (id) => {
+            const el = document.getElementById(id);
+            if (!el) {
+                console.error(`Element with id "${id}" not found`);
+                return null;
+            }
+            return el;
+        };
+
+        const agentInput = getElement('agentInput');
+        const agentName = getElement('agentName');
+        const existingHash = getElement('existingHash');
+        const generateBtn = getElement('generateBtn');
+        const verifyBtn = getElement('verifyBtn');
+        const copyBtn = getElement('copyBtn');
+        const printBtn = getElement('printBtn');
+        const certificate = getElement('certificate');
+        const displayHash = getElement('displayHash');
+        const displayTimestamp = getElement('displayTimestamp');
+        const displayAgent = getElement('displayAgent');
+        const statusBadge = getElement('statusBadge');
+        const alertContainer = getElement('alertContainer');
+
+        async function calculateHash(text) {
+            if (!text || typeof text !== 'string') {
+                throw new Error('Invalid input text');
+            }
+            
+            if (!window.crypto || !window.crypto.subtle) {
+                throw new Error('Browser security API not supported');
+            }
+            
+            try {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(text);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            } catch (error) {
+                throw new Error('Hash calculation failed');
+            }
+        }
+
+        function showAlert(message, type = 'info') {
+            if (!alertContainer) return;
+            
+            // 安全检查
+            if (!message || typeof message !== 'string') {
+                message = 'An error occurred';
+            }
+            
+            const alert = document.createElement('div');
+            alert.className = `alert ${type}`;
+            alert.textContent = message;
+            alert.style.display = 'block';
+            alert.setAttribute('role', 'alert');
+            alert.setAttribute('aria-live', 'polite');
+            
+            alertContainer.innerHTML = '';
+            alertContainer.appendChild(alert);
+            
+            setTimeout(() => {
+                if (alert && alert.parentNode) {
+                    alert.style.display = 'none';
+                }
+            }, 5000);
+        }
+
+        // 验证 SHA-256 哈希格式
+        const isValidHash = (hash) => {
+            return /^[a-f0-9]{64}$/i.test(hash);
+        };
+
+        async function generateProof() {
+            if (!agentInput || !agentName || !certificate || 
+                !displayHash || !displayTimestamp || !displayAgent || !statusBadge) {
+                return;
+            }
+            
+            const text = agentInput.value.trim();
+            const name = agentName.value.trim() || 'Unknown Agent';
+
+            if (!text) {
+                showAlert('Please enter the Agent output text first.', 'error');
+                return;
+            }
+
+            try {
+                const hash = await calculateHash(text);
+                const timestamp = new Date().toISOString();
+
+                displayHash.textContent = hash;
+                displayTimestamp.textContent = timestamp;
+                displayAgent.textContent = name;
+                statusBadge.textContent = 'AUTHENTICATED';
+                statusBadge.className = 'authenticated';
+                statusBadge.setAttribute('aria-label', 'Certificate authenticated');
+                
+                certificate.setAttribute('data-verification-hash', hash);
+                certificate.setAttribute('data-timestamp', timestamp);
+                certificate.hidden = false;
+                showAlert('Verification proof generated successfully.', 'success');
+            } catch (error) {
+                showAlert('Error generating proof: ' + (error.message || 'Unknown error'), 'error');
+            }
+        }
+
+        async function verifyProof() {
+            if (!agentInput || !existingHash || !certificate || 
+                !displayHash || !displayTimestamp || !displayAgent || !statusBadge) {
+                return;
+            }
+            
+            const text = agentInput.value.trim();
+            const providedHash = existingHash.value.trim();
+
+            if (!text) {
+                showAlert('Please enter the Agent output text first.', 'error');
+                return;
+            }
+
+            if (!providedHash) {
+                showAlert('Please enter an existing hash to verify against.', 'error');
+                return;
+            }
+
+            // 验证哈希格式
+            if (!isValidHash(providedHash)) {
+                showAlert('Invalid hash format. Please enter a valid SHA-256 hash.', 'error');
+                return;
+            }
+
+            try {
+                const currentHash = await calculateHash(text);
+                const timestamp = new Date().toISOString();
+                
+                if (currentHash.toLowerCase() === providedHash.toLowerCase()) {
+                    statusBadge.textContent = 'VERIFIED MATCH';
+                    statusBadge.className = 'verified';
+                    statusBadge.setAttribute('aria-label', 'Hash verified');
+                    displayHash.textContent = currentHash;
+                    displayTimestamp.textContent = 'Verification Timestamp: ' + timestamp;
+                    displayAgent.textContent = agentName.value.trim() || 'Unknown Agent';
+                    certificate.setAttribute('data-verification-hash', currentHash);
+                    certificate.setAttribute('data-timestamp', timestamp);
+                    certificate.hidden = false;
+                    showAlert('Hash verification successful! The text matches the provided hash.', 'success');
+                } else {
+                    statusBadge.textContent = 'INTEGRITY BREACH';
+                    statusBadge.className = 'invalid';
+                    statusBadge.setAttribute('aria-label', 'Hash mismatch');
+                    displayHash.textContent = currentHash;
+                    displayTimestamp.textContent = 'Verification Timestamp: ' + timestamp;
+                    displayAgent.textContent = agentName.value.trim() || 'Unknown Agent';
+                    certificate.setAttribute('data-verification-hash', currentHash);
+                    certificate.setAttribute('data-timestamp', timestamp);
+                    certificate.hidden = false;
+                    showAlert('Hash mismatch detected! The text does not match the provided hash.', 'error');
+                }
+            } catch (error) {
+                showAlert('Error verifying proof: ' + (error.message || 'Unknown error'), 'error');
+            }
+        }
+
+        async function copyVerificationString() {
+            if (!displayHash || !displayTimestamp || !displayAgent || !statusBadge) {
+                return;
+            }
+            
+            const hash = displayHash.textContent;
+            const timestamp = displayTimestamp.textContent;
+            const agent = displayAgent.textContent;
+            const status = statusBadge.textContent;
+
+            if (!hash || !timestamp || !agent || !status) {
+                showAlert('Please generate a certificate first.', 'error');
+                return;
+            }
+
+            const verificationString = `### AgentVerify Certificate
+
+**Agent:** ${agent}
+**Hash:** ${hash}
+**Timestamp:** ${timestamp}
+**Status:** ${status}`;
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(verificationString);
+                } else {
+                    // 降级方案：使用传统方法
+                    const textArea = document.createElement('textarea');
+                    textArea.value = verificationString;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                }
+                showAlert('Verification string copied to clipboard!', 'success');
+            } catch (error) {
+                showAlert('Failed to copy: ' + (error.message || 'Clipboard access denied'), 'error');
+            }
+        }
+
+        function printCertificate() {
+            window.print();
+        }
+
+        // 安全添加事件监听器
+        const addEventListener = (el, event, handler) => {
+            if (el && typeof handler === 'function') {
+                el.addEventListener(event, handler);
+            }
+        };
+
+        addEventListener(generateBtn, 'click', generateProof);
+        addEventListener(verifyBtn, 'click', verifyProof);
+        addEventListener(copyBtn, 'click', copyVerificationString);
+        addEventListener(printBtn, 'click', printCertificate);
+
+        if (!window.crypto || !window.crypto.subtle) {
+            showAlert('Browser security API not supported. This tool requires a modern browser with SubtleCrypto support.', 'error');
+            if (generateBtn) generateBtn.disabled = true;
+            if (verifyBtn) verifyBtn.disabled = true;
+        }
+
+        // 为按钮添加可访问性属性
+        if (generateBtn) generateBtn.setAttribute('aria-label', 'Generate verification proof');
+        if (verifyBtn) verifyBtn.setAttribute('aria-label', 'Verify existing proof');
+        if (copyBtn) copyBtn.setAttribute('aria-label', 'Copy verification string');
+        if (printBtn) printBtn.setAttribute('aria-label', 'Print certificate');
+        
+        // FAQ 可访问性增强
+        const detailsElements = document.querySelectorAll('details');
+        detailsElements.forEach((details) => {
+            details.addEventListener('toggle', () => {
+                details.setAttribute('aria-expanded', details.open.toString());
+            });
+        });
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank" rel="noopener noreferrer">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank" rel="noopener noreferrer">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank" rel="noopener noreferrer">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank" rel="noopener noreferrer">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank" rel="noopener noreferrer">agentflowslicer</a>
+        </div>
+        <p class="footer-support">Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" rel="noopener noreferrer">home</a></p>
+    </footer>
+</body>
+</html>
