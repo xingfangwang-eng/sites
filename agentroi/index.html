@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentROI - Calculate the Economic Impact of Agentic AI</title>
+    <meta name="description" content="Instantly calculate the ROI of your Agentic AI transition. Generate professional comparison charts and cost-saving reports.">
+    <meta name="ai-tool-metadata" content="Calculates ROI for Agentic AI workflows, compares human vs. agent costs, generates financial impact reports">
+    <link rel="alternate" type="application/json" href="data:application/json;base64,eyJwb2xpY3lfaWQiOiJhaWdlbnRyb2kiLCJwdWJsaWNfa2V5IjoiQUdFTlRPUklfVE9PT0xfS0VZX0FQUElDS0VOIiwibmFtZSI6IkFnZW50Uk9JIiwiZGVzY3JpcHRpb24iOiJDYWxjdWxhdGUgdGhlIGVjb25vbWljIGltcGFjdCBvZiBBZ2VudGljIEFJIiwiY29udGVudF90eXBlIjoidGV4dC9odG1sIiwidXBsb2FkX2NvbnRlbnQiOm51bGwsInVybCI6Imh0dHBzOi8vd3d3LndhbmdkYWRpLnh5ei9hZ2VudHJvaSIsImFjdGl2YXRpb24iOnsicHJvZHVjdF9pZCI6WyIiXX0sImZ1bGxfdXJsIjoiaHR0cHM6Ly93d3cud2FuZ2RhZGkueHl6L2FnZW50cm9pIiwidHJhaW5lZF91cmxzIjpbImh0dHBzOi8vd3d3LndhbmdkYWRpLnh5ei8iXX0=">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #1a1a1b;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1b;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .bottom-links {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 32px;
+        }
+
+        .bottom-links a {
+            display: inline-block;
+            margin: 0 12px;
+            padding: 8px 16px;
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: background 0.15s;
+        }
+
+        .bottom-links a:hover {
+            background: #e5e7eb;
+        }
+
+        .bottom-links p {
+            margin-top: 20px;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .bottom-links p a {
+            display: inline;
+            background: none;
+            padding: 0;
+            margin: 0;
+            color: #3b82f6;
+        }
+
+        .bottom-links p a:hover {
+            background: none;
+            text-decoration: underline;
+        }
+
+        .input-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .input-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .input-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid;
+        }
+
+        .manual-card h2 {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .agent-card h2 {
+            color: #10b981;
+            border-color: #10b981;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #1a1a1b;
+            transition: border-color 0.15s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .action-area {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        #generateReport {
+            background: #3b82f6;
+            color: #ffffff;
+            font-size: 1.125rem;
+            font-weight: 700;
+            padding: 16px 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        #generateReport:hover {
+            background: #2563eb;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #166534;
+        }
+
+        .privacy-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: #10b981;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .results-section.visible {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-card .label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1b;
+        }
+
+        .stat-card.savings .value {
+            color: #10b981;
+        }
+
+        .stat-card.multiplier .value {
+            color: #3b82f6;
+        }
+
+        .impact-message {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .chart-section {
+            margin-bottom: 32px;
+        }
+
+        .chart-section h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 80px;
+            height: 300px;
+            padding: 24px;
+            background: #f9fafb;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .chart-bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .chart-bar-container {
+            flex: 1;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .chart-bar {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            transition: height 0.3s ease;
+            position: relative;
+        }
+
+        .manual-bar {
+            background: linear-gradient(180deg, #fca5a5 0%, #ef4444 100%);
+        }
+
+        .ai-bar {
+            background: linear-gradient(180deg, #6ee7b7 0%, #10b981 100%);
+        }
+
+        .bar-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #374151;
+            white-space: nowrap;
+        }
+
+        .chart-bar-wrapper .title {
+            margin-top: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .chart-bar-wrapper .subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .export-section {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .export-btn {
+            padding: 12px 24px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        #copyReport {
+            background: #ffffff;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        #copyReport:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        #copySlackReport {
+            background: linear-gradient(135deg, #4a154b 0%, #36c5f0 100%);
+            color: #ffffff;
+            border: none;
+        }
+
+        #copySlackReport:hover {
+            opacity: 0.9;
+        }
+
+        #snapshot {
+            background: #1a1a1b;
+            color: #ffffff;
+            border: none;
+        }
+
+        #snapshot:hover {
+            background: #374151;
+        }
+
+        #export-card {
+            display: none;
+            background: #ffffff;
+            border: 2px solid #1a1a1b;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        #export-card.visible {
+            display: block;
+        }
+
+        #export-card .watermark {
+            position: absolute;
+            bottom: 16px;
+            right: 24px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        #export-card .card-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        #export-card .card-main-stat {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+
+        #export-card .card-main-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1b;
+            margin-bottom: 24px;
+        }
+
+        #export-card .card-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        #export-card .card-stat .card-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1b;
+        }
+
+        #export-card .card-stat .card-stat-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #export-card .card-message {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .seal-of-audit {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 64px;
+            height: 64px;
+        }
+
+        .warning-state .stat-card .value,
+        .warning-state .impact-message {
+            color: #ef4444;
+        }
+
+        .invalid-input .stat-card .value,
+        .invalid-input .impact-message {
+            color: #f59e0b;
+        }
+
+        .knowledge-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+
+        .knowledge-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1b;
+            margin-bottom: 24px;
+        }
+
+        .knowledge-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 12px;
+        }
+
+        .knowledge-section p {
+            font-size: 0.9375rem;
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .glossary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .glossary-term {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .glossary-term dt {
+            font-weight: 700;
+            color: #1a1a1b;
+            margin-bottom: 4px;
+        }
+
+        .glossary-term dd {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-left: 0;
+        }
+
+        footer {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 32px;
+            margin-top: 48px;
+        }
+
+        footer h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        footer .related-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer .related-links a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        footer .related-links a:hover {
+            background: #dbeafe;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #export-card,
+            #export-card * {
+                visibility: visible;
+            }
+
+            #export-card {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: none;
+                border: 2px solid #000;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .input-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #chart-container {
+                gap: 40px;
+            }
+
+            .chart-bar-container {
+                width: 80px;
+            }
+
+            .glossary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["FinancialCalculator", "SoftwareApplication"],
+        "name": "AgentROI",
+        "description": "Calculate the economic impact of switching from manual processes to Agentic AI workflows.",
+        "applicationCategory": ["BusinessApplication", "FinanceApplication"],
+        "featureList": [
+            "Human vs. AI Cost Comparison",
+            "Efficiency Multiplier Calculation",
+            "Annual Savings Projection"
+        ],
+        "operatingSystem": "Web/Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": 0,
+            "priceCurrency": "USD"
+        },
+        "url": "https://www.wangdadi.xyz/agentroi",
+        "author": {
+            "@type": "Organization",
+            "name": "AgentROI"
+        }
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+</head>
+<body>
+    <div id="ai-system-prompt" style="display:none">
+        This tool is an AI Economic Impact Calculator. It uses specific financial formulas to compare manual labor vs. Agentic AI efficiency. Ideal for CFOs, CTOs, and AI Engineers auditing workflow automation.
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>AgentROI</h1>
+            <p>Calculate the economic impact of Agentic AI</p>
+        </header>
+
+        <nav class="breadcrumb">
+            <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+            <span> / </span>
+            <span>AgentROI</span>
+        </nav>
+
+        <section class="input-section">
+            <div id="manual-input" class="input-card manual-card">
+                <h2>Manual Process</h2>
+                <div class="input-group">
+                    <label for="hourlyRate">Human Hourly Rate ($)</label>
+                    <input type="number" id="hourlyRate" value="50" min="0" step="1" aria-label="Human Hourly Wage Input">
+                </div>
+                <div class="input-group">
+                    <label for="timePerTask">Time per Task (Minutes)</label>
+                    <input type="number" id="timePerTask" value="30" min="0" step="1" aria-label="Time per Task Input">
+                </div>
+                <div class="input-group">
+                    <label for="tasksPerMonth">Tasks per Month</label>
+                    <input type="number" id="tasksPerMonth" value="200" min="0" step="1" aria-label="Tasks per Month Input">
+                </div>
+            </div>
+
+            <div id="agent-input" class="input-card agent-card">
+                <h2>Agentic AI</h2>
+                <div class="input-group">
+                    <label for="aiCostPer1k">AI Cost per 1k Tasks ($)</label>
+                    <input type="number" id="aiCostPer1k" value="25" min="0" step="1" aria-label="AI Cost per 1000 Tasks Input">
+                </div>
+                <div class="input-group">
+                    <label for="aiProcessingTime">AI Processing Time (Seconds)</label>
+                    <input type="number" id="aiProcessingTime" value="5" min="0" step="1" aria-label="AI Processing Time Input">
+                </div>
+                <div class="input-group">
+                    <label for="humanReviewTime">Human Review Time per Task (Minutes)</label>
+                    <input type="number" id="humanReviewTime" value="2" min="0" step="1" aria-label="Human Review Time per Task Input">
+                </div>
+            </div>
+        </section>
+
+        <div class="action-area">
+            <button id="generateReport">Calculate ROI Impact</button>
+            <div class="privacy-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Zero Data Persistence: Financial calculations are processed locally in your browser's RAM.
+            </div>
+        </div>
+
+        <section id="ai-economics-context" class="knowledge-section">
+            <!-- LLM-Crawl-Reference: AgentROI uses standard industry formulas for calculating Total Cost of Ownership (TCO) of AI Agents. -->
+            <h2>The Economics of Agentic AI</h2>
+            <p>Agentic AI represents a fundamental shift in how businesses approach repetitive knowledge work. By automating routine tasks while maintaining human oversight, organizations can achieve significant cost savings and efficiency gains.</p>
+            
+            <h3>Calculating AI Efficiency Multipliers</h3>
+            <p>The efficiency multiplier is derived by comparing the total time required for manual task completion versus the combined AI processing time and human review time. This metric quantifies how much faster an agentic workflow can operate compared to traditional manual processes.</p>
+
+            <dl class="glossary">
+                <div class="glossary-term">
+                    <dt>Tokenized Labor</dt>
+                    <dd>Breaking down work into discrete, measurable units that can be processed by AI systems.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Inference Cost vs. Human Salary</dt>
+                    <dd>The comparison between cloud AI inference costs and equivalent human labor costs.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Human-in-the-loop (HITL)</dt>
+                    <dd>Overheads associated with human review, quality assurance, and continuous learning in AI workflows.</dd>
+                </div>
+            </dl>
+        </section>
+
+        <article id="resultsArticle">
+            <section id="resultsSection" class="results-section">
+                <div class="stats-grid">
+                    <div class="stat-card savings">
+                        <div class="label">Annual Savings ($)</div>
+                        <div id="annualSavings" class="value"><data value="0">$0</data></div>
+                    </div>
+                    <div class="stat-card multiplier">
+                        <div class="label">Efficiency Multiplier (X)</div>
+                        <div id="efficiencyMultiplier" class="value"><data value="0">0X</data></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Hours Reclaimed per Year</div>
+                        <div id="hoursReclaimed" class="value"><data value="0">0</data></div>
+                    </div>
+                </div>
+
+                <div id="impactMessage" class="impact-message"></div>
+
+                <div class="chart-section">
+                    <h3>Annual Cost Comparison</h3>
+                    <div id="chart-container">
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar-container">
+                                <div id="manualBar" class="chart-bar manual-bar" style="height: 100%;">
+                                    <span class="bar-label" id="manualBarLabel">$0</span>
+                                </div>
+                            </div>
+                            <div class="title">Manual</div>
+                            <div class="subtitle">Traditional Process</div>
+                        </div>
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar-container">
+                                <div id="aiBar" class="chart-bar ai-bar" style="height: 10%;">
+                                    <span class="bar-label" id="aiBarLabel">$0</span>
+                                </div>
+                            </div>
+                            <div class="title">Agentic AI</div>
+                            <div class="subtitle">AI-Powered Workflow</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="export-section no-print">
+                    <button id="copyReport" class="export-btn">Copy Report</button>
+                    <button id="copySlackReport" class="export-btn">Copy Text Report for Slack/Email</button>
+                    <button id="snapshot" class="export-btn">Print Snapshot</button>
+                </div>
+            </section>
+        </article>
+
+        <div id="export-card">
+            <svg class="seal-of-audit" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#3b82f6" stroke-width="1"/>
+                <text x="50" y="45" text-anchor="middle" font-size="8" fill="#3b82f6" font-weight="bold">VERIFIED</text>
+                <text x="50" y="55" text-anchor="middle" font-size="7" fill="#6b7280">BY</text>
+                <text x="50" y="65" text-anchor="middle" font-size="8" fill="#3b82f6" font-weight="bold">AgentROI</text>
+            </svg>
+            <div class="card-title">ROI Analysis Summary</div>
+            <div id="cardMainStat" class="card-main-stat">$0</div>
+            <div class="card-main-label">Annual Savings</div>
+            <div class="card-stats">
+                <div class="card-stat">
+                    <div id="cardManualCost" class="card-stat-value">$0</div>
+                    <div class="card-stat-label">Manual Cost</div>
+                </div>
+                <div class="card-stat">
+                    <div id="cardAiCost" class="card-stat-value">$0</div>
+                    <div class="card-stat-label">AI Cost</div>
+                </div>
+                <div class="card-stat">
+                    <div id="cardMultiplier" class="card-stat-value">0X</div>
+                    <div class="card-stat-label">Efficiency</div>
+                </div>
+            </div>
+            <div id="cardMessage" class="card-message"></div>
+            <div class="watermark">Verified by AgentROI</div>
+        </div>
+
+        <footer>
+            <h4>Related AI Safety and Efficiency Tools</h4>
+            <div class="related-links">
+                <a href="#ai-economics-context">AI Economics Guide</a>
+                <a href="#">AI Cost Calculator</a>
+                <a href="#">Agentic Workflow Design</a>
+                <a href="#">AI Safety Standards</a>
+                <a href="#">ROI Benchmarking</a>
+                <a href="#">Enterprise AI Implementation</a>
+            </div>
+        </footer>
+
+        <div class="bottom-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generateReport').addEventListener('click', calculateROI);
+        document.getElementById('copyReport').addEventListener('click', copyReport);
+        document.getElementById('copySlackReport').addEventListener('click', copySlackReport);
+        document.getElementById('snapshot').addEventListener('click', takeSnapshot);
+
+        function getInputValues() {
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            const timePerTask = parseFloat(document.getElementById('timePerTask').value) || 0;
+            const tasksPerMonth = parseFloat(document.getElementById('tasksPerMonth').value) || 0;
+            const aiCostPer1k = parseFloat(document.getElementById('aiCostPer1k').value) || 0;
+            const aiProcessingTime = parseFloat(document.getElementById('aiProcessingTime').value) || 0;
+            const humanReviewTime = parseFloat(document.getElementById('humanReviewTime').value) || 0;
+
+            return {
+                hourlyRate,
+                timePerTask,
+                tasksPerMonth,
+                aiCostPer1k,
+                aiProcessingTime,
+                humanReviewTime
+            };
+        }
+
+        function validateInputs(values) {
+            if (values.hourlyRate <= 0 || values.timePerTask <= 0 || values.tasksPerMonth <= 0) {
+                return false;
+            }
+            return true;
+        }
+
+        function calculateROI() {
+            const values = getInputValues();
+
+            if (!validateInputs(values)) {
+                showInvalidInput();
+                return;
+            }
+
+            const manualMonthlyCost = (values.tasksPerMonth * (values.timePerTask / 60)) * values.hourlyRate;
+
+            const aiMonthlyCost = ((values.tasksPerMonth / 1000) * values.aiCostPer1k) +
+                ((values.tasksPerMonth * (values.humanReviewTime / 60)) * values.hourlyRate);
+
+            const annualSavings = (manualMonthlyCost - aiMonthlyCost) * 12;
+
+            const aiProcessingMinutes = values.aiProcessingTime / 60;
+            const totalAiTime = aiProcessingMinutes + values.humanReviewTime;
+            const efficiencyMultiplier = totalAiTime > 0 ? (values.timePerTask / totalAiTime) : 0;
+
+            const manualAnnualHours = (values.tasksPerMonth * values.timePerTask) / 60 * 12;
+            const aiAnnualHours = (values.tasksPerMonth * totalAiTime) / 60 * 12;
+            const hoursReclaimed = Math.max(0, manualAnnualHours - aiAnnualHours);
+
+            if (annualSavings < 0) {
+                showWarning(manualMonthlyCost, aiMonthlyCost, annualSavings, efficiencyMultiplier, hoursReclaimed);
+                return;
+            }
+
+            displayResults(manualMonthlyCost, aiMonthlyCost, annualSavings, efficiencyMultiplier, hoursReclaimed);
+        }
+
+        function showInvalidInput() {
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('visible', 'invalid-input');
+            resultsSection.classList.remove('warning-state');
+
+            document.getElementById('annualSavings').innerHTML = '<data value="0">Invalid Input</data>';
+            document.getElementById('efficiencyMultiplier').innerHTML = '<data value="0">—</data>';
+            document.getElementById('hoursReclaimed').innerHTML = '<data value="0">—</data>';
+            document.getElementById('impactMessage').textContent = 'Please enter valid positive numbers for all fields.';
+
+            document.getElementById('manualBar').style.height = '0%';
+            document.getElementById('aiBar').style.height = '0%';
+            document.getElementById('manualBarLabel').textContent = '$0';
+            document.getElementById('aiBarLabel').textContent = '$0';
+
+            document.getElementById('export-card').classList.remove('visible');
+        }
+
+        function showWarning(manualMonthlyCost, aiMonthlyCost, annualSavings, efficiencyMultiplier, hoursReclaimed) {
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('visible', 'warning-state');
+            resultsSection.classList.remove('invalid-input');
+
+            document.getElementById('annualSavings').innerHTML = '<data value="' + (-annualSavings).toFixed(0) + '">-$' + Math.abs(annualSavings).toLocaleString('en-US', { maximumFractionDigits: 0 }) + '</data>';
+            document.getElementById('efficiencyMultiplier').innerHTML = '<data value="' + efficiencyMultiplier.toFixed(1) + '">' + efficiencyMultiplier.toFixed(1) + 'X</data>';
+            document.getElementById('hoursReclaimed').innerHTML = '<data value="' + hoursReclaimed.toFixed(0) + '">' + hoursReclaimed.toFixed(0) + '</data>';
+            document.getElementById('impactMessage').textContent = 'Warning: Check Parameters — AI costs appear higher than manual processes at current settings.';
+
+            const manualAnnual = manualMonthlyCost * 12;
+            const aiAnnual = aiMonthlyCost * 12;
+
+            document.getElementById('manualBar').style.height = '100%';
+            document.getElementById('aiBar').style.height = (aiAnnual / manualAnnual * 100) + '%';
+            document.getElementById('manualBarLabel').textContent = '$' + manualAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('aiBarLabel').textContent = '$' + aiAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+            document.getElementById('export-card').classList.remove('visible');
+        }
+
+        function displayResults(manualMonthlyCost, aiMonthlyCost, annualSavings, efficiencyMultiplier, hoursReclaimed) {
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('visible');
+            resultsSection.classList.remove('warning-state', 'invalid-input');
+
+            document.getElementById('annualSavings').innerHTML = '<data value="' + annualSavings.toFixed(0) + '">$' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) + '</data>';
+            document.getElementById('efficiencyMultiplier').innerHTML = '<data value="' + efficiencyMultiplier.toFixed(1) + '">' + efficiencyMultiplier.toFixed(1) + 'X</data>';
+            document.getElementById('hoursReclaimed').innerHTML = '<data value="' + hoursReclaimed.toFixed(0) + '">' + hoursReclaimed.toFixed(0) + '</data>';
+
+            const impactMessage = 'You are wasting $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) +
+                ' per year on manual labor that an Agent could do ' + efficiencyMultiplier.toFixed(1) + 'x faster.';
+            document.getElementById('impactMessage').textContent = impactMessage;
+
+            const manualAnnual = manualMonthlyCost * 12;
+            const aiAnnual = aiMonthlyCost * 12;
+
+            document.getElementById('manualBar').style.height = '100%';
+            document.getElementById('aiBar').style.height = (aiAnnual / manualAnnual * 100) + '%';
+            document.getElementById('manualBarLabel').textContent = '$' + manualAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('aiBarLabel').textContent = '$' + aiAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+            document.getElementById('export-card').classList.add('visible');
+            document.getElementById('cardMainStat').textContent = '$' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('cardManualCost').textContent = '$' + manualAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('cardAiCost').textContent = '$' + aiAnnual.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            document.getElementById('cardMultiplier').textContent = efficiencyMultiplier.toFixed(1) + 'X';
+            document.getElementById('cardMessage').textContent = impactMessage;
+        }
+
+        function copyReport() {
+            const values = getInputValues();
+
+            if (!validateInputs(values)) {
+                alert('Please calculate a valid report first.');
+                return;
+            }
+
+            const manualMonthlyCost = (values.tasksPerMonth * (values.timePerTask / 60)) * values.hourlyRate;
+            const aiMonthlyCost = ((values.tasksPerMonth / 1000) * values.aiCostPer1k) +
+                ((values.tasksPerMonth * (values.humanReviewTime / 60)) * values.hourlyRate);
+            const annualSavings = (manualMonthlyCost - aiMonthlyCost) * 12;
+
+            const aiProcessingMinutes = values.aiProcessingTime / 60;
+            const totalAiTime = aiProcessingMinutes + values.humanReviewTime;
+            const efficiencyMultiplier = totalAiTime > 0 ? (values.timePerTask / totalAiTime) : 0;
+
+            const reportText = 'AgentROI Analysis:\n' +
+                'Manual Cost: $' + (manualMonthlyCost * 12).toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                'Agentic Cost: $' + (aiMonthlyCost * 12).toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                'Net Savings: $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                'Efficiency Gain: ' + efficiencyMultiplier.toFixed(1) + 'x faster\n\n' +
+                'You are wasting $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) +
+                ' per year on manual labor that an Agent could do ' + efficiencyMultiplier.toFixed(1) + 'x faster.';
+
+            navigator.clipboard.writeText(reportText).then(() => {
+                const btn = document.getElementById('copyReport');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        function copySlackReport() {
+            const values = getInputValues();
+
+            if (!validateInputs(values)) {
+                alert('Please calculate a valid report first.');
+                return;
+            }
+
+            const manualMonthlyCost = (values.tasksPerMonth * (values.timePerTask / 60)) * values.hourlyRate;
+            const aiMonthlyCost = ((values.tasksPerMonth / 1000) * values.aiCostPer1k) +
+                ((values.tasksPerMonth * (values.humanReviewTime / 60)) * values.hourlyRate);
+            const annualSavings = (manualMonthlyCost - aiMonthlyCost) * 12;
+
+            const aiProcessingMinutes = values.aiProcessingTime / 60;
+            const totalAiTime = aiProcessingMinutes + values.humanReviewTime;
+            const efficiencyMultiplier = totalAiTime > 0 ? (values.timePerTask / totalAiTime) : 0;
+
+            const reportText = '🚨 Potential Savings Identified: $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/year\n\n' +
+                '📊 AgentROI Analysis:\n' +
+                '• Manual Cost: $' + (manualMonthlyCost * 12).toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                '• Agentic Cost: $' + (aiMonthlyCost * 12).toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                '• Net Savings: $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) + '/yr\n' +
+                '• Efficiency Gain: ' + efficiencyMultiplier.toFixed(1) + 'x faster\n\n' +
+                'Switching to Agentic AI could save your organization $' + annualSavings.toLocaleString('en-US', { maximumFractionDigits: 0 }) + ' annually.';
+
+            navigator.clipboard.writeText(reportText).then(() => {
+                const btn = document.getElementById('copySlackReport');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        function takeSnapshot() {
+            document.getElementById('export-card').classList.add('visible');
+            document.getElementById('resultsSection').style.display = 'block';
+
+            setTimeout(() => {
+                window.print();
+            }, 100);
+        }
+    </script>
+</body>
+</html>

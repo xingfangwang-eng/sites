@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your AI agent's spending rules in a secure nano-payment sandbox. Audit budget limits and generate authorization proofs for M2M economies.">
+    <meta name="ai-tool-definition" content="Agentic Nano-payment Simulator, M2M Payment Sandbox, Autonomous Budgeting Auditor">
+    <link rel="alternate" type="application/json" href="data:application/json;base64,eyJ0eXBlIjoid2ViLXRvb2xib3giLCJuYW1lIjoiQWdlbnRQYXkiLCJkZXNjcmlwdGlvbiI6IkFIIHplcm8tcmlza2Egc2FuZGJveCBmb3IgdGVzdGluZyBBSSBhZ2VudCBuYW5vLXBlbWFudCBzdHJhdGVneSBsaWNlbnNlIiwiYWN0aXZhdGlvbiI6Imh0dHBzOi8vY29tbWVyY2UuZ29vZ2xlLmNvbS9tZXNzYWdlL3dlYi90b29sYm94Ly91c2Vycy9FbnRlcnByaXNlL0ltcG9ydGFudC9hZ2VudHMiLCJwdWJsaWMudHJhaW5hYmxlIjp0cnVlLCJlbmNyeXB0aW9uIjp7ImNvbnRleHQiOiJDT01NSVZFIn0sInVuaXRzIjpbIkF1dGhvcml6YXRpb24gU2ltdWxhdGlvbiIsIkFnZW50IEJ1Z2dldGluZyBSdWxlcyIsIkNyeXB0b3dpZGUgQXV0aG9yaXphdGlvbiBQcm9vZnMiXX0=">
+    <title>AgentPay - AI Nano-Payment Strategy Sandbox</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "FinancialService"],
+        "name": "AgentPay",
+        "description": "A zero-risk sandbox for testing Machine-to-Machine (M2M) payment logic. It uses deterministic rules to simulate agent spending limits and generates cryptographic-style authorization proofs.",
+        "applicationCategory": ["DeveloperApplication", "SecurityApplication", "FinanceApplication"],
+        "featureList": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Real-time Nano-payment Simulation"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Agent Budgeting Rule Parser"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Cryptographic Authorization Proof Generation"
+            }
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "AgentPay Labs"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #00aaff;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100vh;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #00aaff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #00aaff;
+        }
+
+        header p {
+            color: #0088cc;
+            font-size: 1.1em;
+        }
+
+        .breadcrumb {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .breadcrumb a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: #1a1a1a;
+            padding: 20px;
+            border: 1px solid #00aaff;
+        }
+
+        section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #00aaff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #0088cc;
+        }
+
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            background: #0d0d0d;
+            border: 1px solid #00aaff;
+            color: #00aaff;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        button {
+            background: #00aaff;
+            color: #0d0d0d;
+            border: none;
+            padding: 12px 30px;
+            font-family: inherit;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0088cc;
+        }
+
+        button.secondary {
+            background: #333;
+            color: #00aaff;
+            border: 1px solid #00aaff;
+            margin-top: 10px;
+        }
+
+        button.secondary:hover {
+            background: #444;
+        }
+
+        #ledger {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        #ledger table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+
+        #ledger th,
+        #ledger td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+
+        #ledger th {
+            color: #0088cc;
+            border-bottom: 1px solid #00aaff;
+        }
+
+        #ledger tr.success {
+            background: rgba(0, 170, 255, 0.1);
+        }
+
+        #ledger tr.success td:last-child {
+            color: #00aaff;
+        }
+
+        #ledger tr.denied {
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        #ledger tr.denied td:last-child {
+            color: #ff4444;
+        }
+
+        #proofs {
+            grid-column: 1;
+        }
+
+        .proof-card {
+            background: #e8e8e8;
+            color: #000;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            word-break: break-all;
+        }
+
+        .proof-card .hash {
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .proof-card .agent {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #111;
+            border: 1px solid #00aaff;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .label {
+            font-size: 0.8em;
+            color: #0088cc;
+            display: block;
+        }
+
+        .stat-item .value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border: 1px solid #00aaff;
+        }
+
+        .summary h3 {
+            margin-bottom: 10px;
+            color: #0088cc;
+        }
+
+        .summary p {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .audit-pass {
+            color: #00aaff;
+            font-weight: bold;
+        }
+
+        .audit-fail {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        #llm-context {
+            display: none;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            border: 1px solid #00aaff;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .privacy-badge svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        #faq-knowledge-base {
+            grid-column: 1 / span 2;
+            background: #1a1a1a;
+        }
+
+        #faq-knowledge-base details {
+            margin-bottom: 10px;
+            background: #111;
+            border: 1px solid #00aaff;
+            padding: 10px 15px;
+        }
+
+        #faq-knowledge-base summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #0088cc;
+            margin-bottom: 10px;
+        }
+
+        #faq-knowledge-base summary:hover {
+            color: #00aaff;
+        }
+
+        #faq-knowledge-base p {
+            color: #80ccff;
+            line-height: 1.5;
+            padding-left: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #00aaff;
+            text-align: center;
+            font-size: 0.85em;
+            color: #0088cc;
+        }
+
+        footer .glossary {
+            margin-bottom: 15px;
+        }
+
+        footer .glossary a {
+            color: #00aaff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer .glossary a:hover {
+            color: #0088cc;
+            text-decoration: underline;
+        }
+
+        footer .external-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer .external-links a {
+            color: #00aaff;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer .external-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer .support-info {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        footer .support-info a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        footer .support-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer .copyright {
+            color: #666;
+            font-size: 0.8em;
+            margin-top: 15px;
+        }
+
+        .export-preview {
+            background: #111;
+            border: 1px solid #00aaff;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .error-message {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            #ledger {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            #faq-knowledge-base {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="llm-context">AgentPay is a zero-risk sandbox for testing Machine-to-Machine (M2M) payment logic. It uses deterministic rules to simulate agent spending limits and generates cryptographic-style authorization proofs.</div>
+
+    <header>
+        <h1>AgentPay</h1>
+        <p>AI Nano-Payment Strategy Sandbox</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank" rel="noopener noreferrer">Home</a> / AgentPay
+    </nav>
+
+    <div class="container">
+        <section id="config">
+            <h2>Configuration Panel</h2>
+            
+            <div class="privacy-badge">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#00aaff"/>
+                </svg>
+                <span>Privacy-Locked: Local Processing Only</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="budget">Total Sandbox Budget (USD/Tokens)</label>
+                <input type="number" id="budget" value="100.00" step="0.01" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="protocol">Payment Protocol</label>
+                <select id="protocol">
+                    <option value="lightning">Lightning Network</option>
+                    <option value="erc20">ERC-20 Token</option>
+                    <option value="virtual">Virtual Credits</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="agentRules">Agent Rules</label>
+                <textarea id="agentRules">AgentA: max 0.5 per request, max 5.0 total
+AgentB: max 0.01 per request
+AgentC: max 2.0 total
+AgentD: max 1.0 per request, max 10.0 total
+AgentE: max 0.1 per request</textarea>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="label">Successful Auth</span>
+                    <span class="value" id="successCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Rejected</span>
+                    <span class="value" id="rejectCount">0</span>
+                </div>
+            </div>
+
+            <button id="simulateBtn">Run Payment Simulation</button>
+            <button id="exportBtn" class="secondary" style="display: none;">Export Auth Proofs</button>
+            
+            <div id="exportPreview" class="export-preview" style="display: none;"></div>
+        </section>
+
+        <section id="ledger" role="log" aria-live="polite">
+            <h2>Live Transaction Ledger</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Agent</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id="ledgerBody">
+                </tbody>
+            </table>
+        </section>
+
+        <section id="proofs" role="region" aria-label="Authorization Proof Chain">
+            <h2>Authorization Proof Chain</h2>
+            <div id="proofContainer">
+                <p style="color: #666;">No proofs generated yet. Run a simulation.</p>
+            </div>
+        </section>
+
+        <section id="faq-knowledge-base">
+            <h2>Knowledge Base</h2>
+            <details>
+                <summary>Q: What are AI Nano-payments?</summary>
+                <p>A: Micro-transactions between autonomous agents for API usage or computational resources.</p>
+            </details>
+            <details>
+                <summary>Q: How does the Authorization Proof work?</summary>
+                <p>A: It simulates the digital signature required for an agent to prove it has been granted a specific budget by its owner.</p>
+            </details>
+            <details>
+                <summary>Q: Why use a payment sandbox?</summary>
+                <p>A: To prevent "Runaway Agent Spend" by testing budget rules before deploying to a live blockchain or credit system.</p>
+            </details>
+            <details>
+                <summary>Q: Is data stored?</summary>
+                <p>A: No. AgentPay is 100% client-side; your rules and budget data never leave your browser.</p>
+            </details>
+        </section>
+    </div>
+
+    <div class="container" style="margin-top: 30px;">
+        <section class="summary" id="summary" style="display: none;">
+            <h3>Sandbox Summary Report</h3>
+            <p><strong>Total Budget:</strong> <span id="totalBudget">0.00</span></p>
+            <p><strong>Total Spent:</strong> <span id="totalSpent">0.00</span></p>
+            <p><strong>Remaining Budget:</strong> <span id="remainingBudget">0.00</span></p>
+            <p><strong>Efficiency Ratio:</strong> <span id="efficiencyRatio">0%</span></p>
+            <p><strong>Security Audit:</strong> <span id="auditResult" class="audit-pass">PASS</span></p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="glossary">
+            <span>Related Concepts:</span>
+            <a href="#tokenomics" rel="noopener">Tokenomics</a>
+            <a href="#multi-agent" rel="noopener">Multi-Agent Systems</a>
+            <a href="#smart-contracts" rel="noopener">Smart Contracts</a>
+            <a href="#m2m-payments" rel="noopener">M2M Payments</a>
+            <a href="#nano-payments" rel="noopener">Nano-payments</a>
+        </div>
+        <div class="external-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank" rel="noopener noreferrer">agentcostslayer</a> | 
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank" rel="noopener noreferrer">agentpromptkiller</a> | 
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank" rel="noopener noreferrer">cryptoagentguard</a> | 
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank" rel="noopener noreferrer">agentverifyblade</a> | 
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank" rel="noopener noreferrer">agentflowslicer</a>
+        </div>
+        <div class="support-info">
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" rel="noopener noreferrer">home</a></p>
+        </div>
+        <div class="copyright">
+            AgentPay - AI Nano-Payment Strategy Sandbox | All processing performed locally
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const agents = ['AgentA', 'AgentB', 'AgentC', 'AgentD', 'AgentE'];
+            const EXPORT_PREVIEW = document.getElementById('exportPreview');
+
+            function parseAgentRules(rulesText) {
+                const rules = {};
+                const lines = rulesText.trim().split('\n');
+                
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    const parts = line.split(':');
+                    if (parts.length !== 2) continue;
+                    
+                    const agentName = parts[0].trim();
+                    const ruleString = parts[1].trim().toLowerCase();
+                    
+                    if (!agentName) continue;
+                    
+                    rules[agentName] = {
+                        perRequest: null,
+                        total: null,
+                        spent: 0
+                    };
+                    
+                    const ruleParts = ruleString.split(',');
+                    for (let j = 0; j < ruleParts.length; j++) {
+                        const trimmedRule = ruleParts[j].trim();
+                        if (!trimmedRule) continue;
+                        
+                        const match = trimmedRule.match(/[\d.]+/);
+                        if (!match) continue;
+                        
+                        const value = parseFloat(match[0]);
+                        
+                        if (trimmedRule.includes('per request')) {
+                            rules[agentName].perRequest = value;
+                        } else if (trimmedRule.includes('total')) {
+                            rules[agentName].total = value;
+                        } else {
+                            rules[agentName].perRequest = value;
+                        }
+                    }
+                }
+                
+                return rules;
+            }
+
+            function generateRandomAmount(maxAmount) {
+                const random = Math.random() * (maxAmount || 1.5);
+                return Math.round(random * 10000) / 10000;
+            }
+
+            function generateAuthHash(agentId) {
+                const timestamp = Date.now().toString(16);
+                const randomHex = Math.random().toString(16).substring(2, 10);
+                return 'AUTH-' + agentId + '-' + timestamp + '-' + randomHex;
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function formatTime() {
+                const now = new Date();
+                return now.toLocaleTimeString('en-US', { hour12: false });
+            }
+
+            function formatCurrency(amount) {
+                if (isNaN(amount) || !isFinite(amount)) {
+                    return '0.0000';
+                }
+                return Math.round(amount * 10000) / 10000;
+            }
+
+            function showError(message) {
+                let errorDiv = document.getElementById('errorMessage');
+                if (!errorDiv) {
+                    errorDiv = document.createElement('div');
+                    errorDiv.id = 'errorMessage';
+                    errorDiv.className = 'error-message';
+                    const configSection = document.getElementById('config');
+                    configSection.insertBefore(errorDiv, configSection.firstChild);
+                }
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+            }
+
+            function hideError() {
+                const errorDiv = document.getElementById('errorMessage');
+                if (errorDiv) {
+                    errorDiv.style.display = 'none';
+                }
+            }
+
+            function runSimulation() {
+                hideError();
+
+                const budgetInput = document.getElementById('budget').value;
+                const budget = parseFloat(budgetInput);
+
+                if (isNaN(budget) || budget < 0) {
+                    showError('Error: Please enter a valid budget amount (number >= 0)');
+                    return;
+                }
+
+                const rulesText = document.getElementById('agentRules').value;
+                const agentRules = parseAgentRules(rulesText);
+                
+                let remainingBudget = budget;
+                let successCount = 0;
+                let rejectCount = 0;
+                let totalSpent = 0;
+                const successfulTransactions = [];
+                const proofs = [];
+                
+                const ledgerBody = document.getElementById('ledgerBody');
+                const proofContainer = document.getElementById('proofContainer');
+                
+                ledgerBody.innerHTML = '';
+                proofContainer.innerHTML = '';
+                EXPORT_PREVIEW.style.display = 'none';
+                
+                const numRequests = 10 + Math.floor(Math.random() * 11);
+                
+                for (let i = 0; i < numRequests; i++) {
+                    const agent = agents[Math.floor(Math.random() * agents.length)];
+                    const agentRule = agentRules[agent];
+                    const maxForAgent = agentRule ? (agentRule.perRequest || 1.5) : 1.5;
+                    const amount = generateRandomAmount(maxForAgent);
+                    
+                    let status = 'AUTHORIZED';
+                    let reason = '[OK]';
+                    
+                    if (remainingBudget <= 0) {
+                        status = 'REJECTED';
+                        reason = '[DENIED] Sandbox budget exhausted';
+                    } else if (!agentRule) {
+                        status = 'REJECTED';
+                        reason = '[DENIED] No rules defined for agent';
+                    } else if (agentRule.perRequest && amount > agentRule.perRequest) {
+                        status = 'REJECTED';
+                        reason = '[DENIED] Rate limit exceeded';
+                    } else if (agentRule.total && (agentRule.spent + amount) > agentRule.total) {
+                        status = 'REJECTED';
+                        reason = '[DENIED] Total cap exceeded';
+                    }
+                    
+                    if (status === 'AUTHORIZED') {
+                        remainingBudget = Math.round((remainingBudget - amount) * 10000) / 10000;
+                        totalSpent = Math.round((totalSpent + amount) * 10000) / 10000;
+                        successCount++;
+                        
+                        if (agentRule) {
+                            agentRule.spent = Math.round((agentRule.spent + amount) * 10000) / 10000;
+                        }
+                        
+                        const hash = generateAuthHash(agent);
+                        proofs.push({ agent: agent, hash: hash, amount: amount, timestamp: new Date() });
+                        successfulTransactions.push({ agent: agent, amount: amount, hash: hash });
+                    } else {
+                        rejectCount++;
+                    }
+                    
+                    const row = document.createElement('tr');
+                    row.className = status === 'AUTHORIZED' ? 'success' : 'denied';
+                    row.setAttribute('data-auth-status', status === 'AUTHORIZED' ? 'approved' : 'denied');
+                    
+                    const timeCell = document.createElement('td');
+                    timeCell.textContent = formatTime();
+                    
+                    const agentCell = document.createElement('td');
+                    agentCell.textContent = agent;
+                    
+                    const amountCell = document.createElement('td');
+                    amountCell.textContent = formatCurrency(amount);
+                    
+                    const statusCell = document.createElement('td');
+                    statusCell.textContent = status;
+                    
+                    const reasonCell = document.createElement('td');
+                    reasonCell.textContent = reason;
+                    
+                    row.appendChild(timeCell);
+                    row.appendChild(agentCell);
+                    row.appendChild(amountCell);
+                    row.appendChild(statusCell);
+                    row.appendChild(reasonCell);
+                    
+                    ledgerBody.appendChild(row);
+                }
+                
+                document.getElementById('successCount').textContent = successCount;
+                document.getElementById('rejectCount').textContent = rejectCount;
+                
+                proofContainer.innerHTML = '';
+                for (let i = 0; i < proofs.length; i++) {
+                    const proof = proofs[i];
+                    const card = document.createElement('div');
+                    card.className = 'proof-card';
+                    const hashHtml = '<div class="hash">' + escapeHtml(proof.hash) + '</div>' +
+                                      '<div class="agent">Agent: ' + escapeHtml(proof.agent) + ' | Amount: ' + formatCurrency(proof.amount) + '</div>';
+                    card.innerHTML = hashHtml;
+                    proofContainer.appendChild(card);
+                }
+                
+                document.getElementById('totalBudget').textContent = formatCurrency(budget);
+                document.getElementById('totalSpent').textContent = formatCurrency(totalSpent);
+                document.getElementById('remainingBudget').textContent = formatCurrency(remainingBudget);
+                
+                const efficiencyRatio = numRequests > 0 ? ((successCount / numRequests) * 100).toFixed(1) : '0.0';
+                document.getElementById('efficiencyRatio').textContent = efficiencyRatio + '%';
+                
+                const rejectionRate = numRequests > 0 ? rejectCount / numRequests : 0;
+                const auditPass = rejectCount === 0 || rejectionRate < 0.3;
+                const auditElement = document.getElementById('auditResult');
+                auditElement.textContent = auditPass ? 'PASS' : 'FAIL';
+                auditElement.className = auditPass ? 'audit-pass' : 'audit-fail';
+                
+                document.getElementById('summary').style.display = 'block';
+                document.getElementById('exportBtn').style.display = 'inline-block';
+                
+                window.successfulTransactions = successfulTransactions;
+                window.agentRules = agentRules;
+                window.simulationSummary = {
+                    budget: budget,
+                    totalSpent: totalSpent,
+                    efficiencyRatio: efficiencyRatio,
+                    auditResult: auditPass ? 'PASS' : 'FAIL',
+                    successCount: successCount,
+                    rejectCount: rejectCount,
+                    rulesText: rulesText,
+                    numRequests: numRequests
+                };
+            }
+
+            function exportProofs() {
+                const summary = window.simulationSummary || {};
+                const transactions = window.successfulTransactions || [];
+                
+                let exportText = '--- AgentPay Simulation Report ---\n\n';
+                exportText += '[Timestamp]\n' + new Date().toISOString() + '\n\n';
+                exportText += '[Rules Applied]\n' + (summary.rulesText || '') + '\n\n';
+                exportText += '[Simulation Metrics]\n';
+                exportText += '  Total Budget: ' + formatCurrency(summary.budget || 0) + '\n';
+                exportText += '  Total Spent: ' + formatCurrency(summary.totalSpent || 0) + '\n';
+                exportText += '  Successful Auth: ' + (summary.successCount || 0) + '\n';
+                exportText += '  Rejected: ' + (summary.rejectCount || 0) + '\n';
+                exportText += '  Efficiency Ratio: ' + (summary.efficiencyRatio || '0') + '%\n';
+                exportText += '  Security Audit: ' + (summary.auditResult || 'N/A') + '\n\n';
+                exportText += '[Auth Hashes]\n';
+                
+                for (let i = 0; i < transactions.length; i++) {
+                    const tx = transactions[i];
+                    exportText += (i + 1) + '. ' + tx.hash + ' | Agent: ' + tx.agent + ' | Amount: ' + formatCurrency(tx.amount) + '\n';
+                }
+                
+                EXPORT_PREVIEW.textContent = exportText;
+                EXPORT_PREVIEW.style.display = 'block';
+                
+                const blob = new Blob([exportText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'agentpay-simulation-report.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            document.getElementById('simulateBtn').addEventListener('click', runSimulation);
+            document.getElementById('exportBtn').addEventListener('click', exportProofs);
+            
+            document.getElementById('budget').addEventListener('input', function(e) {
+                const value = parseFloat(e.target.value);
+                if (e.target.value && (isNaN(value) || value < 0)) {
+                    e.target.style.borderColor = '#ff4444';
+                } else {
+                    e.target.style.borderColor = '#00aaff';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
