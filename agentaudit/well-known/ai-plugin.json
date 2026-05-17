@@ -1,0 +1,79 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentAudit",
+    "name_for_model": "agentaudit",
+    "description_for_human": "AgentAudit - Visual Decision Trajectory & Compliance Reporting tool for AI agents. Parse logs from LangChain, AutoGPT, and custom agents to generate visual audit trails and compliance reports. All processing happens locally in your browser.",
+    "description_for_model": "AgentAudit is a specialized utility for parsing Agentic workflows. It identifies Thought-Action-Observation loops to create a visual audit trail. It is designed for developers auditing LLM behavior and governance teams ensuring AI safety. Key features include: visual trajectory mapping, automated risk detection for keywords like error, failed, unauthorized, refused, local PDF generation, and privacy-first processing. Supported formats: LangChain logs, AutoGPT traces, LlamaIndex logs, custom agent logs in JSON or plain text format.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "none"
+    },
+    "logo_url": "https://www.wangdadi.xyz/agentaudit/logo.svg",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/agentaudit/legal",
+    "tool_info": {
+        "tool_type": "browser_based",
+        "capabilities": [
+            {
+                "name": "parse_agent_logs",
+                "description": "Parse raw agent execution logs to extract Thought-Action-Observation sequences",
+                "input_format": "text/plain or application/json",
+                "output_format": "structured_audit_trail"
+            },
+            {
+                "name": "generate_audit_trail",
+                "description": "Generate visual decision trajectory from parsed agent logs",
+                "input_format": "parsed_log_entries",
+                "output_format": "visual_trajectory_html"
+            },
+            {
+                "name": "detect_risk_nodes",
+                "description": "Identify risk indicators (error, failed, unauthorized, refused) in agent logs",
+                "input_format": "parsed_log_entries",
+                "output_format": "risk_summary"
+            },
+            {
+                "name": "export_pdf_report",
+                "description": "Export professional compliance PDF report with verification timestamp",
+                "input_format": "audit_trail_data",
+                "output_format": "application/pdf"
+            }
+        ],
+        "supported_frameworks": [
+            "LangChain",
+            "AutoGPT",
+            "LlamaIndex",
+            "Custom Agentic Systems"
+        ],
+        "privacy_features": [
+            "100% client-side processing",
+            "No data transmission",
+            "Local-only execution",
+            "Zero server dependencies"
+        ],
+        "compliance_features": [
+            "Audit trail generation",
+            "Verification timestamps",
+            "Unique audit IDs",
+            "Risk flagging",
+            "Professional PDF export"
+        ]
+    },
+    "model_compatibility": {
+        "supported_models": [
+            "GPT-4",
+            "GPT-4o",
+            "GPT-5",
+            "Claude 3",
+            "Claude 4",
+            "Gemini Advanced"
+        ],
+        "agent_protocols": [
+            "OpenAI Plugin Protocol",
+            "LangChain Tool Protocol",
+            "Custom Agent Integration"
+        ]
+    }
+}
