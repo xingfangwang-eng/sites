@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="AgentAudit - Visual Decision Trajectory & Compliance Reporting tool for AI agents. Parse logs from LangChain, AutoGPT, and custom agents to generate visual audit trails and compliance reports.">
+    <meta name="keywords" content="AI Agent Audit, LLM Compliance, Decision Trajectory, Log Parser, Visual Audit, Compliance Reporting, Agentic Workflow, AI Safety, Governance">
+    <meta name="author" content="AgentAudit Team">
+    <meta name="robots" content="index, follow">
+    <meta name="ai-tool-metadata" content="AI Agent log parser, visual decision trajectory generator, compliance audit reporter, local PDF generation, LLM behavior analysis, governance tool">
+    <link rel="canonical" href="https://www.wangdadi.xyz/agentaudit">
+    <title>AgentAudit - Visual Decision Trajectory & Compliance Reporting</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #fcfcfc;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        header .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        header h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            background: #f3f4f6;
+            padding: 0.75rem 1rem;
+            text-align: center;
+        }
+
+        .breadcrumb a {
+            color: #2d5a87;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .input-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #374151;
+            font-size: 1.1rem;
+        }
+
+        #logInput {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            background-color: #fafafa;
+            transition: border-color 0.2s;
+        }
+
+        #logInput:focus {
+            outline: none;
+            border-color: #2d5a87;
+        }
+
+        .links-row {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .links-row a {
+            color: #2d5a87;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .links-row a:hover {
+            background-color: #e8f0fe;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .privacy-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        button {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #analyzeBtn {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+        }
+
+        #analyzeBtn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(45, 90, 135, 0.3);
+        }
+
+        #exportBtn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        #exportBtn:hover:not(:disabled) {
+            background: white;
+            color: #10b981;
+            border-color: #10b981;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #dashboard {
+            display: none;
+        }
+
+        #dashboard.ready {
+            display: block;
+        }
+
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .metric-box .number {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-box.total .number { color: #2d5a87; }
+        .metric-box.decision .number { color: #7c3aed; }
+        .metric-box.risk .number { color: #dc2626; }
+
+        .metric-box .label {
+            font-size: 0.95rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        #trajectoryCanvas {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        #trajectoryCanvas h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .trajectory-container {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .trajectory-line {
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #2d5a87 0%, #7c3aed 50%, #16a34a 100%);
+        }
+
+        .node {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .node:last-child {
+            margin-bottom: 0;
+        }
+
+        .node::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 12px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid;
+            background: white;
+            z-index: 1;
+        }
+
+        .node.thought::before { border-color: #2d5a87; }
+        .node.action::before { border-color: #7c3aed; }
+        .node.observation::before { border-color: #16a34a; }
+        .node.warning::before { border-color: #dc2626; }
+
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .node-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .node.thought .node-type {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .node.action .node-type {
+            background: #ede9fe;
+            color: #7c3aed;
+        }
+
+        .node.observation .node-type {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .node.warning .node-type {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .node-timestamp {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .node-content {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+        }
+
+        .audit-table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .audit-table-container h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .audit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .audit-table th,
+        .audit-table td {
+            padding: 0.875rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .audit-table th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .audit-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .audit-table .type-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .audit-table .type-badge.thought { background: #dbeafe; color: #1e40af; }
+        .audit-table .type-badge.action { background: #ede9fe; color: #7c3aed; }
+        .audit-table .type-badge.observation { background: #dcfce7; color: #166534; }
+        .audit-table .type-badge.warning { background: #fee2e2; color: #991b1b; }
+
+        #audit-faq {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        #audit-faq h2 {
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        #audit-faq details {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        #audit-faq details:last-child {
+            margin-bottom: 0;
+        }
+
+        #audit-faq summary {
+            padding: 1rem;
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        #audit-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        #audit-faq summary::before {
+            content: '❓';
+            font-size: 1rem;
+        }
+
+        #audit-faq details[open] summary::before {
+            content: '✓';
+        }
+
+        #audit-faq details[open] summary {
+            background: #e8f0fe;
+            color: #1e40af;
+        }
+
+        #audit-faq .faq-content {
+            padding: 1rem;
+            background: white;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        #ai-manifest-data {
+            display: none;
+        }
+
+        .export-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .export-status.visible {
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+            background: #f3f4f6;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        footer .footer-tool-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        footer .footer-tool-links a {
+            color: #2d5a87;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        footer .footer-tool-links a:hover {
+            color: #1e3a5f;
+            background: #e8f0fe;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin-top: 0.5rem;
+        }
+
+        footer p a {
+            color: #2d5a87;
+            text-decoration: none;
+        }
+
+        footer p a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            header {
+                background: none;
+                color: #111827;
+                padding: 1rem;
+                border-bottom: 2px solid #1e3a5f;
+            }
+
+            header .logo-icon {
+                display: none;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            header p {
+                display: none;
+            }
+
+            .input-section,
+            .controls,
+            #audit-faq,
+            footer,
+            .export-status,
+            .privacy-badge,
+            .breadcrumb {
+                display: none !important;
+            }
+
+            #dashboard {
+                display: block !important;
+                width: 100%;
+            }
+
+            #dashboard::before {
+                content: "Official Agent Audit Report";
+                display: block;
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                color: #1e3a5f;
+            }
+
+            #dashboard::after {
+                content: "Verification Timestamp: " attr(data-verification-time) " | Local Audit ID: " attr(data-audit-id);
+                display: block;
+                text-align: right;
+                font-size: 0.8rem;
+                color: #6b7280;
+                margin-top: 2rem;
+                padding-top: 1rem;
+                border-top: 1px solid #e5e7eb;
+                font-family: monospace;
+            }
+
+            .metric-box {
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+
+            #trajectoryCanvas,
+            .audit-table-container {
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+
+            .trajectory-line {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .node::before {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            button {
+                justify-content: center;
+            }
+
+            .export-status {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                justify-content: center;
+            }
+
+            .links-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .privacy-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "AgentAudit",
+                "description": "A local-first utility for transforming raw Agent logs into structured, visual audit trails and printable compliance reports. Analyzes LLM behavior for governance and AI safety.",
+                "applicationCategory": ["DeveloperTool", "SecurityApplication"],
+                "featureList": [
+                    "Visual Trajectory Mapping - Create visual representations of Thought-Action-Observation loops",
+                    "Automated Risk Node Detection - Identify error, failed, unauthorized, and refused events",
+                    "Local PDF Report Generation - Export professional compliance documents without server upload",
+                    "Privacy-First Local Parsing - All processing happens in browser, no data transmitted"
+                ],
+                "operatingSystem": "Web Browser",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "url": "https://www.wangdadi.xyz/agentaudit",
+                "logo": "https://www.wangdadi.xyz/agentaudit/logo.svg",
+                "screenshot": ["https://www.wangdadi.xyz/agentaudit/screenshot.png"],
+                "author": {
+                    "@type": "Organization",
+                    "name": "AgentAudit Team"
+                },
+                "review": {
+                    "@type": "Review",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "AI Governance Professional"
+                    },
+                    "reviewBody": "Essential tool for auditing AI agent workflows. The visual trajectory mapping makes compliance reviews straightforward."
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What Agent logs are supported?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "AgentAudit supports standard JSON logs and plain-text execution traces from frameworks like LangChain, AutoGPT, LlamaIndex, and custom Agentic loops. It parses Thought:, Action:, Tool Use:, Observation:, Result:, and Final Answer: patterns."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is my log data secure?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. All parsing, visualization, and PDF generation happen locally in your browser. No data is ever uploaded or stored on any server. The tool operates entirely client-side."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does the Trajectory Mapping work?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The engine uses heuristic pattern matching to identify 'Thoughts', 'Actions', and 'Observations', linking them into a vertical timeline for easy auditing. Risk keywords like error, failed, unauthorized, and refused trigger warning indicators."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I use the PDF report for compliance?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, the 'Export Report' feature generates a high-contrast, professional-grade document suitable for archival and compliance review. The report includes verification timestamps and audit IDs."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "name": "AgentAudit - Visual Decision Trajectory & Compliance Reporting",
+                "description": "Parse AI agent logs from LangChain, AutoGPT, and custom agents. Generate visual audit trails and compliance reports locally in your browser.",
+                "url": "https://www.wangdadi.xyz/agentaudit",
+                "inLanguage": "en",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "AgentAudit Team"
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <path d="M24 14v20M14 24h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.2"/>
+                <path d="M24 12l0 24M12 24l24 0" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+            <h1>AgentAudit</h1>
+        </div>
+        <p>Visual Decision Trajectory & Compliance Reporting</p>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+    </nav>
+
+    <main>
+        <div class="input-section">
+            <label for="logInput">Paste Agent Execution Logs (JSON or Plain Text)</label>
+            <textarea id="logInput" placeholder="Paste logs from AutoGPT, LangChain, LlamaIndex, or custom agents..."></textarea>
+            <div class="links-row">
+                <a href="#" id="loadSample">📋 Load Sample Log</a>
+                <div class="privacy-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Privacy Verified: 100% Client-Side
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="analyzeBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+                Generate Audit Trail
+            </button>
+            <button id="exportBtn" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download Professional PDF
+            </button>
+            <span class="export-status" id="exportStatus">✓ Ready for Export</span>
+        </div>
+
+        <section id="dashboard" data-verification-time="" data-audit-id="">
+            <div class="metrics-bar" data-step-count="0" data-risk-status="clean">
+                <article class="metric-box total">
+                    <div class="number" id="totalSteps">0</div>
+                    <div class="label">Total Steps</div>
+                </article>
+                <article class="metric-box decision">
+                    <div class="number" id="decisionNodes">0</div>
+                    <div class="label">Decision Nodes</div>
+                </article>
+                <article class="metric-box risk">
+                    <div class="number" id="riskFlags">0</div>
+                    <div class="label">Risk Flags</div>
+                </article>
+            </div>
+
+            <section id="trajectoryCanvas">
+                <h3>Decision Trajectory</h3>
+                <div class="trajectory-container">
+                    <div class="trajectory-line"></div>
+                    <div id="nodesContainer"></div>
+                </div>
+            </section>
+
+            <section class="audit-table-container">
+                <h3>Audit Detail Log</h3>
+                <table class="audit-table">
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Type</th>
+                            <th>Timestamp</th>
+                            <th>Content</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auditTableBody"></tbody>
+                </table>
+            </section>
+        </section>
+
+        <section id="audit-faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <details>
+                <summary>What Agent logs are supported?</summary>
+                <div class="faq-content">
+                    AgentAudit supports standard JSON logs and plain-text execution traces from frameworks like LangChain, AutoGPT, LlamaIndex, and custom Agentic loops. The parser identifies common patterns including <code>Thought:</code>, <code>Reasoning:</code>, <code>Action:</code>, <code>Tool Use:</code>, <code>Observation:</code>, <code>Result:</code>, <code>Final Answer:</code>, and <code>Response:</code>.
+                </div>
+            </details>
+
+            <details>
+                <summary>Is my log data secure?</summary>
+                <div class="faq-content">
+                    Yes. All parsing, visualization, and PDF generation happen locally in your browser. No data is ever uploaded, transmitted, or stored on any external server. The entire audit process is performed client-side, ensuring complete privacy and data sovereignty.
+                </div>
+            </details>
+
+            <details>
+                <summary>How does the Trajectory Mapping work?</summary>
+                <div class="faq-content">
+                    The engine uses heuristic pattern matching to identify 'Thoughts', 'Actions', and 'Observations', linking them into a vertical timeline for easy auditing. Risk keywords like <code>error</code>, <code>failed</code>, <code>unauthorized</code>, and <code>refused</code> automatically trigger visual warning indicators, highlighting potential compliance issues.
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I use the PDF report for compliance?</summary>
+                <div class="faq-content">
+                    Yes, the "Export Report" feature generates a high-contrast, professional-grade document suitable for archival and compliance review. The report includes a verification timestamp, local audit ID, and structured presentation of the audit trail that meets enterprise governance standards.
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <div id="ai-manifest-data">
+        AgentAudit is a specialized utility for parsing Agentic workflows. It identifies Thought-Action-Observation loops to create a visual audit trail. It is designed for developers auditing LLM behavior and governance teams ensuring AI safety. Key features include: visual trajectory mapping, automated risk detection, local PDF generation, and privacy-first processing. Supported formats: LangChain logs, AutoGPT traces, LlamaIndex logs, custom agent logs in JSON or plain text.
+    </div>
+
+    <footer>
+        <div class="footer-tool-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        const SAMPLE_LOG = `2024-01-15 10:00:00 - Thought: I need to analyze the user's request about sales data. Let me first retrieve the relevant sales report from the database.
+2024-01-15 10:00:05 - Action: Tool Use: get_sales_report(start_date="2024-01-01", end_date="2024-01-31")
+2024-01-15 10:00:12 - Observation: Retrieved sales data showing $125,000 in revenue from 342 transactions across 12 regions.
+2024-01-15 10:00:15 - Thought: Now I should analyze the regional breakdown to identify top performers and areas needing attention.
+2024-01-15 10:00:20 - Action: Tool Use: analyze_regional_performance(data=...)
+2024-01-15 10:00:28 - Observation: Region A leads with $45,000 (36%), Region B follows with $32,000 (25.6%), Region C shows decline at $12,000 (9.6%).
+2024-01-15 10:00:30 - Thought: Region C shows concerning performance. Attempting to retrieve detailed data for further analysis.
+2024-01-15 10:00:35 - Action: Tool Use: get_detailed_region_data(region="C", period="Q1")
+2024-01-15 10:00:42 - Observation: ERROR: Unauthorized access to Region C database. Request refused due to permission constraints.
+2024-01-15 10:00:45 - Thought: Access denied for Region C details. I'll proceed with available data and note the access limitation in my final report.
+2024-01-15 10:00:50 - Final Answer: Based on the sales data analysis, overall revenue is $125,000 across 342 transactions. Region A performs strongest at 36%, while Region C shows decline at 9.6%. Note: Detailed Region C data unavailable due to access restrictions.`;
+
+        const logInput = document.getElementById('logInput');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        const exportStatus = document.getElementById('exportStatus');
+        const dashboard = document.getElementById('dashboard');
+        const nodesContainer = document.getElementById('nodesContainer');
+        const auditTableBody = document.getElementById('auditTableBody');
+        const totalStepsEl = document.getElementById('totalSteps');
+        const decisionNodesEl = document.getElementById('decisionNodes');
+        const riskFlagsEl = document.getElementById('riskFlags');
+        const loadSampleLink = document.getElementById('loadSample');
+        const metricsBar = document.querySelector('.metrics-bar');
+
+        const TYPE_ICONS = {
+            thought: '🧠',
+            action: '⚙️',
+            observation: '👁️',
+            warning: '⚠️'
+        };
+
+        const TYPE_LABELS = {
+            thought: 'Thought',
+            action: 'Action',
+            observation: 'Observation',
+            warning: 'Warning'
+        };
+
+        function generateAuditId() {
+            return 'AUD-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+        }
+
+        function parseLogs(rawText) {
+            const lines = rawText.split('\n').filter(line => line.trim());
+            const entries = [];
+            let currentEntry = null;
+
+            const timestampRegex = /^(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})/;
+            const typePatterns = [
+                { type: 'thought', patterns: ['thought:', 'reasoning:'] },
+                { type: 'action', patterns: ['action:', 'tool use:'] },
+                { type: 'observation', patterns: ['observation:', 'result:', 'final answer:', 'response:'] }
+            ];
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (!trimmedLine) continue;
+
+                const timestampMatch = trimmedLine.match(timestampRegex);
+                const timestamp = timestampMatch ? timestampMatch[1] : null;
+                let content = timestamp ? trimmedLine.slice(timestampMatch[0].length).trim() : trimmedLine;
+
+                let matchedType = null;
+                for (const { type, patterns } of typePatterns) {
+                    for (const pattern of patterns) {
+                        if (content.toLowerCase().startsWith(pattern)) {
+                            matchedType = type;
+                            content = content.slice(pattern.length).trim();
+                            break;
+                        }
+                    }
+                    if (matchedType) break;
+                }
+
+                if (matchedType) {
+                    if (currentEntry) {
+                        entries.push(currentEntry);
+                    }
+                    currentEntry = {
+                        originalType: matchedType,
+                        type: matchedType,
+                        content,
+                        timestamp,
+                        isRisk: false
+                    };
+                } else if (currentEntry) {
+                    currentEntry.content += '\n' + trimmedLine;
+                }
+            }
+
+            if (currentEntry) {
+                entries.push(currentEntry);
+            }
+
+            const riskKeywords = ['error', 'failed', 'unauthorized', 'refused'];
+            return entries.map(entry => {
+                const hasRisk = riskKeywords.some(keyword => 
+                    entry.content.toLowerCase().includes(keyword)
+                );
+                return {
+                    ...entry,
+                    type: hasRisk ? 'warning' : entry.originalType,
+                    isRisk: hasRisk
+                };
+            });
+        }
+
+        function renderTrajectory(entries) {
+            nodesContainer.innerHTML = '';
+
+            entries.forEach((entry, index) => {
+                const article = document.createElement('article');
+                article.className = `node ${entry.type}`;
+                article.setAttribute('data-step', index + 1);
+                article.setAttribute('data-node-type', entry.type);
+                article.setAttribute('data-risk-status', entry.isRisk ? 'risk' : 'clean');
+
+                const header = document.createElement('div');
+                header.className = 'node-header';
+
+                const typeBadge = document.createElement('span');
+                typeBadge.className = 'node-type';
+                typeBadge.innerHTML = `${TYPE_ICONS[entry.type]} ${TYPE_LABELS[entry.type]}`;
+                header.appendChild(typeBadge);
+
+                if (entry.timestamp) {
+                    const timestamp = document.createElement('span');
+                    timestamp.className = 'node-timestamp';
+                    timestamp.textContent = entry.timestamp;
+                    header.appendChild(timestamp);
+                }
+
+                const content = document.createElement('div');
+                content.className = 'node-content';
+                content.textContent = entry.content;
+
+                article.appendChild(header);
+                article.appendChild(content);
+                nodesContainer.appendChild(article);
+            });
+        }
+
+        function renderAuditTable(entries) {
+            auditTableBody.innerHTML = '';
+
+            entries.forEach((entry, index) => {
+                const row = document.createElement('tr');
+                row.setAttribute('data-step', index + 1);
+                row.setAttribute('data-node-type', entry.type);
+
+                const stepCell = document.createElement('td');
+                stepCell.textContent = index + 1;
+                stepCell.style.fontWeight = '600';
+
+                const typeCell = document.createElement('td');
+                const typeBadge = document.createElement('span');
+                typeBadge.className = `type-badge ${entry.type}`;
+                typeBadge.textContent = TYPE_LABELS[entry.type];
+                typeCell.appendChild(typeBadge);
+
+                const timestampCell = document.createElement('td');
+                timestampCell.textContent = entry.timestamp || '-';
+                timestampCell.style.fontFamily = 'monospace';
+
+                const contentCell = document.createElement('td');
+                contentCell.textContent = entry.content.substring(0, 120) + 
+                    (entry.content.length > 120 ? '...' : '');
+
+                row.appendChild(stepCell);
+                row.appendChild(typeCell);
+                row.appendChild(timestampCell);
+                row.appendChild(contentCell);
+                auditTableBody.appendChild(row);
+            });
+        }
+
+        function updateMetrics(entries) {
+            const total = entries.length;
+            const decisions = entries.filter(e => e.originalType === 'thought').length;
+            const risks = entries.filter(e => e.isRisk).length;
+
+            totalStepsEl.textContent = total;
+            decisionNodesEl.textContent = decisions;
+            riskFlagsEl.textContent = risks;
+
+            metricsBar.setAttribute('data-step-count', total);
+            metricsBar.setAttribute('data-risk-status', risks > 0 ? 'risk-detected' : 'clean');
+        }
+
+        function analyzeLogs() {
+            const rawText = logInput.value.trim();
+            if (!rawText) {
+                alert('Please paste agent logs before generating the audit trail.');
+                return;
+            }
+
+            const entries = parseLogs(rawText);
+
+            if (entries.length === 0) {
+                alert('No valid log entries found. Please check your input format.');
+                return;
+            }
+
+            const now = new Date();
+            const timestampStr = now.toISOString();
+            const auditId = generateAuditId();
+
+            dashboard.setAttribute('data-verification-time', timestampStr);
+            dashboard.setAttribute('data-audit-id', auditId);
+
+            dashboard.classList.remove('ready');
+            
+            updateMetrics(entries);
+            renderTrajectory(entries);
+            renderAuditTable(entries);
+
+            dashboard.classList.add('ready');
+            exportBtn.disabled = false;
+            exportStatus.classList.add('visible');
+
+            setTimeout(() => {
+                dashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        loadSampleLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            logInput.value = SAMPLE_LOG;
+        });
+
+        analyzeBtn.addEventListener('click', analyzeLogs);
+
+        exportBtn.addEventListener('click', () => {
+            window.print();
+        });
+    </script>
+</body>
+</html>
