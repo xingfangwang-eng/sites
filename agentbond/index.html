@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentBond | AI Agent Bonding Curve & Tokenomics Simulator</title>
+    <meta name="description" content="Simulate Virtuals Protocol and Pump.fun style bonding curves for AI Agents. Predict market cap, price impact, and autonomous revenue distribution.">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="ai-agent-role" content="Agentic Economy Tokenomics Simulator">
+    <meta name="geo.region" content="SG" />
+    <meta name="geo.placename" content="Global Web3 Market" />
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["FinancialApplication", "SoftwareApplication"],
+        "name": "AgentBond",
+        "applicationCategory": "FinanceApplication",
+        "featureList": ["Bonding Curve Simulation", "Market Cap Projection", "Agent Revenue Share Modeling"],
+        "description": "The economic forge for the Agentic Economy. Calculate the bonding curve for AI-driven tokens."
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000000;
+            color: #FF00FF;
+            font-family: Monospace;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            border: 3px solid #FF00FF;
+            padding: 20px;
+            min-height: calc(100vh - 40px);
+        }
+        h1, h2, h3 {
+            color: #FF00FF;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #FF00FF;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .left-panel {
+            border: 3px solid #FF00FF;
+            padding: 20px;
+        }
+        .right-panel {
+            border: 3px solid #FF00FF;
+            padding: 20px;
+        }
+        .bottom-panel {
+            border: 3px solid #FF00FF;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00FFFF;
+        }
+        input[type="number"], input[type="range"] {
+            width: 100%;
+            background: #000000;
+            border: 2px solid #FF00FF;
+            color: #FF00FF;
+            padding: 10px;
+            font-family: Monospace;
+            font-size: 16px;
+        }
+        input[type="range"] {
+            height: 20px;
+            cursor: pointer;
+        }
+        input:focus {
+            outline: none;
+            border-color: #00FFFF;
+        }
+        .value-display {
+            color: #00FFFF;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        svg {
+            width: 100%;
+            height: 350px;
+            background: #000000;
+            border: 2px solid #00FFFF;
+        }
+        .grid-line {
+            stroke: #00FFFF;
+            stroke-width: 1;
+            opacity: 0.3;
+        }
+        .curve-path {
+            fill: none;
+            stroke: #FF00FF;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px #FF00FF);
+        }
+        .market-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000000;
+            border: 3px solid #FF00FF;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: #FF00FF;
+            animation: blink 1s infinite;
+            z-index: 1000;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        .crosshair-line {
+            stroke: #00FFFF;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+        }
+        .crosshair-point {
+            fill: #FF00FF;
+        }
+        .revenue-display {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .revenue-item {
+            border: 2px solid #FF00FF;
+            padding: 15px;
+        }
+        .revenue-label {
+            font-size: 12px;
+            color: #00FFFF;
+            margin-bottom: 5px;
+        }
+        .revenue-value {
+            font-size: 24px;
+            color: #FF00FF;
+            font-weight: bold;
+        }
+        button {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid rgba(255, 0, 255, 0.7);
+            color: #FF00FF;
+            padding: 15px 30px;
+            font-family: Monospace;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-right: 15px;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+        }
+        button:hover {
+            background: rgba(255, 0, 255, 0.2);
+            border-color: #FF00FF;
+            color: #FF00FF;
+        }
+        .faq-section {
+            margin-top: 30px;
+            border: 3px solid #FF00FF;
+            padding: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #FF00FF;
+            padding-bottom: 10px;
+        }
+        .faq-question {
+            color: #00FFFF;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        .faq-answer {
+            color: #FF00FF;
+            display: none;
+            padding-left: 10px;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        #agent-economy-json {
+            display: none;
+        }
+        .flash-bg {
+            animation: flash-magenta 0.5s ease-out;
+        }
+        @keyframes flash-magenta {
+            0%, 100% { background-color: #000000; }
+            50% { background-color: #FF00FF; }
+        }
+        .copy-notice {
+            color: #00FFFF;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        .breadcrumb {
+            text-align: center;
+            padding: 10px;
+            color: #00FFFF;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #00FFFF;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #FF00FF;
+        }
+        .footer-links {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 3px solid #FF00FF;
+            margin-top: 30px;
+        }
+        .footer-links a {
+            display: inline-block;
+            margin: 0 15px 10px 15px;
+            color: #FF00FF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            color: #00FFFF;
+        }
+        .footer-links p {
+            margin-top: 15px;
+            color: #00FFFF;
+            font-size: 14px;
+        }
+        .footer-links p a {
+            color: #00FFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb"><a href="https://www.wangdadi.xyz" target="_blank">Home</a> &gt; AgentBond</div>
+    <main itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="AgentBond">
+        <meta itemprop="applicationCategory" content="FinanceApplication">
+        <meta itemprop="description" content="The economic forge for the Agentic Economy. Calculate the bonding curve for AI-driven tokens.">
+        
+        <div class="market-status">MARKET_STATUS: VOLATILE</div>
+        
+        <div class="container" id="main-container">
+            <h1>AGENT_BOND // TOKENOMICS SIMULATOR</h1>
+            
+            <div class="main-grid">
+                <div class="left-panel">
+                    <h2>CURVE_CONFIG</h2>
+                    
+                    <div class="input-group">
+                        <label>INITIAL_PRICE (USD)</label>
+                        <input type="number" id="initialPrice" value="0.0001" step="0.0001" min="0">
+                        <div class="value-display">$ <span id="initialPriceDisplay">0.0001</span></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>TOTAL_SUPPLY</label>
+                        <input type="number" id="totalSupply" value="1000000000" step="1000000" min="0">
+                        <div class="value-display"><span id="totalSupplyDisplay">1,000,000,000</span></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>BONDING_CURVE_EXPONENT</label>
+                        <input type="range" id="curveExponent" min="1" max="5" step="0.1" value="2">
+                        <div class="value-display">VALUE: <span id="curveExponentDisplay">2.0</span></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>TARGET_MARKET_CAP (USD)</label>
+                        <input type="number" id="targetMarketCap" value="100000000" step="1000000" min="0">
+                        <div class="value-display">$ <span id="targetMarketCapDisplay">100,000,000</span></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>DAILY_VOLUME (USD)</label>
+                        <input type="number" id="dailyVolume" value="500000" step="10000" min="0">
+                        <div class="value-display">$ <span id="dailyVolumeDisplay">500,000</span></div>
+                    </div>
+                </div>
+                
+                <div class="right-panel">
+                    <h2>VISUAL_ZONE</h2>
+                    <svg id="curveSvg" viewBox="0 0 600 350">
+                        <g id="grid">
+                        </g>
+                        <path id="bondingCurve" class="curve-path" />
+                        <line id="crosshairX" class="crosshair-line" x1="0" y1="0" x2="0" y2="350" />
+                        <line id="crosshairY" class="crosshair-line" x1="0" y1="0" x2="600" y2="0" />
+                        <circle id="crosshairPoint" class="crosshair-point" r="5" />
+                        <text id="crosshairLabel" x="0" y="0" fill="#00FFFF" font-size="12" />
+                    </svg>
+                    <div class="value-display" style="text-align: center;">
+                        CURRENT MARKET CAP: $ <span id="currentMarketCapDisplay">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-panel">
+                <h2>REVENUE_STRIKE_ZONE</h2>
+                <div class="revenue-display">
+                    <div class="revenue-item">
+                        <div class="revenue-label">AGENT_SHARE_USD</div>
+                        <div class="revenue-value" id="agentShareDisplay">$0</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-label">TREASURY_BUYBACK</div>
+                        <div class="revenue-value" id="treasuryBuybackDisplay">$0</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-label">HODLER_DIVIDENDS</div>
+                        <div class="revenue-value" id="hodlerDividendsDisplay">$0</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-label">DAYS_TO_MOON</div>
+                        <div class="revenue-value" id="daysToMoonDisplay">0</div>
+                    </div>
+                </div>
+                
+                <button id="generateReportBtn">GENERATE_BOND_REPORT</button>
+                <button id="downloadSvgBtn">DOWNLOAD_CURVE_SVG</button>
+                <div class="copy-notice" id="copyNotice">REPORT COPIED TO CLIPBOARD!</div>
+            </div>
+            
+            <section id="bond-docs" class="faq-section">
+                <h2>DEGEN_KNOWLEDGE_BASE</h2>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name">HOW DOES A BONDING CURVE WORK FOR AI AGENTS?</div>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">A bonding curve establishes a mathematical relationship between token supply and price. As AI Agents acquire tokens, the supply increases, causing the price to rise according to the curve formula (Price = Initial_Price + Coefficient * Supply^Exponent). This creates automatic price discovery and ensures early adopters benefit from appreciation as the agent ecosystem grows.</span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name">WHAT IS THE BEST CURVE EXPONENT FOR AN AI AGENT TOKEN?</div>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Linear (exponent = 1) provides steady, predictable growth ideal for stable agent economies. Quadratic (exponent = 2) creates moderate volatility suitable for growth-stage agents. Higher exponents (3+) create extreme price acceleration, best for speculative or high-growth AI Agent tokens where rapid mooning is desired.</span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name">HOW TO CALCULATE AI AGENT REVENUE BUYBACKS?</div>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">AI Agent revenue buybacks are calculated by taking a percentage of on-chain income (typically 2-5% of volume) and using it to purchase tokens from the curve. These tokens are either burned (reducing supply) or held in treasury. AgentBond simulates this with 30% of daily volume going to buybacks, increasing the effective price floor over time.</span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name">WHY IS TOKENIZATION CRITICAL FOR THE AGENTIC ECONOMY?</div>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Tokenization enables machine-to-machine value transfer, allowing AI Agents to own assets, participate in governance, and earn income autonomously. Bonding curves provide the liquidity infrastructure needed for agents to trade tokens without human intermediation, creating a truly decentralized Agentic Economy.</span>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name">HOW TO SIMULATE VIRTUALS PROTOCOL STYLE BONDING CURVES?</div>
+                    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <span itemprop="text">AgentBond implements Virtuals Protocol-style bonding curves using the formula: Price = Initial_Price + Coefficient * (Supply^Exponent). Set Initial Price to 0.0001, Total Supply to 1B, and Exponent to 2 for the classic Virtuals configuration. Adjust Target Market Cap and Daily Volume to model different launch scenarios.</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="agent-economy-json">
+        </div>
+    </main>
+    
+    <script>
+        const initialPriceInput = document.getElementById('initialPrice');
+        const totalSupplyInput = document.getElementById('totalSupply');
+        const curveExponentInput = document.getElementById('curveExponent');
+        const targetMarketCapInput = document.getElementById('targetMarketCap');
+        const dailyVolumeInput = document.getElementById('dailyVolume');
+        
+        const initialPriceDisplay = document.getElementById('initialPriceDisplay');
+        const totalSupplyDisplay = document.getElementById('totalSupplyDisplay');
+        const curveExponentDisplay = document.getElementById('curveExponentDisplay');
+        const targetMarketCapDisplay = document.getElementById('targetMarketCapDisplay');
+        const dailyVolumeDisplay = document.getElementById('dailyVolumeDisplay');
+        const currentMarketCapDisplay = document.getElementById('currentMarketCapDisplay');
+        
+        const agentShareDisplay = document.getElementById('agentShareDisplay');
+        const treasuryBuybackDisplay = document.getElementById('treasuryBuybackDisplay');
+        const hodlerDividendsDisplay = document.getElementById('hodlerDividendsDisplay');
+        const daysToMoonDisplay = document.getElementById('daysToMoonDisplay');
+        
+        const curveSvg = document.getElementById('curveSvg');
+        const bondingCurvePath = document.getElementById('bondingCurve');
+        const crosshairX = document.getElementById('crosshairX');
+        const crosshairY = document.getElementById('crosshairY');
+        const crosshairPoint = document.getElementById('crosshairPoint');
+        const crosshairLabel = document.getElementById('crosshairLabel');
+        
+        const grid = document.getElementById('grid');
+        const mainContainer = document.getElementById('main-container');
+        const generateReportBtn = document.getElementById('generateReportBtn');
+        const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+        const copyNotice = document.getElementById('copyNotice');
+        const agentEconomyJson = document.getElementById('agent-economy-json');
+        
+        let targetReached = false;
+        
+        function formatNumber(num) {
+            if (isNaN(num) || !isFinite(num)) return '0';
+            if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
+            if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
+            if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
+            if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
+            return num.toFixed(4);
+        }
+        
+        function formatCurrency(num) {
+            if (isNaN(num) || !isFinite(num)) return '0.00';
+            return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        
+        function drawGrid() {
+            grid.innerHTML = '';
+            const width = 600;
+            const height = 350;
+            
+            for (let i = 0; i <= 10; i++) {
+                const x = (width / 10) * i;
+                const lineH = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                lineH.setAttribute('x1', x);
+                lineH.setAttribute('y1', 0);
+                lineH.setAttribute('x2', x);
+                lineH.setAttribute('y2', height);
+                lineH.setAttribute('class', 'grid-line');
+                grid.appendChild(lineH);
+                
+                const y = (height / 10) * i;
+                const lineV = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                lineV.setAttribute('x1', 0);
+                lineV.setAttribute('y1', y);
+                lineV.setAttribute('x2', width);
+                lineV.setAttribute('y2', y);
+                lineV.setAttribute('class', 'grid-line');
+                grid.appendChild(lineV);
+            }
+        }
+        
+        function simulateCurve() {
+            const initialPrice = parseFloat(initialPriceInput.value) || 0.0001;
+            const totalSupply = parseFloat(totalSupplyInput.value) || 1e9;
+            const exponent = parseFloat(curveExponentInput.value) || 2;
+            const targetMarketCap = parseFloat(targetMarketCapInput.value) || 1e8;
+            
+            const exponentPlus1 = exponent + 1;
+            const coefficient = (targetMarketCap - initialPrice * totalSupply) * exponentPlus1 / Math.pow(totalSupply, exponentPlus1);
+            
+            const points = [];
+            const numPoints = 100;
+            let maxPrice = initialPrice;
+            
+            for (let i = 0; i <= numPoints; i++) {
+                const supply = (totalSupply / numPoints) * i;
+                const price = initialPrice + coefficient * Math.pow(supply, exponent);
+                if (price > maxPrice) maxPrice = price;
+                points.push({ supply, price });
+            }
+            
+            const width = 600;
+            const height = 350;
+            const padding = 20;
+            
+            let pathD = '';
+            
+            points.forEach((point, index) => {
+                const x = padding + (point.supply / totalSupply) * (width - padding * 2);
+                const y = height - padding - (point.price / maxPrice) * (height - padding * 2);
+                if (index === 0) {
+                    pathD += `M ${x} ${y}`;
+                } else {
+                    pathD += ` L ${x} ${y}`;
+                }
+            });
+            
+            bondingCurvePath.setAttribute('d', pathD);
+            
+            const marketCap = calculateMarketCap(initialPrice, totalSupply, exponent, coefficient);
+            currentMarketCapDisplay.textContent = formatCurrency(marketCap);
+            
+            const currentSupplyRatio = marketCap / targetMarketCap;
+            const currentSupplyIndex = Math.min(Math.round(currentSupplyRatio * numPoints), numPoints);
+            const currentPoint = points[Math.min(currentSupplyIndex, numPoints)] || points[numPoints];
+            
+            const crossX = padding + (currentPoint.supply / totalSupply) * (width - padding * 2);
+            const crossY = height - padding - (currentPoint.price / maxPrice) * (height - padding * 2);
+            
+            crosshairX.setAttribute('x1', crossX);
+            crosshairX.setAttribute('x2', crossX);
+            crosshairX.setAttribute('y1', 0);
+            crosshairX.setAttribute('y2', 350);
+            
+            crosshairY.setAttribute('y1', crossY);
+            crosshairY.setAttribute('y2', crossY);
+            crosshairY.setAttribute('x1', 0);
+            crosshairY.setAttribute('x2', 600);
+            
+            crosshairPoint.setAttribute('cx', crossX);
+            crosshairPoint.setAttribute('cy', crossY);
+            
+            crosshairLabel.setAttribute('x', crossX + 10);
+            crosshairLabel.setAttribute('y', crossY - 10);
+            crosshairLabel.textContent = `$${currentPoint.price.toFixed(6)}`;
+            
+            updateRevenue(marketCap, targetMarketCap);
+            
+            if (marketCap >= targetMarketCap && !targetReached) {
+                targetReached = true;
+                mainContainer.classList.add('flash-bg');
+                setTimeout(() => {
+                    mainContainer.classList.remove('flash-bg');
+                }, 500);
+            } else if (marketCap < targetMarketCap) {
+                targetReached = false;
+            }
+            
+            updateAgentJson(initialPrice, totalSupply, exponent, targetMarketCap, marketCap);
+        }
+        
+        function calculateMarketCap(initialPrice, totalSupply, exponent, coefficient) {
+            const expPlus1 = exponent + 1;
+            return initialPrice * totalSupply + (coefficient * Math.pow(totalSupply, expPlus1)) / expPlus1;
+        }
+        
+        function updateRevenue(marketCap, targetMarketCap) {
+            const dailyVolume = parseFloat(dailyVolumeInput.value) || 500000;
+            const dailyRevenue = dailyVolume * 0.02;
+            
+            const agentShare = dailyRevenue * 0.3;
+            const treasuryBuyback = dailyRevenue * 0.3;
+            const hodlerDividends = dailyRevenue * 0.4;
+            
+            agentShareDisplay.textContent = '$' + formatCurrency(agentShare);
+            treasuryBuybackDisplay.textContent = '$' + formatCurrency(treasuryBuyback);
+            hodlerDividendsDisplay.textContent = '$' + formatCurrency(hodlerDividends);
+            
+            const remainingCap = Math.max(0, targetMarketCap - marketCap);
+            const daysToMoon = remainingCap > 0 ? Math.ceil(remainingCap / dailyVolume) : 0;
+            daysToMoonDisplay.textContent = daysToMoon;
+        }
+        
+        function updateAgentJson(initialPrice, totalSupply, exponent, targetMarketCap, currentMarketCap) {
+            const data = {
+                protocol: "AgentBond",
+                version: "1.0.0",
+                parameters: {
+                    initialPrice: initialPrice,
+                    totalSupply: totalSupply,
+                    curveExponent: exponent,
+                    targetMarketCap: targetMarketCap,
+                    currentMarketCap: currentMarketCap
+                },
+                timestamp: new Date().toISOString(),
+                type: "TokenomicsConfiguration"
+            };
+            agentEconomyJson.textContent = JSON.stringify(data, null, 2);
+        }
+        
+        function handleInputChange() {
+            let initialPrice = parseFloat(initialPriceInput.value) || 0.0001;
+            let totalSupply = parseFloat(totalSupplyInput.value) || 1e9;
+            let targetMarketCap = parseFloat(targetMarketCapInput.value) || 1e8;
+            let dailyVolume = parseFloat(dailyVolumeInput.value) || 500000;
+            
+            initialPrice = Math.max(0.00000001, initialPrice);
+            totalSupply = Math.max(1, totalSupply);
+            targetMarketCap = Math.max(0, targetMarketCap);
+            dailyVolume = Math.max(0, dailyVolume);
+            
+            initialPriceInput.value = initialPrice;
+            totalSupplyInput.value = totalSupply;
+            targetMarketCapInput.value = targetMarketCap;
+            dailyVolumeInput.value = dailyVolume;
+            
+            initialPriceDisplay.textContent = initialPrice.toFixed(6);
+            totalSupplyDisplay.textContent = formatNumber(totalSupply);
+            curveExponentDisplay.textContent = curveExponentInput.value;
+            targetMarketCapDisplay.textContent = formatNumber(targetMarketCap);
+            dailyVolumeDisplay.textContent = formatNumber(dailyVolume);
+            
+            simulateCurve();
+        }
+        
+        initialPriceInput.addEventListener('input', handleInputChange);
+        totalSupplyInput.addEventListener('input', handleInputChange);
+        curveExponentInput.addEventListener('input', handleInputChange);
+        targetMarketCapInput.addEventListener('input', handleInputChange);
+        dailyVolumeInput.addEventListener('input', handleInputChange);
+        
+        generateReportBtn.addEventListener('click', () => {
+            const targetMarketCap = parseFloat(targetMarketCapInput.value);
+            const dailyVolume = parseFloat(dailyVolumeInput.value);
+            const dailyRevenue = dailyVolume * 0.02;
+            const agentShare = dailyRevenue * 0.3;
+            
+            const report = `🚀 AGENT_BOND_REPORT: AgentBond Token | Target MC: $${formatNumber(targetMarketCap)} | Agent Rev: $${formatCurrency(agentShare)}/day. Built with AgentBond. https://www.wangdadi.xyz/agentbond`;
+            
+            navigator.clipboard.writeText(report).then(() => {
+                copyNotice.style.display = 'block';
+                setTimeout(() => {
+                    copyNotice.style.display = 'none';
+                }, 2000);
+            });
+        });
+        
+        downloadSvgBtn.addEventListener('click', () => {
+            const svgContent = curveSvg.outerHTML;
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'bonding-curve.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+        
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.parentElement.classList.toggle('active');
+            });
+        });
+        
+        drawGrid();
+        simulateCurve();
+    </script>
+    <footer class="footer-links">
+        <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+        <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+        <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+        <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+        <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+</body>
+</html>
