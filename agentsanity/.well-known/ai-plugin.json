@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentSanity DeFAI Risk Scanner",
+    "name_for_model": "AgentSanity_Risk_Scanner",
+    "description_for_human": "Security Audit Tool for DeFAI Agents - Heuristic-based smart contract risk assessment platform",
+    "description_for_model": "A specialized tool for scanning and auditing the security of AI Agent smart contracts. It identifies autonomy risks, ownership vulnerabilities, and potential exit-scam patterns by analyzing contract address heuristics.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/agentsanity/.well-known/openapi.yaml"
+    },
+    "logo_url": "",
+    "contact_email": "security@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/agentsanity"
+}

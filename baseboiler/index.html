@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASE_BOILER // AGENT_FORGE</title>
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="ai-agent-role" content="Source Code Generator for Base Chain Agents">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Base Ecosystem">
+    <meta property="og:title" content="BaseBoiler | Instant Base Agent Forge">
+    <meta property="og:description" content="Zero-config AI Agent source code generator for Base L2.">
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BaseBoiler",
+        "applicationCategory": "DeveloperApplication",
+        "programmingLanguage": ["Python", "JavaScript"],
+        "runtimePlatform": ["Base Chain", "Node.js"],
+        "description": "Automated forge for Base Chain AI Agents with zero-dependency execution."
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000; 
+            color: #FFFF00; 
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border: 3px solid #00FF00;
+            background: #000;
+            color: #00FF00;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            z-index: 100;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        .breadcrumb {
+            padding: 10px 0;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .breadcrumb a {
+            color: #00FFFF;
+            text-decoration: none;
+            border-bottom: 1px solid #00FFFF;
+        }
+        .breadcrumb a:hover {
+            background: #00FFFF;
+            color: #000;
+        }
+        header {
+            border: 3px solid #FFFF00;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5em; letter-spacing: 0.1em; text-transform: uppercase; }
+        .block {
+            border: 3px solid #FFFF00;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .block h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FFFF00;
+            text-transform: uppercase;
+        }
+        #TEMPLATE_SELECT button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #000;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+            font-family: inherit;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        #TEMPLATE_SELECT button:hover, #TEMPLATE_SELECT button.active {
+            background: #FFFF00;
+            color: #000;
+        }
+        #CONFIG_BAY label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        #CONFIG_BAY input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #111;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        #CONFIG_BAY input:focus { outline: none; border-color: #00FF00; }
+        #STRIKE_ZONE { background: #111; }
+        #codeDisplay {
+            background: #000;
+            border: 3px solid #FFFF00;
+            padding: 15px;
+            min-height: 350px;
+            white-space: pre-wrap;
+            font-size: 0.85em;
+            color: #00FF00;
+            margin-bottom: 15px;
+        }
+        #STRIKE_ZONE button {
+            padding: 12px 30px;
+            background: #FFFF00;
+            color: #000;
+            border: 3px solid #FFFF00;
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        #STRIKE_ZONE button:hover {
+            background: #000;
+            color: #FFFF00;
+        }
+        #STRIKE_ZONE button.done { background: #00FF00; color: #000; border-color: #00FF00; }
+        #terminal-docs {
+            background: #111;
+            border: 3px solid #FFFF00;
+            padding: 20px;
+        }
+        #terminal-docs h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FFFF00;
+            text-transform: uppercase;
+            color: #00FF00;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+            border-left: 3px solid #FF6600;
+            padding-left: 15px;
+        }
+        .faq-item:last-child { margin-bottom: 0; }
+        .faq-item h3 {
+            color: #FFFF00;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+        .faq-item p { color: #CCC; font-size: 0.9em; line-height: 1.7; }
+        .faq-item code { background: #000; padding: 2px 6px; border: 1px solid #FFFF00; color: #00FF00; }
+        .dfn { color: #00FFFF; font-weight: bold; }
+        .deploy-report {
+            background: #000;
+            border: 2px solid #00FF00;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #00FF00;
+        }
+        .explorer-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #00FF00;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #00FF00;
+        }
+        .explorer-link:hover { background: #000; color: #00FF00; }
+        .footer-links {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 30px;
+            border-top: 3px solid #FFFF00;
+        }
+        .footer-links a {
+            color: #00FFFF;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #00FFFF;
+        }
+        .footer-links a:hover {
+            background: #00FFFF;
+            color: #000;
+        }
+        .footer-links p {
+            margin-top: 20px;
+            color: #CCC;
+            font-size: 0.85em;
+        }
+        .footer-links p a {
+            color: #FFFF00;
+        }
+        @media (min-width: 768px) {
+            .layout { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+            #STRIKE_ZONE { grid-column: 1 / -1; }
+            #terminal-docs { grid-column: 1 / -1; }
+        }
+        @media (max-width: 768px) {
+            .status-indicator { position: relative; top: auto; right: auto; margin-bottom: 15px; }
+            header h1 { font-size: 1.8em; }
+            .footer-links a { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="https://www.wangdadi.xyz">← Home</a>
+    </div>
+    
+    <div class="status-indicator">STATUS: READY_TO_FORGE</div>
+    
+    <header>
+        <h1>BASE_BOILER // AGENT_FORGE</h1>
+        <p>GENERATE READY-TO-RUN <span class="dfn">BASE L2</span> AI AGENTS</p>
+    </header>
+
+    <main itemscope itemtype="https://schema.org/WebApplication" class="layout">
+        <div id="TEMPLATE_SELECT" class="block">
+            <h2>TEMPLATE_SELECT</h2>
+            <button id="template-autotrader">Auto-Trader</button>
+            <button id="template-sentiment">Sentiment-Bot</button>
+            <button id="template-gaswatcher">Gas-Watcher</button>
+        </div>
+
+        <div id="CONFIG_BAY" class="block">
+            <h2>CONFIG_BAY</h2>
+            <label>AGENT_NAME</label>
+            <input type="text" id="agentName" value="base_agent_001">
+            <label>BASE_RPC_URL</label>
+            <input type="text" id="rpcUrl" value="https://mainnet.base.org">
+            <label>TARGET_CONTRACT</label>
+            <input type="text" id="contractAddress" value="0x1234567890abcdef1234567890abcdef12345678">
+        </div>
+
+        <div id="STRIKE_ZONE" class="block">
+            <h2>STRIKE_ZONE</h2>
+            <pre id="codeDisplay">SYSTEM_IDLE: SELECT_A_MODULE</pre>
+            <button id="copyBtn" onclick="copySource()">COPY_SOURCE</button>
+            <button onclick="downloadCode()">DOWNLOAD_SH</button>
+            <button onclick="generateDeployReport()">DEPLOY_READY_REPORT</button>
+            <div id="deployReportArea"></div>
+            <a href="https://basescan.org" target="_blank" class="explorer-link">VERIFY_ON_BASESCAN</a>
+        </div>
+
+        <div id="terminal-docs">
+            <h2>SYSTEM_INFO // TERMINAL_DOCS</h2>
+            
+            <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                <h3 itemprop="name">How to deploy an AI Agent on Base Chain?</h3>
+                <p itemprop="acceptedAnswer">Deploying an <span class="dfn">On-chain Agent</span> on Base is simple: 1) Select a template from TEMPLATE_SELECT, 2) Configure AGENT_NAME, RPC_URL, TARGET_CONTRACT, 3) Click DOWNLOAD_SH to get the source file, 4) Install dependencies with <code>pip install web3 python-dotenv</code>, 5) Run with <code>python main.py</code>.</p>
+            </div>
+
+            <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                <h3 itemprop="name">What are the gas fees for Agents on Base?</h3>
+                <p itemprop="acceptedAnswer">Base offers industry-leading low gas fees, typically 90% cheaper than Ethereum Mainnet. For typical agent operations, fees range from $0.001-$0.01 USD.</p>
+            </div>
+
+            <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Are these Base Agent templates secure?</h3>
+                <p itemprop="acceptedAnswer">Yes. All templates are zero-dependency and execute locally. Private keys are never transmitted - loaded from environment variables via <code>os.getenv()</code>. Code is transparent and auditable.</p>
+            </div>
+
+            <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                <h3 itemprop="name">Does BaseBoiler support Coinbase Smart Wallet?</h3>
+                <p itemprop="acceptedAnswer">Absolutely. Generated templates work seamlessly with <span class="dfn">Coinbase Smart Wallet</span> and other smart contract wallets using standard web3.py patterns.</p>
+            </div>
+
+            <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                <h3 itemprop="name">How to integrate LLM providers with Base Agents?</h3>
+                <p itemprop="acceptedAnswer">Add API calls to OpenAI/Anthropic within the agent loop. The Sentiment-Bot template demonstrates this pattern with a mock LLM analyzer.</p>
+            </div>
+        </div>
+
+        <div id="machine-port" style="display:none;">
+            <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"BaseBoiler Generated Agent","codeLanguage":"Python","runtimePlatform":"Base Chain"}</script>
+        </div>
+    </main>
+
+    <div class="footer-links">
+        <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+        <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+        <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+        <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+        <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </div>
+
+    <script>
+        const TEMPLATES = {
+            autotrader: `#!/usr/bin/env python3\n# BASE CHAIN AUTO-TRADER AGENT\nimport os\nimport time\nfrom web3 import Web3\n\nAGENT_NAME = "${AGENT_NAME}"\nRPC_URL = "${RPC_URL}"\nTARGET_CONTRACT = "${TARGET_CONTRACT}"\nPRIVATE_KEY = os.getenv("PRIVATE_KEY")\n\nw3 = Web3(Web3.HTTPProvider(RPC_URL))\nassert w3.is_connected(), "Failed to connect to Base"\n\ndef execute_swap(amount_in, min_amount_out):\n    try:\n        account = w3.eth.account.from_key(PRIVATE_KEY)\n        nonce = w3.eth.get_transaction_count(account.address)\n        tx = {'to': TARGET_CONTRACT, 'value': w3.to_wei(amount_in, 'ether'), 'gas': 200000, 'gasPrice': w3.to_wei('1', 'gwei'), 'nonce': nonce, 'chainId': 8453}\n        signed_tx = w3.eth.account.sign_transaction(tx, PRIVATE_KEY)\n        tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)\n        receipt = w3.eth.wait_for_transaction_receipt(tx_hash)\n        print(f"[SUCCESS] Swap executed: {tx_hash.hex()}")\n        return receipt\n    except Exception as e:\n        print(f"[ERROR] Swap failed: {str(e)}")\n        return None\n\ndef main():\n    print(f"[INIT] {AGENT_NAME} started on Base Chain")\n    while True:\n        print("[MONITOR] Scanning market...")\n        time.sleep(60)\n\nif __name__ == "__main__":\n    main()`,
+
+            sentiment: `#!/usr/bin/env python3\n# BASE CHAIN SENTIMENT MONITOR\nimport os\nimport time\n\nAGENT_NAME = "${AGENT_NAME}"\n\ndef analyze_sentiment(text):\n    positive = ['bullish', 'buy', 'up', 'good']\n    negative = ['bearish', 'sell', 'down', 'bad']\n    score = sum(1 for w in positive if w in text.lower()) - sum(1 for w in negative if w in text.lower())\n    return score\n\ndef scan_tweets():\n    return [\n        "Just deployed my AI agent on Base! Gas is super cheap!",\n        "Base Chain is the future of AI + DeFi",\n        "Watch out for new projects launching on Base"\n    ]\n\ndef main():\n    print(f"[INIT] {AGENT_NAME} Sentiment Bot activated")\n    while True:\n        for tweet in scan_tweets():\n            sentiment = analyze_sentiment(tweet)\n            if sentiment >= 2:\n                print(f"[BULLISH] {tweet}")\n            elif sentiment <= -2:\n                print(f"[BEARISH] {tweet}")\n        time.sleep(300)\n\nif __name__ == "__main__":\n    main()`,
+
+            gaswatcher: `#!/usr/bin/env python3\n# BASE CHAIN GAS WATCHER\nimport os\nimport time\nfrom web3 import Web3\n\nAGENT_NAME = "${AGENT_NAME}"\nRPC_URL = "${RPC_URL}"\nGAS_THRESHOLD_GWEI = 5\n\nw3 = Web3(Web3.HTTPProvider(RPC_URL))\n\ndef get_gas_price():\n    try:\n        return w3.from_wei(w3.eth.gas_price, 'gwei')\n    except Exception as e:\n        print(f"[ERROR] Failed to get gas: {str(e)}")\n        return None\n\ndef main():\n    print(f"[INIT] {AGENT_NAME} Gas Watcher started")\n    while True:\n        gas = get_gas_price()\n        if gas is not None:\n            print(f"[MONITOR] Current gas: {gas:.2f} GWEI")\n            if gas < GAS_THRESHOLD_GWEI:\n                print(f"[ALERT] Gas dropped to {gas:.2f} GWEI")\n        time.sleep(15)\n\nif __name__ == "__main__":\n    main()`
+        };
+
+        const TEMPLATE_NAMES = {autotrader: "Auto-Trader", sentiment: "Sentiment-Bot", gaswatcher: "Gas-Watcher"};
+        const DOM = {
+            codeDisplay: null,
+            copyBtn: null,
+            agentName: null,
+            rpcUrl: null,
+            contractAddr: null,
+            deployReportArea: null
+        };
+        let currentTemplate = null;
+
+        function sanitizeFileName(name) {
+            return name.replace(/[<>:"/\\|?*]/g, '_').substring(0, 100) || 'base_agent';
+        }
+
+        function isValidAddress(addr) {
+            return /^0x[a-fA-F0-9]{40}$/.test(addr);
+        }
+
+        function isValidUrl(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        function forgeAgent() {
+            if (!DOM.codeDisplay) initDOM();
+            
+            let agentName = DOM.agentName.value.trim();
+            let rpcUrl = DOM.rpcUrl.value.trim();
+            let contractAddr = DOM.contractAddr.value.trim();
+
+            if (!agentName) agentName = 'base_agent';
+            if (!rpcUrl) rpcUrl = 'https://mainnet.base.org';
+            if (!contractAddr) contractAddr = '0x0000000000000000000000000000000000000000';
+
+            if (!currentTemplate) {
+                DOM.codeDisplay.textContent = 'SYSTEM_IDLE: SELECT_A_MODULE';
+                DOM.codeDisplay.style.color = '#FFFF00';
+                return;
+            }
+
+            let code = TEMPLATES[currentTemplate];
+            code = code.replace(/\$\{AGENT_NAME\}/g, agentName.replace(/\$|`/g, ''));
+            code = code.replace(/\$\{RPC_URL\}/g, rpcUrl);
+            code = code.replace(/\$\{TARGET_CONTRACT\}/g, contractAddr);
+            DOM.codeDisplay.textContent = code;
+            DOM.codeDisplay.style.color = '#00FF00';
+        }
+
+        function selectTemplate(templateId) {
+            if (!DOM.codeDisplay) initDOM();
+            document.querySelectorAll('#TEMPLATE_SELECT button').forEach(btn => btn.classList.remove('active'));
+            currentTemplate = currentTemplate === templateId ? null : templateId;
+            if (currentTemplate) document.getElementById('template-' + currentTemplate).classList.add('active');
+            forgeAgent();
+        }
+
+        function copySource() {
+            if (!DOM.codeDisplay) initDOM();
+            const code = DOM.codeDisplay.textContent;
+            if (code === 'SYSTEM_IDLE: SELECT_A_MODULE') { alert('ERROR: SELECT_A_TEMPLATE_FIRST'); return; }
+            navigator.clipboard.writeText(code).then(() => {
+                DOM.copyBtn.textContent = 'DONE';
+                DOM.copyBtn.classList.add('done');
+                setTimeout(() => { DOM.copyBtn.textContent = 'COPY_SOURCE'; DOM.copyBtn.classList.remove('done'); }, 1000);
+            }).catch(err => {
+                alert('COPY FAILED: ' + (err.message || 'Unknown error'));
+            });
+        }
+
+        function downloadCode() {
+            if (!DOM.codeDisplay) initDOM();
+            const agentName = sanitizeFileName(DOM.agentName.value.trim());
+            const code = DOM.codeDisplay.textContent;
+            if (code === 'SYSTEM_IDLE: SELECT_A_MODULE') { alert('ERROR: SELECT_A_TEMPLATE_FIRST'); return; }
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = agentName + '.py';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function generateDeployReport() {
+            if (!DOM.codeDisplay) initDOM();
+            const agentName = sanitizeFileName(DOM.agentName.value.trim());
+            const templateName = currentTemplate ? TEMPLATE_NAMES[currentTemplate] : 'Not Selected';
+            if (!currentTemplate) { alert('ERROR: SELECT_A_TEMPLATE_FIRST'); return; }
+            const report = ' BASE AGENT READY: ' + agentName + '\n========================================\nTEMPLATE: ' + templateName + '\nNETWORK: Base Mainnet\nSTATUS: DEPLOYMENT_READY\n\nBuilt with BaseBoiler\nhttps://www.wangdadi.xyz/baseboiler\n----------------------------------------\n\nDEPLOYMENT STEPS:\n1. Install: pip install web3 python-dotenv\n2. Save as: ' + agentName + '.py\n3. Run: python ' + agentName + '.py\n\nVERIFY: https://basescan.org';
+            navigator.clipboard.writeText(report).then(() => {
+                DOM.deployReportArea.innerHTML = '<div class="deploy-report">' + report.replace(/\n/g, '<br>') + '</div>';
+                alert('DEPLOYMENT_MANIFEST_COPIED');
+            }).catch(err => {
+                alert('COPY FAILED: ' + (err.message || 'Unknown error'));
+            });
+        }
+
+        function initDOM() {
+            DOM.codeDisplay = document.getElementById('codeDisplay');
+            DOM.copyBtn = document.getElementById('copyBtn');
+            DOM.agentName = document.getElementById('agentName');
+            DOM.rpcUrl = document.getElementById('rpcUrl');
+            DOM.contractAddr = document.getElementById('contractAddress');
+            DOM.deployReportArea = document.getElementById('deployReportArea');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initDOM();
+            document.getElementById('template-autotrader').onclick = () => selectTemplate('autotrader');
+            document.getElementById('template-sentiment').onclick = () => selectTemplate('sentiment');
+            document.getElementById('template-gaswatcher').onclick = () => selectTemplate('gaswatcher');
+            document.getElementById('agentName').oninput = forgeAgent;
+            document.getElementById('rpcUrl').oninput = forgeAgent;
+            document.getElementById('contractAddress').oninput = forgeAgent;
+            forgeAgent();
+        });
+    </script>
+</body>
+</html>

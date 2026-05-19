@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: SkillManifest API
+  description: Generate AI Agent tool definitions for OpenAI and Anthropic formats
+  version: 1.0.0
+  contact:
+    name: SkillManifest
+    url: https://skillmanifest.dev
+
+paths:
+  /manifest:
+    get:
+      summary: Generate tool definition manifest
+      description: Generates JSON schema for AI Agent tools based on input parameters
+      parameters:
+        - name: function_name
+          in: query
+          required: true
+          description: Name of the function/tool
+          schema:
+            type: string
+        - name: description
+          in: query
+          required: true
+          description: Description of what the function does
+          schema:
+            type: string
+        - name: params_list
+          in: query
+          required: false
+          description: Comma-separated list of parameter definitions (name:type:description)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully generated manifest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  openai_format:
+                    type: object
+                    description: OpenAI Function Calling format
+                  anthropic_format:
+                    type: object
+                    description: Anthropic Tool Use format
+                example:
+                  openai_format:
+                    type: 'function'
+                    function:
+                      name: 'get_weather'
+                      description: 'Get current weather for a city'
+                      parameters:
+                        type: 'object'
+                        properties:
+                          city:
+                            type: 'string'
+                            description: 'The city name'
+                        required: ['city']
+                  anthropic_format:
+                    name: 'get_weather'
+                    description: 'Get current weather for a city'
+                    input_schema:
+                      type: 'object'
+                      properties:
+                        city:
+                          type: 'string'
+                          description: 'The city name'
+                      required: ['city']
+
+components:
+  schemas:
+    ToolDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the tool
+        description:
+          type: string
+          description: Description of the tool's purpose
+        parameters:
+          type: object
+          description: Parameter definitions
+          properties:
+            type:
+              type: string
+              enum: ['object']
+            properties:
+              type: object
+            required:
+              type: array
+              items:
+                type: string

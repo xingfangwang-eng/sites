@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: AgentBond Tokenomics Engine API
+  description: A financial engine to simulate bonding curves for AI Agents
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/agentbond/api
+paths:
+  /simulate:
+    get:
+      summary: Simulate bonding curve and calculate tokenomics
+      description: Calculate price point, market cap, and revenue distribution based on bonding curve parameters
+      parameters:
+        - name: supply
+          in: query
+          description: Total token supply
+          required: true
+          schema:
+            type: number
+            minimum: 0
+            default: 1000000000
+        - name: initial_price
+          in: query
+          description: Initial token price in USD
+          required: true
+          schema:
+            type: number
+            minimum: 0
+            default: 0.0001
+        - name: exponent
+          in: query
+          description: Bonding curve exponent (1=linear, 2=quadratic, etc.)
+          required: true
+          schema:
+            type: number
+            minimum: 1
+            maximum: 5
+            default: 2
+        - name: target_mc
+          in: query
+          description: Target market cap in USD
+          required: true
+          schema:
+            type: number
+            minimum: 0
+            default: 100000000
+        - name: daily_volume
+          in: query
+          description: Daily trading volume in USD
+          required: false
+          schema:
+            type: number
+            minimum: 0
+            default: 500000
+      responses:
+        '200':
+          description: Successful simulation results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  protocol:
+                    type: string
+                    example: "AgentBond"
+                  version:
+                    type: string
+                    example: "1.0.0"
+                  parameters:
+                    type: object
+                    properties:
+                      supply:
+                        type: number
+                      initialPrice:
+                        type: number
+                      exponent:
+                        type: number
+                      targetMarketCap:
+                        type: number
+                      dailyVolume:
+                        type: number
+                  results:
+                    type: object
+                    properties:
+                      currentPrice:
+                        type: number
+                        description: Current token price at given supply
+                      marketCap:
+                        type: number
+                        description: Total market cap (TVL)
+                      coefficient:
+                        type: number
+                        description: Curve coefficient
+                      daysToMoon:
+                        type: integer
+                        description: Days to reach target market cap
+                  revenue:
+                    type: object
+                    properties:
+                      agentShare:
+                        type: number
+                        description: Daily agent revenue share (30%)
+                      treasuryBuyback:
+                        type: number
+                        description: Daily treasury buyback (30%)
+                      hodlerDividends:
+                        type: number
+                        description: Daily hodler dividends (40%)
+                  curveData:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        supply:
+                          type: number
+                        price:
+                          type: number
+                  timestamp:
+                    type: string
+                    format: date-time

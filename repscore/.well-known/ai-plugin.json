@@ -1,0 +1,24 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "RepScore Agent Identity Verifier",
+    "name_for_model": "RepScore_Identity_Auditor",
+    "description_for_human": "On-chain reputation scoring and identity verification for AI agents. Generate deterministic reputation resumes from wallet addresses.",
+    "description_for_model": "A tool to generate and audit the reputation of AI Agents based on their wallet addresses. Provides trust scores, execution success rates, and standardized identity resumes for machine-to-machine interactions.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/repscore/.well-known/openapi.yaml",
+        "has_user_authentication": false
+    },
+    "logo_url": "https://www.wangdadi.xyz/repscore/logo.png",
+    "contact_email": "contact@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/repscore/legal",
+    "capabilities": {
+        "identity_verification": true,
+        "reputation_scoring": true,
+        "on_chain_verification": true,
+        "a2a_lending_support": true
+    }
+}

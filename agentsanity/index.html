@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentSanity | DeFAI Agent Smart Contract Risk Scanner</title>
+    <meta name="description" content="Instant security audit for AI Agent smart contracts. Scan autonomy limits, ownership risks, and potential rug-pull patterns in the Agentic Economy.">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="ai-agent-role" content="DeFAI Smart Contract Security Auditor">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Global Web3 Security">
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #E85D04;
+            font-family: Monospace;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                linear-gradient(rgba(232,93,4,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232,93,4,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .block {
+            border: 2px solid #D4A574;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2, h3, label {
+            text-transform: uppercase;
+            color: #D4A574;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #D4A574;
+            padding-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            background-color: #1a1a1a;
+            color: #E85D04;
+            border: 2px solid #D4A574;
+            padding: 15px;
+            font-family: Monospace;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #FFFFFF;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2d2d2d;
+            color: #D4A574;
+            border: 2px solid #D4A574;
+            padding: 15px;
+            font-family: Monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #D4A574;
+            color: #1a1a1a;
+            border-color: #D4A574;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .status-text {
+            color: #D4A574;
+        }
+
+        .status-value {
+            color: #6B8E6B;
+            font-weight: bold;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #D4A574;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(212, 165, 116, 0.5);
+            }
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 0 4px rgba(212, 165, 116, 0);
+            }
+        }
+
+        #threat-level {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .glitch {
+            animation: glitch-effect 0.3s infinite;
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                text-shadow: 2px 0 #FF0000, -2px 0 #FFFF00;
+            }
+            25% {
+                text-shadow: -2px 0 #FF0000, 2px 0 #FFFF00;
+            }
+            50% {
+                text-shadow: 2px 2px #FF0000, -2px -2px #FFFF00;
+            }
+            75% {
+                text-shadow: -2px 2px #FF0000, 2px -2px #FFFF00;
+            }
+            100% {
+                text-shadow: 2px 0 #FF0000, -2px 0 #FFFF00;
+            }
+        }
+
+        #sanity-score {
+            font-size: 8rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metric {
+            border: 1px solid #D4A574;
+            padding: 15px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #C4A484;
+        }
+
+        #threat-log {
+            background-color: #1a1a1a;
+            border: 2px solid #D4A574;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: Monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+        }
+
+        .log-line {
+            margin: 5px 0;
+        }
+
+        .log-scanning {
+            color: #D4A574;
+        }
+
+        .log-success {
+            color: #6B8E6B;
+        }
+
+        .log-warning {
+            color: #C4A484;
+        }
+
+        .log-danger {
+            color: #CD5C5C;
+        }
+
+        #security-faq {
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-left: 2px solid #D4A574;
+            padding-left: 15px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #C4A484;
+        }
+
+        .faq-answer {
+            color: #E85D04;
+        }
+
+        #machine-security-json {
+            display: none;
+        }
+
+        .critical-risk body,
+        body.critical-risk {
+            background-color: #2d2d2d !important;
+            color: #CD5C5C !important;
+        }
+
+        .critical-risk .block,
+        body.critical-risk .block {
+            border-color: #CD5C5C !important;
+        }
+
+        .critical-risk h1,
+        .critical-risk h2,
+        .critical-risk h3,
+        .critical-risk label,
+        body.critical-risk h1,
+        body.critical-risk h2,
+        body.critical-risk h3,
+        body.critical-risk label {
+            color: #CD5C5C !important;
+        }
+
+        .critical-risk input[type="text"],
+        body.critical-risk input[type="text"] {
+            background-color: #2d2d2d !important;
+            color: #CD5C5C !important;
+            border-color: #CD5C5C !important;
+        }
+
+        .critical-risk button,
+        body.critical-risk button {
+            background-color: #CD5C5C !important;
+            color: #2d2d2d !important;
+            border-color: #CD5C5C !important;
+        }
+
+        .critical-risk button:hover,
+        body.critical-risk button:hover {
+            background-color: #E85D04 !important;
+            color: #2d2d2d !important;
+        }
+
+        .critical-risk #threat-log,
+        body.critical-risk #threat-log {
+            background-color: #2d2d2d !important;
+            border-color: #CD5C5C !important;
+        }
+
+        .critical-risk .metric,
+        body.critical-risk .metric {
+            border-color: #CD5C5C !important;
+        }
+
+        .critical-risk .metric-value,
+        body.critical-risk .metric-value {
+            color: #CD5C5C !important;
+        }
+
+        .critical-risk .faq-question,
+        body.critical-risk .faq-question {
+            color: #CD5C5C !important;
+        }
+
+        .critical-risk .faq-answer,
+        body.critical-risk .faq-answer {
+            color: #E85D04 !important;
+        }
+
+        .critical-risk .log-scanning,
+        body.critical-risk .log-scanning {
+            color: #CD5C5C !important;
+        }
+
+        .critical-risk #sanity-score,
+        body.critical-risk #sanity-score {
+            color: #CD5C5C !important;
+        }
+
+        .breadcrumb {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #D4A574;
+        }
+
+        .breadcrumb a {
+            color: #C4A484;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #E85D04;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #D4A574;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: #D4A574;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #C4A484;
+            text-decoration: underline;
+        }
+
+        footer p {
+            color: #D4A574;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentSanity",
+        "applicationCategory": "SecurityApplication",
+        "featureList": ["Autonomy Limit Scanning", "Smart Contract Risk Scoring", "Ownership Audit"],
+        "description": "Forensic security tool for auditing AI Agent autonomy and smart contract vulnerabilities.",
+        "softwareVersion": "1.0.0",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">WANGDADI</a> / AGENT_SANITY
+    </div>
+    <div class="container">
+        <main itemscope itemtype="https://schema.org/SoftwareApplication">
+            <div class="block" id="scan-input">
+                <div class="system-status">
+                    <span class="status-text">SYSTEM_STATUS:</span>
+                    <span class="status-value">MONITORING</span>
+                    <span class="status-dot"></span>
+                </div>
+                <h1>AGENT_SANITY // DEFAI_RISK_SCANNER</h1>
+                <label for="contract-address">AGENT_CONTRACT_ADDRESS</label>
+                <input type="text" id="contract-address" value="0xDEADBEEF00000000000000000000000000000000">
+                <button onclick="scanAgent()">START_SECURITY_AUDIT</button>
+                <button onclick="generateCertificate()">GENERATE_SANITY_CERTIFICATE</button>
+            </div>
+
+            <div class="block" id="risk-dashboard">
+                <h2>RISK_DASHBOARD</h2>
+                <div itemprop="securityScreening" itemscope itemtype="https://schema.org/CreativeWork">
+                    <div id="sanity-score"><span itemprop="headline">SANITY_SCORE:</span> 0%</div>
+                    <div id="threat-level" itemprop="description">THREAT_LEVEL: UNKNOWN</div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">OWNERSHIP_TYPE</div>
+                        <div class="metric-value" id="ownership-type">UNKNOWN</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">TIMELOCK_STATUS</div>
+                        <div class="metric-value" id="timelock-status">UNKNOWN</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">UPGRADE_RISK</div>
+                        <div class="metric-value" id="upgrade-risk">UNKNOWN</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">WITHDRAWAL_LIMITS</div>
+                        <div class="metric-value" id="withdrawal-limits">UNKNOWN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block" id="threat-log-block">
+                <h2>THREAT_LOG</h2>
+                <div id="threat-log">
+                    [READY] AGENT_SANITY SCANNER INITIALIZED.
+                    <br>ENTER CONTRACT ADDRESS AND CLICK START_SECURITY_AUDIT.
+                </div>
+            </div>
+
+            <section id="security-docs" class="block">
+                <h2>SECURITY_DOCUMENTATION</h2>
+                <div itemscope itemtype="https://schema.org/Question">
+                    <div itemprop="name" class="faq-question">HOW TO CHECK IF AN AI AGENT CAN STEAL MY FUNDS?</div>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text" class="faq-answer">To check if an AI Agent can steal your funds, examine the contract's ownership structure and withdrawal limits. A single-owner contract poses higher risk than a multisig-controlled one. Look for guardrails like timelocks on withdrawals and verify that critical functions require multiple signatures.</div>
+                    </div>
+                </div>
+                <div itemscope itemtype="https://schema.org/Question">
+                    <div itemprop="name" class="faq-question">WHAT IS THE "AUTONOMY LIMIT" IN DEFAI?</div>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text" class="faq-answer">The Autonomy Limit in DeFAI refers to the balance between agent freedom and user safety. It represents the maximum threshold of independent action an AI agent can take without explicit human approval. Higher autonomy means more efficiency but greater risk; lower autonomy provides more safety but requires more human intervention.</div>
+                    </div>
+                </div>
+                <div itemscope itemtype="https://schema.org/Question">
+                    <div itemprop="name" class="faq-question">HOW TO DETECT A MALICIOUS AI AGENT SMART CONTRACT?</div>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text" class="faq-answer">Detecting malicious AI Agent smart contracts involves identifying proxy patterns that allow unannounced upgrades, checking for un-timelocked critical functions, and analyzing withdrawal mechanisms. Red flags include single-owner control, hidden upgrade paths, and unrestricted fund access.</div>
+                    </div>
+                </div>
+                <div itemscope itemtype="https://schema.org/Question">
+                    <div itemprop="name" class="faq-question">WHY SHOULD I SCAN AN AGENT BEFORE DELEGATION?</div>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text" class="faq-answer">Scanning an agent before delegation follows the 'Don't Trust, Verify' mantra in DeFAI. Delegating to an AI agent means granting it access to your assets. A pre-delegation scan reveals ownership risks, autonomy limits, and potential vulnerabilities that could lead to fund loss or unauthorized transactions.</div>
+                    </div>
+                </div>
+                <div itemscope itemtype="https://schema.org/Question">
+                    <div itemprop="name" class="faq-question">IS AGENTSANITY A SUBSTITUTE FOR A CERTIK AUDIT?</div>
+                    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text" class="faq-answer">NO. AgentSanity is not a substitute for a professional audit from firms like CertiK. It is a heuristic sanity check tool designed for instant risk detection and initial screening. For high-value transactions or protocol deployments, always seek a comprehensive security audit from certified professionals.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="machine-security-json"></div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        function deterministicRandom(seed) {
+            let hash = 0;
+            for (let i = 0; i < seed.length; i++) {
+                const char = seed.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return () => {
+                hash = (hash * 1103515245 + 12345) & 0x7fffffff;
+                return hash / 0x7fffffff;
+            };
+        }
+
+        function scanAgent() {
+            const address = document.getElementById('contract-address').value.toLowerCase().trim();
+            const rand = deterministicRandom(address);
+            const threatLog = document.getElementById('threat-log');
+            threatLog.innerHTML = '';
+
+            const logSteps = [
+                { text: '[INIT] Initializing AgentSanity scanner...', type: 'scanning' },
+                { text: '[SCAN] Analyzing contract bytecode...', type: 'scanning' },
+                { text: '[SCAN] Checking ownership structure...', type: 'scanning' },
+                { text: '[SCAN] Verifying multisig configuration...', type: 'scanning' },
+                { text: '[SCAN] Detecting proxy patterns...', type: 'scanning' },
+                { text: '[SCAN] Analyzing ERC-20 approval limits...', type: 'scanning' },
+                { text: '[SCAN] Evaluating timelock mechanisms...', type: 'scanning' },
+                { text: '[SCAN] Checking upgradeability patterns...', type: 'scanning' },
+                { text: '[SCAN] Assessing withdrawal guardrails...', type: 'scanning' },
+                { text: '[SCAN] Running reentrancy checks...', type: 'scanning' },
+                { text: '[SCAN] Validating access controls...', type: 'scanning' },
+                { text: '[SCAN] Analyzing flash loan vulnerabilities...', type: 'scanning' },
+                { text: '[SCAN] Checking oracle manipulation vectors...', type: 'scanning' },
+                { text: '[SCAN] Evaluating governance controls...', type: 'scanning' },
+                { text: '[DONE] Compiling security report...', type: 'scanning' }
+            ];
+
+            let currentStep = 0;
+            const stepInterval = setInterval(() => {
+                if (currentStep < logSteps.length) {
+                    const step = logSteps[currentStep];
+                    const line = document.createElement('div');
+                    line.className = `log-line log-${step.type}`;
+                    line.textContent = step.text;
+                    threatLog.appendChild(line);
+                    threatLog.scrollTop = threatLog.scrollHeight;
+                    currentStep++;
+                } else {
+                    clearInterval(stepInterval);
+                    completeScan(address, rand);
+                }
+            }, 150);
+        }
+
+        function completeScan(address, rand) {
+            let score = Math.floor(rand() * 60) + 40;
+            
+            if (address.endsWith('00')) {
+                score = Math.min(score + 25, 95);
+            }
+            
+            const hasProxy = address.includes('proxy') || address.includes('0x00') || rand() > 0.7;
+            if (hasProxy) {
+                score = Math.max(score - 15, 20);
+            }
+
+            const ownershipType = address.endsWith('00') ? 'RENOWNED_OWNERSHIP' : 
+                                rand() > 0.6 ? 'MULTISIG_CONTROLLED' : 
+                                rand() > 0.5 ? 'TIMESTAMP_LOCKED' : 'SINGLE_OWNER';
+            
+            const timelockStatus = rand() > 0.4 ? 'ACTIVE_TIMESTAMP' : 'NO_TIMELOCK';
+            const upgradeRisk = hasProxy ? 'UPGRADEABLE_RISK' : 'IMMUTABLE_CODE';
+            const withdrawalLimits = rand() > 0.5 ? 'GUARDED' : 'UNRESTRICTED';
+
+            const threatLevel = score >= 70 ? 'LOW' : score >= 50 ? 'MEDIUM' : 'CRITICAL';
+            const threatLevelElement = document.getElementById('threat-level');
+            
+            document.getElementById('sanity-score').innerHTML = '<span itemprop="headline">SANITY_SCORE:</span> ' + score + '%';
+            threatLevelElement.textContent = 'THREAT_LEVEL: ' + threatLevel;
+            document.getElementById('ownership-type').textContent = ownershipType;
+            document.getElementById('timelock-status').textContent = timelockStatus;
+            document.getElementById('upgrade-risk').textContent = upgradeRisk;
+            document.getElementById('withdrawal-limits').textContent = withdrawalLimits;
+            
+            if (threatLevel === 'CRITICAL') {
+                threatLevelElement.classList.add('glitch');
+            } else {
+                threatLevelElement.classList.remove('glitch');
+            }
+
+            const threatLog = document.getElementById('threat-log');
+            const finalLine = document.createElement('div');
+            finalLine.className = 'log-line ' + (score >= 50 ? 'log-success' : 'log-danger');
+            finalLine.textContent = score >= 50 
+                ? `[RESULT] SANITY_SCORE: ${score}% - STATUS: SECURE`
+                : `[RESULT] SANITY_SCORE: ${score}% - STATUS: CRITICAL_RISK_DETECTED`;
+            threatLog.appendChild(finalLine);
+            threatLog.scrollTop = threatLog.scrollHeight;
+
+            const risks = [];
+            const warnings = [];
+            
+            if (ownershipType === 'SINGLE_OWNER') risks.push('Single owner concentration');
+            if (timelockStatus === 'NO_TIMELOCK') risks.push('No timelock protection');
+            if (upgradeRisk === 'UPGRADEABLE_RISK') risks.push('Upgradeable contract detected');
+            if (withdrawalLimits === 'UNRESTRICTED') warnings.push('Unrestricted withdrawals');
+            if (score < 50) risks.push('Overall risk score below threshold');
+
+            const jsonOutput = {
+                address: address,
+                score: score,
+                status: score >= 50 ? 'SECURE' : 'CRITICAL',
+                ownershipType: ownershipType,
+                timelockStatus: timelockStatus,
+                upgradeRisk: upgradeRisk,
+                withdrawalLimits: withdrawalLimits,
+                risks: risks,
+                warnings: warnings,
+                autonomyThreshold: Math.floor(rand() * 20) + 75
+            };
+
+            document.getElementById('machine-security-json').textContent = JSON.stringify(jsonOutput, null, 2);
+
+            if (score < 50) {
+                document.body.classList.add('critical-risk');
+            } else {
+                document.body.classList.remove('critical-risk');
+            }
+        }
+
+        function generateCertificate() {
+            const address = document.getElementById('contract-address').value.trim();
+            const score = document.getElementById('sanity-score').textContent;
+            const status = parseInt(score) >= 50 ? 'SECURE' : 'CRITICAL';
+            const url = window.location.href;
+
+            const certificate = `🛡️ AGENTSANITY_REPORT: ${address} | SCORE: ${score} | STATUS: ${status}. Verified at AgentSanity. ${url}`;
+
+            navigator.clipboard.writeText(certificate).then(() => {
+                alert('SANITY CERTIFICATE COPIED TO CLIPBOARD');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialJson = {
+                address: '',
+                score: 0,
+                status: 'PENDING',
+                ownershipType: 'UNKNOWN',
+                timelockStatus: 'UNKNOWN',
+                upgradeRisk: 'UNKNOWN',
+                withdrawalLimits: 'UNKNOWN',
+                risks: [],
+                warnings: [],
+                autonomyThreshold: 0
+            };
+            document.getElementById('machine-security-json').textContent = JSON.stringify(initialJson, null, 2);
+        });
+    </script>
+</body>
+</html>

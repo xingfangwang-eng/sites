@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "BaseBoiler Agent Forge",
+  "name_for_model": "BaseBoiler_Agent_Generator",
+  "description_for_human": "A brutalist forge for generating ready-to-run Base Chain AI Agent source code. Supports Auto-Trader, Sentiment-Bot, and Gas-Watcher templates.",
+  "description_for_model": "A tool to generate ready-to-run source code for Base Chain AI Agents. Provides templates for trading bots, gas monitors, and sentiment analysis. Input parameters: template_type (autotrader/sentiment/gaswatcher), agent_name, rpc_url. Returns deployable Python code.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.wangdadi.xyz/baseboiler/.well-known/openapi.yaml"
+  },
+  "logo_url": "https://www.wangdadi.xyz/baseboiler/logo.png",
+  "contact_email": "support@wangdadi.xyz",
+  "legal_info_url": "https://www.wangdadi.xyz/baseboiler/legal"
+}

@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: EconCalc API
+  description: Calculate ROI and break-even for AI Agents based on LLM costs and on-chain revenue.
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/econcalc
+paths:
+  /:
+    get:
+      summary: Access the ROI Calculator
+      description: Get the main EconCalc calculator interface
+      operationId: getCalculator
+      tags:
+        - Calculator
+      responses:
+        '200':
+          description: Calculator interface
+components:
+  schemas:
+    ROICalculation:
+      type: object
+      description: ROI calculation request parameters
+      required:
+        - model
+        - inputTokens
+        - outputTokens
+        - operationalCost
+        - grossRevenue
+      properties:
+        model:
+          type: string
+          enum: [gpt4o, claude35, llama3]
+          description: API model to use
+        inputTokens:
+          type: integer
+          description: Input tokens per day
+        outputTokens:
+          type: integer
+          description: Output tokens per day
+        operationalCost:
+          type: number
+          format: float
+          description: Daily operational cost in USD
+        grossRevenue:
+          type: number
+          format: float
+          description: Daily gross revenue in USD
+    ROIResult:
+      type: object
+      description: ROI calculation results
+      properties:
+        dailyNetProfit:
+          type: number
+          format: float
+          description: Daily net profit in USD
+        monthlyROI:
+          type: number
+          format: float
+          description: Monthly ROI percentage
+        breakEvenDays:
+          type: [integer, string]
+          description: Days to break even or "INFINITE LOSS"

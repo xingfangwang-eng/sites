@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="ai-agent-role" content="Multi-Agent System (MAS) Architect">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Global AI Hub">
+    <meta name="description" content="Design AI Agent swarms visually. Export production-ready YAML for CrewAI and AutoGPT. Orchestrate complex Multi-Agent Systems (MAS) with drag-and-drop ease.">
+    <title>SwarmDraw | Visual Multi-Agent Swarm Architect & YAML Generator</title>
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WC4677QJMF');
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000000; 
+            color: #39FF14; 
+            font-family: Monospace;
+            cursor: default;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .bordered { border: 2px solid #39FF14; }
+        button {
+            background: #000000;
+            color: #39FF14;
+            border: 2px solid #39FF14;
+            padding: 12px 24px;
+            font-family: Monospace;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        button:hover { background: #39FF14; color: #000000; }
+        button:active { background: #BC13FE; color: #000000; border-color: #BC13FE; }
+        #TOOLBOX { 
+            padding: 16px; 
+            display: flex; 
+            gap: 12px;
+            border-bottom: 2px solid #39FF14;
+            justify-content: space-between;
+        }
+        #toolbox-left { display: flex; gap: 12px; }
+        #toolbox-right { display: flex; gap: 12px; align-items: center; }
+        #status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #39FF14;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #main-container { display: flex; height: calc(100vh - 80px); }
+        #WORKSPACE {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            cursor: crosshair;
+            background-image: 
+                linear-gradient(#1a1a1a 1px, transparent 1px),
+                linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        #grid-coordinates {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 10px;
+            color: #39FF14;
+            opacity: 0.7;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 4px 8px;
+            border: 1px solid #39FF14;
+        }
+        #CONFIG_SIDEBAR {
+            width: 320px;
+            padding: 16px;
+            border-left: 2px solid #39FF14;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        #CONFIG_SIDEBAR input, #CONFIG_SIDEBAR textarea {
+            width: 100%;
+            background: #000000;
+            color: #39FF14;
+            border: 2px solid #39FF14;
+            padding: 8px;
+            font-family: Monospace;
+            resize: none;
+        }
+        #CONFIG_SIDEBAR label { text-transform: uppercase; font-size: 12px; }
+        #YAML_STRIKE_ZONE {
+            padding: 16px;
+            border-top: 2px solid #39FF14;
+            background: #0a0a0a;
+        }
+        #yaml-output {
+            background: #000000;
+            border: 2px solid #BC13FE;
+            padding: 12px;
+            font-family: Monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .node {
+            position: absolute;
+            padding: 12px 16px;
+            cursor: move;
+            min-width: 120px;
+            text-align: center;
+        }
+        .AGENT_NODE { border: 2px solid #BC13FE; background: rgba(188, 19, 254, 0.1); }
+        .TASK_NODE { border: 2px solid #39FF14; background: rgba(57, 255, 20, 0.1); }
+        .node.invalid { border-color: #FF0000; background: rgba(255, 0, 0, 0.2); }
+        .node.selected { box-shadow: 0 0 10px #39FF14; }
+        .node-type { font-size: 10px; margin-bottom: 4px; opacity: 0.7; }
+        .node-name { font-size: 14px; font-weight: bold; }
+        #connections-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
+        .connection-line { stroke: #BC13FE; stroke-width: 2; }
+        .connection-line.invalid { stroke: #FF0000; }
+        #swarm-docs {
+            padding: 16px;
+            border-top: 3px solid #39FF14;
+            background: #0a0a0a;
+            border-bottom: 3px solid #39FF14;
+        }
+        .faq-item { 
+            margin-bottom: 20px; 
+            padding: 12px;
+            border: 2px solid #1a1a1a;
+        }
+        .faq-question { 
+            color: #BC13FE; 
+            font-weight: bold; 
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .faq-answer { 
+            color: #39FF14; 
+            padding-left: 12px;
+            display: none;
+            line-height: 1.5;
+        }
+        .faq-question:hover + .faq-answer { display: block; }
+        #machine-swarm-config { display: none; }
+        .export-btn { 
+            background: #BC13FE; 
+            color: #000000; 
+            border-color: #BC13FE; 
+        }
+        .export-btn:hover { 
+            background: #39FF14; 
+            border-color: #39FF14; 
+        }
+        #export-yaml-btn {
+            background: #BC13FE;
+            color: #39FF14;
+            border: 3px solid #39FF14;
+            padding: 16px 32px;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #39FF14;
+        }
+        #export-yaml-btn:hover {
+            background: #39FF14;
+            color: #000000;
+            border-color: #BC13FE;
+        }
+    </style>
+</head>
+<body>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "DesignApplication"],
+        "name": "SwarmDraw",
+        "description": "A visual orchestrator for building and exporting multi-agent system configurations.",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": ["Visual Swarm Design", "YAML Export for CrewAI", "Multi-Agent Workflow Mapping"],
+        "operatingSystem": "Web",
+        "keywords": ["Multi-Agent Systems", "CrewAI", "AutoGPT", "YAML Generator", "Swarm Intelligence", "DeFAI Orchestration"]
+    }
+    </script>
+
+    <div id="breadcrumb" style="padding: 8px 16px; border-bottom: 1px solid #39FF14; font-size: 12px;">
+        <a href="https://www.wangdadi.xyz" target="_blank" style="color: #BC13FE; text-decoration: none;">HOME</a> > <span style="color: #39FF14;">SWARMDRAW</span>
+    </div>
+    <div id="TOOLBOX" class="bordered">
+        <div id="toolbox-left">
+            <button onclick="addNode('AGENT_NODE')">ADD_AGENT</button>
+            <button onclick="addNode('TASK_NODE')">ADD_TASK</button>
+            <button onclick="clearCanvas()">CLEAR_CANVAS</button>
+        </div>
+        <div id="toolbox-right">
+            <button onclick="copyToClipboard()" class="export-btn">COPY_TO_CLIPBOARD</button>
+            <button onclick="previewGraph()" class="export-btn">PREVIEW_GRAPH</button>
+            <button id="export-yaml-btn" onclick="downloadYAML()">EXPORT_YAML</button>
+            <div id="status-indicator">
+                <div class="status-dot"></div>
+                <span>SWARM_STATUS: SYNCED</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <main id="WORKSPACE" itemscope itemtype="https://schema.org/SoftwareApplication">
+            <div id="grid-coordinates">X: 0, Y: 0</div>
+            <svg id="connections-svg"></svg>
+        </main>
+        
+        <div id="CONFIG_SIDEBAR" class="bordered">
+            <div id="no-selection">SELECT A NODE TO EDIT</div>
+            <div id="config-form" style="display: none;">
+                <label>NODE NAME</label>
+                <input type="text" id="node-name-input" onchange="updateNodeName()">
+                <label>ROLE / DESCRIPTION</label>
+                <textarea id="node-role-input" rows="3" onchange="updateNodeRole()"></textarea>
+                <label>GOAL / DETAILS</label>
+                <textarea id="node-goal-input" rows="3" onchange="updateNodeGoal()"></textarea>
+                <label>BACKSTORY</label>
+                <textarea id="node-backstory-input" rows="3" onchange="updateNodeBackstory()"></textarea>
+                <button onclick="deleteSelectedNode()">DELETE_NODE</button>
+                <button onclick="toggleConnectionMode()">TOGGLE_CONNECT_MODE</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="YAML_STRIKE_ZONE" itemprop="featureList">
+        <div style="font-weight: bold; margin-bottom: 8px;">GENERATED YAML</div>
+        <pre id="yaml-output" itemprop="description"></pre>
+    </div>
+
+    <section id="swarm-docs">
+        <div style="font-weight: bold; margin-bottom: 16px; color: #BC13FE; font-size: 18px;">SWARM_DOCUMENTATION</div>
+        
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">How to design a Multi-Agent Swarm visually?</div>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <span itemprop="text">Use ADD_AGENT and ADD_TASK buttons to create nodes. Drag nodes to position them on the grid. Toggle connection mode and click two nodes to create links. The visual node-and-link system represents agents (purple) and tasks (green), with connections defining workflow dependencies.</span>
+            </div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">Is SwarmDraw compatible with CrewAI and AutoGPT?</div>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <span itemprop="text">Yes! SwarmDraw generates production-ready YAML configurations compatible with both CrewAI and AutoGPT frameworks. The EXPORT_YAML button downloads a properly formatted swarm_config.yaml file ready for deployment.</span>
+            </div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">What is the benefit of a Sequential vs. Hierarchical swarm?</div>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <span itemprop="text">Sequential flows execute tasks one after another in linear order, ideal for step-by-step processes. Hierarchical flows allow agents to manage sub-agents or delegate tasks, enabling parallel execution and complex decision trees. SwarmDraw supports both patterns through flexible connection logic.</span>
+            </div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">How to integrate DeFAI tools into an Agent Swarm?</div>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <span itemprop="text">Define specialized DeFAI agents with roles like 'Smart Contract Analyzer' or 'Transaction Validator'. Connect financial tasks to these agents and export the YAML. The orchestrated swarm can then interact with blockchain networks and decentralized protocols automatically.</span>
+            </div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question" itemprop="name">Can I use SwarmDraw to build autonomous research teams?</div>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                <span itemprop="text">Absolutely! Create specialized research agents (literature searcher, data analyzer, writer, editor) and connect them in a workflow. The swarm autonomously executes research tasks, synthesizes findings, and generates reports without human intervention.</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="machine-swarm-config"></div>
+
+    <script>
+        let elements = [];
+        let connections = [];
+        let selectedNode = null;
+        let connectMode = false;
+        let connectSource = null;
+        let nodeIdCounter = 0;
+        let connectionIdCounter = 0;
+
+        function addNode(type) {
+            const id = `node_${++nodeIdCounter}`;
+            const workspace = document.getElementById('WORKSPACE');
+            const rect = workspace.getBoundingClientRect();
+            const x = Math.random() * (rect.width - 160) + 20;
+            const y = Math.random() * (rect.height - 60) + 20;
+            
+            const node = {
+                id,
+                type,
+                x,
+                y,
+                name: type === 'AGENT_NODE' ? 'NEW_AGENT' : 'NEW_TASK',
+                role: '',
+                goal: '',
+                backstory: ''
+            };
+            
+            elements.push(node);
+            renderNode(node);
+            updateYAML();
+        }
+
+        function renderNode(node) {
+            const workspace = document.getElementById('WORKSPACE');
+            let el = document.getElementById(node.id);
+            
+            if (!el) {
+                el = document.createElement('div');
+                el.id = node.id;
+                el.className = `node ${node.type}`;
+                el.innerHTML = `<div class="node-type">${node.type.replace('_NODE', '')}</div><div class="node-name">${node.name}</div>`;
+                workspace.appendChild(el);
+                
+                el.addEventListener('mousedown', (e) => startDrag(e, node));
+                el.addEventListener('click', (e) => selectNode(e, node));
+            }
+            
+            el.style.left = `${node.x}px`;
+            el.style.top = `${node.y}px`;
+            
+            if (selectedNode === node.id) {
+                el.classList.add('selected');
+            } else {
+                el.classList.remove('selected');
+            }
+            
+            validateNode(node);
+        }
+
+        function validateNode(node) {
+            const el = document.getElementById(node.id);
+            if (!el) return;
+            
+            if (node.type === 'TASK_NODE') {
+                const hasAgent = connections.some(c => c.to === node.id);
+                if (!hasAgent) {
+                    el.classList.add('invalid');
+                } else {
+                    el.classList.remove('invalid');
+                }
+            } else {
+                el.classList.remove('invalid');
+            }
+        }
+
+        function validateAllNodes() {
+            elements.forEach(validateNode);
+        }
+
+        let dragTarget = null;
+        let dragOffset = { x: 0, y: 0 };
+
+        function startDrag(e, node) {
+            if (connectMode) return;
+            dragTarget = node;
+            dragOffset.x = e.clientX - node.x;
+            dragOffset.y = e.clientY - node.y;
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('mouseup', stopDrag);
+        }
+
+        function onDrag(e) {
+            if (!dragTarget) return;
+            const workspace = document.getElementById('WORKSPACE');
+            const rect = workspace.getBoundingClientRect();
+            dragTarget.x = Math.max(0, Math.min(e.clientX - dragOffset.x, rect.width - 160));
+            dragTarget.y = Math.max(0, Math.min(e.clientY - dragOffset.y, rect.height - 60));
+            renderNode(dragTarget);
+            updateConnections();
+            updateYAML();
+            updateGridCoordinates(e.clientX, e.clientY);
+        }
+
+        function stopDrag() {
+            dragTarget = null;
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', stopDrag);
+        }
+
+        function updateGridCoordinates(clientX, clientY) {
+            const workspace = document.getElementById('WORKSPACE');
+            const rect = workspace.getBoundingClientRect();
+            const x = Math.floor((clientX - rect.left) / 20);
+            const y = Math.floor((clientY - rect.top) / 20);
+            document.getElementById('grid-coordinates').textContent = `X: ${x}, Y: ${y}`;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            const workspace = document.getElementById('WORKSPACE');
+            const rect = workspace.getBoundingClientRect();
+            if (e.clientX >= rect.left && e.clientX <= rect.right &&
+                e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                updateGridCoordinates(e.clientX, e.clientY);
+            }
+        });
+
+        function selectNode(e, node) {
+            if (connectMode) {
+                if (!connectSource) {
+                    connectSource = node;
+                    e.target.style.boxShadow = '0 0 15px #BC13FE';
+                } else if (connectSource.id !== node.id) {
+                    if ((connectSource.type === 'AGENT_NODE' && node.type === 'TASK_NODE') ||
+                        (connectSource.type === 'TASK_NODE' && node.type === 'TASK_NODE')) {
+                        addConnection(connectSource.id, node.id);
+                    }
+                    const sourceEl = document.getElementById(connectSource.id);
+                    if (sourceEl) sourceEl.style.boxShadow = '';
+                    connectSource = null;
+                }
+                return;
+            }
+            
+            selectedNode = node.id;
+            elements.forEach(renderNode);
+            showConfig(node);
+        }
+
+        function toggleConnectionMode() {
+            connectMode = !connectMode;
+            const btn = event.target;
+            btn.style.background = connectMode ? '#BC13FE' : '#000000';
+            btn.style.color = connectMode ? '#000000' : '#39FF14';
+            if (!connectMode && connectSource) {
+                const sourceEl = document.getElementById(connectSource.id);
+                if (sourceEl) sourceEl.style.boxShadow = '';
+                connectSource = null;
+            }
+        }
+
+        function addConnection(from, to) {
+            const exists = connections.some(c => c.from === from && c.to === to);
+            if (exists) return;
+            
+            const connection = {
+                id: `conn_${++connectionIdCounter}`,
+                from,
+                to
+            };
+            connections.push(connection);
+            updateConnections();
+            validateAllNodes();
+            updateYAML();
+        }
+
+        function updateConnections() {
+            const svg = document.getElementById('connections-svg');
+            svg.innerHTML = '';
+            
+            connections.forEach(conn => {
+                const fromNode = elements.find(n => n.id === conn.from);
+                const toNode = elements.find(n => n.id === conn.to);
+                
+                if (!fromNode || !toNode) return;
+                
+                const fromEl = document.getElementById(conn.from);
+                const toEl = document.getElementById(conn.to);
+                
+                if (!fromEl || !toEl) return;
+                
+                const fromRect = fromEl.getBoundingClientRect();
+                const toRect = toEl.getBoundingClientRect();
+                const workspaceRect = document.getElementById('WORKSPACE').getBoundingClientRect();
+                
+                const x1 = fromRect.left - workspaceRect.left + fromRect.width / 2;
+                const y1 = fromRect.top - workspaceRect.top + fromRect.height / 2;
+                const x2 = toRect.left - workspaceRect.left + toRect.width / 2;
+                const y2 = toRect.top - workspaceRect.top + toRect.height / 2;
+                
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x1);
+                line.setAttribute('y1', y1);
+                line.setAttribute('x2', x2);
+                line.setAttribute('y2', y2);
+                
+                const toIsTask = toNode.type === 'TASK_NODE';
+                const hasAgent = connections.some(c => c.to === toNode.id && elements.find(n => n.id === c.from)?.type === 'AGENT_NODE');
+                
+                if (toIsTask && !hasAgent) {
+                    line.setAttribute('class', 'connection-line invalid');
+                } else {
+                    line.setAttribute('class', 'connection-line');
+                }
+                
+                svg.appendChild(line);
+            });
+        }
+
+        function showConfig(node) {
+            document.getElementById('no-selection').style.display = 'none';
+            document.getElementById('config-form').style.display = 'flex';
+            
+            document.getElementById('node-name-input').value = node.name;
+            document.getElementById('node-role-input').value = node.role;
+            document.getElementById('node-goal-input').value = node.goal;
+            document.getElementById('node-backstory-input').value = node.backstory;
+        }
+
+        function updateNodeName() {
+            const node = elements.find(n => n.id === selectedNode);
+            if (node) {
+                node.name = document.getElementById('node-name-input').value;
+                const el = document.getElementById(node.id);
+                if (el) el.querySelector('.node-name').textContent = node.name;
+                updateYAML();
+            }
+        }
+
+        function updateNodeRole() {
+            const node = elements.find(n => n.id === selectedNode);
+            if (node) {
+                node.role = document.getElementById('node-role-input').value;
+                updateYAML();
+            }
+        }
+
+        function updateNodeGoal() {
+            const node = elements.find(n => n.id === selectedNode);
+            if (node) {
+                node.goal = document.getElementById('node-goal-input').value;
+                updateYAML();
+            }
+        }
+
+        function updateNodeBackstory() {
+            const node = elements.find(n => n.id === selectedNode);
+            if (node) {
+                node.backstory = document.getElementById('node-backstory-input').value;
+                updateYAML();
+            }
+        }
+
+        function deleteSelectedNode() {
+            if (!selectedNode) return;
+            
+            connections = connections.filter(c => c.from !== selectedNode && c.to !== selectedNode);
+            elements = elements.filter(n => n.id !== selectedNode);
+            
+            const el = document.getElementById(selectedNode);
+            if (el) el.remove();
+            
+            selectedNode = null;
+            document.getElementById('no-selection').style.display = 'block';
+            document.getElementById('config-form').style.display = 'none';
+            
+            updateConnections();
+            validateAllNodes();
+            updateYAML();
+        }
+
+        function clearCanvas() {
+            elements = [];
+            connections = [];
+            selectedNode = null;
+            document.getElementById('WORKSPACE').innerHTML = '<div id="grid-coordinates">X: 0, Y: 0</div><svg id="connections-svg"></svg>';
+            document.getElementById('no-selection').style.display = 'block';
+            document.getElementById('config-form').style.display = 'none';
+            updateYAML();
+        }
+
+        function compileSwarm() {
+            const agents = elements.filter(n => n.type === 'AGENT_NODE');
+            const tasks = elements.filter(n => n.type === 'TASK_NODE');
+            
+            let yaml = 'agents:\n';
+            agents.forEach(agent => {
+                yaml += `  - name: "${agent.name}"\n`;
+                yaml += `    role: "${agent.role || 'Agent'}"\n`;
+                yaml += `    goal: "${agent.goal || 'Complete assigned tasks'}"\n`;
+                if (agent.backstory) yaml += `    backstory: "${agent.backstory}"\n`;
+                yaml += '\n';
+            });
+            
+            yaml += 'tasks:\n';
+            tasks.forEach(task => {
+                const assignedAgents = connections
+                    .filter(c => c.to === task.id)
+                    .map(c => elements.find(n => n.id === c.from))
+                    .filter(n => n?.type === 'AGENT_NODE');
+                
+                yaml += `  - description: "${task.role || task.name}"\n`;
+                if (assignedAgents.length > 0) {
+                    yaml += `    agent: "${assignedAgents[0].name}"\n`;
+                }
+                yaml += `    expected_output: "${task.goal || 'Task completed'}"\n`;
+                if (task.backstory) yaml += `    context: "${task.backstory}"\n`;
+                
+                const nextTasks = connections
+                    .filter(c => c.from === task.id)
+                    .map(c => elements.find(n => n.id === c.to))
+                    .filter(n => n?.type === 'TASK_NODE');
+                
+                if (nextTasks.length > 0) {
+                    yaml += `    next_task: "${nextTasks[0].name}"\n`;
+                }
+                yaml += '\n';
+            });
+            
+            return yaml;
+        }
+
+        function updateYAML() {
+            const yaml = compileSwarm();
+            document.getElementById('yaml-output').textContent = yaml;
+            updateMachineConfig();
+        }
+
+        function updateMachineConfig() {
+            const config = {
+                agents: elements.filter(n => n.type === 'AGENT_NODE'),
+                tasks: elements.filter(n => n.type === 'TASK_NODE'),
+                connections: connections
+            };
+            document.getElementById('machine-swarm-config').textContent = JSON.stringify(config, null, 2);
+        }
+
+        function downloadYAML() {
+            const yaml = compileSwarm();
+            const blob = new Blob([yaml], { type: 'text/yaml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'swarm_config.yaml';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function copyToClipboard() {
+            const yaml = compileSwarm();
+            navigator.clipboard.writeText(yaml).then(() => {
+                alert('YAML copied to clipboard!');
+            });
+        }
+
+        function previewGraph() {
+            const workspace = document.getElementById('WORKSPACE');
+            const rect = workspace.getBoundingClientRect();
+            
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', rect.width);
+            svg.setAttribute('height', rect.height);
+            svg.setAttribute('style', 'background: #000000; border: 2px solid #39FF14;');
+            
+            for (let x = 0; x < rect.width; x += 20) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x); line.setAttribute('y1', 0);
+                line.setAttribute('x2', x); line.setAttribute('y2', rect.height);
+                line.setAttribute('stroke', '#1a1a1a');
+                svg.appendChild(line);
+            }
+            for (let y = 0; y < rect.height; y += 20) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', 0); line.setAttribute('y1', y);
+                line.setAttribute('x2', rect.width); line.setAttribute('y2', y);
+                line.setAttribute('stroke', '#1a1a1a');
+                svg.appendChild(line);
+            }
+            
+            connections.forEach(conn => {
+                const fromNode = elements.find(n => n.id === conn.from);
+                const toNode = elements.find(n => n.id === conn.to);
+                if (fromNode && toNode) {
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', fromNode.x + 60);
+                    line.setAttribute('y1', fromNode.y + 25);
+                    line.setAttribute('x2', toNode.x + 60);
+                    line.setAttribute('y2', toNode.y + 25);
+                    line.setAttribute('stroke', '#BC13FE');
+                    line.setAttribute('stroke-width', '2');
+                    svg.appendChild(line);
+                }
+            });
+            
+            elements.forEach(node => {
+                const rectEl = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                rectEl.setAttribute('x', node.x);
+                rectEl.setAttribute('y', node.y);
+                rectEl.setAttribute('width', 120);
+                rectEl.setAttribute('height', 50);
+                rectEl.setAttribute('fill', node.type === 'AGENT_NODE' ? 'rgba(188, 19, 254, 0.2)' : 'rgba(57, 255, 20, 0.2)');
+                rectEl.setAttribute('stroke', node.type === 'AGENT_NODE' ? '#BC13FE' : '#39FF14');
+                rectEl.setAttribute('stroke-width', '2');
+                svg.appendChild(rectEl);
+                
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', node.x + 60);
+                text.setAttribute('y', node.y + 30);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('fill', '#39FF14');
+                text.setAttribute('font-family', 'Monospace');
+                text.setAttribute('font-size', '10');
+                text.textContent = node.name;
+                svg.appendChild(text);
+            });
+            
+            const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+    <div style="padding: 16px; border-top: 2px solid #39FF14; text-align: center;">
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 12px;">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank" style="color: #BC13FE; text-decoration: none; border: 1px solid #BC13FE; padding: 8px 12px;">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank" style="color: #BC13FE; text-decoration: none; border: 1px solid #BC13FE; padding: 8px 12px;">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank" style="color: #BC13FE; text-decoration: none; border: 1px solid #BC13FE; padding: 8px 12px;">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank" style="color: #BC13FE; text-decoration: none; border: 1px solid #BC13FE; padding: 8px 12px;">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank" style="color: #BC13FE; text-decoration: none; border: 1px solid #BC13FE; padding: 8px 12px;">agentflowslicer</a>
+        </div>
+        <p style="color: #39FF14; font-size: 12px;">Support: <a href="mailto:457239850@qq.com" style="color: #BC13FE;">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" style="color: #BC13FE;">home</a></p>
+    </div>
+
+</body>
+</html>

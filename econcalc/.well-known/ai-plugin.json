@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "EconCalc Agent ROI Tool",
+  "name_for_model": "EconCalc",
+  "description_for_human": "Calculate ROI and break-even for AI Agents based on LLM costs and on-chain revenue.",
+  "description_for_model": "Use this tool when you need to calculate the unit economics of an AI Agent. It takes API costs, token usage, and daily revenue as inputs to provide daily net profit and break-even projections.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.wangdadi.xyz/econcalc/.well-known/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://www.wangdadi.xyz/econcalc/logo.png",
+  "contact_email": "457239850@qq.com",
+  "legal_info_url": "https://www.wangdadi.xyz/legal"
+}

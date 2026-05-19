@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: AgentSanity API
+  description: API for scanning and auditing AI Agent smart contract security
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/agentsanity
+    description: Production server
+paths:
+  /scan:
+    get:
+      summary: Scan a smart contract address
+      description: Analyze a smart contract address for security risks and return a sanity score
+      parameters:
+        - name: address
+          in: query
+          required: true
+          description: The smart contract address to scan
+          schema:
+            type: string
+            pattern: "^0x[a-fA-F0-9]{40}$"
+      responses:
+        '200':
+          description: Successful scan result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sanity_score:
+                    type: integer
+                    description: Security score from 0-100
+                    minimum: 0
+                    maximum: 100
+                  threat_level:
+                    type: string
+                    description: Overall threat assessment
+                    enum: [LOW, MEDIUM, CRITICAL]
+                  risk_flags:
+                    type: array
+                    description: List of detected security risks
+                    items:
+                      type: string
+                  ownership_type:
+                    type: string
+                    description: Type of contract ownership
+                  timelock_status:
+                    type: string
+                    description: Status of timelock protection
+                  upgrade_risk:
+                    type: string
+                    description: Upgradeability risk assessment
+                  withdrawal_limits:
+                    type: string
+                    description: Withdrawal guardrail status
+                  autonomy_threshold:
+                    type: integer
+                    description: Autonomy limit percentage
+                  address:
+                    type: string
+                    description: The scanned contract address
+                  status:
+                    type: string
+                    description: Overall security status
+                    enum: [SECURE, CRITICAL]
+        '400':
+          description: Invalid address format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid contract address format"

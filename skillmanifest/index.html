@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillManifest | Instant OpenAI & Anthropic Tool Definition Generator</title>
+    <meta name="description" content="Transform any API documentation into valid AI Agent Tool Definitions. One-click schema generation for OpenAI Function Calling and Anthropic Tool Use.">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="ai-agent-capability" content="JSON Schema Synthesis for Agentic Skills">
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="Silicon Valley" />
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SkillManifest",
+        "description": "The standard utility for manifesting API skills into AI Agent readable formats.",
+        "applicationCategory": "DeveloperApplication",
+        "featureList": "API-to-Tool Conversion, JSON Schema Validation, Multi-LLM Format Support",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #050505;
+            color: #F0F0F0;
+            font-family: monospace;
+            min-height: 100vh;
+            background-image:
+                linear-gradient(rgba(0,119,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,119,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #machine-output {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077FF;
+        }
+
+        a:hover {
+            color: #0055CC;
+        }
+
+        .breadcrumb {
+            padding: 10px 20px;
+            border-bottom: 2px solid #0077FF;
+        }
+
+        .breadcrumb span {
+            color: #F0F0F0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            border: 2px solid #0077FF;
+            padding: 20px;
+        }
+
+        .bay-header {
+            font-size: 14px;
+            color: #0077FF;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #0077FF;
+            padding-bottom: 10px;
+        }
+
+        .field-group {
+            margin-bottom: 20px;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 12px;
+            color: #0077FF;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background-color: #050505;
+            color: #F0F0F0;
+            border: 2px solid #0077FF;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #0055CC;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .param-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .param-row input, .param-row select {
+            flex: 1;
+        }
+
+        .param-row input.param-name {
+            max-width: 150px;
+            flex: 0 0 150px;
+        }
+
+        .param-row select.param-type {
+            max-width: 100px;
+            flex: 0 0 100px;
+        }
+
+        .param-row input.param-desc {
+            flex: 2;
+        }
+
+        .param-row button {
+            background-color: #0077FF;
+            color: #F0F0F0;
+            border: 2px solid #0077FF;
+            padding: 10px 15px;
+            font-family: monospace;
+            font-size: 14px;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+        .param-row button:hover {
+            background-color: #050505;
+            color: #0077FF;
+        }
+
+        #add-param {
+            background-color: #0077FF;
+            color: #F0F0F0;
+            border: 2px solid #0077FF;
+            padding: 10px 20px;
+            font-family: monospace;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #add-param:hover {
+            background-color: #050505;
+            color: #0077FF;
+        }
+
+        .manifest-section {
+            margin-bottom: 20px;
+        }
+
+        .manifest-label {
+            font-size: 12px;
+            color: #0077FF;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .manifest-code {
+            background-color: #0a0a0a;
+            border: 1px solid #0077FF;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .status-container {
+            margin-bottom: 10px;
+        }
+
+        .manifest-status {
+            display: inline-block;
+            background-color: #00FF00;
+            color: #050505;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 2px solid #00FF00;
+        }
+
+        .manifest-status.invalid {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border-color: #FF0000;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            flex: 1;
+            background-color: #050505;
+            color: #0077FF;
+            border: 2px solid #0077FF;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background-color: #0077FF;
+            color: #F0F0F0;
+        }
+
+        #copy-btn {
+            background-color: #0077FF;
+            color: #FFFFFF;
+            border: 3px solid #0077FF;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #copy-btn:hover {
+            background-color: #0055CC;
+            border-color: #0055CC;
+            color: #FFFFFF;
+        }
+
+        .action-button.copied {
+            border-color: #00FF00;
+            background-color: #00FF00;
+            color: #050505;
+        }
+
+        .action-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #skill-docs {
+            margin: 40px 20px;
+            border: 3px solid #0077FF;
+            padding: 20px;
+        }
+
+        .faq-title {
+            font-size: 14px;
+            color: #0077FF;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0077FF;
+            padding-bottom: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 13px;
+            color: #0077FF;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            font-size: 12px;
+            color: #F0F0F0;
+            padding-left: 15px;
+            border-left: 3px solid #0077FF;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #0077FF;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .footer-support {
+            color: #F0F0F0;
+            font-size: 12px;
+        }
+
+        .footer-support a {
+            color: #0077FF;
+        }
+    </style>
+</head>
+<body>
+    <div id="machine-output"></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://www.wangdadi.xyz/flowaudit" target="_blank">wangdadi.xyz</a>
+        <span> &gt; SkillManifest</span>
+    </nav>
+
+    <main itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="column" id="INPUT_BAY">
+            <div class="bay-header">INPUT_BAY</div>
+
+            <div class="field-group">
+                <label class="field-label" for="function-name">FUNCTION_NAME</label>
+                <input type="text" id="function-name" value="my_awesome_tool">
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="function-description">DESCRIPTION</label>
+                <textarea id="function-description">Get current weather for a city</textarea>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">PARAMETER_BUILDER</label>
+                <div id="params-container">
+                    <div class="param-row">
+                        <input type="text" class="param-name" placeholder="city" value="city">
+                        <select class="param-type">
+                            <option value="string">string</option>
+                            <option value="number">number</option>
+                            <option value="boolean">boolean</option>
+                        </select>
+                        <input type="text" class="param-desc" placeholder="The city name" value="The city name">
+                        <button class="remove-param" aria-label="Remove parameter">-</button>
+                    </div>
+                </div>
+                <button id="add-param">+ ADD_PARAMETER</button>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" for="curl-input">QUICK_PASTE_CURL</label>
+                <textarea id="curl-input" placeholder="Paste curl command here..."></textarea>
+            </div>
+
+            <div class="button-row">
+                <button class="action-button" id="copy-btn">COPY_MANIFEST_JSON</button>
+                <button class="action-button" id="download-btn">DOWNLOAD_JSON</button>
+            </div>
+        </div>
+
+        <div class="column" id="MANIFEST_BAY">
+            <div class="bay-header">MANIFEST_BAY</div>
+
+            <div class="manifest-section">
+                <div class="manifest-label">OPENAI_TOOLS_FORMAT</div>
+                <div class="status-container">
+                    <span class="manifest-status" id="status-badge">MANIFEST_STATUS: VALID</span>
+                </div>
+                <div class="manifest-code" id="openai-output"></div>
+            </div>
+
+            <div class="manifest-section">
+                <div class="manifest-label">ANTHROPIC_TOOL_USE</div>
+                <div class="manifest-code" id="anthropic-output"></div>
+            </div>
+        </div>
+    </main>
+
+    <section id="skill-docs">
+        <div class="faq-title">DOCUMENTATION_LOG</div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question">WHAT IS AN AI AGENT SKILL MANIFEST?</div>
+            <div class="faq-answer">A Skill Manifest defines the contract between an LLM and an external API. It specifies the function name, description, parameters, and data types required for the AI Agent to make successful API calls.</div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question">HOW TO CONVERT API DOCS TO OPENAI FUNCTION CALLING FORMAT?</div>
+            <div class="faq-answer">Map your API endpoint parameters to the schema: enter the function name, provide a clear description, add each parameter with its type (string, number, boolean), and define parameter descriptions. The tool automatically generates valid OpenAI format.</div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question">WHY DO AI AGENTS NEED STRUCTURED TOOL DEFINITIONS?</div>
+            <div class="faq-answer">Structured tool definitions enable reliable and deterministic execution. They provide LLMs with explicit guidance on available functions, parameter requirements, and expected outputs, reducing hallucinations and improving API call accuracy.</div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question">DOES SKILLMANIFEST SUPPORT CLAUDE 3.5 TOOL USE?</div>
+            <div class="faq-answer">Yes, SkillManifest generates both OpenAI Function Calling format and Anthropic Tool Use format, fully compatible with Claude 3.5 Sonnet and Opus models.</div>
+        </div>
+
+        <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <div class="faq-question">HOW TO MONETIZE AI AGENT SKILLS?</div>
+            <div class="faq-answer">Monetize through x402 and the emerging Agentic Economy. Package specialized API skills as marketplace offerings, implement usage-based pricing, or integrate premium tools into agent workflows for enterprise clients.</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/flowaudit/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/flowaudit/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/flowaudit/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/flowaudit/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/flowaudit/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p class="footer-support">Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/flowaudit/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        function validateJson(str) {
+            try {
+                JSON.parse(str);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function generateManifest() {
+            const functionName = document.getElementById('function-name').value.trim() || 'my_awesome_tool';
+            const functionDescription = document.getElementById('function-description').value.trim() || 'Get current weather for a city';
+
+            const paramRows = document.querySelectorAll('.param-row');
+            const properties = {};
+            const required = [];
+
+            paramRows.forEach(row => {
+                const name = row.querySelector('.param-name').value.trim();
+                const type = row.querySelector('.param-type').value;
+                const desc = row.querySelector('.param-desc').value.trim();
+
+                if (name) {
+                    properties[name] = {
+                        type: type,
+                        description: desc || `The ${name} parameter`
+                    };
+                    required.push(name);
+                }
+            });
+
+            const openaiSchema = {
+                type: 'function',
+                function: {
+                    name: functionName,
+                    description: functionDescription,
+                    parameters: {
+                        type: 'object',
+                        properties: properties,
+                        required: required
+                    }
+                }
+            };
+
+            const anthropicSchema = {
+                name: functionName,
+                description: functionDescription,
+                input_schema: {
+                    type: 'object',
+                    properties: properties,
+                    required: required
+                }
+            };
+
+            const openaiJson = JSON.stringify(openaiSchema, null, 2);
+            const anthropicJson = JSON.stringify(anthropicSchema, null, 2);
+
+            document.getElementById('openai-output').textContent = openaiJson;
+            document.getElementById('anthropic-output').textContent = anthropicJson;
+            document.getElementById('machine-output').textContent = openaiJson;
+
+            const statusBadge = document.getElementById('status-badge');
+            if (validateJson(openaiJson)) {
+                statusBadge.textContent = 'MANIFEST_STATUS: VALID';
+                statusBadge.classList.remove('invalid');
+            } else {
+                statusBadge.textContent = 'MANIFEST_STATUS: INVALID';
+                statusBadge.classList.add('invalid');
+            }
+        }
+
+        function handleCopy() {
+            const btn = document.getElementById('copy-btn');
+            const json = document.getElementById('machine-output').textContent;
+
+            if (!json || !validateJson(json)) {
+                alert('No valid JSON to copy');
+                return;
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(json).then(() => {
+                    btn.classList.add('copied');
+                    setTimeout(() => btn.classList.remove('copied'), 200);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                    fallbackCopy(json, btn);
+                });
+            } else {
+                fallbackCopy(json, btn);
+            }
+        }
+
+        function fallbackCopy(text, btn) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 200);
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function handleDownload() {
+            const json = document.getElementById('machine-output').textContent;
+
+            if (!json || !validateJson(json)) {
+                alert('No valid JSON to download');
+                return;
+            }
+
+            try {
+                const blob = new Blob([json], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'skill_manifest.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                console.error('Download failed:', err);
+                alert('Download failed. Please try again.');
+            }
+        }
+
+        document.getElementById('add-param').addEventListener('click', () => {
+            const container = document.getElementById('params-container');
+            const newRow = document.createElement('div');
+            newRow.className = 'param-row';
+            newRow.innerHTML = `
+                <input type="text" class="param-name" placeholder="param_name">
+                <select class="param-type">
+                    <option value="string">string</option>
+                    <option value="number">number</option>
+                    <option value="boolean">boolean</option>
+                </select>
+                <input type="text" class="param-desc" placeholder="Description">
+                <button class="remove-param" aria-label="Remove parameter">-</button>
+            `;
+            container.appendChild(newRow);
+
+            newRow.querySelector('.remove-param').addEventListener('click', () => {
+                if (document.querySelectorAll('.param-row').length > 1) {
+                    container.removeChild(newRow);
+                    generateManifest();
+                }
+            });
+
+            newRow.querySelectorAll('input, select').forEach(el => {
+                el.addEventListener('input', generateManifest);
+            });
+
+            generateManifest();
+        });
+
+        document.querySelectorAll('.remove-param').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (document.querySelectorAll('.param-row').length > 1) {
+                    const container = document.getElementById('params-container');
+                    container.removeChild(e.target.parentElement);
+                    generateManifest();
+                }
+            });
+        });
+
+        document.querySelectorAll('#INPUT_BAY input, #INPUT_BAY textarea, #INPUT_BAY select').forEach(el => {
+            el.addEventListener('input', generateManifest);
+        });
+
+        document.getElementById('copy-btn').addEventListener('click', handleCopy);
+        document.getElementById('download-btn').addEventListener('click', handleDownload);
+
+        generateManifest();
+    </script>
+</body>
+</html>

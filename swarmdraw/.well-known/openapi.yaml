@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: SwarmDraw API
+  description: API for exporting multi-agent swarm configurations
+  version: 1.0.0
+paths:
+  /export:
+    get:
+      summary: Export swarm configuration
+      description: Generates and returns the YAML configuration for the multi-agent swarm
+      parameters:
+        - name: format
+          in: query
+          description: Output format
+          required: false
+          schema:
+            type: string
+            enum: [yaml, json]
+            default: yaml
+        - name: nodes
+          in: query
+          description: JSON string of node data (agents and tasks)
+          required: false
+          schema:
+            type: string
+        - name: connections
+          in: query
+          description: JSON string of connection data
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful export
+          content:
+            text/yaml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
+                properties:
+                  agents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        role:
+                          type: string
+                        goal:
+                          type: string
+                        backstory:
+                          type: string
+                  tasks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        description:
+                          type: string
+                        agent:
+                          type: string
+                        expected_output:
+                          type: string
+                        next_task:
+                          type: string
+                  connections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        from:
+                          type: string
+                        to:
+                          type: string

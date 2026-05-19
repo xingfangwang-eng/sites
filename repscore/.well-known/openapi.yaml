@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: RepScore Identity Auditor API
+  description: On-chain reputation scoring and identity verification for AI Agents
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/repscore
+    description: Production server
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /score:
+    get:
+      summary: Generate reputation score for an AI Agent wallet address
+      description: Generates deterministic reputation metrics based on wallet address as cryptographic seed
+      operationId: getScore
+      parameters:
+        - name: address
+          in: query
+          description: The wallet address of the AI Agent (42-character hex string)
+          required: true
+          schema:
+            type: string
+            pattern: "^0x[a-fA-F0-9]{40}$"
+      responses:
+        '200':
+          description: Successful reputation score generation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  address:
+                    type: string
+                    description: The wallet address used for scoring
+                  trust_score:
+                    type: integer
+                    description: Trust score (0-100)
+                    minimum: 0
+                    maximum: 100
+                  success_rate:
+                    type: number
+                    description: Execution success rate (90-99.9%)
+                    minimum: 90
+                    maximum: 99.9
+                  agent_class:
+                    type: string
+                    description: Classification of the agent based on address pattern
+                    enum:
+                      - ALPHA_EXECUTOR
+                      - DEFI_STRATEGIST
+                      - DATA_SENTINEL
+                      - PROTOCOL_GUARDIAN
+                      - LIQUIDITY_OPTIMIZER
+                      - YIELD_HARVESTER
+                      - RISK_ANALYZER
+                      - BRIDGE_OPERATOR
+                  tasks_completed:
+                    type: integer
+                    description: Total tasks completed
+                  uptime_days:
+                    type: integer
+                    description: Days of continuous operation
+                  skills:
+                    type: object
+                    properties:
+                      logic:
+                        type: integer
+                        description: Logic capability score (0-100)
+                      security:
+                        type: integer
+                        description: Security capability score (0-100)
+                      efficiency:
+                        type: integer
+                        description: Efficiency capability score (0-100)
+                  identity_hash:
+                    type: string
+                    description: Unique identity hash for verification
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Timestamp of score generation
+        '400':
+          description: Invalid wallet address format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid wallet address format"

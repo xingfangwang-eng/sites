@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SwarmDraw Multi-Agent Orchestrator",
+    "name_for_model": "SwarmDraw_Orchestrator",
+    "description_for_human": "A visual tool for designing and orchestrating multi-agent AI workflows. Drag and drop agents and tasks, connect them, and export to CrewAI YAML format.",
+    "description_for_model": "A visual tool for architecting multi-agent systems. It allows users to define agents, tasks, and their dependencies, then generates valid YAML configurations for CrewAI and AutoGPT frameworks.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "./.well-known/openapi.yaml"
+    },
+    "logo_url": "https://swarmdraw.local/logo.png",
+    "contact_email": "support@swarmdraw.ai",
+    "legal_info_url": "https://swarmdraw.ai/legal"
+}

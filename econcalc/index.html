@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EconCalc | AI Agent ROI & Profitability Calculator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.">
+    <meta name="keywords" content="AI Agent, ROI Calculator, Agentic Economy, Tokenomics, DeFAI, On-chain Settlement">
+    <meta name="ai-agent-tools" content="ROI Calculator, Agentic Economy, Tokenomics">
+    <meta name="geo.region" content="US-NY">
+    <meta name="geo.placename" content="Global Agentic Economy">
+    
+    <!-- OpenGraph -->
+    <meta property="og:title" content="EconCalc | AI Agent ROI & Profitability Calculator">
+    <meta property="og:description" content="The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/050505/00D4FF?text=ECON_CALC">
+    <meta property="og:url" content="https://www.wangdadi.xyz/econcalc">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EconCalc | AI Agent ROI & Profitability Calculator">
+    <meta name="twitter:description" content="The ultimate financial tool for the Agentic Economy.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/050505/00D4FF?text=ECON_CALC">
+    
+    <!-- AI Plugin -->
+    <link rel="ai-plugin" href="./.well-known/ai-plugin.json">
+    
+    <!-- AI Manifest -->
+    <script type="application/json" id="ai-manifest">
+    {
+        "name_for_human": "EconCalc Agent ROI Tool",
+        "name_for_model": "econcalc_roi_calculator",
+        "description_for_human": "Calculate ROI, daily net profit, and break-even points for AI Agents.",
+        "description_for_model": "A precise tool to calculate the ROI, daily net profit, and break-even points for AI Agents based on LLM token pricing and on-chain revenue. Essential for DeFAI agents and x402 integrations.",
+        "auth": { "type": "none" },
+        "api": { "type": "none" },
+        "logo_url": "https://via.placeholder.com/512/050505/00D4FF?text=ECON_CALC"
+    }
+    </script>
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "FinancialService"],
+        "name": "EconCalc",
+        "description": "The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+            "Real-time ROI calculation",
+            "LLM token cost analysis",
+            "Agentic economy forecasting",
+            "DeFAI agent profitability",
+            "x402 integration support"
+        ],
+        "url": "https://www.wangdadi.xyz/econcalc",
+        "provider": {
+            "@type": "Organization",
+            "name": "EconCalc"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505;
+            color: #00D4FF;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Scanlines Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.03),
+                rgba(0, 0, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #00D4FF;
+        }
+
+        /* STATUS INDICATOR */
+        .status-bar {
+            border-bottom: 1px solid #00D4FF;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            padding: 15px 20px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #00D4FF;
+        }
+
+        .breadcrumb a {
+            color: #00D4FF;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #00D4FF;
+            animation: pulse 2s infinite;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #00D4FF;
+            animation: blink 1s infinite;
+            border-radius: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* HEADER */
+        .header {
+            border-bottom: 2px solid #00D4FF;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* INPUT ZONE */
+        .input-zone {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid #00D4FF;
+        }
+
+        .column {
+            padding: 30px;
+        }
+
+        .column:first-child {
+            border-right: 2px solid #00D4FF;
+        }
+
+        .column h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            border-bottom: 1px solid #00D4FF;
+            padding-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #050505;
+            color: #00D4FF;
+            border: 2px solid #00D4FF;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            border-radius: 0;
+            outline: none;
+        }
+
+        .input-group input:hover,
+        .input-group select:hover,
+        .input-group input:focus,
+        .input-group select:focus {
+            background-color: #00D4FF;
+            color: #000;
+        }
+
+        /* STRIKE ZONE */
+        .strike-zone {
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .strike-zone h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .result-item {
+            border: 2px solid #00D4FF;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .result-item h3 {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .result-item .value {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .result-item.profitable .value {
+            animation: profit-pulse 2s infinite;
+        }
+
+        @keyframes profit-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .result-item .unit {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .negative {
+            color: #FF0000;
+            border-color: #FF0000;
+        }
+
+        .negative .value {
+            color: #FF0000;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 15px 30px;
+            background-color: #050505;
+            color: #00D4FF;
+            border: 2px solid #00D4FF;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #00D4FF;
+            color: #000;
+        }
+
+        .action-btn:active {
+            background-color: #000;
+            color: #00D4FF;
+        }
+
+        /* FAQ SECTION */
+        #faq {
+            border-top: 2px solid #00D4FF;
+            padding: 40px;
+        }
+
+        #faq h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .faq-item {
+            border: 2px solid #00D4FF;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            background-color: #00D4FF;
+            color: #050505;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background-color: #00b8e6;
+        }
+
+        .faq-question .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background-color: #0a0a0a;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-answer.open {
+            display: block;
+        }
+
+        /* ADDITIONAL LINKS */
+        .additional-links {
+            border-top: 1px solid #00D4FF;
+            padding: 25px;
+            text-align: center;
+            background-color: #0a0a0a;
+        }
+
+        .additional-links a {
+            color: #00D4FF;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
+
+        .additional-links p {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .additional-links p a {
+            margin: 0 5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid #00D4FF;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .input-zone {
+                grid-template-columns: 1fr;
+            }
+
+            .column:first-child {
+                border-right: none;
+                border-bottom: 2px solid #00D4FF;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .result-item .value {
+                font-size: 2.5rem;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Mobile Sticky Results */
+        @media (max-width: 768px) {
+            .strike-zone {
+                position: sticky;
+                top: 0;
+                background-color: #050505;
+                z-index: 100;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                padding: 0;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            .main-container {
+                border: 2px solid black;
+                box-shadow: none;
+            }
+
+            .status-bar,
+            .action-buttons,
+            #faq,
+            .footer,
+            .additional-links,
+            #agent-port {
+                display: none;
+            }
+
+            .header,
+            .input-zone,
+            .strike-zone {
+                border-color: black;
+            }
+
+            .result-item {
+                border-color: black;
+                color: black;
+            }
+
+            .result-item .value {
+                color: black;
+            }
+
+            .negative,
+            .negative .value {
+                color: #cc0000;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="main-container">
+            <!-- STATUS BAR -->
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <span class="live-dot"></span>
+                    <span>LIVE_DATA</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>SYSTEM_ONLINE</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>AGENTIC_ECONOMY_ACTIVE</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>x402_PROTOCOL_READY</span>
+                </div>
+            </div>
+
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+                <a href="https://www.wangdadi.xyz" target="_blank">HOME</a> / ECON_CALC
+            </div>
+
+            <!-- HEADER -->
+            <div class="header">
+                <h1 itemprop="name">ECON_CALC</h1>
+                <p>AI AGENT PROFITABILITY RADAR</p>
+            </div>
+
+            <!-- INPUT ZONE -->
+            <div class="input-zone">
+                <!-- COSTS COLUMN -->
+                <div class="column">
+                    <h2>COSTS</h2>
+                    
+                    <div class="input-group">
+                        <label for="api-model">API MODEL</label>
+                        <select id="api-model">
+                            <option value="gpt4o">GPT-4o</option>
+                            <option value="claude35">Claude 3.5 Sonnet</option>
+                            <option value="llama3">Llama 3 70B</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="input-tokens">INPUT TOKENS PER DAY</label>
+                        <input type="number" id="input-tokens" value="100000" min="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="output-tokens">OUTPUT TOKENS PER DAY</label>
+                        <input type="number" id="output-tokens" value="50000" min="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="operational-cost">DAILY OPERATIONAL COST (USD)</label>
+                        <input type="number" id="operational-cost" value="5" min="0" step="0.01">
+                    </div>
+                </div>
+
+                <!-- REVENUE COLUMN -->
+                <div class="column">
+                    <h2>REVENUE</h2>
+                    
+                    <div class="input-group">
+                        <label for="gross-revenue">DAILY GROSS REVENUE (USD)</label>
+                        <input type="number" id="gross-revenue" value="50" min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+            <!-- STRIKE ZONE -->
+            <div class="strike-zone">
+                <h2>KILLER RESULTS</h2>
+                <div class="results-grid">
+                    <div class="result-item" id="daily-net-profit-container">
+                        <h3>DAILY NET PROFIT</h3>
+                        <div class="value" id="daily-net-profit">$0.00</div>
+                        <div class="unit">USD / DAY</div>
+                    </div>
+
+                    <div class="result-item" id="monthly-roi-container">
+                        <h3>MONTHLY <dfn title="Return on Investment">ROI</dfn></h3>
+                        <div class="value" id="monthly-roi">0%</div>
+                        <div class="unit">PER MONTH</div>
+                    </div>
+
+                    <div class="result-item" id="break-even-container">
+                        <h3>DAYS TO BREAK-EVEN</h3>
+                        <div class="value" id="break-even-days">0</div>
+                        <div class="unit">DAYS</div>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="action-buttons">
+                    <button class="action-btn" id="generate-report-btn">GENERATE_REPORT</button>
+                    <button class="action-btn" id="print-audit-btn">PRINT_AUDIT</button>
+                </div>
+            </div>
+
+            <!-- AGENT READABLE PORT -->
+            <div id="agent-port" style="border-top: 2px solid #00D4FF; padding: 30px; background-color: #0a0a0a;">
+                <h2 style="font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px; text-align: center;">
+                    FOR_AGENT_CONSUMPTION: COPY_THIS_JSON
+                </h2>
+                <textarea id="agent-json" readonly style="width: 100%; min-height: 200px; background-color: #050505; color: #00D4FF; border: 2px solid #00D4FF; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; resize: vertical; line-height: 1.6;"></textarea>
+            </div>
+
+            <!-- SYSTEM DOCUMENTATION FAQ -->
+            <section id="faq">
+                <h2>SYSTEM_DOCUMENTATION</h2>
+                
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span itemprop="name">1. How to optimize AI Agent margins?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">To optimize <dfn title="Autonomous Agents">Autonomous Agents</dfn> margins, focus on reducing LLM token costs through prompt optimization, selecting the right model for your use case, and leveraging <dfn title="x402 Payment Protocol">x402</dfn> for efficient <dfn title="On-chain Settlement">On-chain Settlement</dfn>. Cache frequent queries, batch requests, and optimize your operational infrastructure to minimize hosting costs while maintaining 24/7 availability for <dfn title="Autonomous Financial AI">DeFAI</dfn> applications.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span itemprop="name">2. Why do x402 agents need ROI calculation?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><dfn title="x402 Payment Protocol">x402</dfn> agents operate in a real-time value transfer environment where every transaction has associated costs. <dfn title="Return on Investment">ROI</dfn> calculation ensures that <dfn title="Autonomous Agents">Autonomous Agents</dfn> are economically sustainable by tracking token costs, gas fees, and <dfn title="On-chain Settlement">On-chain Settlement</dfn> revenues. Without proper <dfn title="Return on Investment">ROI</dfn> monitoring, <dfn title="Autonomous Financial AI">DeFAI</dfn> agents can operate at a loss without detection.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span itemprop="name">3. What is the impact of token density on profitability?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">Token density (useful information per token) directly impacts profitability. Higher token density means each API call delivers more value, reducing cost per output. Optimize prompts to be concise yet effective, use structured outputs, and leverage context windows efficiently. For <dfn title="Autonomous Financial AI">DeFAI</dfn> agents on <dfn title="x402 Payment Protocol">x402</dfn>, every saved token contributes to improved margins and faster break-even.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <p>ECON_CALC v2.0 | AGENTIC_ECONOMY_TOOLKIT</p>
+                <p style="margin-top: 5px;">POWERED BY x402_PROTOCOL | ON-CHAIN_SETTLEMENT_READY</p>
+            </div>
+
+            <!-- ADDITIONAL LINKS -->
+            <div class="additional-links">
+                <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+                <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+                <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+                <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+                <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+                <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Model Prices (per 1M tokens)
+        const MODEL_PRICES = {
+            gpt4o: { input: 2.50, output: 10.00 },
+            claude35: { input: 3.00, output: 15.00 },
+            llama3: { input: 0.50, output: 0.80 }
+        };
+
+        const INITIAL_SETUP_COST = 500;
+        const CURRENT_URL = 'https://www.wangdadi.xyz/econcalc';
+
+        function calculateROI() {
+            const model = document.getElementById('api-model').value;
+            const inputTokens = parseFloat(document.getElementById('input-tokens').value) || 0;
+            const outputTokens = parseFloat(document.getElementById('output-tokens').value) || 0;
+            const operationalCost = parseFloat(document.getElementById('operational-cost').value) || 0;
+            const grossRevenue = parseFloat(document.getElementById('gross-revenue').value) || 0;
+
+            const prices = MODEL_PRICES[model];
+
+            const inputCost = (inputTokens * prices.input) / 1000000;
+            const outputCost = (outputTokens * prices.output) / 1000000;
+            const totalDailyCost = inputCost + outputCost + operationalCost;
+
+            const dailyNetProfit = grossRevenue - totalDailyCost;
+            const monthlyNetProfit = dailyNetProfit * 30;
+            const monthlyROI = (monthlyNetProfit / INITIAL_SETUP_COST) * 100;
+
+            let breakEvenDays;
+            if (dailyNetProfit > 0) {
+                breakEvenDays = Math.ceil(INITIAL_SETUP_COST / dailyNetProfit);
+            } else {
+                breakEvenDays = 'INFINITE LOSS';
+            }
+
+            // Update DOM
+            const dailyNetProfitEl = document.getElementById('daily-net-profit');
+            const dailyNetProfitContainer = document.getElementById('daily-net-profit-container');
+            const monthlyRoiEl = document.getElementById('monthly-roi');
+            const monthlyRoiContainer = document.getElementById('monthly-roi-container');
+            const breakEvenEl = document.getElementById('break-even-days');
+            const breakEvenContainer = document.getElementById('break-even-container');
+
+            // Daily Net Profit
+            dailyNetProfitEl.innerHTML = dailyNetProfit >= 0 
+                ? `$${dailyNetProfit.toFixed(2)}` 
+                : `-$${Math.abs(dailyNetProfit).toFixed(2)}`;
+            
+            if (dailyNetProfit < 0) {
+                dailyNetProfitContainer.classList.add('negative');
+                dailyNetProfitContainer.classList.remove('profitable');
+            } else {
+                dailyNetProfitContainer.classList.remove('negative');
+                dailyNetProfitContainer.classList.add('profitable');
+            }
+
+            // Monthly ROI
+            monthlyRoiEl.innerHTML = `${monthlyROI.toFixed(1)}%`;
+            
+            if (monthlyROI < 0) {
+                monthlyRoiContainer.classList.add('negative');
+                monthlyRoiContainer.classList.remove('profitable');
+            } else {
+                monthlyRoiContainer.classList.remove('negative');
+                monthlyRoiContainer.classList.add('profitable');
+            }
+
+            // Break-even Days
+            if (breakEvenDays === 'INFINITE LOSS') {
+                breakEvenEl.innerHTML = 'INFINITE LOSS';
+                breakEvenEl.style.fontSize = '2rem';
+                breakEvenContainer.classList.add('negative');
+                breakEvenContainer.classList.remove('profitable');
+            } else {
+                breakEvenEl.innerHTML = breakEvenDays;
+                breakEvenEl.style.fontSize = '4rem';
+                breakEvenContainer.classList.remove('negative');
+                breakEvenContainer.classList.add('profitable');
+            }
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('open');
+        }
+
+        async function generateReport() {
+            const dailyProfit = document.getElementById('daily-net-profit').innerText;
+            const monthlyROI = document.getElementById('monthly-roi').innerText;
+            const breakEven = document.getElementById('break-even-days').innerText;
+
+            const report = `🤖 My AI Agent Stats: Daily Profit: ${dailyProfit} | Monthly ROI: ${monthlyROI} | Break-even: ${breakEven} days. Calculated via EconCalc. ${CURRENT_URL}`;
+
+            try {
+                await navigator.clipboard.writeText(report);
+                alert('REPORT COPIED TO CLIPBOARD');
+            } catch (err) {
+                alert('FAILED TO COPY. MANUAL COPY REQUIRED: ' + report);
+            }
+        }
+
+        function printAudit() {
+            window.print();
+        }
+
+        // Add event listeners
+        document.getElementById('api-model').addEventListener('change', calculateROI);
+        document.getElementById('input-tokens').addEventListener('input', calculateROI);
+        document.getElementById('output-tokens').addEventListener('input', calculateROI);
+        document.getElementById('operational-cost').addEventListener('input', calculateROI);
+        document.getElementById('gross-revenue').addEventListener('input', calculateROI);
+        document.getElementById('generate-report-btn').addEventListener('click', generateReport);
+        document.getElementById('print-audit-btn').addEventListener('click', printAudit);
+
+        function updateAgentPort() {
+            const model = document.getElementById('api-model').value;
+            const inputTokens = parseFloat(document.getElementById('input-tokens').value) || 0;
+            const outputTokens = parseFloat(document.getElementById('output-tokens').value) || 0;
+            const operationalCost = parseFloat(document.getElementById('operational-cost').value) || 0;
+            const grossRevenue = parseFloat(document.getElementById('gross-revenue').value) || 0;
+
+            const prices = MODEL_PRICES[model];
+            const inputCost = (inputTokens * prices.input) / 1000000;
+            const outputCost = (outputTokens * prices.output) / 1000000;
+            const totalDailyCost = inputCost + outputCost + operationalCost;
+            const dailyNetProfit = grossRevenue - totalDailyCost;
+            const monthlyNetProfit = dailyNetProfit * 30;
+            const monthlyROI = (monthlyNetProfit / INITIAL_SETUP_COST) * 100;
+            let breakEvenDays = dailyNetProfit > 0 ? Math.ceil(INITIAL_SETUP_COST / dailyNetProfit) : 'INFINITE LOSS';
+
+            const agentData = {
+                "timestamp": new Date().toISOString(),
+                "calculator": "ECON_CALC",
+                "version": "2.0",
+                "inputs": {
+                    "model": model,
+                    "inputTokens": inputTokens,
+                    "outputTokens": outputTokens,
+                    "operationalCost": operationalCost,
+                    "grossRevenue": grossRevenue
+                },
+                "outputs": {
+                    "inputCost": parseFloat(inputCost.toFixed(4)),
+                    "outputCost": parseFloat(outputCost.toFixed(4)),
+                    "totalDailyCost": parseFloat(totalDailyCost.toFixed(4)),
+                    "dailyNetProfit": parseFloat(dailyNetProfit.toFixed(4)),
+                    "monthlyROI": parseFloat(monthlyROI.toFixed(2)),
+                    "breakEvenDays": breakEvenDays
+                },
+                "x402_protocol_ready": true,
+                "agentic_economy": "active"
+            };
+
+            document.getElementById('agent-json').value = JSON.stringify(agentData, null, 4);
+        }
+
+        // Update calculateROI to also update agent port
+        const originalCalculateROI = calculateROI;
+        calculateROI = function() {
+            originalCalculateROI();
+            updateAgentPort();
+        };
+
+        // Initial calculation
+        calculateROI();
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentBond Tokenomics Engine",
+    "name_for_model": "AgentBond_Tokenomics_Engine",
+    "description_for_human": "A powerful tokenomics simulator for designing AI Agent tokens with bonding curves.",
+    "description_for_model": "A financial engine to simulate bonding curves for AI Agents. Helps agents or users determine the price impact of supply changes, calculate market cap, and model revenue distribution for tokenized entities.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/agentbond/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/agentbond/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/agentbond/legal"
+}

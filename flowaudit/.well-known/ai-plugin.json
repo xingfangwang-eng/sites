@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_model": "FlowAudit_Tracer",
+    "name_for_human": "FlowAudit Agent Execution Tracer",
+    "description_for_model": "A forensic tool to parse and visualize AI Agent execution logs. Helps LLMs understand where funds were allocated, identify gas inefficiencies, and audit the reasoning vs. execution gap.",
+    "description_for_human": "Forensic audit tool for AI Agents to visualize transaction logic and asset movement.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/flowaudit/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/flowaudit/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/legal"
+}
