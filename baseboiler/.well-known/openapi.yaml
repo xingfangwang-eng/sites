@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  title: BaseBoiler Agent Generator API
+  description: API for generating ready-to-run Base Chain AI Agent source code
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/baseboiler
+    description: Production server
+paths:
+  /generate:
+    get:
+      summary: Generate Base Chain AI Agent code
+      description: Generates deployable Python source code for Base Chain AI Agents based on selected template and configuration parameters.
+      operationId: generateAgentCode
+      parameters:
+        - name: template_type
+          in: query
+          description: Type of agent template to generate
+          required: true
+          schema:
+            type: string
+            enum:
+              - autotrader
+              - sentiment
+              - gaswatcher
+        - name: agent_name
+          in: query
+          description: Name of the AI Agent
+          required: true
+          schema:
+            type: string
+            default: base_agent_001
+        - name: rpc_url
+          in: query
+          description: Base Chain RPC URL
+          required: false
+          schema:
+            type: string
+            default: https://mainnet.base.org
+        - name: target_contract
+          in: query
+          description: Target smart contract address
+          required: false
+          schema:
+            type: string
+            pattern: '^0x[a-fA-F0-9]{40}$'
+      responses:
+        '200':
+          description: Successfully generated agent code
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: Python source code for the AI Agent
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  code:
+                    type: string
+                  template_type:
+                    type: string
+                  agent_name:
+                    type: string
+                  rpc_url:
+                    type: string
+                  instructions:
+                    type: string
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: string
+                    example: Invalid template type
+components:
+  schemas:
+    AgentCodeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: string
+        template_type:
+          type: string
+        agent_name:
+          type: string
+        rpc_url:
+          type: string
+        instructions:
+          type: string
