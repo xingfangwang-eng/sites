@@ -18,12 +18,14 @@
     <meta name="description" content="The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.">
     <meta name="keywords" content="AI Agent, ROI Calculator, Agentic Economy, Tokenomics, DeFAI, On-chain Settlement">
     <meta name="ai-agent-tools" content="ROI Calculator, Agentic Economy, Tokenomics">
+    <meta name="geo.region" content="US-NY">
+    <meta name="geo.placename" content="Global Agentic Economy">
     
     <!-- OpenGraph -->
     <meta property="og:title" content="EconCalc | AI Agent ROI & Profitability Calculator">
     <meta property="og:description" content="The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.">
     <meta property="og:image" content="https://via.placeholder.com/1200x630/050505/00D4FF?text=ECON_CALC">
-    <meta property="og:url" content="https://econcalc.xyz">
+    <meta property="og:url" content="https://www.wangdadi.xyz/econcalc">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card -->
@@ -52,7 +54,7 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
+        "@type": ["SoftwareApplication", "FinancialService"],
         "name": "EconCalc",
         "description": "The ultimate financial tool for the Agentic Economy. Calculate token costs, on-chain revenue, and break-even points for AI Agents.",
         "applicationCategory": "FinanceApplication",
@@ -65,7 +67,11 @@
             "DeFAI agent profitability",
             "x402 integration support"
         ],
-        "url": "https://econcalc.xyz"
+        "url": "https://www.wangdadi.xyz/econcalc",
+        "provider": {
+            "@type": "Organization",
+            "name": "EconCalc"
+        }
     }
     </script>
 
@@ -82,6 +88,26 @@
             font-family: 'Courier New', Courier, monospace;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Scanlines Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.03),
+                rgba(0, 0, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
         }
 
         .main-container {
@@ -129,6 +155,19 @@
             height: 10px;
             background-color: #00D4FF;
             animation: pulse 2s infinite;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #00D4FF;
+            animation: blink 1s infinite;
+            border-radius: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
         @keyframes pulse {
@@ -301,6 +340,11 @@
             color: #000;
         }
 
+        .action-btn:active {
+            background-color: #000;
+            color: #00D4FF;
+        }
+
         /* FAQ SECTION */
         #faq {
             border-top: 2px solid #00D4FF;
@@ -452,6 +496,10 @@
                 padding: 0;
             }
 
+            body::before {
+                display: none;
+            }
+
             .main-container {
                 border: 2px solid black;
                 box-shadow: none;
@@ -461,7 +509,8 @@
             .action-buttons,
             #faq,
             .footer,
-            .additional-links {
+            .additional-links,
+            #agent-port {
                 display: none;
             }
 
@@ -496,6 +545,10 @@
         <div class="main-container">
             <!-- STATUS BAR -->
             <div class="status-bar">
+                <div class="status-indicator">
+                    <span class="live-dot"></span>
+                    <span>LIVE_DATA</span>
+                </div>
                 <div class="status-indicator">
                     <span class="status-dot"></span>
                     <span>SYSTEM_ONLINE</span>
@@ -593,57 +646,45 @@
                 </div>
             </div>
 
-            <!-- FAQ SECTION -->
+            <!-- AGENT READABLE PORT -->
+            <div id="agent-port" style="border-top: 2px solid #00D4FF; padding: 30px; background-color: #0a0a0a;">
+                <h2 style="font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px; text-align: center;">
+                    FOR_AGENT_CONSUMPTION: COPY_THIS_JSON
+                </h2>
+                <textarea id="agent-json" readonly style="width: 100%; min-height: 200px; background-color: #050505; color: #00D4FF; border: 2px solid #00D4FF; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; resize: vertical; line-height: 1.6;"></textarea>
+            </div>
+
+            <!-- SYSTEM DOCUMENTATION FAQ -->
             <section id="faq">
-                <h2>AGENTIC ECONOMY FAQ</h2>
+                <h2>SYSTEM_DOCUMENTATION</h2>
                 
-                <div class="faq-item">
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>1. How to calculate AI Agent <dfn title="Return on Investment">ROI</dfn>?</span>
+                        <span itemprop="name">1. How to optimize AI Agent margins?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        To calculate AI Agent <dfn title="Return on Investment">ROI</dfn>, you need to determine your Total Daily Costs (LLM API costs + Gas/Hosting fees) and subtract from your Daily Gross Revenue. The formula is: Daily Net Profit = Revenue - (Input Token Cost + Output Token Cost + Operational Cost). Monthly <dfn title="Return on Investment">ROI</dfn> is then calculated against your initial setup cost, typically $500 for <dfn title="Autonomous Financial AI">DeFAI</dfn> infrastructure.
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">To optimize <dfn title="Autonomous Agents">Autonomous Agents</dfn> margins, focus on reducing LLM token costs through prompt optimization, selecting the right model for your use case, and leveraging <dfn title="x402 Payment Protocol">x402</dfn> for efficient <dfn title="On-chain Settlement">On-chain Settlement</dfn>. Cache frequent queries, batch requests, and optimize your operational infrastructure to minimize hosting costs while maintaining 24/7 availability for <dfn title="Autonomous Financial AI">DeFAI</dfn> applications.</div>
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>2. What are the hidden costs of Agentic workflows?</span>
+                        <span itemprop="name">2. Why do x402 agents need ROI calculation?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        Hidden costs include Gas fees for blockchain interactions, server hosting for persistent agent operations, LLM API costs that scale with usage, and integration expenses for protocols like <dfn title="x402 Payment Protocol">x402</dfn>. These costs can significantly impact <dfn title="Autonomous Agents">Autonomous Agents</dfn> profitability and must be accounted for in your financial model.
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><dfn title="x402 Payment Protocol">x402</dfn> agents operate in a real-time value transfer environment where every transaction has associated costs. <dfn title="Return on Investment">ROI</dfn> calculation ensures that <dfn title="Autonomous Agents">Autonomous Agents</dfn> are economically sustainable by tracking token costs, gas fees, and <dfn title="On-chain Settlement">On-chain Settlement</dfn> revenues. Without proper <dfn title="Return on Investment">ROI</dfn> monitoring, <dfn title="Autonomous Financial AI">DeFAI</dfn> agents can operate at a loss without detection.</div>
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>3. Why is <dfn title="x402 Payment Protocol">x402</dfn> payment integration important?</span>
+                        <span itemprop="name">3. What is the impact of token density on profitability?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        <dfn title="x402 Payment Protocol">x402</dfn> enables seamless <dfn title="On-chain Settlement">On-chain Settlement</dfn> for <dfn title="Autonomous Agents">Autonomous Agents</dfn>, allowing direct value transfer between agents and users without intermediaries. This reduces transaction costs, increases settlement speed, and is critical for building sustainable <dfn title="Autonomous Financial AI">DeFAI</dfn> applications that operate 24/7 without human intervention.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>4. How does token pricing affect autonomous agent margins?</span>
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        LLM token pricing directly impacts agent margins. Higher input/output token costs reduce profitability, especially for agents with high interaction volumes. Choosing the right model (GPT-4o, Claude 3.5, or Llama 3) based on your use case is crucial. Optimizing prompt engineering to reduce token consumption can significantly improve margins for <dfn title="Autonomous Agents">Autonomous Agents</dfn> operating in the agentic economy.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>5. What is a good break-even period for a <dfn title="Autonomous Financial AI">DeFAI</dfn> agent?</span>
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        A good break-even period for a <dfn title="Autonomous Financial AI">DeFAI</dfn> agent is typically 30-90 days. This timeline allows for initial setup, user acquisition, and optimization. Agents achieving break-even within 60 days are considered highly efficient. Key factors include <dfn title="x402 Payment Protocol">x402</dfn> integration for <dfn title="On-chain Settlement">On-chain Settlement</dfn>, efficient LLM usage, and scalable operational infrastructure.
+                    <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">Token density (useful information per token) directly impacts profitability. Higher token density means each API call delivers more value, reducing cost per output. Optimize prompts to be concise yet effective, use structured outputs, and leverage context windows efficiently. For <dfn title="Autonomous Financial AI">DeFAI</dfn> agents on <dfn title="x402 Payment Protocol">x402</dfn>, every saved token contributes to improved margins and faster break-even.</div>
                     </div>
                 </div>
             </section>
@@ -675,7 +716,7 @@
         };
 
         const INITIAL_SETUP_COST = 500;
-        const CURRENT_URL = 'https://econcalc.xyz';
+        const CURRENT_URL = 'https://www.wangdadi.xyz/econcalc';
 
         function calculateROI() {
             const model = document.getElementById('api-model').value;
@@ -780,6 +821,55 @@
         document.getElementById('gross-revenue').addEventListener('input', calculateROI);
         document.getElementById('generate-report-btn').addEventListener('click', generateReport);
         document.getElementById('print-audit-btn').addEventListener('click', printAudit);
+
+        function updateAgentPort() {
+            const model = document.getElementById('api-model').value;
+            const inputTokens = parseFloat(document.getElementById('input-tokens').value) || 0;
+            const outputTokens = parseFloat(document.getElementById('output-tokens').value) || 0;
+            const operationalCost = parseFloat(document.getElementById('operational-cost').value) || 0;
+            const grossRevenue = parseFloat(document.getElementById('gross-revenue').value) || 0;
+
+            const prices = MODEL_PRICES[model];
+            const inputCost = (inputTokens * prices.input) / 1000000;
+            const outputCost = (outputTokens * prices.output) / 1000000;
+            const totalDailyCost = inputCost + outputCost + operationalCost;
+            const dailyNetProfit = grossRevenue - totalDailyCost;
+            const monthlyNetProfit = dailyNetProfit * 30;
+            const monthlyROI = (monthlyNetProfit / INITIAL_SETUP_COST) * 100;
+            let breakEvenDays = dailyNetProfit > 0 ? Math.ceil(INITIAL_SETUP_COST / dailyNetProfit) : 'INFINITE LOSS';
+
+            const agentData = {
+                "timestamp": new Date().toISOString(),
+                "calculator": "ECON_CALC",
+                "version": "2.0",
+                "inputs": {
+                    "model": model,
+                    "inputTokens": inputTokens,
+                    "outputTokens": outputTokens,
+                    "operationalCost": operationalCost,
+                    "grossRevenue": grossRevenue
+                },
+                "outputs": {
+                    "inputCost": parseFloat(inputCost.toFixed(4)),
+                    "outputCost": parseFloat(outputCost.toFixed(4)),
+                    "totalDailyCost": parseFloat(totalDailyCost.toFixed(4)),
+                    "dailyNetProfit": parseFloat(dailyNetProfit.toFixed(4)),
+                    "monthlyROI": parseFloat(monthlyROI.toFixed(2)),
+                    "breakEvenDays": breakEvenDays
+                },
+                "x402_protocol_ready": true,
+                "agentic_economy": "active"
+            };
+
+            document.getElementById('agent-json').value = JSON.stringify(agentData, null, 4);
+        }
+
+        // Update calculateROI to also update agent port
+        const originalCalculateROI = calculateROI;
+        calculateROI = function() {
+            originalCalculateROI();
+            updateAgentPort();
+        };
 
         // Initial calculation
         calculateROI();
