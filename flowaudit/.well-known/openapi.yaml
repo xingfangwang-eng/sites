@@ -1,0 +1,169 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: FlowAudit API
+  description: API for analyzing AI Agent execution logs and auditing fund flows
+servers:
+  - url: https://www.wangdadi.xyz/flowaudit/api
+    description: Production server
+  - url: http://localhost:8000/api
+    description: Local development server
+paths:
+  /analyze:
+    post:
+      summary: Analyze agent execution logs
+      description: Parses raw execution logs or JSON and returns a comprehensive audit report including fund flow mapping and leakage detection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                logs:
+                  type: string
+                  description: Raw execution logs or JSON representing the agent transaction
+                  example: |
+                    {
+                      "agent_transaction": {
+                        "action_name": "DEX_SWAP",
+                        "asset_type": "ETH",
+                        "initial_balance": "10.500000000",
+                        "final_balance": "8.450000000",
+                        "gas_fee": "0.045000000",
+                        "status": "SUCCESS",
+                        "steps": [
+                          {"step": "APPROVE", "amount": "2.0 ETH", "from": "0x742d...", "to": "0xUniswap"},
+                          {"step": "SWAP", "amount": "-2.0 ETH", "from": "0x742d...", "to": "0xUniswap"}
+                        ]
+                      }
+                    }
+                format:
+                  type: string
+                  description: Format of input data
+                  enum: [json, text]
+                  default: json
+      responses:
+        '200':
+          description: Successful analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  audit_version:
+                    type: string
+                    description: Version of the audit engine
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Timestamp of the analysis
+                  action_name:
+                    type: string
+                    description: Name of the action performed
+                  asset_type:
+                    type: string
+                    description: Type of asset involved
+                  from_address:
+                    type: string
+                    description: Source address
+                  to_address:
+                    type: string
+                    description: Destination address
+                  initial_balance:
+                    type: string
+                    description: Initial balance before transaction
+                  final_balance:
+                    type: string
+                    description: Final balance after transaction
+                  total_gas:
+                    type: string
+                    description: Total gas fees incurred
+                  total_leakage:
+                    type: string
+                    description: Total asset leakage
+                  leakage_percent:
+                    type: string
+                    description: Leakage percentage
+                  leakage_type:
+                    type: string
+                    description: Type of leakage detected
+                    enum: [NONE, NORMAL_FEES, HIGH_GAS, HIGH_SLIPPAGE, HIDDEN_TRANSFER]
+                  final_roi:
+                    type: string
+                    description: Return on investment percentage
+                  safety_score:
+                    type: string
+                    description: Safety score (0-100)
+                  status:
+                    type: string
+                    description: Transaction status
+                  flow_steps:
+                    type: array
+                    description: Step-by-step flow of funds
+                    items:
+                      type: object
+                      properties:
+                        step:
+                          type: string
+                        amount:
+                          type: string
+                        from:
+                          type: string
+                        to:
+                          type: string
+                        fee:
+                          type: string
+                        suspicious:
+                          type: boolean
+              example:
+                audit_version: "1.0.0"
+                timestamp: "2024-01-15T14:32:00Z"
+                action_name: "DEX_SWAP"
+                asset_type: "ETH"
+                from_address: "0x742d35Cc6634C0532925a3b844Bc9e7595f6E28"
+                to_address: "0xUniswapV3Router"
+                initial_balance: "10.500000000"
+                final_balance: "8.450000000"
+                total_gas: "0.045000000"
+                total_leakage: "2.050000000"
+                leakage_percent: "19.52"
+                leakage_type: "NORMAL_FEES"
+                final_roi: "-19.52"
+                safety_score: "80"
+                status: "SUCCESS"
+                flow_steps:
+                  - step: "APPROVE"
+                    amount: "2.000000000 ETH"
+                    from: "0x742d..."
+                    to: "0xUniswap"
+                    fee: "0"
+                    suspicious: false
+                  - step: "SWAP"
+                    amount: "-2.000000000 ETH"
+                    from: "0x742d..."
+                    to: "0xUniswap"
+                    fee: "0"
+                    suspicious: false
+        '400':
+          description: Invalid input format
+        '500':
+          description: Internal server error
+  /health:
+    get:
+      summary: Health check
+      description: Check if the API is running
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  timestamp:
+                    type: string
+                    format: date-time
