@@ -1,0 +1,16 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SkillManifest",
+    "name_for_model": "SkillManifest_Schema_Generator",
+    "description_for_human": "Instant OpenAI & Anthropic Tool Definition Generator. Transform API docs into AI Agent readable formats.",
+    "description_for_model": "A specialized tool for developers to generate JSON schemas for AI Agent tools. Converts human-readable API parameters into OpenAI and Anthropic compatible tool definitions.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "none"
+    },
+    "logo_url": "",
+    "contact_email": "",
+    "legal_info_url": ""
+}
