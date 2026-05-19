@@ -58,10 +58,20 @@
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('searchInput');
         const searchBtn = document.getElementById('searchBtn');
+        const clearBtn = document.getElementById('clearBtn');
         const searchResults = document.getElementById('searchResults');
         const allCards = document.querySelectorAll('.bg-white.rounded-lg.border');
         
+        function updateClearButton() {
+            if (searchInput.value.trim()) {
+                clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+        
         function performSearch() {
+            updateClearButton();
             const query = searchInput.value.toLowerCase().trim();
             
             if (!query) {
@@ -121,6 +131,7 @@
         
         searchBtn.addEventListener('click', performSearch);
         searchInput.addEventListener('keyup', function(e) {
+            updateClearButton();
             if (e.key === 'Enter') {
                 performSearch();
             }
@@ -150,8 +161,15 @@
                                 type="text" 
                                 id="searchInput"
                                 placeholder="Search by tool name, description or category..." 
-                                class="w-full px-6 py-4 pl-12 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
+                                class="w-full px-6 py-4 pl-12 pr-24 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
                             />
+                            <button 
+                                id="clearBtn"
+                                class="absolute right-24 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition opacity-0 pointer-events-none"
+                                onclick="document.getElementById('searchInput').value=''; document.getElementById('clearBtn').classList.add('opacity-0', 'pointer-events-none'); document.getElementById('searchInput').focus(); performSearch();"
+                            >
+                                <i class="fa fa-times-circle text-lg"></i>
+                            </button>
                             <button 
                                 id="searchBtn"
                                 class="absolute right-2 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full transition"
