@@ -1,0 +1,186 @@
+openapi: 3.0.1
+info:
+  title: 402Pay - x402 Payment Response Generator
+  description: |
+    402Pay generates x402 standard HTTP 402 Payment Required response blocks for 
+    Agentic commerce, Machine-to-Machine payments, and Autonomous Agent billing.
+    This API provides prompt templates for integrating x402 payment responses into
+    AI agent frameworks including Hermes, CrewAI, and AutoGen.
+  version: 1.0.0
+  contact:
+    email: hello@wangdadi.xyz
+    url: https://www.wangdadi.xyz/402pay
+  license:
+    name: MIT
+    url: https://www.wangdadi.xyz/402pay/license
+servers:
+  - url: https://www.wangdadi.xyz/402pay
+    description: Production server
+  - url: https://www.wangdadi.xyz/402pay/sandbox
+    description: Sandbox for testing
+paths:
+  /api/prompt-template:
+    get:
+      summary: Generate x402 prompt template for AI agent frameworks
+      description: |
+        Returns a prompt template for constructing x402 Payment Required responses
+        tailored to specific AI agent frameworks. The template can be used by LLMs
+        and AI agents to generate proper x402 compliant payment response code.
+      operationId: getPromptTemplate
+      parameters:
+        - name: goal
+          in: query
+          required: true
+          description: |
+            The payment goal or purpose. Examples: 'agent_resource_access',
+            'api_consumption', 'm2m_transaction', 'agent_orchestration_payment'
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 200
+        - name: style
+          in: query
+          required: true
+          description: |
+            The AI agent framework style for the prompt template.
+            - hermes: For Hermes framework payment-aware agent communication
+            - crewai: For CrewAI multi-agent payment orchestration
+            - autogen: For AutoGen agent payment negotiation protocols
+          schema:
+            type: string
+            enum:
+              - hermes
+              - crewai
+              - autogen
+      responses:
+        '200':
+          description: Successful prompt template generation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptTemplateResponse'
+              example:
+                prompt_template: |
+                  # x402 Payment Required Response Template
+                  # Framework: CrewAI
+                  # Goal: agent_resource_access
+
+                  def generate_402_response(amount, currency, provider, destination, memo):
+                      """
+                      Generate x402 Payment Required response for CrewAI agents.
+                      This template enables payment-aware multi-agent workflows.
+                      """
+                      return {
+                          "status": 402,
+                          "headers": {
+                              "X-402-Payment-Required": "true",
+                              "X-402-Amount": str(amount),
+                              "X-402-Currency": currency,
+                              "X-402-Provider": provider
+                          },
+                          "body": {
+                              "error": "payment_required",
+                              "x402": {
+                                  "amount": str(amount),
+                                  "asset": currency,
+                                  "destination": destination,
+                                  "provider": provider,
+                                  "memo": memo,
+                                  "framework": "crewai",
+                                  "goal": "agent_resource_access"
+                              }
+                          }
+                      }
+                framework: crewai
+                goal: agent_resource_access
+                x402_fields:
+                  - X-402-Payment-Required
+                  - X-402-Amount
+                  - X-402-Currency
+                  - X-402-Provider
+                required_body_fields:
+                  - error
+                  - x402.amount
+                  - x402.asset
+                  - x402.destination
+                  - x402.provider
+                  - x402.memo
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+components:
+  schemas:
+    PromptTemplateResponse:
+      type: object
+      required:
+        - prompt_template
+        - framework
+        - goal
+        - x402_fields
+      properties:
+        prompt_template:
+          type: string
+          description: The generated prompt template code for x402 response
+        framework:
+          type: string
+          enum: [hermes, crewai, autogen]
+          description: The AI agent framework the template is tailored for
+        goal:
+          type: string
+          description: The payment goal the template supports
+        x402_fields:
+          type: array
+          items:
+            type: string
+          description: Required X-402 HTTP headers
+        required_body_fields:
+          type: array
+          items:
+            type: string
+          description: Required JSON body fields in the x402 object
+        example_integration:
+          type: string
+          description: Example integration snippet for the specific framework
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          example: invalid_request
+        message:
+          type: string
+          example: The 'goal' parameter is required and must be a non-empty string
+    ValidationError:
+      type: object
+      required:
+        - error
+        - message
+        - details
+      properties:
+        error:
+          type: string
+          example: validation_error
+        message:
+          type: string
+          example: Request validation failed
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
