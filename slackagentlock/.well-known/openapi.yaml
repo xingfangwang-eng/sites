@@ -1,0 +1,202 @@
+openapi: 3.0.3
+info:
+  title: SlackAgent Lock API
+  description: |
+    SlackAgent Lock is a free workflow template generator for creating payment locks, behavior locks, and hybrid locks for Slack and Agentforce platforms.
+    
+    **Features:**
+    - Generate Payment Lock workflows for paid access control
+    - Generate Behavior Lock workflows for action-based access
+    - Generate Hybrid Lock workflows combining payment and behavior requirements
+    - Support for Slack Workflow Builder
+    - Support for Agentforce/Salesforce Flow
+    - Dual-platform output for both Slack and Agentforce
+    
+    **Use Cases:**
+    - Paid membership communities
+    - Premium content access control
+    - Subscription-based channel permissions
+    - Engagement-gated content systems
+    - Multi-step user verification workflows
+    
+    **No authentication required. All processing happens locally in the browser.**
+  version: 1.0.0
+  contact:
+    name: SlackAgent Lock Support
+    email: 457239850@qq.com
+    url: https://www.wangdadi.xyz/slackagentlock
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://www.wangdadi.xyz/slackagentlock
+    description: Production server
+
+tags:
+  - name: workflow
+    description: Workflow template generation operations
+  - name: payment-lock
+    description: Payment-based access control workflows
+  - name: behavior-lock
+    description: Action-based access control workflows
+  - name: hybrid-lock
+    description: Combined payment and behavior workflows
+  - name: slack
+    description: Slack platform workflows
+  - name: agentforce
+    description: Agentforce/Salesforce platform workflows
+
+paths:
+  /generate:
+    post:
+      summary: Generate workflow template
+      description: |
+        Generates a workflow template based on the specified lock type, trigger condition, custom rules, and target platform.
+        
+        **Lock Types:**
+        - `payment`: Restricts access until payment is verified
+        - `behavior`: Requires users to complete specific actions
+        - `hybrid`: Combines both payment and behavior requirements
+        
+        **Platforms:**
+        - `slack`: Generate for Slack Workflow Builder
+        - `agentforce`: Generate for Agentforce/Salesforce Flow
+        - `both`: Generate templates for both platforms
+      tags:
+        - workflow
+        - payment-lock
+        - behavior-lock
+        - hybrid-lock
+        - slack
+        - agentforce
+      operationId: generateWorkflow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowRequest'
+            example:
+              lockType: payment
+              triggerCondition: "channel_id: C123456"
+              lockRules: "rule1: value1\nrule2: value2"
+              platform: slack
+      responses:
+        '200':
+          description: Successfully generated workflow template
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowResponse'
+              example:
+                success: true
+                lockType: payment
+                platform: slack
+                template: "# Payment Lock Workflow - Slack\ntrigger:\n  type: event\n  event: message_posted\n  conditions:\n    - channel_id: C123456\nsteps:\n  - action: check_payment\n    params:\n      user_id: \"{{user.id}}\"\n..."
+                generatedAt: "2024-01-15T10:30:00Z"
+        '400':
+          description: Invalid input parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                error: "Missing required field: triggerCondition"
+
+components:
+  schemas:
+    WorkflowRequest:
+      type: object
+      description: Request parameters for generating a workflow template
+      required:
+        - lockType
+        - triggerCondition
+        - platform
+      properties:
+        lockType:
+          type: string
+          description: Type of lock workflow to generate
+          enum:
+            - payment
+            - behavior
+            - hybrid
+          example: payment
+        triggerCondition:
+          type: string
+          description: |
+            Trigger condition for the workflow. 
+            For Slack: channel_id, event type, or other trigger conditions.
+            For Agentforce: object name, event type, or record criteria.
+          example: "channel_id: C123456"
+        lockRules:
+          type: string
+          description: Custom lock rules, one per line (optional)
+          example: "rule1: value1\nrule2: value2"
+        platform:
+          type: string
+          description: Target platform for the workflow
+          enum:
+            - slack
+            - agentforce
+            - both
+          example: slack
+
+    WorkflowResponse:
+      type: object
+      description: Response containing the generated workflow template
+      required:
+        - success
+        - lockType
+        - platform
+        - template
+        - generatedAt
+      properties:
+        success:
+          type: boolean
+          description: Indicates if the generation was successful
+          example: true
+        lockType:
+          type: string
+          description: The type of lock generated
+          example: payment
+        platform:
+          type: string
+          description: The target platform
+          example: slack
+        template:
+          type: string
+          description: The generated workflow template content
+          example: "# Payment Lock Workflow - Slack\ntrigger: ..."
+        generatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the template was generated
+          example: "2024-01-15T10:30:00Z"
+
+    ErrorResponse:
+      type: object
+      description: Error response when generation fails
+      required:
+        - success
+        - error
+      properties:
+        success:
+          type: boolean
+          description: Indicates if the operation failed
+          example: false
+        error:
+          type: string
+          description: Error message describing the failure
+          example: "Missing required field: triggerCondition"
+
+  securitySchemes:
+    none:
+      type: apiKey
+      description: No authentication required. All processing happens locally.
+      name: none
+      in: header
+
+security:
+  - none: []
