@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SwarmPromptForge",
+    "name_for_model": "swarm_prompt_forge",
+    "description_for_human": "Generates complex Multi-Agent Swarm prompt templates for Hermes, CrewAI, and AutoGen frameworks.",
+    "description_for_model": "A powerful prompt engineering tool for generating production-ready Multi-Agent Swarm templates that embody Swarm Intelligence and Agent Orchestration best practices. This tool creates complete, ready-to-use collaboration frameworks for Hermes (OpenAI Swarm), CrewAI (Role-Based), and AutoGen (Conversational) patterns. Users input their goal and select a framework style, and the tool generates a comprehensive prompt template with three specialized agents (Researcher, Analyst, Writer). Perfect for Prompt Engineering workflows and AI agent development.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": ".well-known/openapi.yaml",
+        "has_user_authentication": false
+    },
+    "logo_url": "https://www.wangdadi.xyz/swarmpromptforge/logo.png",
+    "contact_email": "support@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/swarmpromptforge/legal"
+}
