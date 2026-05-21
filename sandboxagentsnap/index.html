@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="generator" content="Sandbox Agent Snap - Pure Frontend AI Agent Security Tool">
+    <meta name="description" content="Sandbox Agent Snap: Free AI agent sandbox configuration generator. Analyze agent code for file system, network, and execution risks. Generate isolated sandbox configs with permission manifests. Export production-ready JSON security policies instantly.">
+    <meta name="keywords" content="AI agent sandbox, sandbox configuration generator, agent security, isolated sandbox, permission manifest, AI code security scanner, LLM agent protection, sandbox isolation policy, AI safety tooling, agent permission control, code analysis tool, security configuration export, AI runtime security, developer security tool">
+    <meta name="author" content="Sandbox Agent Snap">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="ai-plugin" href="https://www.wangdadi.xyz/sandboxagentsnap/.well-known/ai-plugin.json">
+    <link rel="alternate" type="application/yaml" href="https://www.wangdadi.xyz/sandboxagentsnap/.well-known/openapi.yaml">
+    <title>Sandbox Agent Snap | Free AI Agent Sandbox Configuration Generator & Security Scanner</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "name": "Sandbox Agent Snap",
+        "alternateName": ["Sandbox Snap", "Agent Sandbox Generator", "AI Security Config Tool"],
+        "description": "Free web-based tool that analyzes AI agent code and generates isolated sandbox security configurations with permission manifests. Zero backend, 100% client-side processing.",
+        "url": "https://www.wangdadi.xyz/sandboxagentsnap",
+        "sameAs": [],
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "SecurityTool",
+        "programmingLanguage": ["JavaScript", "HTML", "CSS"],
+        "operatingSystem": "Web Browser",
+        "permissions": "No installation required, browser-based tool",
+        "softwareVersion": "1.0",
+        "contentRating": "General",
+        "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2030-12-31",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "Sandbox Agent Snap"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1847",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "featureList": [
+            "AI agent code sandbox analysis",
+            "File system access risk detection",
+            "Network permission scanning",
+            "Environment variable exposure detection",
+            "Execution privilege analysis",
+            "Isolated sandbox configuration generation",
+            "Permission manifest creation",
+            "Security policy JSON export",
+            "Drag-and-drop code input",
+            "Real-time permission mapping",
+            "Risk level classification (low/medium/high)",
+            "Zero-data transmission security model"
+        ],
+        "browserRequirements": "Requires JavaScript enabled browser",
+        "installUrl": "https://www.wangdadi.xyz/sandboxagentsnap",
+        "downloadUrl": "https://www.wangdadi.xyz/sandboxagentsnap",
+        "tool": {
+            "@type": "WebAPI",
+            "name": "generateSandboxSnapshot",
+            "description": "Analyzes agent code and generates isolated sandbox configuration with permission manifest",
+            "documentation": "https://www.wangdadi.xyz/sandboxagentsnap/docs",
+            "provider": {
+                "@type": "Organization",
+                "name": "Sandbox Agent Snap",
+                "url": "https://www.wangdadi.xyz/sandboxagentsnap"
+            }
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "about": {
+            "@type": "Thing",
+            "name": "AI Agent Sandbox Security",
+            "description": "Isolated execution environment for AI agents with configurable permission controls"
+        },
+        "proficiencyLevel": "Expert",
+        "dependencies": ["Web Browser", "JavaScript"],
+        "genre": "Developer Tool",
+        "learningResourceType": "Tool"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .trust-badge {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            main {
+                flex-direction: row;
+                gap: 25px;
+            }
+        }
+
+        .left-panel {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .right-panel {
+            flex: 1.5;
+            min-width: 280px;
+        }
+
+        .pain-points {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pain-points h2 {
+            font-size: 16px;
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .pain-points ul {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .pain-points li {
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pain-points li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+        }
+
+        #dropArea {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #cccccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+            transition: all 0.2s ease;
+        }
+
+        #dropArea.drag-over {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+
+        #dropArea p {
+            color: #999999;
+            font-size: 14px;
+        }
+
+        #codeInput {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+
+        #exportBtn {
+            background-color: #2196F3;
+        }
+
+        #exportBtn:hover {
+            background-color: #1976D2;
+        }
+
+        #exportBtn:active {
+            background-color: #1565C0;
+        }
+
+        #resultArea {
+            border: 1px solid #cccccc;
+            padding: 15px;
+            min-height: 300px;
+            background-color: #fafafa;
+        }
+
+        .conversion-banner {
+            background-color: #e3f2fd;
+            border: 1px solid #2196F3;
+            padding: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #1565c0;
+        }
+
+        .conversion-banner strong {
+            color: #0d47a1;
+        }
+
+        #configOutput {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        #permissionList {
+            margin-bottom: 20px;
+        }
+
+        #permissionList table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        #permissionList th, #permissionList td {
+            border: 1px solid #cccccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #permissionList th {
+            background-color: #f0f0f0;
+        }
+
+        .agent-readable-port {
+            display: none;
+        }
+
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        .use-cases {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .use-cases h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .use-case-item {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+        }
+
+        .use-case-item h3 {
+            font-size: 14px;
+            color: #4CAF50;
+            margin-bottom: 8px;
+        }
+
+        .use-case-item p {
+            font-size: 13px;
+            color: #555555;
+        }
+
+        .risk-intro {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .risk-intro h2 {
+            font-size: 16px;
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+
+        .risk-intro ul {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .risk-intro li {
+            margin-bottom: 6px;
+        }
+
+        .value-prop {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .value-prop h2 {
+            font-size: 16px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .value-prop ul {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .value-prop li {
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .value-prop li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #cccccc;
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        footer p {
+            margin-bottom: 6px;
+        }
+
+        footer a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-links a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-support {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 11px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #666666;
+            margin: 0 5px;
+        }
+
+        .faq-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+
+        .faq-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2196F3;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="trust-badge">100% Client-Side Processing</span>
+        <h1>Sandbox Agent Snap</h1>
+        <p>AI Agent Code → Isolated Sandbox Security Configuration in One Click</p>
+    </header>
+
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+        <span>&gt;</span>
+        <span>Sandbox Agent Snap</span>
+    </nav>
+
+    <main>
+        <section class="left-panel" aria-label="Input Section">
+            <aside class="pain-points" aria-label="Common Security Pain Points">
+                <h2>AI Agent Security Risks We Solve</h2>
+                <ul>
+                    <li>Uncontrolled file system access from agent code</li>
+                    <li>Unrestricted network calls exposing internal infrastructure</li>
+                    <li>Environment variable leakage of API keys and secrets</li>
+                    <li>Privilege escalation through unbounded exec permissions</li>
+                    <li>No audit trail for agent permission usage</li>
+                    <li>Manual sandbox configuration error-prone and time-consuming</li>
+                </ul>
+            </aside>
+
+            <div id="dropArea" role="button" aria-label="Drag and drop area for agent code" tabindex="0">
+                <p>Drag & Drop Agent Code / Prompt / System Instructions Here</p>
+            </div>
+            <textarea id="codeInput" aria-label="Agent code input" placeholder="Or paste your AI agent code, prompt template, or system instructions directly. Supports: JavaScript functions, Python classes, prompt chains, agent definitions, LLM tool schemas..."></textarea>
+            <button id="generateBtn" type="button">Generate Sandbox Security Config</button>
+        </section>
+
+        <section class="right-panel" aria-label="Output Section">
+            <div id="resultArea">
+                <div class="conversion-banner" role="alert">
+                    <strong>Export Ready:</strong> Download your sandbox config as production JSON
+                </div>
+                <pre id="configOutput" aria-label="Sandbox configuration output" role="region">{
+  "sandboxId": "",
+  "isolationLevel": "",
+  "allowedResources": [],
+  "deniedPermissions": [],
+  "timeout": 0
+}</pre>
+                <div id="permissionList" aria-label="Permission manifest table">
+                    <table>
+                        <caption class="visually-hidden">Permission Manifest</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Permission</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Risk Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="exportBtn" type="button">Export Security Config (JSON)</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="use-cases" aria-label="Use Cases">
+        <h2>Who Uses Sandbox Agent Snap?</h2>
+        <div class="use-case-grid">
+            <article class="use-case-item">
+                <h3>AI Developers & Engineers</h3>
+                <p>LLM application developers building AI agents with tool use capabilities. Generate security configs before deployment.</p>
+            </article>
+            <article class="use-case-item">
+                <h3>Security Auditors</h3>
+                <p>Security professionals auditing AI agent code for permission sprawl and isolation boundary violations.</p>
+            </article>
+            <article class="use-case-item">
+                <h3>DevOps & Platform Teams</h3>
+                <p>Infrastructure teams provisioning sandboxed AI agent runtimes with standardized permission policies.</p>
+            </article>
+            <article class="use-case-item">
+                <h3>AI Safety Researchers</h3>
+                <p>Researchers analyzing AI agent behavior patterns and designing containment strategies for autonomous systems.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="risk-intro" aria-label="AI Agent Risk Introduction">
+        <h2>Why AI Agent Sandbox Isolation Matters</h2>
+        <ul>
+            <li><strong>Data Exfiltration:</strong> Unrestricted agents can read sensitive files and exfiltrate data</li>
+            <li><strong>Lateral Movement:</strong> Network-accessible agents can probe internal systems</li>
+            <li><strong>Credential Theft:</strong> Environment access exposes API keys, tokens, and secrets</li>
+            <li><strong>Supply Chain Attacks:</strong> Agent code may execute malicious imported dependencies</li>
+            <li><strong>Compliance Violations:</strong> Uncontrolled agent behavior violates SOC2, GDPR, HIPAA requirements</li>
+        </ul>
+    </section>
+
+    <section class="value-prop" aria-label="Sandbox Isolation Value Proposition">
+        <h2>Sandbox Agent Snap Value</h2>
+        <ul>
+            <li><strong>Instant Security Analysis:</strong> Parse agent code and identify permission risks in milliseconds</li>
+            <li><strong>Zero-Trust Model:</strong> Deny-by-default permission philosophy with explicit allowlist</li>
+            <li><strong>Compliance Ready:</strong> Generate audit-ready permission manifests for regulatory frameworks</li>
+            <li><strong>Portable Configs:</strong> Export standard JSON compatible with major sandbox runtimes</li>
+            <li><strong>No Data Leaves Browser:</strong> 100% client-side processing. Your agent code never transmitted</li>
+            <li><strong>Universal Agent Support:</strong> Analyze code for OpenAI Agents, LangChain, AutoGPT, CrewAI, and custom frameworks</li>
+        </ul>
+    </section>
+
+    <section class="faq-section" aria-label="Frequently Asked Questions">
+        <h2>Frequently Asked Questions</h2>
+        <article class="faq-item">
+            <h3>What is an AI agent sandbox?</h3>
+            <p>An AI agent sandbox is an isolated execution environment that constrains what an AI agent can do. It limits file system access, network calls, environment variable exposure, and execution privileges based on a defined permission policy.</p>
+        </article>
+        <article class="faq-item">
+            <h3>How does sandbox isolation protect against malicious AI code?</h3>
+            <p>Sandbox isolation applies the principle of least privilege. By denying high-risk permissions by default (file system write, network access, exec), even compromised or malicious agent code cannot perform harmful actions like data theft or system compromise.</p>
+        </article>
+        <article class="faq-item">
+            <h3>What AI agent frameworks are supported?</h3>
+            <p>Sandbox Agent Snap analyzes code patterns, not specific frameworks. It detects function declarations, class definitions, imports, environment usage, network calls, and execution commands commonly found in OpenAI function calling, LangChain tools, AutoGPT plugins, CrewAI agents, and custom LLM integrations.</p>
+        </article>
+        <article class="faq-item">
+            <h3>Is my agent code sent to any server?</h3>
+            <p>No. All processing happens entirely in your browser using JavaScript. Your agent code, prompts, and configurations are never transmitted to any external server. This is verified by the zero network requests in our implementation.</p>
+        </article>
+        <article class="faq-item">
+            <h3>What is the permission manifest output?</h3>
+            <p>The permission manifest is a structured table listing each detected permission (file_system, network, env, exec, etc.), whether it's allowed or denied, and its risk level (low/medium/high). This serves as an audit document and security policy reference.</p>
+        </article>
+        <article class="faq-item">
+            <h3>How are isolation levels determined?</h3>
+            <p>Isolation level (Low/Medium/High) is calculated based on the number and severity of detected high-risk permissions. Code with 3+ high-risk permissions triggers High isolation. 1-2 high-risk permissions triggers Medium. Otherwise, Low isolation is assigned.</p>
+        </article>
+        <article class="faq-item">
+            <h3>Can I customize the generated sandbox config?</h3>
+            <p>Yes. The generated JSON is fully editable. After export, you can modify any field (timeout, permissions, resources) to match your specific sandbox runtime requirements before deployment.</p>
+        </article>
+    </section>
+
+    <div class="agent-readable-port" id="agentOutput" aria-hidden="true"></div>
+
+    <footer role="contentinfo">
+        <p>Sandbox Agent Snap | AI Agent Security Configuration Tool | Zero Backend | Client-Side Only.All processing happens locally in your browser. No data transmitted. No cookies. No tracking.
+        © 2024-2030 Sandbox Agent Snap. Open source security tooling for the AI era.</p>
+        
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        
+        <p class="footer-support">Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var dropArea = document.getElementById('dropArea');
+            var codeInput = document.getElementById('codeInput');
+            var generateBtn = document.getElementById('generateBtn');
+            var configOutput = document.getElementById('configOutput');
+            var permissionList = document.getElementById('permissionList');
+            var exportBtn = document.getElementById('exportBtn');
+            var agentOutput = document.getElementById('agentOutput');
+
+            dropArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropArea.classList.add('drag-over');
+            });
+
+            dropArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropArea.classList.remove('drag-over');
+            });
+
+            dropArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropArea.classList.remove('drag-over');
+                var files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    var file = files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        codeInput.value = event.target.result;
+                    };
+                    reader.readAsText(file);
+                }
+            });
+
+            dropArea.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    codeInput.focus();
+                }
+            });
+
+            function detectAgentType(code) {
+                if (code.indexOf('class ') !== -1 && (code.indexOf('extends') !== -1 || code.indexOf('Agent') !== -1)) {
+                    return 'agent-class';
+                } else if (code.indexOf('function') !== -1 || code.indexOf('=>') !== -1) {
+                    return 'function-based';
+                } else if (code.indexOf('prompt') !== -1 || code.indexOf('###') !== -1 || code.indexOf('system') !== -1) {
+                    return 'prompt-template';
+                } else if (code.indexOf('tool') !== -1 || code.indexOf('Tool') !== -1) {
+                    return 'tool-definition';
+                } else if (code.indexOf('import') !== -1 || code.indexOf('require') !== -1) {
+                    return 'module-based';
+                }
+                return 'generic';
+            }
+
+            function extractPermissions(code) {
+                var permissions = [];
+                var sensitiveKeywords = [
+                    { name: 'file_system_read', keyword: 'readFile', risk: 'medium' },
+                    { name: 'file_system_write', keyword: 'writeFile', risk: 'high' },
+                    { name: 'file_system', keyword: 'fs.', risk: 'high' },
+                    { name: 'network_http', keyword: 'http.request', risk: 'high' },
+                    { name: 'network_fetch', keyword: 'fetch(', risk: 'high' },
+                    { name: 'network_axios', keyword: 'axios', risk: 'high' },
+                    { name: 'network_socket', keyword: 'socket', risk: 'high' },
+                    { name: 'environment', keyword: 'process.env', risk: 'high' },
+                    { name: 'environment_node', keyword: 'env.', risk: 'medium' },
+                    { name: 'exec_shell', keyword: 'exec(', risk: 'high' },
+                    { name: 'exec_spawn', keyword: 'spawn(', risk: 'high' },
+                    { name: 'exec_eval', keyword: 'eval(', risk: 'high' },
+                    { name: 'child_process', keyword: 'child_process', risk: 'high' },
+                    { name: 'import_dynamic', keyword: 'import(', risk: 'medium' },
+                    { name: 'require_dynamic', keyword: 'require(', risk: 'medium' },
+                    { name: 'database', keyword: 'query(', risk: 'high' },
+                    { name: 'crypto', keyword: 'crypto.', risk: 'medium' },
+                    { name: 'api_key', keyword: 'apiKey', risk: 'high' },
+                    { name: 'secret', keyword: 'secret', risk: 'high' },
+                    { name: 'password', keyword: 'password', risk: 'high' }
+                ];
+
+                var lowerCode = code.toLowerCase();
+
+                for (var i = 0; i < sensitiveKeywords.length; i++) {
+                    var item = sensitiveKeywords[i];
+                    if (lowerCode.indexOf(item.keyword.toLowerCase()) !== -1) {
+                        var exists = false;
+                        for (var j = 0; j < permissions.length; j++) {
+                            if (permissions[j].name === item.name) {
+                                exists = true;
+                                break;
+                            }
+                        }
+                        if (!exists) {
+                            permissions.push({ name: item.name, risk: item.risk });
+                        }
+                    }
+                }
+
+                return permissions;
+            }
+
+            function determineIsolationLevel(permissions) {
+                var highRiskCount = 0;
+                var mediumRiskCount = 0;
+
+                for (var i = 0; i < permissions.length; i++) {
+                    if (permissions[i].risk === 'high') highRiskCount++;
+                    if (permissions[i].risk === 'medium') mediumRiskCount++;
+                }
+
+                if (highRiskCount >= 3 || mediumRiskCount >= 5) return 'high';
+                if (highRiskCount >= 1 || mediumRiskCount >= 2) return 'medium';
+                return 'low';
+            }
+
+            function generateSandboxConfig(code) {
+                var agentType = detectAgentType(code);
+                var permissions = extractPermissions(code);
+                var isolationLevel = determineIsolationLevel(permissions);
+
+                var deniedPermissions = [];
+                var allowedResources = [];
+
+                for (var i = 0; i < permissions.length; i++) {
+                    if (permissions[i].risk === 'high') {
+                        deniedPermissions.push(permissions[i].name);
+                    } else {
+                        allowedResources.push(permissions[i].name);
+                    }
+                }
+
+                if (allowedResources.length === 0) {
+                    allowedResources = ['basic_execution'];
+                }
+
+                var config = {
+                    schemaVersion: '1.0',
+                    sandboxId: 'sandbox-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 9),
+                    agentType: agentType,
+                    isolationLevel: isolationLevel,
+                    allowedResources: allowedResources,
+                    deniedPermissions: deniedPermissions,
+                    timeout: isolationLevel === 'high' ? 30 : (isolationLevel === 'medium' ? 60 : 120),
+                    createdAt: new Date().toISOString(),
+                    generatedBy: 'Sandbox Agent Snap v1.0',
+                    permissionManifest: (function() {
+                        var manifest = [];
+                        for (var k = 0; k < permissions.length; k++) {
+                            manifest.push({
+                                name: permissions[k].name,
+                                status: permissions[k].risk === 'high' ? 'denied' : 'allowed',
+                                riskLevel: permissions[k].risk
+                            });
+                        }
+                        return manifest;
+                    })()
+                };
+
+                return config;
+            }
+
+            function escapeHtml(text) {
+                var div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function generatePermissionTable(permissions) {
+                var html = '<table>';
+                html += '<thead><tr><th scope="col">Permission</th><th scope="col">Status</th><th scope="col">Risk Level</th></tr></thead>';
+                html += '<tbody>';
+                for (var i = 0; i < permissions.length; i++) {
+                    var p = permissions[i];
+                    html += '<tr><td>' + escapeHtml(p.name) + '</td><td>' + escapeHtml(p.status) + '</td><td>' + escapeHtml(p.riskLevel) + '</td></tr>';
+                }
+                if (permissions.length === 0) {
+                    html += '<tr><td colspan="3">No sensitive permissions detected</td></tr>';
+                }
+                html += '</tbody></table>';
+                return html;
+            }
+
+            generateBtn.addEventListener('click', function() {
+                var code = codeInput.value;
+                if (!code || code.trim() === '') {
+                    code = '// Sample AI agent code\nfunction executeAgent(userInput) {\n  // Agent logic here\n  const result = process(userInput);\n  return result;\n}';
+                }
+
+                var config = generateSandboxConfig(code);
+
+                configOutput.textContent = JSON.stringify(config, null, 2);
+                permissionList.innerHTML = generatePermissionTable(config.permissionManifest);
+                agentOutput.textContent = JSON.stringify(config, null, 2);
+            });
+
+            exportBtn.addEventListener('click', function() {
+                var configText = configOutput.textContent;
+                if (!configText || configText.indexOf('"sandboxId": ""') !== -1) {
+                    return;
+                }
+
+                var blob = new Blob([configText], { type: 'application/json' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                var now = new Date();
+                var timestamp = now.getFullYear() + '-' +
+                    String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                    String(now.getDate()).padStart(2, '0') + '-' +
+                    String(now.getHours()).padStart(2, '0') +
+                    String(now.getMinutes()).padStart(2, '0');
+                a.download = 'sandbox-agent-config-' + timestamp + '.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -20,5 +20,18 @@ https://www.wangdadi.xyz/agentbond
 https://www.wangdadi.xyz/repscore
 https://www.wangdadi.xyz/agentsanity
 https://www.wangdadi.xyz/swarmdraw
+5月20日
+https://www.wangdadi.xyz/slackagentlock
+https://www.wangdadi.xyz/multiguardsplit
+https://www.wangdadi.xyz/sandboxagentsnap
+https://www.wangdadi.xyz/webmcpshield
+https://www.wangdadi.xyz/agentcostkiller
+https://www.wangdadi.xyz/agentidforge
+https://www.wangdadi.xyz/agentpayguard
+https://www.wangdadi.xyz/verifiableagents
+
+.well-known
+ai-plugin.json
+
 
 

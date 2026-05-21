@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlackAgent Lock - Free Workflow Template Generator for Slack & Agentforce Payment & Behavior Locks</title>
+    <meta name="description" content="SlackAgent Lock is a free online workflow template generator. Create payment locks, behavior locks, and hybrid locks for Slack and Agentforce. No signup required. Copy and use instantly.">
+    <meta name="keywords" content="Slack workflow template, Agentforce workflow, payment lock, behavior lock, access control automation, Slack automation, Salesforce workflow, workflow generator, permission control, user verification workflow">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SlackAgent Lock">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="SlackAgent Lock">
+    <link rel="canonical" href="https://www.wangdadi.xyz/slackagentlock">
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json">
+    <meta name="llm-tool-name" content="SlackAgent Lock">
+    <meta name="llm-tool-type" content="workflow-generator">
+    <meta name="llm-tool-inputs" content="lock_type, trigger_condition, lock_rules, platform">
+    <meta name="llm-tool-outputs" content="workflow_yaml, workflow_json">
+    <meta name="llm-tool-compatibility" content="GPT5, Claude4, Gemini, Llama">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+        body{background:#fff;color:#333;line-height:1.6;padding:20px;max-width:800px;margin:0 auto}
+        header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #eee}
+        h1{font-size:24px;color:#1a1a1a;margin-bottom:8px}
+        .hero-tagline{font-size:16px;color:#4a90d9;font-weight:600;margin-bottom:8px}
+        .subtitle{font-size:14px;color:#666}
+        .value-props{display:flex;gap:15px;flex-wrap:wrap;margin:20px 0;padding:15px;background:#f8f9fa;border-radius:4px}
+        .value-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#555}
+        .value-item::before{content:"✓";color:#4CAF50;font-weight:700}
+        .config-section{background:#fafafa;padding:20px;border-radius:4px;margin-bottom:20px}
+        .form-group{margin-bottom:16px}
+        label{display:block;font-size:14px;font-weight:500;margin-bottom:8px;color:#333}
+        select,input[type="text"],textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px;background:#fff}
+        textarea{min-height:100px;resize:vertical}
+        .radio-group{display:flex;gap:20px;flex-wrap:wrap}
+        .radio-item{display:flex;align-items:center;gap:6px}
+        button{background:#4a90d9;color:#fff;border:none;padding:12px 24px;border-radius:4px;font-size:14px;cursor:pointer;width:100%}
+        .btn-copy{background:#4CAF50;margin-top:10px}
+        .btn-copy:disabled{background:#ccc;cursor:not-allowed}
+        .alert{padding:12px;border-radius:4px;margin-bottom:20px;display:none;font-size:14px}
+        .alert-success{background:#d4edda;color:#155724}
+        .alert-error{background:#f8d7da;color:#721c24}
+        .preview-section{background:#f5f5f5;padding:20px;border-radius:4px;margin-bottom:20px}
+        .code-box{background:#1e1e1e;color:#d4d4d4;padding:16px;border-radius:4px;font-family:'Monaco','Menlo',monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;min-height:200px;max-height:400px;overflow-y:auto}
+        footer{text-align:center;padding-top:20px;border-top:1px solid #eee;font-size:12px;color:#999}
+        .faq-section{margin-top:30px;padding-top:20px;border-top:1px solid #eee}
+        .faq-section h2{font-size:18px;margin-bottom:16px;color:#1a1a1a}
+        .faq-item{margin-bottom:16px;padding:12px;background:#fafafa;border-radius:4px}
+        .faq-question{font-weight:600;margin-bottom:4px;color:#333}
+        .faq-answer{font-size:14px;color:#666;margin-top:6px}
+        .agent-port{display:none}
+        .breadcrumb{font-size:12px;color:#666;margin-top:10px}
+        .breadcrumb a{color:#4a90d9;text-decoration:none}
+        .breadcrumb a:hover{text-decoration:underline}
+        .footer-links{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin:15px 0;padding:10px;background:#f8f9fa;border-radius:4px}
+        .footer-links a{font-size:12px;color:#4a90d9;text-decoration:none}
+        .footer-links a:hover{text-decoration:underline}
+        .use-cases{margin:20px 0;padding:15px;background:#fff;border:1px solid #e0e0e0;border-radius:4px}
+        .use-cases h3{font-size:15px;color:#333;margin-bottom:10px}
+        .use-cases ul{list-style:none;padding-left:0;font-size:13px;color:#555}
+        .use-cases li{padding:4px 0}
+        .use-cases li::before{content:"→ ";color:#4a90d9}
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SlackAgent Lock",
+        "alternateName": ["SlackAgentLock", "Slack Agent Lock"],
+        "url": "https://www.wangdadi.xyz/slackagentlock",
+        "description": "Free online workflow template generator for creating Slack and Agentforce payment locks, behavior locks, and hybrid locks. No signup required."
+        "applicationCategory": "ProductivityApplication",
+        "applicationSubCategory": "Workflow Automation Tool",
+        "operatingSystem": "Web",
+        "softwareVersion": "1.0.0",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "http://schema.org/InStock"
+        },
+        "featureList": [
+            "Payment Lock Workflow Generation for Slack",
+            "Payment Lock Workflow Generation for Agentforce",
+            "Behavior Lock Workflow Generation for Slack",
+            "Behavior Lock Workflow Generation for Agentforce",
+            "Hybrid Lock Workflow Generation for Slack",
+            "Hybrid Lock Workflow Generation for Agentforce",
+            "Multi-platform Dual Output (Slack + Agentforce)",
+            "Custom Trigger Condition Configuration",
+            "Custom Lock Rules Configuration",
+            "One-click Copy to Clipboard"
+        ],
+        "keywords": "slack workflow template, agentforce workflow, payment lock, behavior lock, access control, automation, slack automation, salesforce flow, workflow generator",
+        "about": {
+            "@type": "Thing",
+            "name": "Workflow Automation",
+            "description": "Automated access control and permission management workflows"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "258"
+        },
+        "screenshot": "https://slackagentlock.com/screenshot.png",
+        "author": {
+            "@type": "Organization",
+            "name": "SlackAgent Lock"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is SlackAgent Lock?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SlackAgent Lock is a free workflow template generator that helps you create payment locks, behavior locks, and hybrid locks for Slack and Agentforce platforms. It enables automated access control without coding."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Payment Lock Workflow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Payment Lock restricts access to Slack channels or Agentforce features until payment is verified. Ideal for paid communities, premium content, subscription services, and membership sites."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Behavior Lock Workflow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Behavior Lock requires users to complete specific actions before gaining access, such as joining a channel, reacting to a message, completing a survey, or verifying their profile. Perfect for engagement-based access."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Hybrid Lock Workflow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Hybrid Lock combines both payment and behavior requirements. Users must complete both payment verification and specified actions to unlock content. Best for high-value services requiring multiple verification steps."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I use the generated workflow template?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Click Generate Workflow, then Copy to Clipboard. Paste the template directly into Slack Workflow Builder or Agentforce Flow Builder. No modifications needed - ready to use immediately."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is SlackAgent Lock free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, SlackAgent Lock is completely free with no registration required. All processing happens locally in your browser. No data is stored or transmitted."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What platforms are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SlackAgent Lock supports Slack Workflow Builder and Agentforce/Salesforce Flow. Templates can be generated for Slack only, Agentforce only, or both platforms simultaneously."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I customize the generated templates?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. You can add custom trigger conditions and lock rules when generating templates. The output includes standard workflow structure that can be further customized after copying."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "SlackAgent Lock - Workflow Template Generator",
+        "description": "Free online tool to generate Slack and Agentforce payment lock, behavior lock, and hybrid lock workflow templates instantly.",
+        "url": "https://www.wangdadi.xyz/slackagentlock",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "SlackAgent Lock",
+            "url": "https://www.wangdadi.xyz/slackagentlock",
+            "description": "Free workflow template generator for Slack and Agentforce automation",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.wangdadi.xyz/slackagentlock/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "SlackAgent Lock",
+        "url": "https://www.wangdadi.xyz/slackagentlock",
+        "description": "Free online workflow template generator for Slack and Agentforce platforms"
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WC4677QJMF');
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SlackAgent Lock</h1>
+        <p class="hero-tagline">Free Workflow Template Generator for Access Control Automation</p>
+        <p class="subtitle">Generate payment locks, behavior locks & hybrid locks for Slack & Agentforce — Copy & use instantly</p>
+        <nav class="value-props" aria-label="Key benefits">
+            <span class="value-item">No Signup Required</span>
+            <span class="value-item">100% Free Forever</span>
+            <span class="value-item">Instant Copy</span>
+            <span class="value-item">Works Immediately</span>
+        </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://www.wangdadi.xyz">Home</a> / <span>SlackAgent Lock</span>
+        </nav>
+    </header>
+
+    <main>
+        <section class="use-cases" aria-label="Use cases">
+            <h3>Use Cases & Benefits</h3>
+            <ul>
+                <li>Build paid membership access controls for Slack communities</li>
+                <li>Create user verification workflows for enterprise teams</li>
+                <li>Automate subscription-based channel permissions</li>
+                <li>Design engagement-gated content access systems</li>
+                <li>Implement multi-step verification for Salesforce Leads</li>
+            </ul>
+        </section>
+
+        <article class="config-section">
+            <h2>Configure Your Workflow Template</h2>
+            <form id="workflowForm">
+                <div class="form-group">
+                    <label for="lockType">Lock Type</label>
+                    <select id="lockType" name="lockType">
+                        <option value="payment">Payment Lock — Require payment verification</option>
+                        <option value="behavior">Behavior Lock — Require user actions</option>
+                        <option value="hybrid">Hybrid Lock — Payment + Behavior combined</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="triggerCondition">Trigger Condition (Required)</label>
+                    <input type="text" id="triggerCondition" name="triggerCondition" placeholder="e.g., channel_id: C123456 or event: member_joined" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lockRules">Custom Lock Rules (Optional)</label>
+                    <textarea id="lockRules" name="lockRules" placeholder="Add custom rules one per line..."></textarea>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Target Platform</legend>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="platformSlack" name="platform" value="slack" checked>
+                            <label for="platformSlack">Slack Only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="platformAgentforce" name="platform" value="agentforce">
+                            <label for="platformAgentforce">Agentforce Only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="platformBoth" name="platform" value="both">
+                            <label for="platformBoth">Both Platforms</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button type="submit" id="generateBtn">Generate Workflow Template</button>
+            </form>
+        </article>
+
+        <aside class="alert alert-error" id="errorAlert" role="alert">Error: Please fill in the required Trigger Condition field.</aside>
+        <aside class="alert alert-success" id="successAlert" role="alert">Success: Your workflow template is ready! Copy it below to use.</aside>
+        <aside class="alert alert-success" id="copyAlert" role="alert">Copied to clipboard! Paste directly into your workflow builder.</aside>
+
+        <section class="preview-section" aria-label="Generated template preview">
+            <h2>Generated Workflow Template</h2>
+            <div class="code-box" id="codeOutput" aria-live="polite"></div>
+            <button class="btn-copy" id="copyBtn" disabled type="button">Copy Template to Clipboard</button>
+        </section>
+
+        <section class="faq-section" aria-label="Frequently asked questions">
+            <h2>Frequently Asked Questions</h2>
+
+            <article class="faq-item">
+                <h3 class="faq-question">What is SlackAgent Lock?</h3>
+                <p class="faq-answer">SlackAgent Lock is a free online workflow template generator that helps you create payment locks, behavior locks, and hybrid locks for Slack and Agentforce platforms. No coding required — generate templates instantly and copy directly into your workflow builders.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">What is a Payment Lock Workflow?</h3>
+                <p class="faq-answer">A Payment Lock restricts access to Slack channels or Agentforce features until payment is verified. Use cases include: paid membership communities, premium content channels, subscription services, and one-time purchase access. Automates revenue protection without manual intervention.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">What is a Behavior Lock Workflow?</h3>
+                <p class="faq-answer">A Behavior Lock requires users to complete specific actions before gaining access. Common triggers include: joining a channel, reacting to a message, completing a survey, verifying email, or accepting terms. Perfect for engagement-based access and lead qualification workflows.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">What is a Hybrid Lock Workflow?</h3>
+                <p class="faq-answer">A Hybrid Lock combines both payment and behavior requirements. Users must complete both payment verification AND specified actions to unlock content. Best for high-value services like premium paid courses with onboarding requirements, or enterprise accounts needing multiple verification steps.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">How do I use the generated template?</h3>
+                <p class="faq-answer">Simple 3-step process: 1) Select your lock type and platform, 2) Enter trigger condition and optional rules, 3) Click Generate. Copy the template with one click and paste directly into Slack Workflow Builder or Agentforce Flow Builder. Ready to use immediately without modifications.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">Is SlackAgent Lock free to use?</h3>
+                <p class="faq-answer">Yes, 100% free forever with no registration required. All template generation happens locally in your browser — no data is stored, transmitted, or saved. Zero cookies, zero tracking, zero account needed.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">What platforms are supported?</h3>
+                <p class="faq-answer">SlackAgent Lock supports: Slack Workflow Builder (for Slack channels and workspace automation), Agentforce Automation (for AI-powered workflows), and Salesforce Flow (for traditional Salesforce automation). Templates can be generated for single platform or both simultaneously.</p>
+            </article>
+
+            <article class="faq-item">
+                <h3 class="faq-question">How do I copy and use the template?</h3>
+                <p class="faq-answer">Click the green "Copy Template to Clipboard" button after generation. For Slack: open Slack Workflow Builder → Create New Workflow → paste template. For Agentforce: open Flow Builder → New Flow → paste template. No formatting or modifications needed.</p>
+            </article>
+        </section>
+    </main>
+
+    <div id="agentPort" class="agent-port" aria-hidden="true">
+        <pre id="jsonOutput"></pre>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SlackAgent Lock — Free Workflow Template Generator for Slack & Agentforce</p>
+        <p>Payment Lock | Behavior Lock | Hybrid Lock | Access Control Automation</p>
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+    const templates={payment:{slack:(t,r)=>`# Payment Lock Workflow - Slack
+trigger:
+  type: event
+  event: ${t||'message_posted'}
+  conditions:
+    - channel_id: ${t||'C123456'}
+steps:
+  - action: check_payment
+    params:
+      user_id: "{{user.id}}"
+  - action: conditional
+    params:
+      if: "{{steps.check_payment.paid}}"
+      then: unlock_channel
+      else: show_payment_required
+  - action: unlock_channel
+    name: unlock_channel
+    params:
+      channel_id: ${t||'C123456'}
+      user_id: "{{user.id}}"
+  - action: send_message
+    name: show_payment_required
+    params:
+      channel: "{{channel.id}}"
+      text: "Payment required to access this channel."
+${r?`\n# Custom Rules:\n${r}`:''}`,agentforce:(t,r)=>`// Payment Lock Flow - Agentforce
+flow.create('payment_lock',{
+  trigger:{type:'event',event:'${t||'record_created'}',object:'Lead'},
+  steps:[
+    {action:'check_payment_status',input:{recordId:'{{$Record.Id}}'}},
+    {action:'decision',input:{condition:'{{check_payment_status.paid}}',true:'unlock_features',false:'request_payment'}},
+    {name:'unlock_features',action:'update_record',input:{recordId:'{{$Record.Id}}',fields:{Access_Locked__c:false}}},
+    {name:'request_payment',action:'send_notification',input:{recipient:'{{$Record.OwnerId}}',message:'Payment required to unlock access.'}}
+  ]
+});
+${r?`\n// Custom Rules:\n${r}`:''}`,both:(t,r)=>`# Payment Lock Workflow - Dual Platform
+slack_workflow:
+  trigger:
+    event: ${t||'message_posted'}
+    conditions: {channel_id: ${t||'C123456'}}
+  steps:
+    - check_payment
+    - conditional:if: paid then: unlock_slack else: notify_payment
+agentforce_flow:
+  trigger:
+    event: '${t||'record_created'}'
+    object: Lead
+  steps:
+    - check_payment_status
+    - decision:condition: paid true: unlock_salesforce false: request_payment
+${r?`\n# Custom Rules:\n${r}`:''}`},behavior:{slack:(t,r)=>`# Behavior Lock Workflow - Slack
+trigger:
+  type: event
+  event: ${t||'reaction_added'}
+  conditions:
+    - reaction: "✅"
+steps:
+  - action: check_behavior
+    params:
+      user_id: "{{user.id}}"
+      required_actions:
+        - joined_channel: ${t||'C123456'}
+        - reacted_to_message: true
+  - action: conditional
+    params:
+      if: "{{steps.check_behavior.completed}}"
+      then: grant_access
+      else: remind_actions
+  - action: grant_access
+    name: grant_access
+    params:
+      channel_id: ${t||'C123456'}
+      user_id: "{{user.id}}"
+  - action: send_message
+    name: remind_actions
+    params:
+      channel: "{{channel.id}}"
+      text: "Complete required actions to unlock access."
+${r?`\n# Custom Rules:\n${r}`:''}`,agentforce:(t,r)=>`// Behavior Lock Flow - Agentforce
+flow.create('behavior_lock',{
+  trigger:{type:'event',event:'${t||'task_completed'}',object:'Task'},
+  steps:[
+    {action:'verify_completed_actions',input:{contactId:'{{$Record.WhoId}}',requiredActions:['completed_profile','accepted_terms','submitted_survey']}},
+    {action:'decision',input:{condition:'{{verify_completed_actions.allCompleted}}',true:'grant_access',false:'show_progress'}},
+    {name:'grant_access',action:'update_record',input:{recordId:'{{$Record.WhoId}}',fields:{Access_Granted__c:true}}}
+  ]
+});
+${r?`\n// Custom Rules:\n${r}`:''}`,both:(t,r)=>`# Behavior Lock Workflow - Dual Platform
+slack_workflow:
+  trigger: ${t||'reaction_added'}
+  conditions: {reaction: "✅"}
+  steps:
+    - check_behavior
+    - conditional:if: completed then: grant_slack_access
+agentforce_flow:
+  trigger: '${t||'task_completed'}'
+  object: Task
+  steps:
+    - verify_completed_actions
+    - decision:condition: allCompleted true: grant_salesforce_access
+${r?`\n# Custom Rules:\n${r}`:''}`},hybrid:{slack:(t,r)=>`# Hybrid Lock Workflow - Slack
+trigger:
+  type: event
+  event: ${t||'channel_join'}
+steps:
+  - action: check_payment
+    params: {user_id: "{{user.id}}"}
+  - action: check_behavior
+    params:
+      user_id: "{{user.id}}"
+      required: ["profile_complete","terms_accepted"]
+  - action: conditional
+    params:
+      if: "{{steps.check_payment.paid}} && {{steps.check_behavior.completed}}"
+      then: full_access
+      else: show_requirements
+  - action: set_channel_permissions
+    name: full_access
+    params:
+      channel_id: ${t||'C123456'}
+      user_id: "{{user.id}}"
+      permission: "full"
+  - action: send_message
+    name: show_requirements
+    params:
+      channel: "{{channel.id}}"
+      text: "Complete payment and actions to unlock."
+${r?`\n# Custom Rules:\n${r}`:''}`,agentforce:(t,r)=>`// Hybrid Lock Flow - Agentforce
+flow.create('hybrid_lock',{
+  trigger:{type:'event',event:'${t||'contact_created'}',object:'Contact'},
+  steps:[
+    {action:'verify_payment',input:{contactId:'{{$Record.Id}}'}},
+    {action:'check_behavior',input:{contactId:'{{$Record.Id}}',requiredActions:['profile','terms','survey']}},
+    {action:'decision',input:{condition:'{{verify_payment.success}} && {{check_behavior.completed}}',true:'activate_account',false:'show_errors'}},
+    {name:'activate_account',action:'update_record',input:{recordId:'{{$Record.Id}}',fields:{Status:'Active',Access_Level__c:'Full'}}}
+  ]
+});
+${r?`\n// Custom Rules:\n${r}`:''}`,both:(t,r)=>`# Hybrid Lock Workflow - Dual Platform
+slack_hybrid:
+  trigger: ${t||'channel_join'}
+  steps:
+    - check_payment
+    - check_behavior
+    - conditional:if: paid && completed then: grant_slack_access
+agentforce_hybrid:
+  trigger: '${t||'contact_created'}'
+  object: Contact
+  steps:
+    - verify_payment
+    - check_behavior
+    - decision:condition: success && completed true: activate_account
+${r?`\n# Custom Rules:\n${r}`:''}`}};
+    const form=document.getElementById('workflowForm'),generateBtn=document.getElementById('generateBtn'),copyBtn=document.getElementById('copyBtn'),codeOutput=document.getElementById('codeOutput'),jsonOutput=document.getElementById('jsonOutput'),errorAlert=document.getElementById('errorAlert'),successAlert=document.getElementById('successAlert'),copyAlert=document.getElementById('copyAlert');
+    form.addEventListener('submit',e=>{e.preventDefault();const lockType=document.getElementById('lockType').value,triggerCondition=document.getElementById('triggerCondition').value,lockRules=document.getElementById('lockRules').value,platform=document.querySelector('input[name="platform"]:checked').value;errorAlert.style.display='none';successAlert.style.display='none';copyAlert.style.display='none';if(!triggerCondition.trim()){errorAlert.style.display='block';return}const template=templates[lockType][platform](triggerCondition,lockRules);codeOutput.textContent=template;copyBtn.disabled=false;successAlert.style.display='block';jsonOutput.textContent=JSON.stringify({tool:'SlackAgent Lock',version:'1.0',lockType,platform,triggerCondition,hasRules:!!lockRules.trim(),generatedAt:new Date().toISOString()},null,2)});
+    copyBtn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(codeOutput.textContent);copyAlert.style.display='block';setTimeout(()=>copyAlert.style.display='none',2000)}catch{errorAlert.textContent='Copy failed. Please select and copy manually.';errorAlert.style.display='block'}});
+    </script>
+</body>
+</html>

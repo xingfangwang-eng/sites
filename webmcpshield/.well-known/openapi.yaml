@@ -1,0 +1,124 @@
+openapi: 3.0.0
+info:
+  title: WebMCP Shield API
+  description: AI-Native Security Gateway Code Generator API - Generate WebMCP payment & identity security gateway code snippets. Pure frontend solution with no backend requirements.
+  version: 1.0.0
+  contact:
+    email: support@wangdadi.xyz
+servers:
+  - url: https://www.wangdadi.xyz/webmcpshield
+    description: WebMCP Shield Main Server
+paths: {}
+components:
+  schemas:
+    SecurityGatewayConfig:
+      type: object
+      description: Configuration parameters for generating WebMCP security gateway code
+      properties:
+        siteDomain:
+          type: string
+          description: Website domain name
+          example: example.com
+        paymentType:
+          type: string
+          description: Payment gateway type
+          enum:
+            - stripe
+            - paypal
+            - crypto
+          example: stripe
+        emailVerif:
+          type: boolean
+          description: Enable email verification
+          example: true
+        twoFa:
+          type: boolean
+          description: Enable two-factor authentication
+          example: false
+        oauth:
+          type: boolean
+          description: Enable OAuth 2.0 authentication
+          example: false
+        accessLevel:
+          type: string
+          description: Access control level for AI agents
+          enum:
+            - strict
+            - moderate
+            - flexible
+          example: strict
+      required:
+        - siteDomain
+        - paymentType
+        - accessLevel
+    GeneratedCode:
+      type: object
+      description: Generated security gateway code output
+      properties:
+        htmlCode:
+          type: string
+          description: HTML meta tags for head section
+        jsCode:
+          type: string
+          description: JavaScript code for body section
+        fullCode:
+          type: string
+          description: Complete generated code snippet
+        configuration:
+          $ref: '#/components/schemas/SecurityGatewayConfig'
+        generatedAt:
+          type: string
+          format: date-time
+          description: Timestamp of code generation
+    AgentOutput:
+      type: object
+      description: Machine-readable JSON output for AI agent interaction
+      properties:
+        tool:
+          type: string
+          example: webmcp-shield
+        version:
+          type: string
+          example: 1.0.0
+        status:
+          type: string
+          example: generated
+        configuration:
+          $ref: '#/components/schemas/SecurityGatewayConfig'
+        generatedAt:
+          type: string
+          format: date-time
+        instructions:
+          type: object
+          properties:
+            headSection:
+              type: string
+            bodySection:
+              type: string
+            deployment:
+              type: string
+        security:
+          type: object
+          properties:
+            cspEnabled:
+              type: boolean
+            sessionIsolation:
+              type: boolean
+            transactionValidation:
+              type: boolean
+            agentVerification:
+              type: boolean
+  securitySchemes:
+    none:
+      type: http
+      scheme: none
+tags:
+  - name: SecurityGateway
+    description: WebMCP security gateway code generation
+  - name: AI-Native
+    description: AI agent compatible infrastructure
+  - name: PaymentSecurity
+    description: Payment gateway security integration
+externalDocs:
+  description: WebMCP Shield Documentation
+  url: https://www.wangdadi.xyz/webmcpshield/docs

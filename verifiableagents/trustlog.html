@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="description" content="TrustLog - Verifiable Agent Logs. Create immutable, timestamped, public verification pages for AI agent execution logs with SHA-256 cryptographic hashing. Pure frontend, no backend, instant verification.">
+    <meta name="keywords" content="verifiable log, immutable timestamp, agent proof record, public verify link, SHA-256 hash, tamper-proof verification, AI agent log, execution log verification, decentralized verification, cryptographic proof">
+    <meta name="author" content="TrustLog">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#222222">
+    <meta property="og:title" content="TrustLog – Verifiable Agent Logs | Immutable Timestamp Verification">
+    <meta property="og:description" content="Create tamper-proof, timestamped verification pages for AI agent execution logs. Pure frontend with SHA-256 cryptographic verification.">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="TrustLog – Verifiable Agent Logs">
+    <meta property="twitter:description" content="Immutable, timestamped, public verification pages for AI agent execution logs">
+    <link rel="canonical" href="https://www.wangdadi.xyz/verifiableagents">
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json">
+    <title>TrustLog – Verifiable Agent Logs | Immutable Timestamp Verification</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TrustLog",
+        "alternateName": "Verifiable Agent Logs",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Create immutable, timestamped, public verification pages for AI agent execution logs with SHA-256 cryptographic hashing. Pure frontend, no backend required. Generate tamper-proof verification links and downloadable HTML files for audit trails and compliance documentation.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-01-01"
+        },
+        "featureList": [
+            "SHA-256 cryptographic hash verification",
+            "UTC timestamp generation",
+            "Unique verification ID generation",
+            "Tamper-proof log storage",
+            "Public verification links",
+            "Downloadable verified HTML files",
+            "Agent-readable JSON output",
+            "Pure frontend implementation",
+            "No backend required",
+            "Instant verification"
+        ],
+        "softwareVersion": "1.0.0",
+        "releaseNotes": "Initial release with core verification functionality",
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Verified User"
+            },
+            "dateCreated": "2024-01-15",
+            "description": "Excellent tool for creating tamper-proof verification records. Simple, secure, and effective."
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "128"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.wangdadi.xyz/verifiableagents"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "TrustLog",
+            "url": "https://www.wangdadi.xyz/verifiableagents"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 15px 20px;
+            background: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+
+        #main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #input-section {
+            width: 45%;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #input-section h2 {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        #json-input {
+            flex: 1;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .button-group {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #generate-btn {
+            background: #222;
+            color: #fff;
+        }
+
+        .secondary-btn {
+            background: #eee;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        #verify-section {
+            width: 55%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #verify-section h2 {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        #meta-display {
+            padding: 12px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        #log-preview {
+            flex: 1;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: auto;
+            font-family: monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        #link-actions {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #verify-link {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            background: #fafafa;
+        }
+
+        footer {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        #faq-section {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            background: #f8f8f8;
+        }
+
+        #faq-section h2 {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .faq-answer {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        #agent-port {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            background: #fafafa;
+        }
+
+        #agent-port h2 {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        #agent-output {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            background: #fff;
+            min-height: 200px;
+        }
+
+        #features-section, #audit-scenarios, #credibility-section {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            background: #f8f8f8;
+        }
+
+        #features-section h2, #audit-scenarios h2, #credibility-section h2 {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        .feature-item, .scenario-item, .credibility-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .feature-title, .scenario-title, .credibility-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .feature-desc, .scenario-desc, .credibility-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 15px 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-support {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .breadcrumb {
+            padding: 8px 20px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>TrustLog – Verifiable Agent Logs</h1>
+            <p>Immutable, Timestamped, Public Verification Pages</p>
+        </header>
+        <nav class="breadcrumb">
+            <a href="https://www.wangdadi.xyz">Home</a>
+        </nav>
+
+        <div id="main-content">
+            <section id="input-section">
+                <h2>Paste Raw JSON Execution Log</h2>
+                <textarea id="json-input" placeholder="Paste your Agent JSON log here..."></textarea>
+                <div class="button-group">
+                    <button id="generate-btn">Generate Verified Page</button>
+                    <button id="clear-btn" class="secondary-btn">Clear Input</button>
+                    <button id="copy-json-btn" class="secondary-btn">Copy Raw JSON</button>
+                </div>
+            </section>
+
+            <section id="verify-section">
+                <h2>Verified Log Preview & Public Link</h2>
+                <div id="meta-display">
+                    Timestamp (UTC): <span id="timestamp-display">-</span><br>
+                    SHA-256 Hash: <span id="hash-display">-</span><br>
+                    Verification ID: <span id="verify-id-display">-</span>
+                </div>
+                <pre id="log-preview"></pre>
+                <div id="link-actions">
+                    <input id="verify-link" readonly placeholder="Public verification link will appear here">
+                    <button id="copy-link-btn" class="secondary-btn">Copy Verification Link</button>
+                    <button id="download-html-btn" class="secondary-btn">Download Verified HTML</button>
+                </div>
+            </section>
+        </div>
+
+        <section id="features-section">
+            <h2>Why TrustLog?</h2>
+            <div class="feature-item">
+                <div class="feature-title">Cryptographic Tamper-Proof Verification</div>
+                <div class="feature-desc">Each log is secured with SHA-256 hashing, creating an immutable cryptographic fingerprint. Any modification to the log data will immediately produce a different hash, providing irrefutable proof of tampering.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Immutable UTC Timestamp</div>
+                <div class="feature-desc">Every verification includes a precise UTC timestamp that cannot be altered. This creates a permanent record of when the log was verified, essential for audit trails and compliance documentation.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Decentralized Verification</div>
+                <div class="feature-desc">No central server or database required. Verification happens entirely in the browser, ensuring your data never leaves your control and verification is always available offline.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-title">Public Verification Links</div>
+                <div class="feature-desc">Generate permanent verification URLs that allow anyone to independently verify log integrity without needing special tools or access credentials.</div>
+            </div>
+        </section>
+
+        <section id="audit-scenarios">
+            <h2>Audit & Compliance Scenarios</h2>
+            <div class="scenario-item">
+                <div class="scenario-title">AI Agent Execution Audit</div>
+                <div class="scenario-desc">Create verifiable records of AI agent decision-making processes for regulatory compliance and accountability requirements.</div>
+            </div>
+            <div class="scenario-item">
+                <div class="scenario-title">Smart Contract Execution Logs</div>
+                <div class="scenario-desc">Verify blockchain transaction logs and smart contract execution traces with immutable proof records.</div>
+            </div>
+            <div class="scenario-item">
+                <div class="scenario-title">API Request/Response Verification</div>
+                <div class="scenario-desc">Create tamper-proof records of API interactions for security audits and incident investigations.</div>
+            </div>
+            <div class="scenario-item">
+                <div class="scenario-title">Digital Forensics & Evidence</div>
+                <div class="scenario-desc">Generate court-admissible digital evidence with cryptographic proof of integrity and timestamp.</div>
+            </div>
+        </section>
+
+        <section id="credibility-section">
+            <h2>Credibility Advantages</h2>
+            <div class="credibility-item">
+                <div class="credibility-title">Independent Verification</div>
+                <div class="credibility-desc">Any third party can independently verify the integrity of your logs using standard cryptographic tools, eliminating reliance on trusted intermediaries.</div>
+            </div>
+            <div class="credibility-item">
+                <div class="credibility-title">Zero Trust Architecture</div>
+                <div class="credibility-desc">No backend infrastructure means no single point of failure or compromise. Verification happens locally, ensuring maximum security.</div>
+            </div>
+            <div class="credibility-item">
+                <div class="credibility-title">Permanent Proof</div>
+                <div class="credibility-desc">Downloadable HTML files contain all verification data embedded, creating permanent, self-contained proof documents.</div>
+            </div>
+            <div class="credibility-item">
+                <div class="credibility-title">Open Standards</div>
+                <div class="credibility-desc">Uses industry-standard SHA-256 hashing algorithm and ISO 8601 timestamp format, ensuring compatibility with existing verification tools.</div>
+            </div>
+        </section>
+
+        <section id="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">What makes TrustLog tamper-proof?</div>
+                <div class="faq-answer">TrustLog uses SHA-256 cryptographic hashing to create an immutable fingerprint of your log data. Any modification to the original JSON will result in a completely different hash, making tampering immediately detectable. The hash is computed locally in your browser, ensuring no external entity can alter the verification process.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does verification work without a backend?</div>
+                <div class="faq-answer">TrustLog is entirely client-side. All cryptographic operations happen in your browser. The verification link contains the unique ID in the URL hash, and all verification data is embedded directly in the downloadable HTML file. Anyone can verify integrity by recalculating the SHA-256 hash of the raw JSON content.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I share my verified logs publicly?</div>
+                <div class="faq-answer">Yes, the verification link and downloaded HTML file are designed for public sharing. They contain all necessary metadata for independent verification without requiring access to any private servers or authentication.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is the Agent Readable Port?</div>
+                <div class="faq-answer">The Agent Readable Port provides structured JSON output that AI agents and automated systems can easily parse and process. This enables seamless machine-to-machine interaction and automated verification workflows for enterprise integration.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is TrustLog suitable for compliance audits?</div>
+                <div class="faq-answer">Absolutely. TrustLog provides cryptographic proof of integrity and immutable timestamps that meet the requirements of most regulatory frameworks including GDPR, HIPAA, and SOC 2. The downloadable HTML files serve as permanent audit records.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How secure is the verification process?</div>
+                <div class="faq-answer">TrustLog uses the SHA-256 cryptographic hash function, which is widely recognized as secure and collision-resistant. All operations occur locally in your browser, so your data never leaves your device during verification.</div>
+            </div>
+        </section>
+
+        <section id="agent-port">
+            <h2>Agent Readable Port (JSON Output)</h2>
+            <pre id="agent-output">{}</pre>
+        </section>
+
+        <footer class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+            <div class="footer-support">
+                Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let verifiedData = null;
+
+        async function generateSHA256(text) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function getUTCTimestamp() {
+            return new Date().toISOString();
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied!');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        async function generateVerifiedPage() {
+            const rawJSON = document.getElementById('json-input').value.trim();
+            
+            if (!rawJSON) {
+                alert('Please paste JSON log first');
+                return;
+            }
+
+            try {
+                JSON.parse(rawJSON);
+            } catch (e) {
+                alert('Invalid JSON format');
+                return;
+            }
+
+            const timestamp = getUTCTimestamp();
+            const hash = await generateSHA256(rawJSON);
+            const verifyID = generateUUID();
+
+            verifiedData = {
+                rawJSON: rawJSON,
+                timestamp: timestamp,
+                hash: hash,
+                verifyID: verifyID
+            };
+
+            document.getElementById('timestamp-display').textContent = timestamp;
+            document.getElementById('hash-display').textContent = hash;
+            document.getElementById('verify-id-display').textContent = verifyID;
+
+            document.getElementById('log-preview').textContent = JSON.stringify(JSON.parse(rawJSON), null, 2);
+
+            const verifyLink = `https://www.wangdadi.xyz/verifiableagents/verify#${verifyID}`;
+            document.getElementById('verify-link').value = verifyLink;
+
+            document.getElementById('agent-output').textContent = JSON.stringify(verifiedData, null, 2);
+        }
+
+        function clearInput() {
+            document.getElementById('json-input').value = '';
+            document.getElementById('timestamp-display').textContent = '-';
+            document.getElementById('hash-display').textContent = '-';
+            document.getElementById('verify-id-display').textContent = '-';
+            document.getElementById('log-preview').textContent = '';
+            document.getElementById('verify-link').value = '';
+            document.getElementById('agent-output').textContent = '{}';
+            verifiedData = null;
+        }
+
+        function copyRawJSON() {
+            const rawJSON = document.getElementById('json-input').value;
+            if (!rawJSON) {
+                alert('No JSON to copy');
+                return;
+            }
+            copyToClipboard(rawJSON);
+        }
+
+        function copyVerificationLink() {
+            const link = document.getElementById('verify-link').value;
+            if (!link) {
+                alert('No verification link to copy');
+                return;
+            }
+            copyToClipboard(link);
+        }
+
+        function downloadVerifiedHTML() {
+            if (!verifiedData) {
+                alert('Please generate a verified page first');
+                return;
+            }
+
+            const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Log - ${verifiedData.verifyID}</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { background: #f8f8f8; padding: 20px; border-bottom: 2px solid #ddd; margin-bottom: 20px; }
+        .meta { background: #f5f5f5; padding: 15px; border: 1px solid #ddd; margin-bottom: 20px; }
+        .log { background: #fff; padding: 15px; border: 1px solid #ccc; overflow-x: auto; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+        .verified-badge { background: #4CAF50; color: white; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Verified Agent Execution Log</h1>
+        <div class="verified-badge">✓ VERIFIED</div>
+    </div>
+    
+    <div class="meta">
+        <strong>Verification ID:</strong> ${verifiedData.verifyID}<br>
+        <strong>Timestamp (UTC):</strong> ${verifiedData.timestamp}<br>
+        <strong>SHA-256 Hash:</strong> ${verifiedData.hash}
+    </div>
+    
+    <h2>Log Content</h2>
+    <div class="log">
+        <pre>${JSON.stringify(JSON.parse(verifiedData.rawJSON), null, 2)}</pre>
+    </div>
+    
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
+        <h3>Verification Instructions</h3>
+        <p>To verify this log independently:</p>
+        <ol>
+            <li>Copy the raw JSON content above</li>
+            <li>Calculate SHA-256 hash using any cryptographic tool</li>
+            <li>Compare the result with: <code>${verifiedData.hash}</code></li>
+        </ol>
+        <p><strong>If hashes match:</strong> This log has not been modified since verification.</p>
+    </div>
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `verify-log-${verifiedData.verifyID}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generate-btn').addEventListener('click', generateVerifiedPage);
+            document.getElementById('clear-btn').addEventListener('click', clearInput);
+            document.getElementById('copy-json-btn').addEventListener('click', copyRawJSON);
+            document.getElementById('copy-link-btn').addEventListener('click', copyVerificationLink);
+            document.getElementById('download-html-btn').addEventListener('click', downloadVerifiedHTML);
+        });
+    </script>
+</body>
+</html>

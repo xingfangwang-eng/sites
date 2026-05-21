@@ -1,0 +1,113 @@
+openapi: "3.0.0"
+info:
+  title: AgentID Forge API
+  description: Generate verifiable Agent KYA (Know Your Agent) identity credentials
+  version: "1.0"
+servers:
+  - url: https://www.wangdadi.xyz/agentidforge
+paths:
+  /api/generate-credential:
+    post:
+      summary: Generate a verifiable Agent KYA credential
+      description: Creates a verifiable KYA credential with SHA-256 hash for on-chain verification
+      operationId: generateVerifiableAgentKYAID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                agentName:
+                  type: string
+                  description: Name of the agent (e.g., PaymentAgent, DataAnalyzer)
+                  example: "PaymentAgent"
+                agentDID:
+                  type: string
+                  description: Decentralized Identifier (must start with did:web:)
+                  example: "did:web:wangdadi.xyz:agent001"
+                agentType:
+                  type: string
+                  description: Type of agent
+                  enum:
+                    - Payment Agent
+                    - Data Agent
+                    - Governance Agent
+                    - Custom
+                  example: "Payment Agent"
+                publicKey:
+                  type: string
+                  description: Agent public key in hexadecimal format (starts with 0x)
+                  example: "0x7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"
+                validDays:
+                  type: integer
+                  description: Validity period in days
+                  minimum: 1
+                  example: 365
+              required:
+                - agentName
+                - agentDID
+                - agentType
+                - publicKey
+                - validDays
+      responses:
+        "200":
+          description: Successfully generated verifiable credential
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  kyaVersion:
+                    type: string
+                    description: KYA credential version
+                    example: "1.0"
+                  agentName:
+                    type: string
+                    description: Agent name
+                  agentDID:
+                    type: string
+                    description: Agent decentralized identifier
+                  agentType:
+                    type: string
+                    description: Agent type
+                  publicKey:
+                    type: string
+                    description: Agent public key
+                  issuer:
+                    type: string
+                    description: Credential issuer
+                    example: "AgentID Forge"
+                  issueDate:
+                    type: string
+                    format: date
+                    description: Issue date (ISO format)
+                  expiryDate:
+                    type: string
+                    format: date
+                    description: Expiry date (ISO format)
+                  credentialHash:
+                    type: string
+                    description: SHA-256 hash of credential
+                  verificationStatus:
+                    type: string
+                    description: Verification status
+                    example: "verifiable"
+                  compatibility:
+                    type: array
+                    items:
+                      type: string
+                    description: Compatible protocols
+                    example: ["WebMCP", "Payment Protocol"]
+                required:
+                  - kyaVersion
+                  - agentName
+                  - agentDID
+                  - agentType
+                  - publicKey
+                  - issuer
+                  - issueDate
+                  - expiryDate
+                  - credentialHash
+                  - verificationStatus
+                  - compatibility

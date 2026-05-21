@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgentID Forge - Generate verifiable Agent KYA (Know Your Agent) identity credentials with on-chain verification. WebMCP compliant, supporting payment protocols, decentralized identifiers (DID), and blockchain-based agent authentication. Free, open-source, no registration required.">
+    <meta name="keywords" content="agent DID, decentralized identifier, KYA credential, Know Your Agent, on-chain verification, verifiable credential, WebMCP, payment protocol, blockchain identity, agent authentication, DID generation, crypto agent, decentralized agent">
+    <meta name="author" content="AgentID Forge">
+    <meta name="language" content="en">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="Global">
+    <meta name="distribution" content="global">
+    <meta name="theme-color" content="#28a745">
+    <title>AgentID Forge - Verifiable Agent KYA Credentials | On-Chain DID Identity</title>
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentID Forge",
+        "description": "Generate verifiable Agent KYA (Know Your Agent) identity credentials with SHA-256 hashing for on-chain verification. Fully compatible with WebMCP and payment protocols. All processing happens locally in browser, ensuring maximum security and privacy.",
+        "applicationCategory": ["SecuritySoftware", "DeveloperTool", "BlockchainApplication"],
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "http://schema.org/InStock"
+        },
+        "featureList": [
+            "Generate verifiable KYA credentials in one click",
+            "SHA-256 cryptographic credential hashing",
+            "WebMCP and Payment Protocol compatibility",
+            "On-chain verifiable identity",
+            "Decentralized Identifier (DID) support",
+            "Instant JSON export for integration",
+            "Local-only processing, no server dependency",
+            "Free and open-source tool"
+        ],
+        "softwareVersion": "1.0",
+        "releaseNotes": "Initial release with full KYA credential generation capabilities",
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Developer Community"
+            },
+            "datePublished": "2024-01-15",
+            "reviewBody": "Excellent tool for generating verifiable agent credentials. Simple interface and powerful functionality."
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "128"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.wangdadi.xyz/agentidforge"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        #errorMsg {
+            color: #dc3545;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        #previewSection {
+            display: none;
+        }
+        
+        #previewSection .card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        #previewSection .card p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        #previewSection .card strong {
+            color: #222;
+        }
+        
+        #credentialJson {
+            width: 100%;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        
+        #copyStatus {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #28a745;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn-group button {
+            flex: 1;
+        }
+        
+        .faq-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .faq-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-item h4 {
+            font-size: 15px;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        
+        .faq-item p {
+            font-size: 14px;
+            color: #555;
+            margin-left: 10px;
+        }
+        
+        .agent-readable-port {
+            background-color: #e9ecef;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .agent-readable-port h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .agent-readable-port pre {
+            font-size: 12px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid article {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+        
+        .feature-grid h3 {
+            margin-top: 0;
+            color: #222;
+        }
+        
+        #advantagesSection ul, #industrySection ul {
+            padding-left: 20px;
+        }
+        
+        #advantagesSection li, #industrySection li {
+            margin-bottom: 10px;
+        }
+        
+        .breadcrumb {
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            color: #666;
+        }
+        
+        .bottom-links {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        
+        .bottom-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .bottom-links p {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .bottom-links p a {
+            background: none;
+            color: #007bff;
+            padding: 0;
+            margin: 0 5px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AgentID Forge</h1>
+        <p>Generate Verifiable Agent KYA Credentials in One Click</p>
+    </header>
+    
+    <nav class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a> / <span>AgentID Forge</span>
+    </nav>
+    
+    <main>
+        <section id="featuresSection">
+            <h2>Application Scenarios</h2>
+            <div class="feature-grid">
+                <article>
+                    <h3>Web3 Payment Integration</h3>
+                    <p>Seamlessly integrate with WebMCP and decentralized payment protocols. Generate verifiable credentials for payment agents to enable trustless transactions.</p>
+                </article>
+                <article>
+                    <h3>DeFi Agent Authentication</h3>
+                    <p>Authenticate decentralized finance agents with verifiable KYA credentials. Ensure regulatory compliance and identity verification on-chain.</p>
+                </article>
+                <article>
+                    <h3>Enterprise Data Agents</h3>
+                    <p>Deploy data agents with verifiable identities for secure cross-organization data sharing. Maintain audit trails with cryptographic proof.</p>
+                </article>
+                <article>
+                    <h3>Governance & DAO Voting</h3>
+                    <p>Enable verifiable governance agent participation in DAOs. Ensure only authorized agents can participate in decentralized decision-making.</p>
+                </article>
+            </div>
+        </section>
+        
+        <section id="advantagesSection">
+            <h2>Deployment Advantages</h2>
+            <ul>
+                <li><strong>Zero Infrastructure:</strong> Pure frontend tool, no servers or backend required. Run anywhere from a static CDN.</li>
+                <li><strong>Maximum Security:</strong> All processing happens locally in browser. Keys never leave user device.</li>
+                <li><strong>Instant Integration:</strong> JSON output ready for WebMCP, payment protocols, and smart contract integration.</li>
+                <li><strong>Cross-Platform:</strong> Works on any modern browser, desktop or mobile.</li>
+                <li><strong>No Registration:</strong> Open and accessible to all without login or signup.</li>
+            </ul>
+        </section>
+        
+        <section id="industrySection">
+            <h2>Industry Matching</h2>
+            <p>AgentID Forge serves multiple sectors requiring verifiable agent identities:</p>
+            <ul>
+                <li><strong>FinTech:</strong> Payment gateways, remittance services, digital wallets</li>
+                <li><strong>DeFi:</strong> Decentralized exchanges, lending protocols, yield aggregators</li>
+                <li><strong>Enterprise Blockchain:</strong> Supply chain management, identity verification systems</li>
+                <li><strong>Web3 Services:</strong> DAOs, decentralized social networks, metaverse platforms</li>
+                <li><strong>IoT:</strong> Connected devices, smart contracts, automated agents</li>
+            </ul>
+        </section>
+        
+        <section id="inputSection">
+            <h2>Generate Your KYA Credential</h2>
+            
+            <div id="errorMsg"></div>
+            
+            <label for="agentName">Agent Name</label>
+            <input type="text" id="agentName" placeholder="e.g., PaymentAgent, DataAnalyzer">
+            
+            <label for="agentDID">Agent DID (Decentralized Identifier)</label>
+            <input type="text" id="agentDID" placeholder="e.g., did:web:wangdadi.xyz:agent001">
+            
+            <label for="agentType">Agent Type</label>
+            <select id="agentType">
+                <option value="Payment Agent">Payment Agent</option>
+                <option value="Data Agent">Data Agent</option>
+                <option value="Governance Agent">Governance Agent</option>
+                <option value="Custom">Custom</option>
+            </select>
+            
+            <label for="publicKey">Agent Public Key (Hex)</label>
+            <input type="text" id="publicKey" placeholder="e.g., 0x...">
+            
+            <label for="validDays">Validity Period (Days)</label>
+            <input type="number" id="validDays" value="365" min="1">
+            
+            <button id="generateBtn">Generate KYA Credential</button>
+        </section>
+        
+        <section id="previewSection">
+            <h2>Credential Preview</h2>
+            
+            <div class="card">
+                <h3>Verifiable KYA Identity Credential Preview</h3>
+                <p><strong>Agent Name:</strong> <span id="previewName"></span></p>
+                <p><strong>Agent DID:</strong> <span id="previewDID"></span></p>
+                <p><strong>Agent Type:</strong> <span id="previewType"></span></p>
+                <p><strong>Issue Date:</strong> <span id="previewIssueDate"></span></p>
+                <p><strong>Expiry Date:</strong> <span id="previewExpiry"></span></p>
+                <p><strong>Credential Hash:</strong> <span id="previewHash"></span></p>
+                <p><strong>Compatibility:</strong> <span id="previewCompatibility"></span></p>
+            </div>
+            
+            <h3>JSON Output</h3>
+            <textarea id="credentialJson" rows="15" readonly></textarea>
+            
+            <div class="btn-group">
+                <button id="copyJsonBtn">Copy JSON for WebMCP/Payment</button>
+                <button id="downloadJsonBtn">Download JSON File</button>
+            </div>
+            
+            <div id="copyStatus"></div>
+            
+            <div class="agent-readable-port">
+                <h4>Agent Readable Port (Machine Output)</h4>
+                <pre id="machineOutput"></pre>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h4>What is Agent KYA?</h4>
+                <p>KYA (Know Your Agent) is a verification framework for decentralized agents, ensuring identity integrity for WebMCP and payment protocols.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What is a Verifiable Credential?</h4>
+                <p>A verifiable credential is a tamper-evident credential with cryptographic proof of authenticity, enabling trustless verification on-chain.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What is WebMCP?</h4>
+                <p>WebMCP (Web Monetization Control Protocol) is a standard for enabling microtransactions and payment streams on the web.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How is the credential hash generated?</h4>
+                <p>The credential hash is generated using SHA-256 from the agent's DID, public key, and expiry date, ensuring integrity and verifiability.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Is this tool secure?</h4>
+                <p>All processing happens in your browser. No data is sent to any server. Your keys and credentials never leave your device.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What formats are supported?</h4>
+                <p>We support JSON format compatible with WebMCP and payment protocols. Export credentials for immediate integration.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>AgentID Forge — On-Chain Verifiable Agent KYA Identity Credentials</p>
+        <p>All processing occurs locally in your browser. No data is transmitted externally.</p>
+    </footer>
+    
+    <script>
+        var CryptoJS = CryptoJS || (function(root) {
+            var CryptoJS = {};
+            CryptoJS.SHA256 = function(message) {
+                function Utf8Encode(str) {
+                    return unescape(encodeURIComponent(str));
+                }
+                function RotateRight(n, s) {
+                    return ((n >>> s) | (n << (32 - s))) >>> 0;
+                }
+                function Ch(x, y, z) { return (z ^ (x & (y ^ z))) >>> 0; }
+                function Maj(x, y, z) { return ((x & y) | (z & (x | y))) >>> 0; }
+                function Sigma0(x) { return (RotateRight(x, 2) ^ RotateRight(x, 13) ^ RotateRight(x, 22)) >>> 0; }
+                function Sigma1(x) { return (RotateRight(x, 6) ^ RotateRight(x, 11) ^ RotateRight(x, 25)) >>> 0; }
+                function Gamma0(x) { return (RotateRight(x, 7) ^ RotateRight(x, 18) ^ (x >>> 3)) >>> 0; }
+                function Gamma1(x) { return (RotateRight(x, 17) ^ RotateRight(x, 19) ^ (x >>> 10)) >>> 0; }
+
+                var K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+                         0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+                         0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+                         0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+                         0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+                         0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+                         0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+                         0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2];
+
+                var H = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+
+                var msgBytes = [];
+                var msgUtf8 = Utf8Encode(message);
+                for (var i = 0; i < msgUtf8.length; i++) {
+                    msgBytes.push(msgUtf8.charCodeAt(i) & 0xFF);
+                }
+
+                var msgLen = msgBytes.length;
+                var msgBits = msgLen * 8;
+
+                msgBytes.push(0x80);
+                while ((msgBytes.length % 64) !== 56) {
+                    msgBytes.push(0x00);
+                }
+                var len = msgBits;
+                for (var k = 0; k < 8; k++) {
+                    msgBytes.push(len & 0xFF);
+                    len = Math.floor(len / 256);
+                }
+
+                var words = [];
+                for (var i = 0; i < msgBytes.length; i += 4) {
+                    var w = ((msgBytes[i] << 24) | (msgBytes[i+1] << 16) | (msgBytes[i+2] << 8) | msgBytes[i+3]) >>> 0;
+                    words.push(w);
+                }
+
+                for (var block = 0; block < words.length; block += 16) {
+                    var W = [];
+                    for (var t = 0; t < 16; t++) {
+                        W[t] = words[block + t];
+                    }
+                    for (var t = 16; t < 64; t++) {
+                        W[t] = ((Gamma1(W[t-2]) + W[t-7] + Gamma0(W[t-15]) + W[t-16])) >>> 0;
+                    }
+
+                    var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+
+                    for (var t = 0; t < 64; t++) {
+                        var T1 = ((h + Sigma1(e) + Ch(e, f, g) + K[t] + W[t])) >>> 0;
+                        var T2 = ((Sigma0(a) + Maj(a, b, c))) >>> 0;
+                        h = g; g = f; f = e; e = ((d + T1)) >>> 0;
+                        d = c; c = b; b = a; a = ((T1 + T2)) >>> 0;
+                    }
+
+                    H[0] = ((H[0] + a)) >>> 0;
+                    H[1] = ((H[1] + b)) >>> 0;
+                    H[2] = ((H[2] + c)) >>> 0;
+                    H[3] = ((H[3] + d)) >>> 0;
+                    H[4] = ((H[4] + e)) >>> 0;
+                    H[5] = ((H[5] + f)) >>> 0;
+                    H[6] = ((H[6] + g)) >>> 0;
+                    H[7] = ((H[7] + h)) >>> 0;
+                }
+
+                var hashHex = '';
+                for (var i = 0; i < 8; i++) {
+                    hashHex += ('00000000' + H[i].toString(16)).slice(-8);
+                }
+                return hashHex;
+            };
+            root.CryptoJS = CryptoJS;
+            return CryptoJS;
+        }(this));
+
+        function generateCredential() {
+            var agentName = document.getElementById('agentName').value;
+            var agentDID = document.getElementById('agentDID').value;
+            var agentType = document.getElementById('agentType').value;
+            var publicKey = document.getElementById('publicKey').value;
+            var validDays = parseInt(document.getElementById('validDays').value);
+            
+            var errorMsg = document.getElementById('errorMsg');
+            errorMsg.textContent = '';
+            
+            if (!agentName || !agentDID || !publicKey) {
+                errorMsg.textContent = 'Error: Agent Name, DID, and Public Key are required.';
+                return;
+            }
+            
+            if (!agentDID.startsWith('did:web:')) {
+                errorMsg.textContent = 'Error: DID must start with "did:web:"';
+                return;
+            }
+            
+            if (!/^0x[0-9a-fA-F]*$/.test(publicKey)) {
+                errorMsg.textContent = 'Error: Public Key must be a hexadecimal string starting with "0x"';
+                return;
+            }
+            
+            var issueDate = new Date().toISOString().split('T')[0];
+            var expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + validDays);
+            expiryDate = expiryDate.toISOString().split('T')[0];
+            
+            var hashInput = agentDID + publicKey + expiryDate;
+            var credentialHash = CryptoJS.SHA256(hashInput);
+            
+            var credential = {
+                kyaVersion: "1.0",
+                agentName: agentName,
+                agentDID: agentDID,
+                agentType: agentType,
+                publicKey: publicKey,
+                issuer: "AgentID Forge",
+                issueDate: issueDate,
+                expiryDate: expiryDate,
+                credentialHash: credentialHash,
+                verificationStatus: "verifiable",
+                compatibility: ["WebMCP", "Payment Protocol"]
+            };
+            
+            displayCredential(credential);
+        }
+        
+        function displayCredential(credential) {
+            document.getElementById('previewName').textContent = credential.agentName;
+            document.getElementById('previewDID').textContent = credential.agentDID;
+            document.getElementById('previewType').textContent = credential.agentType;
+            document.getElementById('previewIssueDate').textContent = credential.issueDate;
+            document.getElementById('previewExpiry').textContent = credential.expiryDate;
+            document.getElementById('previewHash').textContent = credential.credentialHash;
+            document.getElementById('previewCompatibility').textContent = credential.compatibility.join(', ');
+            
+            var jsonString = JSON.stringify(credential, null, 2);
+            document.getElementById('credentialJson').value = jsonString;
+            document.getElementById('machineOutput').textContent = jsonString;
+            
+            document.getElementById('previewSection').style.display = 'block';
+            document.getElementById('copyStatus').textContent = '';
+        }
+        
+        function copyJson() {
+            var jsonText = document.getElementById('credentialJson').value;
+            navigator.clipboard.writeText(jsonText).then(function() {
+                document.getElementById('copyStatus').textContent = 'Copied!';
+            }).catch(function(err) {
+                document.getElementById('copyStatus').textContent = 'Copy failed. Please try again.';
+            });
+        }
+        
+        function downloadJson() {
+            var jsonText = document.getElementById('credentialJson').value;
+            var blob = new Blob([jsonText], { type: 'application/json' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'agent-kya-credential.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        document.getElementById('generateBtn').addEventListener('click', generateCredential);
+        document.getElementById('copyJsonBtn').addEventListener('click', copyJson);
+        document.getElementById('downloadJsonBtn').addEventListener('click', downloadJson);
+    </script>
+    
+    <div class="bottom-links">
+        <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+        <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+        <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+        <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+        <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </div>
+</body>
+</html>

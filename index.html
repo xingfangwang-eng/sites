@@ -58,10 +58,20 @@
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('searchInput');
         const searchBtn = document.getElementById('searchBtn');
+        const clearBtn = document.getElementById('clearBtn');
         const searchResults = document.getElementById('searchResults');
         const allCards = document.querySelectorAll('.bg-white.rounded-lg.border');
         
+        function updateClearButton() {
+            if (searchInput.value.trim()) {
+                clearBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                clearBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+        
         function performSearch() {
+            updateClearButton();
             const query = searchInput.value.toLowerCase().trim();
             
             if (!query) {
@@ -121,6 +131,7 @@
         
         searchBtn.addEventListener('click', performSearch);
         searchInput.addEventListener('keyup', function(e) {
+            updateClearButton();
             if (e.key === 'Enter') {
                 performSearch();
             }
@@ -138,7 +149,7 @@
                     </p>
                     <div class="flex flex-wrap justify-center gap-4">
                         <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
-                    <span class="text-xl font-semibold">19</span>
+                    <span class="text-xl font-semibold">27</span>
                 </div>
                         <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
                             <span class="text-xl font-semibold">AI Tools</span>
@@ -149,9 +160,17 @@
                             <input 
                                 type="text" 
                                 id="searchInput"
+                                autocomplete="off"
                                 placeholder="Search by tool name, description or category..." 
-                                class="w-full px-6 py-4 pl-12 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
+                                class="w-full px-6 py-4 pl-12 pr-24 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
                             />
+                            <button 
+                                id="clearBtn"
+                                class="absolute right-24 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition opacity-0 pointer-events-none"
+                                onclick="document.getElementById('searchInput').value=''; document.getElementById('clearBtn').classList.add('opacity-0', 'pointer-events-none'); document.getElementById('searchInput').focus(); performSearch();"
+                            >
+                                <i class="fa fa-times-circle text-lg"></i>
+                            </button>
                             <button 
                                 id="searchBtn"
                                 class="absolute right-2 top-1/2 -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full transition"
@@ -488,6 +507,142 @@
                 SwarmDraw - Swarm intelligence visualization tool. Visualize and analyze multi-agent swarm behavior.
             </p>
             <a href="https://www.wangdadi.xyz/swarmdraw" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Security Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">SlackAgentLock</h3>
+            <p class="text-gray-600 mb-4">
+                SlackAgentLock - Secure agent integration for Slack. Protect your workspace with advanced security controls.
+            </p>
+            <a href="https://www.wangdadi.xyz/slackagentlock" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Security Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">MultiGuardSplit</h3>
+            <p class="text-gray-600 mb-4">
+                MultiGuardSplit - Multi-layer security splitting tool. Split and isolate security layers for enhanced protection.
+            </p>
+            <a href="https://www.wangdadi.xyz/multiguardsplit" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Sandbox Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">SandboxAgentSnap</h3>
+            <p class="text-gray-600 mb-4">
+                SandboxAgentSnap - Sandbox environment for agent testing. Safely test and snapshot agent behavior in isolated environments.
+            </p>
+            <a href="https://www.wangdadi.xyz/sandboxagentsnap" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Shield Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">WebMCPShield</h3>
+            <p class="text-gray-600 mb-4">
+                WebMCPShield - Web MCP security shield. Protect your web applications with advanced MCP protection.
+            </p>
+            <a href="https://www.wangdadi.xyz/webmcpshield" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Cost Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">AgentCostKiller</h3>
+            <p class="text-gray-600 mb-4">
+                AgentCostKiller - Cost optimization tool for AI agents. Reduce agent operational costs significantly.
+            </p>
+            <a href="https://www.wangdadi.xyz/agentcostkiller" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Identity Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">AgentIDForge</h3>
+            <p class="text-gray-600 mb-4">
+                AgentIDForge - Agent identity generation tool. Create and manage unique agent identities.
+            </p>
+            <a href="https://www.wangdadi.xyz/agentidforge" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Payment Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">AgentPayGuard</h3>
+            <p class="text-gray-600 mb-4">
+                AgentPayGuard - Payment security guard for AI agents. Secure and protect agent payment transactions.
+            </p>
+            <a href="https://www.wangdadi.xyz/agentpayguard" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
+                Visit Site
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex justify-between items-start mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Verification Tools</span>
+                <span class="text-gray-400 text-xs">2026-05-21</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">VerifiableAgents</h3>
+            <p class="text-gray-600 mb-4">
+                VerifiableAgents - Verifiable AI agent framework. Create and verify trusted AI agents with zero-knowledge proofs.
+            </p>
+            <a href="https://www.wangdadi.xyz/verifiableagents" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium" target="_blank" rel="noopener noreferrer">
                 Visit Site
                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width=2 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: Sandbox Agent Snap API
+  description: |
+    Static OpenAPI specification for Sandbox Agent Snap - an AI agent sandbox
+    configuration generator. This is a client-side only tool with no backend.
+    The generateSandboxSnapshot function performs static code analysis to detect
+    sensitive permissions and generates isolated sandbox security configurations.
+  version: 1.0.0
+  contact:
+    name: Sandbox Agent Snap
+    email: contact@wangdadi.xyz
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  x-plugin-identity:
+    toolName: generateSandboxSnapshot
+    category: security
+    subcategory: sandbox-configuration
+    isServerless: true
+    isClientSide: true
+
+servers:
+  - url: https://www.wangdadi.xyz/sandboxagentsnap
+    description: Main application (client-side only)
+
+paths:
+  /:
+    get:
+      operationId: getSandboxAgentSnap
+      summary: Get Sandbox Agent Snap main page
+      description: Returns the main application page for manual use
+      tags:
+        - Application
+      responses:
+        '200':
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+        '404':
+          description: Not found
+
+components:
+  schemas:
+    SandboxConfiguration:
+      type: object
+      description: Generated sandbox security configuration
+      required:
+        - sandboxId
+        - agentType
+        - isolationLevel
+        - allowedResources
+        - deniedPermissions
+        - timeout
+        - createdAt
+      properties:
+        schemaVersion:
+          type: string
+          description: Configuration schema version
+          example: "1.0"
+        sandboxId:
+          type: string
+          description: Unique sandbox identifier
+          example: "sandbox-m1abc123-def456"
+        agentType:
+          type: string
+          description: Detected agent code type
+          enum:
+            - agent-class
+            - function-based
+            - prompt-template
+            - tool-definition
+            - module-based
+            - generic
+          example: "function-based"
+        isolationLevel:
+          type: string
+          description: Security isolation level
+          enum:
+            - low
+            - medium
+            - high
+          example: "medium"
+        allowedResources:
+          type: array
+          items:
+            type: string
+          description: List of allowed resource permissions
+          example: ["environment_node", "crypto"]
+        deniedPermissions:
+          type: array
+          items:
+            type: string
+          description: List of denied high-risk permissions
+          example: ["file_system", "network_fetch", "exec_shell"]
+        timeout:
+          type: integer
+          description: Sandbox execution timeout in seconds
+          example: 60
+        createdAt:
+          type: string
+          format: date-time
+          description: Configuration generation timestamp
+          example: "2024-01-15T10:30:00.000Z"
+        generatedBy:
+          type: string
+          description: Generator tool identifier
+          example: "Sandbox Agent Snap v1.0"
+        permissionManifest:
+          type: array
+          description: Detailed permission manifest
+          items:
+            $ref: '#/components/schemas/Permission'
+        metadata:
+          type: object
+          description: Additional configuration metadata
+          properties:
+            codeLength:
+              type: integer
+              description: Input code character count
+            riskScore:
+              type: number
+              format: float
+              description: Calculated risk score (0-100)
+
+    Permission:
+      type: object
+      required:
+        - name
+        - status
+        - riskLevel
+      properties:
+        name:
+          type: string
+          description: Permission name identifier
+          example: "file_system"
+        status:
+          type: string
+          enum:
+            - allowed
+            - denied
+          description: Permission status
+          example: "denied"
+        riskLevel:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+          description: Risk severity level
+          example: "high"
+
+    PermissionInput:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          description: Agent code or prompt text to analyze
+          example: "function execute() { require('fs').readFile() }"
+
+    GenerateSandboxSnapshotRequest:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          description: Agent code or prompt text to analyze for sandbox configuration
+          example: "async function agent(userInput) { const result = await fetch('/api/data'); return result; }"
+
+  parameters: {}
+
+  responses:
+    SandboxConfigurationResponse:
+      description: Successfully generated sandbox configuration
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SandboxConfiguration'
+
+  examples:
+    BasicConfiguration:
+      value:
+        schemaVersion: "1.0"
+        sandboxId: "sandbox-m1abc123-def456"
+        agentType: "function-based"
+        isolationLevel: "medium"
+        allowedResources:
+          - basic_execution
+        deniedPermissions:
+          - file_system
+          - network_fetch
+          - exec_shell
+          - child_process
+        timeout: 60
+        createdAt: "2024-01-15T10:30:00.000Z"
+        generatedBy: "Sandbox Agent Snap v1.0"
+        permissionManifest:
+          - name: "file_system"
+            status: "denied"
+            riskLevel: "high"
+          - name: "network_fetch"
+            status: "denied"
+            riskLevel: "high"
+          - name: "exec_shell"
+            status: "denied"
+            riskLevel: "high"
+          - name: "child_process"
+            status: "denied"
+            riskLevel: "high"
+
+tags:
+  - name: Sandbox
+    description: Sandbox configuration generation
+  - name: Security
+    description: Security and permission analysis
+  - name: Export
+    description: Configuration export operations
+
+x-tool-categories:
+  - name: generateSandboxSnapshot
+    description: Analyze agent code and generate sandbox security configuration
+    inputSchema:
+      $ref: '#/components/schemas/PermissionInput'
+    outputSchema:
+      $ref: '#/components/schemas/SandboxConfiguration'
+    examples:
+      - description: Analyze function with network call
+        input:
+          code: "async function agent(input) { return await fetch('/api/' + input); }"
+        output:
+          schemaVersion: "1.0"
+          sandboxId: "sandbox-m1abc123-def456"
+          agentType: "function-based"
+          isolationLevel: "medium"
+          allowedResources:
+            - basic_execution
+          deniedPermissions:
+            - file_system
+            - network_fetch
+            - exec_shell
+            - child_process
+          timeout: 60
+          createdAt: "2024-01-15T10:30:00.000Z"
+          generatedBy: "Sandbox Agent Snap v1.0"
+          permissionManifest:
+            - name: "file_system"
+              status: "denied"
+              riskLevel: "high"
+            - name: "network_fetch"
+              status: "denied"
+              riskLevel: "high"
+            - name: "exec_shell"
+              status: "denied"
+              riskLevel: "high"
+            - name: "child_process"
+              status: "denied"
+              riskLevel: "high"
+    permissions:
+      - name: read
+        description: Read input code
+      - name: write
+        description: Generate configuration output
+    rateLimits:
+      requestsPerMinute: 60
+      burst: 10

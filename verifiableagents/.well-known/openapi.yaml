@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: TrustLog API
+  description: Create verifiable, immutable agent execution logs with cryptographic verification. Pure frontend tool with SHA-256 hashing and UTC timestamp generation.
+  version: 1.0.0
+servers:
+  - url: https://yourdomain.com
+    description: TrustLog Production Server
+paths:
+  /generateImmutableVerifyLog:
+    post:
+      summary: Generate Immutable Verification Log
+      description: Creates a tamper-proof verification record for agent execution logs with SHA-256 hash, UTC timestamp, and unique verification ID.
+      operationId: generateImmutableVerifyLog
+      requestBody:
+        description: Raw JSON execution log to be verified
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rawJSON:
+                  type: string
+                  description: Raw JSON string containing the agent execution log
+                  example: '{"agent": "AI-Assistant", "action": "data_processing", "timestamp": "2024-01-15T10:30:00Z"}'
+      responses:
+        '200':
+          description: Successfully generated verification data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rawJSON:
+                    type: string
+                    description: Original raw JSON input
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: UTC timestamp of verification
+                  hash:
+                    type: string
+                    description: SHA-256 hash of the raw JSON
+                  verifyID:
+                    type: string
+                    description: Unique verification ID (UUID format)
+                  verifyLink:
+                    type: string
+                    description: Public verification URL
+components:
+  schemas:
+    VerificationData:
+      type: object
+      properties:
+        rawJSON:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        hash:
+          type: string
+        verifyID:
+          type: string
+        verifyLink:
+          type: string
+      required:
+        - rawJSON
+        - timestamp
+        - hash
+        - verifyID
+        - verifyLink
+  securitySchemes:
+    none:
+      type: apiKey
+      in: header
+      name: X-API-Key

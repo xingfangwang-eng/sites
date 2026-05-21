@@ -1,0 +1,81 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentPay Guard",
+    "name_for_model": "agentpay_guard",
+    "description_for_human": "Free browser-based AI agent payment boundary generator. Create spending limits, transaction restrictions, and payment locks for WebMCP, DeFi agents, and payment protocols. No signup, no API key required.",
+    "description_for_model": "A pure frontend tool that generates payment boundary configurations and spending limit locks for AI Agents. Core function: generateAgentPaymentGuard(agentName, agentType, allowedDomains, blockedAddresses, selectedChains, allowedTokens, limitCurrency, perTxLimit, dailyLimit, weeklyLimit, maxConcurrent). Outputs structured JSON compatible with WebMCP, Payment Protocol, and DeFi agent systems. No backend calls, no API keys, 100% client-side processing.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": ".well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/agentpayguard/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/agentpayguard/legal",
+    "hook_url": "https://www.wangdadi.xyz/agentpayguard/hook",
+    "redirect_urls": {
+        "application_web": "https://www.wangdadi.xyz/agentpayguard"
+    },
+    "tags": [
+        "AI Agent",
+        "Payment Boundary",
+        "Spending Limits",
+        "WebMCP",
+        "DeFi",
+        "Payment Protocol",
+        "Transaction Limits",
+        "Crypto Spending Controls"
+    ],
+    "capabilities": {
+        "generate_payment_guard": {
+            "description": "Generate JSON configuration for AI agent payment boundaries and spending limits",
+            "parameters": [
+                "agentName",
+                "agentType",
+                "agentPurpose",
+                "allowedDomains",
+                "blockedAddresses",
+                "selectedChains",
+                "allowedTokens",
+                "limitCurrency",
+                "perTxLimit",
+                "dailyLimit",
+                "weeklyLimit",
+                "maxConcurrent"
+            ]
+        },
+        "export_formats": [
+            "JSON",
+            "Clipboard Copy",
+            "File Download"
+        ],
+        "chain_support": [
+            "Ethereum",
+            "BSC",
+            "Polygon",
+            "Arbitrum",
+            "Solana",
+            "Custom"
+        ],
+        "currency_support": [
+            "USD",
+            "ETH",
+            "USDC",
+            "BNB"
+        ],
+        "ecosystem_compatibility": [
+            "WebMCP",
+            "Payment Protocol",
+            "DeFi Agent"
+        ]
+    },
+    "xllm_metadata": {
+        "pure_static": true,
+        "no_backend": true,
+        "no_api_key": true,
+        "client_side_only": true,
+        "function_name": "generateAgentPaymentGuard"
+    }
+}

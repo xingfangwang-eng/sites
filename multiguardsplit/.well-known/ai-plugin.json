@@ -1,0 +1,79 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "MultiGuard Split",
+    "name_for_model": "multiguard_split",
+    "description_for_human": "Split multi-agent task descriptions into governed sub-agent JSON workflows. Pure frontend tool for AI infrastructure automation.",
+    "description_for_model": "A specialized tool for parsing multi-agent task descriptions and generating structured JSON configurations with governance boundaries, agent dependencies, and workflow definitions. Accepts natural language task descriptions and outputs standardized sub-agent configurations suitable for multi-agent system orchestration. Supports governance boundary definition, dependency mapping, and role-based agent generation.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/multiguardsplit/.well-known/openapi.yaml"
+    },
+    "icon_url": "https://www.wangdadi.xyz/multiguardsplit/icon.png",
+    "contact_email": "support@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/multiguardsplit/legal",
+    "verification_details": {
+        "protocol_version": "1.0",
+        "capabilities": [
+            "task_decomposition",
+            "sub_agent_generation",
+            "governance_boundary_definition",
+            "dependency_mapping",
+            "json_config_output"
+        ],
+        "supported_agent_architectures": [
+            "multi_agentOrchestration",
+            "hierarchical_agent_network",
+            "parallel_agent_execution",
+            "sequential_workflow_agent"
+        ],
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "task_description": {
+                    "type": "string",
+                    "description": "Natural language description of multi-agent task including roles, workflows, and governance requirements"
+                }
+            },
+            "required": ["task_description"]
+        },
+        "output_schema": {
+            "type": "object",
+            "properties": {
+                "mainTask": {
+                    "type": "string"
+                },
+                "subAgents": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "agentId": {"type": "string"},
+                            "agentName": {"type": "string"},
+                            "task": {"type": "string"},
+                            "governanceBoundary": {"type": "string"},
+                            "dependencies": {"type": "array"}
+                        }
+                    }
+                },
+                "generatedAt": {"type": "string"}
+            }
+        }
+    },
+    "tags": [
+        "multi_agent",
+        "task_splitter",
+        "workflow_automation",
+        "AI_infrastructure",
+        "governance",
+        "JSON_generator",
+        "agent_orchestration"
+    ],
+    "categories": [
+        "developer_tools",
+        "productivity",
+        "automation"
+    ]
+}

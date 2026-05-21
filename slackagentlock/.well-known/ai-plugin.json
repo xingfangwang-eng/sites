@@ -1,0 +1,62 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SlackAgent Lock",
+    "name_for_model": "slackagent_lock",
+    "description_for_human": "Generate Agentforce/Slack payment lock, behavior lock, and hybrid lock workflow templates. Build automated access control workflows quickly.",
+    "description_for_model": "SlackAgent Lock is a professional workflow template generator that creates three types of lock mechanisms: Payment Lock, Behavior Lock, and Hybrid Lock. Each lock type supports dual-platform output for Slack and Agentforce. Users simply input trigger conditions and custom rules to generate ready-to-use workflow template code.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/slackagentlock/.well-known/openapi.yaml",
+        "has_user_authentication": false
+    },
+    "logo_url": "https://www.wangdadi.xyz/slackagentlock/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/slackagentlock/legal",
+    "tags": [
+        "workflow",
+        "automation",
+        "Slack",
+        "Agentforce",
+        "Salesforce",
+        "payment lock",
+        "behavior lock",
+        "access control",
+        "automation template"
+    ],
+    "categories": [
+        "Productivity",
+        "Automation",
+        "Development Tools"
+    ],
+    "use_cases": [
+        "Paid community access control",
+        "User behavior verification",
+        "Multi-step permission unlocking",
+        "Enterprise internal workflow automation",
+        "Customer qualification verification process"
+    ],
+    "supported_platforms": [
+        "Slack Workflow Builder",
+        "Agentforce Automation",
+        "Salesforce Flow"
+    ],
+    "capabilities": [
+        "Generate payment lock workflow templates",
+        "Generate behavior lock workflow templates",
+        "Generate hybrid lock workflow templates",
+        "Slack platform exclusive output",
+        "Agentforce platform exclusive output",
+        "Dual-platform universal output",
+        "Custom trigger condition configuration",
+        "Custom lock rule configuration",
+        "One-click copy generated content"
+    ],
+    "permissions": {
+        "required": [],
+        "optional": []
+    },
+    "privacy_policy": "This tool does not collect any user data. All operations are performed locally in the browser. No login or registration required."
+}

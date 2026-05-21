@@ -1,0 +1,204 @@
+openapi: 3.0.3
+info:
+  title: AgentCost Killer API
+  description: AI Agent Cost Optimization API - Calculate token/gas costs and optimize agent logs/prompts
+  version: 2.0.0
+  contact:
+    email: 457239850@qq.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://www.wangdadi.xyz/agentcostkiller/api
+    description: Production server
+
+paths:
+  /calculate:
+    post:
+      summary: Calculate and optimize agent cost
+      description: Analyzes agent logs/prompts to calculate token or gas costs and provides optimized text with cost savings estimation
+      operationId: calculateAndOptimizeAgentCost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - inputText
+                - model
+                - costType
+              properties:
+                inputText:
+                  type: string
+                  description: Agent execution log, system prompt, or user query text to analyze
+                  example: "User: What is the weather today?\nAgent: Checking weather API..."
+                model:
+                  type: string
+                  description: AI model to calculate pricing for
+                  enum:
+                    - gpt-4o
+                    - claude-3.5
+                    - gemini-1.5
+                    - custom
+                  example: "gpt-4o"
+                costType:
+                  type: string
+                  description: Type of cost to calculate
+                  enum:
+                    - token
+                    - gas
+                  example: "token"
+                customInputPrice:
+                  type: number
+                  description: Custom input price per 1000 tokens (only used when model is 'custom')
+                  example: 0.0025
+                customOutputPrice:
+                  type: number
+                  description: Custom output price per 1000 tokens (only used when model is 'custom')
+                  example: 0.01
+      responses:
+        '200':
+          description: Successful cost calculation and optimization
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Timestamp of calculation
+                  model:
+                    type: string
+                    description: Selected AI model
+                  costType:
+                    type: string
+                    description: Type of cost calculated
+                  original:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                        description: Original input text (truncated)
+                      tokens:
+                        type: integer
+                        description: Estimated token count or gas used
+                      cost:
+                        type: number
+                        description: Original calculated cost in USD
+                  optimized:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                        description: Optimized text result
+                      tokens:
+                        type: integer
+                        description: Estimated token count or gas after optimization
+                      cost:
+                        type: number
+                        description: Optimized cost in USD
+                  savings:
+                    type: object
+                    properties:
+                      amount:
+                        type: number
+                        description: Total savings amount in USD
+                      percentage:
+                        type: number
+                        description: Percentage savings achieved
+                  pricing:
+                    type: object
+                    properties:
+                      inputPrice:
+                        type: number
+                        description: Input price per 1000 tokens
+                      outputPrice:
+                        type: number
+                        description: Output price per 1000 tokens
+        '400':
+          description: Invalid input - missing required fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                  code:
+                    type: integer
+                    description: Error code
+
+components:
+  schemas:
+    CostRequest:
+      type: object
+      required:
+        - inputText
+        - model
+        - costType
+      properties:
+        inputText:
+          type: string
+        model:
+          type: string
+          enum:
+            - gpt-4o
+            - claude-3.5
+            - gemini-1.5
+            - custom
+        costType:
+          type: string
+          enum:
+            - token
+            - gas
+        customInputPrice:
+          type: number
+        customOutputPrice:
+          type: number
+
+    CostResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        model:
+          type: string
+        costType:
+          type: string
+        original:
+          type: object
+          properties:
+            text:
+              type: string
+            tokens:
+              type: integer
+            cost:
+              type: number
+        optimized:
+          type: object
+          properties:
+            text:
+              type: string
+            tokens:
+              type: integer
+            cost:
+              type: number
+        savings:
+          type: object
+          properties:
+            amount:
+              type: number
+            percentage:
+              type: number
+        pricing:
+          type: object
+          properties:
+            inputPrice:
+              type: number
+            outputPrice:
+              type: number

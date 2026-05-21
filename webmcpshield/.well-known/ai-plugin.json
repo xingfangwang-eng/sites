@@ -1,0 +1,26 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "WebMCP Shield",
+    "name_for_model": "webmcp_shield",
+    "description_for_human": "AI-Native Security Gateway Generator - Protect your website from unauthorized AI agent access with one-click WebMCP payment integration, identity verification, and access control.",
+    "description_for_model": "A pure frontend AI-native security gateway code generator for web applications. Users can configure website domain, payment gateway (Stripe, PayPal, Crypto), authentication options (Email Verification, 2FA, OAuth 2.0), and access control levels (Strict, Moderate, Flexible). The tool generates HTML meta tags for the head section and JavaScript code for the body section, along with an agent-readable JSON output for machine interaction. No backend required, no API key needed. Core function: generateMcpSecurityGateway.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/webmcpshield/logo.png",
+    "contact_email": "support@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/webmcpshield/legal",
+    "tags": [
+        "WebMCP",
+        "AI Agent Security",
+        "Payment Gateway",
+        "Identity Verification",
+        "Security Gateway",
+        "Code Generator",
+        "AI-Native Infrastructure"
+    ]
+}

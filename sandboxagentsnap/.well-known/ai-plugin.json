@@ -1,0 +1,30 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Sandbox Agent Snap",
+    "name_for_model": "sandbox_agent_snap",
+    "description_for_human": "Free AI agent sandbox configuration generator. Analyze code for file system, network, and execution risks. Generate isolated sandbox configs with permission manifests. Export production-ready JSON security policies instantly.",
+    "description_for_model": "A stateless client-side tool that analyzes AI agent code and prompts to generate isolated sandbox security configurations. It performs static code analysis to detect sensitive permission keywords (file_system, network, environment_variables, exec, crypto, database_access). Outputs structured JSON configuration with permission manifest, isolation level (low/medium/high), allowed resources, denied permissions, and timeout values. No authentication required. 100% browser-based processing.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/sandboxagentsnap/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/sandboxagentsnap/logo.png",
+    "contact_email": "contact@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/legal",
+    "privacy_policy_url": "https://www.wangdadi.xyz/privacy",
+    "terms_of_service_url": "https://www.wangdadi.xyz/terms",
+    "categories": ["security", "developer_tools", "ai_ml"],
+    "tags": [
+        "sandbox",
+        "security",
+        "agent",
+        "ai",
+        "llm",
+        "permissions",
+        "configuration",
+        "isolation"
+    ]
+}

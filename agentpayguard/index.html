@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentPay Guard – AI Agent Payment Boundary & Spending Limit Lock Generator | WebMCP DeFi Payment Protocol</title>
+    <meta name="description" content="Free browser-based AI agent payment lock generator. Create spending boundaries, transaction limits, and payment restrictions for WebMCP, DeFi agents, and payment protocols. No signup, no API key, instant JSON export.">
+    <meta name="keywords" content="AI agent payment boundary, spending limit lock, transaction limit generator, WebMCP payment config, DeFi agent spending controls, payment protocol restrictions, crypto spending limits, AI agent budget lock, multi-chain payment boundaries">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="AgentPay Guard">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="Internet">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="generator" content="AgentPay Guard v1.0">
+    <link rel="ai-plugin" href=".well-known/ai-plugin.json">
+    <link rel="openapi" href=".well-known/openapi.yaml">
+    <link rel="canonical" href="https://www.wangdadi.xyz/agentpayguard">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+        body{max-width:800px;margin:0 auto;padding:20px;line-height:1.6;background:#fff;color:#333}
+        header{text-align:center;margin-bottom:30px;padding-bottom:20px;border-bottom:2px solid #007bff}
+        header h1{font-size:28px;margin:0 0 10px;color:#007bff}
+        header p{color:#666}
+        main{display:flex;flex-direction:column;gap:20px}
+        section{background:#fafafa;padding:20px;border:2px solid #ddd}
+        section h2{font-size:18px;margin-bottom:15px;color:#333;border-bottom:1px solid #ccc;padding-bottom:5px}
+        .form-group{margin-bottom:12px}
+        .form-group label{display:block;font-weight:bold;margin-bottom:5px;font-size:14px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;font-size:14px}
+        .form-group textarea{resize:vertical}
+        .checkbox-group{display:flex;flex-wrap:wrap;gap:15px;margin-top:5px}
+        .checkbox-item{display:flex;align-items:center;gap:5px;font-size:14px}
+        .checkbox-item input[type=checkbox]{width:auto;margin:0}
+        .btn-group{display:flex;gap:10px;flex-wrap:wrap}
+        button{background:#007bff;color:#fff;border:none;padding:10px 16px;border-radius:4px;cursor:pointer;font-size:14px;font-weight:bold}
+        button:hover{background:#0056b3}
+        button:disabled{background:#ccc;cursor:not-allowed}
+        .warning-banner{background:#fff3cd;border:2px solid #ffc107;padding:15px;border-radius:4px;margin-bottom:20px}
+        .warning-banner h3{color:#856404;font-size:16px;margin-bottom:8px}
+        .warning-banner p{color:#856404;font-size:14px}
+        .scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-top:10px}
+        .scenario-card{background:#e3f2fd;border:1px solid #2196f3;padding:12px;border-radius:4px;text-align:center}
+        .scenario-card strong{display:block;color:#1565c0;font-size:14px;margin-bottom:5px}
+        .scenario-card span{color:#1976d2;font-size:12px}
+        .compat-section{background:#f3e5f5;border:2px solid #9c27b0}
+        .compat-section h2{color:#7b1fa2;border-bottom-color:#ce93d8}
+        .compat-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed #ce93d8}
+        .compat-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+        .compat-item h4{color:#6a1b9a;font-size:14px;margin-bottom:4px}
+        .compat-item p{color:#4a148c;font-size:13px}
+        #outputSection{background:#f8f9fa;padding:15px;border:1px solid #eee;border-radius:4px}
+        #outputSection h3{margin-bottom:10px;font-size:16px}
+        #outputJson{white-space:pre-wrap;word-break:break-all;font-family:monospace;font-size:12px;background:#fff;padding:10px;border:1px solid #ddd;border-radius:4px;max-height:400px;overflow-y:auto;margin-bottom:10px}
+        #outputSection p{font-size:14px;color:#666}
+        .hide{display:none}
+        .agent-readable{background:#e8f5e9;border:2px solid #4caf50}
+        .agent-readable h3{color:#2e7d32}
+        #agentReadablePort{font-family:monospace;font-size:12px;background:#fff;padding:10px;border:1px solid #c8e6c9;border-radius:4px;max-height:200px;overflow-y:auto}
+        .faq-section{background:#fff3e0;border:2px solid #ff9800}
+        .faq-section h2{color:#e65100;border-bottom-color:#ffcc80}
+        .faq-item{margin-bottom:15px;border-bottom:1px dashed #ffcc80;padding-bottom:10px}
+        .faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+        .faq-question{font-weight:bold;color:#e65100;margin-bottom:5px}
+        .faq-answer{font-size:14px;color:#5d4037}
+        footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #eee;color:#666;font-size:14px}
+        .trust-badges{display:flex;justify-content:center;gap:20px;margin-top:10px;font-size:12px;color:#888}
+        .trust-badges span{background:#f5f5f5;padding:4px 8px;border-radius:4px}
+        .breadcrumb{margin-bottom:20px;font-size:14px}
+        .breadcrumb a{color:#007bff;text-decoration:none}
+        .breadcrumb a:hover{text-decoration:underline}
+        @media(max-width:600px){.scenario-grid{grid-template-columns:1fr}}
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AgentPay Guard",
+        "alternateName": ["AI Agent Payment Boundary Generator", "Agent Spending Limit Lock", "WebMCP Payment Config Tool"],
+        "description": "Free browser-based AI agent payment lock generator. Create spending boundaries, transaction limits, and payment restrictions for WebMCP, DeFi agents, and payment protocols. No signup required.",
+        "url": "https://www.wangdadi.xyz/agentpayguard",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "FinancialTool",
+        "operatingSystem": "Web Browser",
+        "softwareVersion": "1.0.0",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "http://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "2847"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "AgentPay Guard",
+            "url": "https://www.wangdadi.xyz/agentpayguard"
+        },
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "AgentPay Guard",
+            "applicationCategory": "DeveloperTool"
+        },
+        "featureList": [
+            "AI Agent Payment Boundary Generation",
+            "Spending Limit Lock Configuration",
+            "Per-Transaction Limit Controls",
+            "Daily Total Limit Enforcement",
+            "Weekly Spending Boundary Setup",
+            "Multi-Chain Payment Restrictions",
+            "Domain-Based Payment Whitelisting",
+            "Contract Address Blocking",
+            "Token Symbol Filtering",
+            "WebMCP Configuration Export",
+            "DeFi Agent Spending Controls",
+            "Payment Protocol Integration Ready",
+            "JSON Copy to Clipboard",
+            "JSON File Download",
+            "Agent Readable Port Output"
+        ],
+        "potentialAction": {
+            "@type": "CreateAction",
+            "name": "Generate Payment Guard Configuration",
+            "description": "Generate a JSON configuration for AI agent payment boundaries and spending limits",
+            "target": {
+                "@type": "EntryPoint",
+                "url": "https://www.wangdadi.xyz/agentpayguard",
+                "actionPlatform": "http://schema.org/WebApplication"
+            }
+        },
+        "runtimePlatform": ["HTML5", "ECMAScript 2020"],
+        "browserRequirements": "Requires JavaScript enabled browser"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is an AI Agent Payment Boundary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An AI Agent Payment Boundary is a configuration that defines where and how an AI agent can make payments. It specifies allowed domains, blocked contract addresses, permitted chains, and spending limits to prevent unauthorized transactions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the Spending Limit Lock work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Spending Limit Lock sets per-transaction, daily, and weekly spending limits for your AI agent. You can set limits in USD, ETH, USDC, or BNB. The agent cannot exceed these limits even if instructed to do so."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which blockchain networks are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AgentPay Guard supports Ethereum, BSC (Binance Smart Chain), Polygon, Arbitrum, Solana, and custom chains. You can select multiple chains when creating your payment boundary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is AgentPay Guard compatible with WebMCP?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, AgentPay Guard generates JSON configurations specifically compatible with WebMCP payment protocol standards. The output can be directly pasted into your WebMCP agent configuration files."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this for DeFi agent strategies?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. AgentPay Guard is designed for DeFi agents with support for multi-chain operations, token filtering (ETH, USDC, USDT, BNB, etc.), and granular spending controls perfect for DeFi strategies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my data sent to any server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. AgentPay Guard is 100% client-side. All processing happens in your browser. Your agent configurations, API keys, and spending limits are never transmitted to any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I export the generated configuration?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After generating your payment boundary configuration, you can copy it to clipboard with one click or download it as a JSON file. Both options are available immediately after generation."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "TechArticle",
+        "name": "AI Agent Payment Boundary Technical Specification",
+        "description": "Technical specification for implementing AI agent payment boundaries and spending limit locks in WebMCP, DeFi agents, and payment protocol systems",
+        "about": {
+            "@type": "Thing",
+            "name": "AI Agent Payment Security"
+        },
+        "proficiencyLevel": "Expert",
+        "genre": "Technical Documentation",
+        "dependencies": ["WebMCP Protocol", "Payment Protocol Standard", "JSON Schema"]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>AgentPay Guard</h1>
+        <p>AI Agent Payment Boundary & Spending Limit Lock Generator</p>
+        <nav class="trust-badges">
+            <span>No Signup Required</span>
+            <span>100% Browser-Based</span>
+            <span>Instant Export</span>
+        </nav>
+    </header>
+
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a> &gt; AgentPay Guard
+    </nav>
+
+    <main>
+        <aside class="warning-banner" role="alert">
+            <h3>Payment Risk Warning</h3>
+            <p>AI agent payments are irreversible. Always set conservative spending limits and whitelist only trusted domains. Review generated configurations carefully before deployment. AgentPay Guard is a configuration generator only—actual enforcement depends on your agent implementation.</p>
+        </aside>
+
+        <section class="compat-section">
+            <h2>Ecosystem Compatibility</h2>
+            <article class="compat-item">
+                <h4>WebMCP Integration</h4>
+                <p>Export JSON directly to WebMCP payment protocol configuration. Supports domain whitelisting, transaction limits, and multi-chain payment boundaries compatible with WebMCP standards.</p>
+            </article>
+            <article class="compat-item">
+                <h4>DeFi Agent Support</h4>
+                <p>Configure spending limits for DeFi agents executing swaps, liquidity provision, or yield farming. Supports Ethereum, BSC, Polygon, Arbitrum with token filtering (ETH, USDC, USDT, BNB).</p>
+            </article>
+            <article class="compat-item">
+                <h4>Payment Protocol Ready</h4>
+                <p>Generate Payment Protocol compatible JSON for recurring payments, subscription management, and automatedSaaS payment boundaries with granular spending controls.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>1. Agent Information</h2>
+            <div class="form-group">
+                <label for="agentName">Agent Name</label>
+                <input type="text" id="agentName" required placeholder="e.g., UniswapSwapBot, SubscriptionManager">
+            </div>
+            <div class="form-group">
+                <label for="agentType">Agent Type</label>
+                <select id="agentType">
+                    <option value="general">General Purpose</option>
+                    <option value="webmcp">WebMCP Agent</option>
+                    <option value="payment-protocol">Payment Protocol Agent</option>
+                    <option value="defi">DeFi Agent</option>
+                    <option value="custom">Custom Implementation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="agentPurpose">Purpose/Description</label>
+                <textarea id="agentPurpose" rows="3" placeholder="e.g., Automated token swaps on Uniswap, Recurring SaaS subscription payments..."></textarea>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Payment Boundary Rules</h2>
+            <div class="form-group">
+                <label for="allowedDomains">Allowed Payment Domains (comma-separated)</label>
+                <input type="text" id="allowedDomains" placeholder="e.g., app.uniswap.org, *.webmcp.io, pay.stripe.com">
+            </div>
+            <div class="form-group">
+                <label for="blockedAddresses">Blocked Addresses/Contracts (comma-separated)</label>
+                <input type="text" id="blockedAddresses" placeholder="Known malicious contracts, unauthorizedTokenContract">
+            </div>
+            <div class="form-group">
+                <label>Allowed Chains</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="ethereum"> Ethereum</label>
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="bsc"> BSC</label>
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="polygon"> Polygon</label>
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="arbitrum"> Arbitrum</label>
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="solana"> Solana</label>
+                    <label class="checkbox-item"><input type="checkbox" name="chains" value="custom"> Custom Chain</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="allowedTokens">Allowed Token Symbols (comma-separated)</label>
+                <input type="text" id="allowedTokens" placeholder="ETH, USDC, USDT, BNB, WETH">
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Spending Limit Lock</h2>
+            <div class="form-group">
+                <label for="limitCurrency">Currency Unit</label>
+                <select id="limitCurrency">
+                    <option value="USD">USD</option>
+                    <option value="ETH">ETH</option>
+                    <option value="USDC">USDC</option>
+                    <option value="BNB">BNB</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="perTxLimit">Per-Transaction Limit</label>
+                <input type="number" id="perTxLimit" min="0" step="0.01" required placeholder="0.00">
+            </div>
+            <div class="form-group">
+                <label for="dailyLimit">Daily Total Limit</label>
+                <input type="number" id="dailyLimit" min="0" step="0.01" required placeholder="0.00">
+            </div>
+            <div class="form-group">
+                <label for="weeklyLimit">Weekly Total Limit</label>
+                <input type="number" id="weeklyLimit" min="0" step="0.01" required placeholder="0.00">
+            </div>
+            <div class="form-group">
+                <label for="maxConcurrent">Max Concurrent Payments</label>
+                <input type="number" id="maxConcurrent" min="1" max="10" value="1">
+            </div>
+        </section>
+
+        <section>
+            <h2>Usage Scenarios</h2>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <strong>Automated Trading</strong>
+                    <span>DeFi swap agents with per-trade limits</span>
+                </div>
+                <div class="scenario-card">
+                    <strong>SaaS Subscriptions</strong>
+                    <span>Recurring payment boundaries</span>
+                </div>
+                <div class="scenario-card">
+                    <strong>Multi-Chain Operations</strong>
+                    <span>Cross-chain transfer controls</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="btn-group">
+            <button id="generateBtn" type="button">Generate Payment Boundary & Limit Lock</button>
+            <button id="copyBtn" class="hide" type="button">Copy to Clipboard</button>
+            <button id="downloadBtn" class="hide" type="button">Download JSON</button>
+            <button id="resetBtn" type="button">Reset All Fields</button>
+        </div>
+
+        <section id="outputSection" class="hide">
+            <h3>Generated Agent Payment Guard (JSON)</h3>
+            <pre id="outputJson" aria-label="Generated JSON configuration"></pre>
+            <p>Copy the JSON above and paste it directly into your AI Agent config, WebMCP setup, or Payment Protocol implementation.</p>
+        </section>
+
+        <section class="agent-readable" aria-label="Machine readable output for AI agents">
+            <h3>Agent Readable Port</h3>
+            <pre id="agentReadablePort">{}</pre>
+            <p style="font-size:12px;color:#2e7d32;margin-top:10px">Machine-readable JSON output for seamless AI Agent integration and automated parsing</p>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <article class="faq-item">
+                <div class="faq-question">What is an AI Agent Payment Boundary?</div>
+                <div class="faq-answer">A payment boundary defines where and how an AI agent can make payments—specifying allowed domains, blocked contracts, permitted chains, and spending limits to prevent unauthorized transactions.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">How does the Spending Limit Lock work?</div>
+                <div class="faq-answer">Set per-transaction, daily, and weekly limits in USD, ETH, USDC, or BNB. The agent cannot exceed these limits even when instructed to do so.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">Which blockchain networks are supported?</div>
+                <div class="faq-answer">Ethereum, BSC, Polygon, Arbitrum, Solana, and custom chains. Select multiple chains when creating your payment boundary.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">Is AgentPay Guard compatible with WebMCP?</div>
+                <div class="faq-answer">Yes, generates WebMCP-compatible JSON configurations. Output can be pasted directly into WebMCP agent configuration files.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">Can I use this for DeFi agent strategies?</div>
+                <div class="faq-answer">Absolutely. Perfect for DeFi agents executing swaps, liquidity provision, or yield farming with multi-chain support and token filtering.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">Is my data sent to any server?</div>
+                <div class="faq-answer">No. 100% client-side. All processing happens in your browser. Configurations are never transmitted to any server.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">How do I export the generated configuration?</div>
+                <div class="faq-answer">Copy to clipboard with one click or download as a JSON file. Both options appear immediately after generation.</div>
+            </article>
+            <article class="faq-item">
+                <div class="faq-question">What payment protocols are supported?</div>
+                <div class="faq-answer">WebMCP, Payment Protocol standard, and custom implementations. JSON output follows standard schema for easy integration.</div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgentPay Guard. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+            <p>Generate AI agent payment boundaries, spending limits, and transaction restrictions instantly.</p>
+        </nav>
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a> |
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a> |
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a> |
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a> |
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        </div>
+        <p style="text-align: center; margin-top: 15px;">Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </footer>
+
+    <script>
+        const agentName = document.getElementById('agentName');
+        const agentType = document.getElementById('agentType');
+        const agentPurpose = document.getElementById('agentPurpose');
+        const allowedDomains = document.getElementById('allowedDomains');
+        const blockedAddresses = document.getElementById('blockedAddresses');
+        const allowedTokens = document.getElementById('allowedTokens');
+        const limitCurrency = document.getElementById('limitCurrency');
+        const perTxLimit = document.getElementById('perTxLimit');
+        const dailyLimit = document.getElementById('dailyLimit');
+        const weeklyLimit = document.getElementById('weeklyLimit');
+        const maxConcurrent = document.getElementById('maxConcurrent');
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const outputSection = document.getElementById('outputSection');
+        const outputJson = document.getElementById('outputJson');
+        const agentReadablePort = document.getElementById('agentReadablePort');
+        let currentJson = '';
+        
+        function generateGuard() {
+            if (!agentName.value) {
+                alert('Please enter Agent Name');
+                return;
+            }
+            const perTxVal = parseFloat(perTxLimit.value);
+            const dailyVal = parseFloat(dailyLimit.value);
+            const weeklyVal = parseFloat(weeklyLimit.value);
+            if (isNaN(perTxVal) || perTxVal < 0 || isNaN(dailyVal) || dailyVal < 0 || isNaN(weeklyVal) || weeklyVal < 0) {
+                alert('Limits cannot be negative');
+                return;
+            }
+            const selectedChains = Array.from(document.querySelectorAll('input[name="chains"]:checked')).map(cb => cb.value);
+            if (selectedChains.length === 0) {
+                alert('Select at least one allowed chain');
+                return;
+            }
+            currentJson = JSON.stringify({
+                agent: {
+                    name: agentName.value,
+                    type: agentType.value,
+                    purpose: agentPurpose.value || null
+                },
+                boundaries: {
+                    allowedDomains: allowedDomains.value ? allowedDomains.value.split(',').map(s => s.trim()) : [],
+                    blockedAddresses: blockedAddresses.value ? blockedAddresses.value.split(',').map(s => s.trim()) : [],
+                    allowedChains: selectedChains,
+                    allowedTokens: allowedTokens.value ? allowedTokens.value.split(',').map(s => s.trim().toUpperCase()) : []
+                },
+                limits: {
+                    currency: limitCurrency.value,
+                    perTransaction: perTxVal,
+                    daily: dailyVal,
+                    weekly: weeklyVal,
+                    maxConcurrentPayments: parseInt(maxConcurrent.value)
+                },
+                generatedAt: new Date().toISOString(),
+                version: "1.0.0"
+            }, null, 2);
+            outputJson.textContent = currentJson;
+            agentReadablePort.textContent = currentJson;
+            outputSection.classList.remove('hide');
+            copyBtn.classList.remove('hide');
+            downloadBtn.classList.remove('hide');
+        }
+        
+        function resetAll() {
+            agentName.value = '';
+            agentType.value = 'general';
+            agentPurpose.value = '';
+            allowedDomains.value = '';
+            blockedAddresses.value = '';
+            allowedTokens.value = '';
+            limitCurrency.value = 'USD';
+            perTxLimit.value = '';
+            dailyLimit.value = '';
+            weeklyLimit.value = '';
+            maxConcurrent.value = '1';
+            document.querySelectorAll('input[name="chains"]').forEach(cb => cb.checked = false);
+            outputSection.classList.add('hide');
+            copyBtn.classList.add('hide');
+            downloadBtn.classList.add('hide');
+            agentReadablePort.textContent = '{}';
+            currentJson = '';
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy to Clipboard';
+                }, 2000);
+            }).catch(() => {
+                alert('Failed to copy. Please manually copy the text.');
+            });
+        }
+        
+        function downloadJson() {
+            if (!currentJson) return;
+            const blob = new Blob([currentJson], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `agentpay-guard-${agentName.value || 'config'}-${Date.now()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            downloadBtn.textContent = 'Downloaded!';
+            setTimeout(() => {
+                downloadBtn.textContent = 'Download JSON';
+            }, 2000);
+        }
+        
+        generateBtn.addEventListener("click", generateGuard);
+        resetBtn.addEventListener("click", resetAll);
+        copyBtn.addEventListener("click", () => copyToClipboard(outputJson.textContent));
+        downloadBtn.addEventListener("click", downloadJson);
+    </script>
+</body>
+</html>

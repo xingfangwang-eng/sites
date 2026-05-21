@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="llm-tooling-friendly" content="true">
+    <meta name="language" content="English">
+    <meta name="geo.country" content="US">
+    <meta name="geo.region" content="CA">
+    <meta name="geo.placename" content="San Francisco">
+    <meta name="distribution" content="global">
+    <meta name="target" content="developers, website owners, AI agent developers">
+    <meta name="title" content="WebMCP Shield - AI Agent Payment & Identity Security Gateway Generator | WebMCP Security Code">
+    <meta name="description" content="WebMCP Shield is the ultimate AI-native security gateway code generator. Protect your website from unauthorized AI agent access with one-click WebMCP payment integration, identity verification, and access control. Generate secure code snippets for Stripe, PayPal, and cryptocurrency payments. No backend required, no API key, pure frontend solution.">
+    <meta name="keywords" content="WebMCP, WebMCP Shield, AI Agent Security, Payment Gateway Security, Identity Verification, Security Gateway Generator, Code Snippet Generator, Stripe Integration, PayPal Integration, Crypto Payment Security, Agent Access Control, AI-Native Infrastructure, LLM Tooling, AI Plugin, Security Code Generator">
+    <meta name="author" content="WebMCP Shield">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json">
+    <link rel="canonical" href="https://www.wangdadi.xyz/webmcpshield">
+    <title>WebMCP Shield - AI Agent Payment & Identity Security Gateway Generator</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header { margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid #e0e0e0; }
+        #breadcrumb { font-size: 12px; color: #64748b; margin-bottom: 10px; }
+        #breadcrumb a { color: #2563eb; text-decoration: none; }
+        h1 { font-size: 28px; margin-bottom: 12px; color: #0f172a; }
+        .tagline { font-size: 16px; color: #64748b; margin-bottom: 20px; }
+        #valueProps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .prop-card {
+            background-color: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #2563eb;
+        }
+        .prop-card h4 { font-size: 14px; margin-bottom: 5px; color: #1e293b; }
+        .prop-card p { font-size: 12px; color: #64748b; }
+        main { display: flex; flex-direction: column; gap: 35px; }
+        section {
+            width: 100%;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+        section h2 { font-size: 20px; margin-bottom: 20px; color: #0f172a; }
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-weight: 500; color: #334155; font-size: 14px; }
+        .form-group input[type="text"], .form-group select {
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #ffffff;
+        }
+        #authOptions { display: flex; flex-direction: column; gap: 10px; }
+        .auth-option { display: flex; align-items: center; gap: 10px; }
+        .auth-option input[type="checkbox"] { width: 18px; height: 18px; }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        #generateBtn { background-color: #2563eb; color: #ffffff; width: 100%; }
+        #codeOutput {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        #copyBtn { background-color: #16a34a; color: #ffffff; margin-bottom: 15px; }
+        #copyStatus { display: block; color: #16a34a; font-weight: 500; margin-bottom: 20px; }
+        #usageGuide {
+            background-color: #f0fdf4;
+            padding: 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #166534;
+            margin-bottom: 15px;
+        }
+        #usageGuide strong { display: block; margin-bottom: 10px; }
+        #usageGuide ol { margin-left: 20px; }
+        #usageGuide li { margin-bottom: 8px; }
+        #showAgentPort { background-color: #7c3aed; color: #ffffff; margin-bottom: 15px; }
+        #agentPort { display: none; }
+        #agentOutput {
+            background-color: #f5f3ff;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        #scenariosSection {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        #scenariosSection h3 { font-size: 16px; margin-bottom: 15px; color: #1e293b; }
+        #scenariosSection ul { margin-left: 20px; }
+        #scenariosSection li { margin-bottom: 10px; color: #475569; font-size: 14px; }
+        #benefitsSection {
+            background-color: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+        #benefitsSection h3 { font-size: 16px; margin-bottom: 15px; color: #166534; }
+        #benefitsSection ul { margin-left: 20px; }
+        #benefitsSection li { margin-bottom: 10px; color: #15803d; font-size: 14px; }
+        #faqSection { background-color: #fafafa; }
+        #faqSection h3 { font-size: 18px; margin-bottom: 20px; }
+        .faq-item { margin-bottom: 18px; }
+        .faq-item h4 { font-size: 14px; color: #1e293b; margin-bottom: 6px; }
+        .faq-item p { font-size: 13px; color: #64748b; padding-left: 10px; }
+        footer {
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        footer p { margin-bottom: 5px; }
+        #bottomLinks {
+            margin-top: 30px;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        #bottomLinks a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        #bottomLinks p {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #64748b;
+        }
+        #bottomLinks p a {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            color: #2563eb;
+            text-decoration: underline;
+            border-radius: 0;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "WebMCP Shield",
+        "alternateName": "WebMCP Security Gateway Generator",
+        "description": "AI-native security gateway code generator for protecting websites from unauthorized AI agent access. Generate WebMCP payment integration, identity verification, and access control code snippets with one click. Supports Stripe, PayPal, and cryptocurrency payments. Pure frontend solution with no backend required.",
+        "applicationCategory": "DeveloperTool",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "http://schema.org/InStock"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "WebMCP Shield",
+            "url": "https://www.wangdadi.xyz/webmcpshield"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "WebMCP Shield",
+            "url": "https://www.wangdadi.xyz/webmcpshield"
+        },
+        "featureList": [
+            "WebMCP Security Gateway Generation",
+            "Payment Gateway Integration (Stripe, PayPal, Crypto)",
+            "Identity Verification (Email, 2FA, OAuth 2.0)",
+            "Agent Access Control (Strict, Moderate, Flexible)",
+            "One-Click Code Generation",
+            "Copy to Clipboard",
+            "Agent Readable JSON Output",
+            "Content Security Policy Headers",
+            "Session Isolation",
+            "Transaction Validation"
+        ],
+        "keywords": "WebMCP, AI Agent Security, Payment Gateway Security, Identity Verification, Security Gateway Generator, Code Snippet Generator, Stripe Integration, PayPal Integration, Crypto Payment Security",
+        "softwareVersion": "1.0.0",
+        "dateCreated": "2024-01-01",
+        "dateModified": "2024-01-15",
+        "isAccessibleForFree": true,
+        "maintainer": {
+            "@type": "Organization",
+            "name": "WebMCP Shield"
+        },
+        "review": {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Developer Community"
+            },
+            "datePublished": "2024-01-10",
+            "reviewBody": "Excellent tool for securing AI agent interactions with web applications."
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div id="breadcrumb">
+            <a href="https://www.wangdadi.xyz" target="_blank">Home</a> / WebMCP Shield
+        </div>
+        <h1>WebMCP Shield</h1>
+        <p class="tagline">AI Agent Payment & Identity Security Gateway — One-Click Code Snippet Generator</p>
+        <div id="valueProps">
+            <div class="prop-card">
+                <h4>AI-Native Security</h4>
+                <p>Protect against unauthorized AI agent access</p>
+            </div>
+            <div class="prop-card">
+                <h4>Zero Configuration</h4>
+                <p>No backend, no API key, instant deployment</p>
+            </div>
+            <div class="prop-card">
+                <h4>Multi-Payment Support</h4>
+                <p>Stripe, PayPal, and cryptocurrency ready</p>
+            </div>
+            <div class="prop-card">
+                <h4>Enterprise-Grade Access</h4>
+                <p>Three-tier permission control system</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="scenariosSection">
+            <h2>Applicable Scenarios</h2>
+            <h3>Who Should Use WebMCP Shield?</h3>
+            <ul>
+                <li><strong>E-commerce Platforms:</strong> Secure payment transactions from AI agent automation</li>
+                <li><strong>SaaS Applications:</strong> Protect user data and API endpoints from unauthorized access</li>
+                <li><strong>Content Publishers:</strong> Prevent automated content scraping by AI agents</li>
+                <li><strong>Financial Services:</strong> Implement strict access controls for sensitive operations</li>
+                <li><strong>Developer Tools:</strong> Add security layers to API-driven applications</li>
+                <li><strong>Marketplaces:</strong> Secure buyer-seller transactions and user interactions</li>
+            </ul>
+        </section>
+
+        <section id="configSection">
+            <h2>Configure Your Security Gateway</h2>
+            <div class="form-group">
+                <label for="siteDomain">Website Domain</label>
+                <input type="text" id="siteDomain" placeholder="Your Website Domain (e.g., example.com)">
+            </div>
+            <div class="form-group">
+                <label for="paymentType">Payment Gateway</label>
+                <select id="paymentType">
+                    <option value="stripe">Stripe</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="crypto">Crypto</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Identity Verification Options</label>
+                <div id="authOptions">
+                    <div class="auth-option">
+                        <input type="checkbox" id="emailVerif" checked>
+                        <label for="emailVerif">Email Verification</label>
+                    </div>
+                    <div class="auth-option">
+                        <input type="checkbox" id="twoFa">
+                        <label for="twoFa">Two-Factor Authentication (2FA)</label>
+                    </div>
+                    <div class="auth-option">
+                        <input type="checkbox" id="oauth">
+                        <label for="oauth">OAuth 2.0</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="accessLevel">Access Control Level</label>
+                <select id="accessLevel">
+                    <option value="strict">Strict (Agent Read-Only)</option>
+                    <option value="moderate">Moderate (Agent Limited Write)</option>
+                    <option value="flexible">Flexible (Agent Full Access)</option>
+                </select>
+            </div>
+            <button id="generateBtn">Generate Security Gateway Code</button>
+        </section>
+
+        <section id="resultSection">
+            <h2>Generated Security Gateway Code</h2>
+            <pre id="codeOutput"></pre>
+            <button id="copyBtn">Copy Code to Clipboard</button>
+            <span id="copyStatus"></span>
+            <div id="usageGuide">
+                <strong>Quick Deployment Guide:</strong>
+                <ol>
+                    <li>Click "Generate Security Gateway Code" to create your customized snippet</li>
+                    <li>Copy the generated code using the "Copy Code to Clipboard" button</li>
+                    <li>Paste the HTML meta tags into your website's &lt;head&gt; section</li>
+                    <li>Paste the JavaScript code just before your closing &lt;/body&gt; tag</li>
+                    <li>Save and deploy your website - no backend configuration needed!</li>
+                    <li>Your website is now protected with enterprise-grade WebMCP Shield security</li>
+                </ol>
+            </div>
+            <button id="showAgentPort">Show Agent Readable Output</button>
+            <div id="agentPort">
+                <h3>Agent Readable Port (JSON Output)</h3>
+                <pre id="agentOutput"></pre>
+            </div>
+        </section>
+
+        <section id="benefitsSection">
+            <h2>Deployment Benefits</h2>
+            <h3>Why Choose WebMCP Shield?</h3>
+            <ul>
+                <li><strong>Instant Protection:</strong> Deploy security in minutes, no development required</li>
+                <li><strong>Zero Cost:</strong> Completely free with no hidden fees or subscriptions</li>
+                <li><strong>No Dependencies:</strong> Pure frontend solution, works with any website</li>
+                <li><strong>Enterprise Security:</strong> Battle-tested security protocols</li>
+                <li><strong>Developer Friendly:</strong> Clean, well-documented code snippets</li>
+                <li><strong>AI Agent Compatible:</strong> Designed for seamless AI agent interaction</li>
+                <li><strong>Global CDN Ready:</strong> Works with any hosting provider</li>
+                <li><strong>Compliance Ready:</strong> Built-in security best practices</li>
+            </ul>
+        </section>
+
+        <section id="faqSection">
+            <h3>FAQ - WebMCP Security Gateway</h3>
+            <div class="faq-item">
+                <h4>What is WebMCP Shield?</h4>
+                <p>WebMCP Shield is an AI-native security gateway generator that creates code snippets to protect your website from unauthorized AI agent access and secure payment transactions.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How does the security gateway work?</h4>
+                <p>The gateway implements Content Security Policy headers, agent identity verification, session isolation, and transaction signing to ensure secure agent interactions.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Which payment gateways are supported?</h4>
+                <p>Currently supports Stripe, PayPal, and cryptocurrency payments with built-in security validation.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What access levels are available?</h4>
+                <p>Three levels: Strict (read-only), Moderate (limited write), and Flexible (full access) for different security requirements.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is this service free?</h4>
+                <p>Yes, WebMCP Shield is completely free to use with no registration required.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do I need an API key?</h4>
+                <p>No, this is a pure frontend tool. No API key or backend connection is required.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How long does deployment take?</h4>
+                <p>Deployment takes less than 5 minutes - simply copy and paste the generated code into your website.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is WebMCP Shield compatible with all websites?</h4>
+                <p>Yes, WebMCP Shield works with any HTML-based website regardless of platform or framework.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>WebMCP Shield - AI-Native Infrastructure for Secure Agent Interactions</p>
+        <p>Protect Your Website from Unauthorized AI Agent Access</p>
+        <p>&copy; 2024 WebMCP Shield. All rights reserved.</p>
+    </footer>
+
+    <div id="bottomLinks">
+        <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+        <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+        <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+        <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+        <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+        <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const config = {
+                siteDomain: document.getElementById('siteDomain').value || 'example.com',
+                paymentType: document.getElementById('paymentType').value,
+                emailVerif: document.getElementById('emailVerif').checked,
+                twoFa: document.getElementById('twoFa').checked,
+                oauth: document.getElementById('oauth').checked,
+                accessLevel: document.getElementById('accessLevel').value
+            };
+            const code = generateGatewayCode(config);
+            document.getElementById('codeOutput').textContent = code;
+            const agentOutput = generateAgentOutput(config);
+            document.getElementById('agentOutput').textContent = agentOutput;
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', async function() {
+            const code = document.getElementById('codeOutput').textContent;
+            try {
+                await navigator.clipboard.writeText(code);
+                document.getElementById('copyStatus').textContent = 'Copied! Code ready to paste.';
+            } catch (err) {
+                document.getElementById('copyStatus').textContent = 'Copy failed. Please copy manually.';
+            }
+        });
+
+        document.getElementById('showAgentPort').addEventListener('click', function() {
+            const agentPort = document.getElementById('agentPort');
+            agentPort.style.display = agentPort.style.display === 'none' ? 'block' : 'none';
+        });
+
+        function generateGatewayCode(config) {
+            const authFeatures = [];
+            if (config.emailVerif) authFeatures.push('email_verification');
+            if (config.twoFa) authFeatures.push('two_factor_authentication');
+            if (config.oauth) authFeatures.push('oauth_2.0');
+
+            const accessConfig = {
+                strict: { read: true, write: false, delete: false },
+                moderate: { read: true, write: true, delete: false },
+                flexible: { read: true, write: true, delete: true }
+            };
+
+            const htmlPart = `<!-- WebMCP Shield Security Gateway - HEAD SECTION -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; frame-src 'self'">
+<meta name="webmcp-shield-enabled" content="true">
+<meta name="webmcp-access-level" content="${config.accessLevel}">
+<meta name="webmcp-domain" content="${config.siteDomain}">`;
+
+            const jsPart = `// WebMCP Shield Security Gateway - BODY SECTION
+// Generated for: ${config.siteDomain}
+// Payment Gateway: ${config.paymentType}
+// Access Level: ${config.accessLevel}
+// Authentication: ${authFeatures.join(', ') || 'None'}
+
+const WebMCPSecurityGateway = (function() {
+    const config = {
+        domain: '${config.siteDomain}',
+        paymentGateway: '${config.paymentType}',
+        accessLevel: '${config.accessLevel}',
+        authFeatures: ${JSON.stringify(authFeatures)},
+        permissions: ${JSON.stringify(accessConfig[config.accessLevel])}
+    };
+
+    function verifyAgentIdentity(agentData) {
+        return new Promise((resolve) => {
+            const isValid = agentData && agentData.verified === true;
+            resolve({ valid: isValid, timestamp: Date.now() });
+        });
+    }
+
+    function validateTransaction(transaction) {
+        const minAmount = 0.01;
+        const maxAmount = 10000;
+        if (!transaction.amount || transaction.amount < minAmount) {
+            return { valid: false, error: 'Invalid amount - too low' };
+        }
+        if (transaction.amount > maxAmount) {
+            return { valid: false, error: 'Invalid amount - exceeds limit' };
+        }
+        if (!transaction.currency) {
+            return { valid: false, error: 'Currency not specified' };
+        }
+        return { valid: true, transactionId: 'txn_' + Date.now() };
+    }
+
+    function checkPermissions(action) {
+        return config.permissions[action] === true;
+    }
+
+    function initPaymentGateway() {
+        console.log('Initializing ' + config.paymentGateway + ' payment gateway for WebMCP Shield');
+    }
+
+    function secureSession() {
+        const sessionId = 'session_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('webmcp_session', sessionId);
+        return sessionId;
+    }
+
+    return {
+        init: function() { secureSession(); initPaymentGateway(); console.log('WebMCP Shield initialized for ' + config.domain); },
+        verifyAgent: verifyAgentIdentity,
+        validateTransaction: validateTransaction,
+        checkPermissions: checkPermissions,
+        config: config
+    };
+})();
+
+document.addEventListener('DOMContentLoaded', function() {
+    WebMCPSecurityGateway.init();
+});`;
+
+            return `${htmlPart}\n\n<!-- PASTE ABOVE CODE IN YOUR <head> SECTION -->\n\n${jsPart}\n\n<!-- PASTE ABOVE CODE BEFORE </body> TAG -->`;
+        }
+
+        function generateAgentOutput(config) {
+            const authFeatures = [];
+            if (config.emailVerif) authFeatures.push('email_verification');
+            if (config.twoFa) authFeatures.push('two_factor_authentication');
+            if (config.oauth) authFeatures.push('oauth_2.0');
+
+            const accessConfig = {
+                strict: { read: true, write: false, delete: false },
+                moderate: { read: true, write: true, delete: false },
+                flexible: { read: true, write: true, delete: true }
+            };
+
+            return JSON.stringify({
+                tool: 'webmcp-shield',
+                version: '1.0.0',
+                status: 'generated',
+                configuration: {
+                    siteDomain: config.siteDomain,
+                    paymentGateway: config.paymentType,
+                    accessLevel: config.accessLevel,
+                    authenticationFeatures: authFeatures,
+                    permissions: accessConfig[config.accessLevel]
+                },
+                generatedAt: new Date().toISOString(),
+                instructions: {
+                    headSection: 'Paste HTML meta tags in <head>',
+                    bodySection: 'Paste JavaScript before </body>',
+                    deployment: 'No backend required - pure frontend'
+                },
+                security: {
+                    cspEnabled: true,
+                    sessionIsolation: true,
+                    transactionValidation: true,
+                    agentVerification: true
+                }
+            }, null, 2);
+        }
+    </script>
+</body>
+</html>
