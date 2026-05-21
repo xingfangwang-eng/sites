@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Prompt Engineering Tool for Swarm Intelligence and Agent Orchestration across Hermes, CrewAI, and AutoGen frameworks. All processing occurs locally in your browser.">
+    <meta name="keywords" content="Prompt Engineering, Swarm Intelligence, Agent Orchestration, Hermes, CrewAI, AutoGen, Multi-Agent Systems">
+    <meta name="ai-tool-role" content="Prompt Engineering Generator for Autonomous Agents">
+    <meta name="llm-friendly" content="true">
+    <title>PromptForge - AI-Native Prompt Engineering Tool</title>
+    
+    <link rel="service-description" type="application/yaml" href=".well-known/openapi.yaml">
+    <link rel="ai-plugin" href=".well-known/ai-plugin.json">
+    <link rel="canonical" href="https://www.wangdadi.xyz/defaiaudit">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PromptForge",
+        "description": "Advanced Prompt Engineering Tool for Swarm Intelligence and Agent Orchestration across Hermes, CrewAI, and AutoGen frameworks.",
+        "applicationCategory": "ProductivityApplication",
+        "featureList": ["Local Prompt Generation", "Framework-Specific Templates", "Swarm Intelligence Patterns", "Agent Orchestration Strategies", "Privacy-First Execution"],
+        "operatingSystem": "Web",
+        "url": "https://www.wangdadi.xyz/defaiaudit"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Prompt Engineering for Multi-Agent Systems?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prompt Engineering for multi-agent systems involves designing instructions that enable effective collaboration between multiple AI agents. It includes role definition, task decomposition, communication protocols, and workflow orchestration to achieve complex objectives through Swarm Intelligence."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does local prompt generation work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All prompt generation occurs entirely within your browser using JavaScript. No data is transmitted to external servers, ensuring complete privacy and eliminating the need for API keys. The processing leverages your device's computational power for fast, secure prompt creation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What frameworks does PromptForge support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PromptForge supports three major multi-agent frameworks: Hermes (task-centric prompting), CrewAI (hierarchical task decomposition), and AutoGen (conversational agent patterns). Each framework has specialized prompt structures optimized for its unique execution model."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #06b6d4;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, #06b6d4, #10b981);
+            color: #0f172a;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .input-section {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            font-weight: bold;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #0f172a;
+            border: 2px solid #334155;
+            border-radius: 4px;
+            color: #f8fafc;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #06b6d4;
+        }
+        
+        .select-wrapper {
+            margin-bottom: 20px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 2px solid #334155;
+            border-radius: 4px;
+            color: #f8fafc;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #06b6d4;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            color: #0f172a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #0891b2, #0284c7);
+        }
+        
+        .results-section {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            display: none;
+        }
+        
+        .results-section.visible {
+            display: block;
+        }
+        
+        .section-title {
+            color: #06b6d4;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+        
+        #promptOutput {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 4px;
+            padding: 15px;
+            min-height: 200px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-bottom: 15px;
+        }
+        
+        .token-count {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .methodology-section {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        
+        .methodology-section h3 {
+            color: #06b6d4;
+            margin-bottom: 15px;
+        }
+        
+        .methodology-section h4 {
+            color: #f8fafc;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .methodology-section ul {
+            margin-left: 20px;
+            color: #cbd5e1;
+        }
+        
+        .developer-menu {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+        
+        .developer-link {
+            color: #06b6d4;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.visible {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            color: #94a3b8;
+            font-size: 1.5rem;
+        }
+        
+        .modal-content pre {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .privacy-text {
+            margin-bottom: 10px;
+        }
+        
+        .standards-text {
+            color: #06b6d4;
+            font-weight: bold;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: #06b6d4;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-links p {
+            margin-top: 10px;
+            color: #64748b;
+        }
+        
+        .breadcrumb {
+            padding: 10px 0;
+        }
+        
+        .breadcrumb a {
+            color: #06b6d4;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="https://www.wangdadi.xyz" target="_blank">Home</a>
+    </nav>
+    
+    <header>
+        <h1>PromptForge</h1>
+        <p class="subtitle">Advanced Prompt Engineering for Swarm Intelligence & Agent Orchestration</p>
+        <div class="trust-badges">
+            <span class="badge">Zero-Knowledge / Browser-Only</span>
+            <span class="badge">Security Standard: EIP-Ready</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <label for="goalInput">Agent Objective / Task Description</label>
+            <textarea id="goalInput" placeholder="Describe your agent workflow goal...&#10;&#10;Example: Analyze market trends and generate investment recommendations for portfolio optimization"></textarea>
+            
+            <div class="select-wrapper">
+                <label for="frameworkSelect">Target Framework Style</label>
+                <select id="frameworkSelect">
+                    <option value="hermes">Hermes (Task-Centric)</option>
+                    <option value="crewai">CrewAI (Hierarchical)</option>
+                    <option value="autogen">AutoGen (Conversational)</option>
+                </select>
+            </div>
+            
+            <button id="generateBtn">Generate Prompt Template</button>
+        </section>
+
+        <section id="resultsSection" class="results-section">
+            <h2 class="section-title">Generated Prompt Template</h2>
+            <div id="promptOutput"></div>
+            <div class="token-count" id="tokenCount">Estimated Tokens: 0</div>
+            <button id="copyBtn">Copy Prompt to Clipboard</button>
+        </section>
+
+        <section class="methodology-section">
+            <h3>Audit Methodology & Framework Patterns</h3>
+            
+            <h4>Hermes Framework</h4>
+            <ul>
+                <li><strong>Role Definition:</strong> Clear agent identity and expertise</li>
+                <li><strong>Objective Statement:</strong> Measurable task outcomes</li>
+                <li><strong>Constraints:</strong> Boundaries and limitations</li>
+                <li><strong>Output Format:</strong> Structured response requirements</li>
+            </ul>
+            
+            <h4>CrewAI Framework</h4>
+            <ul>
+                <li><strong>Mission Overview:</strong> High-level team objective</li>
+                <li><strong>Agent Team:</strong> Specialized role assignments</li>
+                <li><strong>Task Breakdown:</strong> Hierarchical decomposition</li>
+                <li><strong>Communication Protocol:</strong> Team interaction rules</li>
+            </ul>
+            
+            <h4>AutoGen Framework</h4>
+            <ul>
+                <li><strong>Agent Identity:</strong> Conversational persona</li>
+                <li><strong>Conversation Objective:</strong> Dialogue goal</li>
+                <li><strong>Communication Style:</strong> Tone and format</li>
+                <li><strong>Termination Conditions:</strong> Completion criteria</li>
+            </ul>
+            
+            <h4>Swarm Intelligence Patterns</h4>
+            <ul>
+                <li><strong>Collective Reasoning:</strong> Multiple agents solving complex problems</li>
+                <li><strong>Parallel Processing:</strong> Concurrent task execution</li>
+                <li><strong>Consensus Mechanisms:</strong> Agreement protocols</li>
+                <li><strong>Emergent Behavior:</strong> System-level intelligence</li>
+            </ul>
+        </section>
+
+        <div class="developer-menu">
+            <span class="developer-link" id="showOpenApiLink">View OpenAPI Schema</span>
+        </div>
+    </main>
+
+    <footer>
+        <p class="privacy-text">Privacy: All prompt generation is performed locally in your browser. No data is transmitted to any server.</p>
+        <p class="standards-text">Fully compliant with OpenAI Plugin & OpenAPI standards.</p>
+        <div class="footer-links">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3>OpenAPI Schema</h3>
+            <pre id="openapiContent"></pre>
+        </div>
+    </div>
+
+    <script>
+        const GOAL_INPUT = document.getElementById('goalInput');
+        const FRAMEWORK_SELECT = document.getElementById('frameworkSelect');
+        const GENERATE_BTN = document.getElementById('generateBtn');
+        const RESULTS_SECTION = document.getElementById('resultsSection');
+        const PROMPT_OUTPUT = document.getElementById('promptOutput');
+        const TOKEN_COUNT = document.getElementById('tokenCount');
+        const COPY_BTN = document.getElementById('copyBtn');
+        const SHOW_OPENAPI_LINK = document.getElementById('showOpenApiLink');
+        const MODAL = document.getElementById('modal');
+        const MODAL_CLOSE = document.getElementById('modalClose');
+        const OPENAPI_CONTENT = document.getElementById('openapiContent');
+
+        const HERMES_TEMPLATE = `## Task
+{GOAL}
+
+## Agent Info
+Role: Task Execution Specialist
+Objective: Complete the assigned task with precision and thoroughness
+Constraints: Stay within defined parameters and guidelines
+
+## Instructions
+- Analyze the task requirements carefully
+- Break down complex problems into manageable steps
+- Provide detailed, actionable solutions
+- Maintain focus on the core objective
+- Document all assumptions and reasoning
+
+## Output Format
+[Detailed response addressing all aspects of the task]
+
+## Success Criteria
+- Task completion within specified constraints
+- Clear communication of findings
+- Actionable recommendations provided`;
+
+        const CREWAI_TEMPLATE = `## Mission Overview
+{GOAL}
+
+## Team Composition
+- Analyst Agent: Research and gather relevant information
+- Strategist Agent: Develop approach and methodology
+- Executor Agent: Implement the solution
+- Reviewer Agent: Validate and quality-check outcomes
+
+## Task Breakdown
+1. Information Gathering Phase
+2. Strategy Development Phase
+3. Implementation Phase
+4. Review and Validation Phase
+
+## Communication Protocol
+- Each agent provides concise progress updates
+- Critical decisions require team consensus
+- Document all assumptions and dependencies
+- Maintain clear task ownership
+
+## Expected Deliverables
+- Comprehensive analysis report
+- Actionable implementation plan
+- Quality assurance documentation`;
+
+        const AUTOGEN_TEMPLATE = `## Agent Identity
+You are an intelligent conversational agent designed for collaborative problem-solving.
+
+## Conversation Objective
+{GOAL}
+
+## Communication Style
+- Maintain professional yet approachable tone
+- Ask clarifying questions when needed
+- Provide structured, logical responses
+- Reference previous context appropriately
+- Know when to escalate or conclude
+
+## Response Guidelines
+- Be concise but thorough
+- Use markdown for formatting
+- Include examples where helpful
+- Acknowledge limitations honestly
+- Suggest next steps proactively
+
+## Termination Conditions
+- Task completion confirmed
+- User satisfaction achieved
+- Clear handoff to next agent if applicable`;
+
+        function generatePrompt(goal, style) {
+            let template = '';
+            switch(style) {
+                case 'hermes':
+                    template = HERMES_TEMPLATE.replace('{GOAL}', goal);
+                    break;
+                case 'crewai':
+                    template = CREWAI_TEMPLATE.replace('{GOAL}', goal);
+                    break;
+                case 'autogen':
+                    template = AUTOGEN_TEMPLATE.replace('{GOAL}', goal);
+                    break;
+                default:
+                    template = HERMES_TEMPLATE.replace('{GOAL}', goal);
+            }
+            return template;
+        }
+
+        function countTokens(text) {
+            const words = text.split(/\s+/).length;
+            return Math.ceil(words * 1.3);
+        }
+
+        GENERATE_BTN.addEventListener('click', () => {
+            const goal = GOAL_INPUT.value.trim();
+            const style = FRAMEWORK_SELECT.value;
+            
+            if (!goal) {
+                alert('Please enter a task description');
+                return;
+            }
+            
+            const prompt = generatePrompt(goal, style);
+            const tokens = countTokens(prompt);
+            
+            PROMPT_OUTPUT.textContent = prompt;
+            TOKEN_COUNT.textContent = `Estimated Tokens: ${tokens}`;
+            RESULTS_SECTION.classList.add('visible');
+        });
+
+        COPY_BTN.addEventListener('click', async () => {
+            const text = PROMPT_OUTPUT.textContent;
+            try {
+                await navigator.clipboard.writeText(text);
+                COPY_BTN.textContent = 'Copied!';
+                setTimeout(() => {
+                    COPY_BTN.textContent = 'Copy Prompt to Clipboard';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+
+        SHOW_OPENAPI_LINK.addEventListener('click', () => {
+            fetch('.well-known/openapi.yaml')
+                .then(response => response.text())
+                .then(text => {
+                    OPENAPI_CONTENT.textContent = text;
+                    MODAL.classList.add('visible');
+                })
+                .catch(err => {
+                    OPENAPI_CONTENT.textContent = 'Failed to load OpenAPI schema';
+                    MODAL.classList.add('visible');
+                });
+        });
+
+        MODAL_CLOSE.addEventListener('click', () => {
+            MODAL.classList.remove('visible');
+        });
+
+        MODAL.addEventListener('click', (e) => {
+            if (e.target === MODAL) {
+                MODAL.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -30,6 +30,15 @@ https://www.wangdadi.xyz/agentidforge
 https://www.wangdadi.xyz/agentpayguard
 https://www.wangdadi.xyz/verifiableagents
 
+5月21日1
+https://www.wangdadi.xyz/swarmpromptforge
+https://www.wangdadi.xyz/defaiaudit
+https://www.wangdadi.xyz/agentshieldscan
+https://www.wangdadi.xyz/trustLog
+https://www.wangdadi.xyz/402pay
+
+
+
 .well-known
 ai-plugin.json
 

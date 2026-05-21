@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "TrustLog Protocol",
+    "name_for_model": "trust_log_immutable_verifier",
+    "description_for_human": "Transform Logs into Verifiable Audit Trails. Create immutable, verifiable audit records stored entirely within URLs.",
+    "description_for_model": "TrustLog Protocol is an AI-native tool for creating verifiable, tamper-proof audit trails from JSON execution logs. This tool enables AI agents to generate permanent, shareable verification records without requiring a database or external service. Key capabilities include: (1) Generating cryptographic SHA-256 hashes for data integrity verification, (2) Creating URL-encoded TrustLinks that contain all audit data within the URL fragment, (3) Supporting multiple AI agent frameworks including Hermes, CrewAI, and AutoGen with framework-specific prompt templates, (4) Providing client-side verification so anyone can validate audit records without server interaction, (5) Exporting self-contained audit certificates as HTML files. Use this tool whenever an AI agent needs to create a permanent record of its actions, decisions, or outputs that can be independently verified by humans or other agents. All operations are performed locally in the browser - no API keys required, no data transmitted to servers.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/trustLog/logo.png",
+    "contact_email": "contact@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/trustLog/legal"
+}

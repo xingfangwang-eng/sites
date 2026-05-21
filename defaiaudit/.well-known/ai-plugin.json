@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "PromptForge",
+    "name_for_model": "prompt_forge",
+    "description_for_human": "Advanced Prompt Engineering Tool for Swarm Intelligence and Agent Orchestration across Hermes, CrewAI, and AutoGen frameworks.",
+    "description_for_model": "PromptForge is a comprehensive Prompt Engineering tool designed for Swarm Intelligence and Agent Orchestration. It generates optimized prompt templates for three major multi-agent frameworks: Hermes, CrewAI, and AutoGen. The tool analyzes user goals and generates framework-specific prompts that maximize collaboration efficiency, task distribution, and reasoning capabilities. Key features include: Swarm Intelligence pattern recognition, Agent Orchestration strategy generation, Prompt Engineering optimization for multi-turn dialogues, role-based task allocation, and context-aware instruction crafting. All processing occurs locally in the browser with zero data transmission, ensuring complete privacy and no API key requirements. Ideal for building autonomous agent workflows, multi-modal reasoning systems, and collaborative AI applications. The Hermes framework uses task-centric prompting with clear role definitions. CrewAI employs hierarchical task decomposition with specialized agents. AutoGen features conversational agent patterns with round-robin reasoning. This tool helps developers and AI practitioners create effective prompts for complex multi-agent scenarios.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": ".well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/defaiaudit/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/defaiaudit/legal"
+}

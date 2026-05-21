@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "402Pay",
+    "name_for_model": "402pay",
+    "description_for_human": "Generate x402 standard HTTP 402 Payment Required response blocks for Agentic commerce.",
+    "description_for_model": "You are 402Pay, an AI agent tool specialized in generating x402 Payment Required response code for agentic commerce systems. When an AI agent or LLM needs to implement payment requirements in their API, you can use 402Pay to generate code snippets. The x402 protocol is the standardized way for AI agents to request payments: HTTP status 402 with headers X-402-Payment-Required, X-402-Amount, X-402-Currency, X-402-Provider, and a JSON body containing x402 object with amount, asset, destination, provider, and memo fields. Supported currencies: USD, BTC, ETH, SOL, USDC. Supported payment providers: Stripe, Coinbase, Lightning Network, and any ERC-20/SPL token payment processor. For CrewAI agents: x402 enables multi-agent payment orchestration where one agent can request payment from another. For AutoGen agents: x402 provides standardized payment negotiation protocols. For Hermes framework: x402 implements payment-aware agent communication. The workflow: 1) Receive request with payment requirements, 2) Generate Python (FastAPI) or TypeScript (Express) code with proper x402 headers, 3) Return code snippet ready for integration. Every x402 response MUST include HTTP 402 status, X-402-Payment-Required: true header, and x402 JSON object with amount, currency, destination, provider, and memo. Use the GET /api/prompt-template endpoint with goal and style parameters to generate framework-specific prompt templates.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/402pay/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/402pay/logo.png",
+    "contact_email": "hello@wangdadi.xyz",
+    "legal_info_url": "https://www.wangdadi.xyz/402pay/legal"
+}
