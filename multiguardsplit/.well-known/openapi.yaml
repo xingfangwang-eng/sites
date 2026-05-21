@@ -1,0 +1,180 @@
+openapi: 3.0.3
+info:
+  title: MultiGuard Split API
+  description: API for splitting multi-agent task descriptions into governed sub-agent JSON workflows. This is a pure frontend tool with no backend implementation.
+  version: 1.0.0
+  contact:
+    name: MultiGuard Split Support
+    email: support@wangdadi.xyz
+    url: https://www.wangdadi.xyz/multiguardsplit
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://www.wangdadi.xyz/multiguardsplit
+    description: Production server (frontend-only)
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/v1/generate:
+    post:
+      summary: Generate multi-agent task configuration
+      description: Parses natural language multi-agent task description and generates structured JSON configuration with governance boundaries, agent dependencies, and workflow definitions.
+      operationId: generateMultiAgentTask
+      tags:
+        - Task Decomposition
+      requestBody:
+        description: Multi-agent task description in natural language
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskRequest'
+            example:
+              taskDescription: "Build a customer support multi-agent system with triage, escalation, resolution agents"
+      responses:
+        '200':
+          description: Successful generation of sub-agent configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+              example:
+                mainTask: "Build a customer support multi-agent system with triage, escalation, resolution agents"
+                subAgents:
+                  - agentId: "A01"
+                    agentName: "Triage Agent"
+                    task: "Execute triage responsibilities within defined governance boundaries"
+                    governanceBoundary: "Only access customer data with explicit authorization"
+                    dependencies: []
+                  - agentId: "A02"
+                    agentName: "Escalation Agent"
+                    task: "Execute escalation responsibilities within defined governance boundaries"
+                    governanceBoundary: "Escalate to senior agent when threshold exceeded"
+                    dependencies: ["A01"]
+                  - agentId: "A03"
+                    agentName: "Resolution Agent"
+                    task: "Execute resolution responsibilities within defined governance boundaries"
+                    governanceBoundary: "Standard operational permissions with audit logging"
+                    dependencies: ["A02"]
+                generatedAt: "2026-05-20T12:34:56.789Z"
+        '400':
+          description: Invalid input - empty task description
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Invalid input"
+                message: "Please enter a multi-agent task description"
+        '500':
+          description: Internal server error (frontend-only tool - typically client-side error)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    TaskRequest:
+      type: object
+      description: Input request containing multi-agent task description
+      required:
+        - taskDescription
+      properties:
+        taskDescription:
+          type: string
+          description: Natural language description of multi-agent task including roles, workflows, and governance requirements
+          minLength: 10
+          maxLength: 2000
+          example: "Build a customer support multi-agent system with triage, escalation, resolution agents. Define clear governance boundaries for data access."
+
+    TaskResponse:
+      type: object
+      description: Output response containing structured sub-agent configuration
+      required:
+        - mainTask
+        - subAgents
+        - generatedAt
+      properties:
+        mainTask:
+          type: string
+          description: Original task description from input
+        subAgents:
+          type: array
+          description: Array of sub-agent configurations
+          items:
+            $ref: '#/components/schemas/SubAgent'
+          minItems: 1
+        generatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the configuration was generated
+
+    SubAgent:
+      type: object
+      description: Individual sub-agent configuration with governance boundaries
+      required:
+        - agentId
+        - agentName
+        - task
+        - governanceBoundary
+        - dependencies
+      properties:
+        agentId:
+          type: string
+          description: Unique identifier for the agent (format: A01, A02, etc.)
+          pattern: "^A\\d{2}$"
+          example: "A01"
+        agentName:
+          type: string
+          description: Role-based name for the agent
+          example: "Triage Agent"
+        task:
+          type: string
+          description: Specific task assigned to this agent
+          example: "Execute triage responsibilities within defined governance boundaries"
+        governanceBoundary:
+          type: string
+          description: Access permissions and operational constraints for this agent
+          example: "Only access customer data with explicit authorization"
+        dependencies:
+          type: array
+          description: List of agent IDs that must execute before this agent
+          items:
+            type: string
+            pattern: "^A\\d{2}$"
+          example: ["A01"]
+
+    ErrorResponse:
+      type: object
+      description: Error response structure
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error type
+        message:
+          type: string
+          description: Human-readable error message
+
+  securitySchemes:
+    none:
+      type: apiKey
+      description: No authentication required - this is a public frontend tool
+      in: header
+      name: X-No-Auth
+
+security:
+  - none: []
+
+tags:
+  - name: Task Decomposition
+    description: Operations for decomposing multi-agent tasks into governed sub-agent configurations
+    externalDocs:
+      description: Learn more about multi-agent task decomposition
+      url: https://www.wangdadi.xyz/multiguardsplit
