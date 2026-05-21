@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 openapi: 3.0.1
 info:
   title: SwarmPromptForge API
@@ -82,3 +83,89 @@ components:
       properties:
         error:
           type: string
+=======
+openapi: 3.0.1
+info:
+  title: SwarmPromptForge API
+  description: |
+    SwarmPromptForge is a client-side tool for generating production-ready Multi-Agent Swarm templates 
+    for Hermes, CrewAI, and AutoGen frameworks. Enables Prompt Engineering and Agent Orchestration 
+    with 100% local processing, no API keys required.
+  version: 1.0.0
+servers:
+  - url: https://www.wangdadi.xyz/swarmpromptforge
+paths:
+  /generate:
+    get:
+      summary: Generate multi-agent prompt template
+      description: |
+        Generates a complete multi-agent collaboration prompt template based on user input goal and selected framework style.
+        
+        This is a conceptual API for AI/LLM understanding of the application's functionality.
+        In practice, the tool executes fully client-side in the browser without network requests.
+        
+        Features:
+        - Swarm Intelligence - Agent Orchestration
+        - Three specialized agents: Researcher, Analyst, Writer
+        - No external API calls, privacy-first design
+      parameters:
+        - name: goal
+          in: query
+          description: The user's goal or task that needs multi-agent collaboration
+          required: true
+          schema:
+            type: string
+          example: "Build a market research report on EV trends"
+        - name: style
+          in: query
+          description: The framework style for the generated prompt template
+          required: true
+          schema:
+            type: string
+            enum:
+              - hermes
+              - crewai
+              - autogen
+          example: "hermes"
+      responses:
+        '200':
+          description: Successful prompt template generation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt_template:
+                    type: string
+                    description: The complete multi-agent prompt template
+                  framework:
+                    type: string
+                    description: The selected framework style
+                  agents:
+                    type: array
+                    items:
+                      type: string
+                    description: List of agents included in the template
+                  timestamp:
+                    type: string
+                    format: date-time
+              example:
+                prompt_template: "{...generated prompt content...}"
+                framework: "hermes"
+                agents: ["Researcher", "Analyst", "Writer"]
+                timestamp: "2026-05-21T12:00:00Z"
+        '400':
+          description: Invalid input - goal is required
+tags:
+  - name: Prompt Generation
+    description: Multi-agent prompt templates for Swarm Intelligence
+  - name: Agent Orchestration
+    description: Framework-specific collaboration patterns
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+>>>>>>> aa920a8d9292fba14ecbcfaf62392034c9b30740

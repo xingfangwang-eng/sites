@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 openapi: 3.0.1
 info:
   title: TrustLog Protocol API
@@ -176,4 +177,184 @@ components:
       type: none
 
 security:
+=======
+openapi: 3.0.1
+info:
+  title: TrustLog Protocol API
+  description: |
+    TrustLog Protocol - Transform Logs into Verifiable Audit Trails.
+    This API provides endpoints for generating tamper-proof, shareable audit URLs from JSON execution logs.
+    All verification happens client-side using SHA-256 hashing and Base64 URL encoding.
+  version: "1.0"
+servers:
+  - url: https://www.wangdadi.xyz/trustLog
+    description: Production server
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /generate-prompt:
+    get:
+      summary: Generate a structured prompt template for AI agents
+      description: |
+        Generates a prompt template optimized for different AI agent frameworks.
+        This endpoint helps AI agents create consistent, verifiable execution logs
+        by providing framework-specific prompt structures.
+      operationId: generate_prompt
+      parameters:
+        - name: goal
+          in: query
+          description: The primary objective or task the AI agent is executing
+          required: true
+          schema:
+            type: string
+            example: "Analyze customer support ticket and generate response"
+        - name: style
+          in: query
+          description: |
+            The AI agent framework style to optimize the prompt for.
+            Supports Hermes, CrewAI, and AutoGen formats.
+          required: true
+          schema:
+            type: string
+            enum:
+              - hermes
+              - crewai
+              - autogen
+      responses:
+        "200":
+          description: Successfully generated prompt template
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt_template:
+                    type: string
+                    description: The generated prompt template string optimized for the specified framework
+                    example: |
+                      SYSTEM: You are a helpful AI assistant.
+                      USER: {{goal}}
+                      ASSISTANT: I will execute this task and provide a verifiable audit trail.
+                  framework:
+                    type: string
+                    description: The framework style used for generation
+                    example: "hermes"
+                  timestamp:
+                    type: integer
+                    description: Unix timestamp of generation
+                    example: 1699574400000
+                  version:
+                    type: integer
+                    description: Protocol version
+                    example: 1
+        "400":
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid style parameter. Must be one of: hermes, crewai, autogen"
+
+  /generate-trustlink:
+    post:
+      summary: Generate a TrustLink from JSON payload
+      description: |
+        Converts raw JSON execution logs into a tamper-proof, shareable audit URL.
+        The data is Base64 URL encoded and embedded in the URL hash for stateless verification.
+      operationId: generate_trustlink
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - json_payload
+              properties:
+                json_payload:
+                  type: object
+                  description: The raw JSON execution log to be converted into a verifiable audit trail
+                  example:
+                    action: "task_execution"
+                    agent: "support_agent_v1"
+                    goal: "Analyze customer ticket"
+                    timestamp: 1699574400000
+                    result: "Task completed successfully"
+      responses:
+        "200":
+          description: Successfully generated TrustLink
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trust_url:
+                    type: string
+                    description: The shareable, tamper-proof audit URL
+                    example: "https://www.wangdadi.xyz/trustLog/#eyJkYXRhIjp7ImFjdGlvbiI6InRhc2tfeGV4ZWN1dGlvbiIsImFnZW50Ijoic3VwcG9ydF9hZ2VudF92MSIsImdvYWwiOiJBbmFseXplIGN1c3RvbWVyIHRpY2tldCIsInRpbWVzdGFtcCI6MTY5OTU3NDQwMDAwMCwicmVzdWx0IjoiVGFzayBjb21wbGV0ZWQgc3VjY2Vzc2Z1bGx5In0sInRzIjoxNjk5NTc0NDAwMDAwLCJ2IjoxfQ=="
+                  verification_hash:
+                    type: string
+                    description: SHA-256 hash of the original data for verification
+                    example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
+                  timestamp:
+                    type: integer
+                    description: Unix timestamp of creation
+                    example: 1699574400000
+                  version:
+                    type: integer
+                    description: Protocol version
+                    example: 1
+        "400":
+          description: Invalid JSON payload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid JSON format"
+
+components:
+  schemas:
+    PromptResponse:
+      type: object
+      properties:
+        prompt_template:
+          type: string
+        framework:
+          type: string
+        timestamp:
+          type: integer
+        version:
+          type: integer
+
+    TrustLinkResponse:
+      type: object
+      properties:
+        trust_url:
+          type: string
+        verification_hash:
+          type: string
+        timestamp:
+          type: integer
+        version:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+
+  securitySchemes:
+    None:
+      type: none
+
+security:
+>>>>>>> aa920a8d9292fba14ecbcfaf62392034c9b30740
   - None: []

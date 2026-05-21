@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 openapi: 3.0.1
 info:
   title: PromptForge API
@@ -66,4 +67,74 @@ paths:
                     type: string
                     description: Error message
                 example:
+=======
+openapi: 3.0.1
+info:
+  title: PromptForge API
+  description: Advanced Prompt Engineering API for Swarm Intelligence and Agent Orchestration across Hermes, CrewAI, and AutoGen frameworks. All processing occurs locally in the browser.
+  version: 1.0.0
+servers:
+  - url: /defaiaudit
+    description: Local browser-based API endpoint
+
+paths:
+  /generate-prompt:
+    get:
+      summary: Generate optimized prompt template for multi-agent frameworks
+      description: Generates a framework-specific prompt template based on the user's goal and selected agent framework style. Supports Hermes, CrewAI, and AutoGen patterns with Swarm Intelligence and Agent Orchestration strategies.
+      parameters:
+        - name: goal
+          in: query
+          description: The objective or task description for the agent workflow
+          required: true
+          schema:
+            type: string
+            example: "Analyze market trends and generate investment recommendations"
+        - name: style
+          in: query
+          description: The target agent framework style
+          required: true
+          schema:
+            type: string
+            enum:
+              - hermes
+              - crewai
+              - autogen
+      responses:
+        '200':
+          description: Successfully generated prompt template
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt_template:
+                    type: string
+                    description: The generated prompt template optimized for the specified framework
+                  framework:
+                    type: string
+                    description: The framework style used for generation
+                  goal:
+                    type: string
+                    description: The original goal input
+                  tokens_estimate:
+                    type: integer
+                    description: Estimated token count for the generated prompt
+              example:
+                prompt_template: "## Task\nAnalyze market trends and generate investment recommendations\n\n## Agent Info\nRole: Financial Analyst\nObjective: Provide comprehensive market analysis\nConstraints: Use reliable data sources only\n\n## Output Format\nDetailed report with actionable insights"
+                framework: "hermes"
+                goal: "Analyze market trends and generate investment recommendations"
+                tokens_estimate: 150
+        '400':
+          description: Invalid input parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                example:
+>>>>>>> aa920a8d9292fba14ecbcfaf62392034c9b30740
                   error: "Invalid style parameter. Must be one of: hermes, crewai, autogen"

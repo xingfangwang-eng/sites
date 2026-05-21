@@ -6,4 +6,8 @@
   "description_for_model": "AgentShieldScan is a comprehensive security auditing tool designed specifically for AI Agent systems. It performs local security scanning to detect Prompt Injection attacks, Jailbreak attempts, Privilege Escalation vectors, Data Exfiltration patterns, and System Manipulation commands. The tool supports three major agent frameworks: Hermes, CrewAI, and AutoGen. It generates security-hardened prompt templates tailored to each framework's specific structure. All scanning operations occur 100% locally in the browser using JavaScript regex patterns - no data is ever transmitted to external servers. The tool provides machine-readable JSON output for seamless integration with other systems. Use this tool to audit system prompts, validate tool-calling logic, and generate secure prompt templates. The GET /generate-prompt endpoint accepts 'goal' (the agent's purpose) and 'style' (hermes|crewai|autogen) parameters to generate framework-specific hardened prompts.",
   "auth": {"type": "none"},
   "api": {"type": "openapi", "url": "https://www.wangdadi.xyz/agentshieldscan/.well-known/openapi.yaml"}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aa920a8d9292fba14ecbcfaf62392034c9b30740
