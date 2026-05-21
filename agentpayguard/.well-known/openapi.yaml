@@ -1,0 +1,265 @@
+openapi: 3.0.0
+info:
+  title: AgentPay Guard API
+  description: |
+    Pure static OpenAPI specification for AgentPay Guard - AI Agent Payment Boundary & Spending Limit Lock Generator.
+    
+    This is a client-side only tool. No backend API calls are made.
+    The generateAgentPaymentGuard function creates JSON configurations for AI agent payment boundaries and spending limits.
+  version: 1.0.0
+  contact:
+    name: AgentPay Guard Support
+    email: support@agentpayguard.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  x-llm-tooling-friendly: true
+  x-generator: AgentPay Guard v1.0
+
+servers:
+  - url: https://www.wangdadi.xyz/agentpayguard
+    description: AgentPay Guard Main Server
+
+paths:
+  /:
+    get:
+      operationId: getLandingPage
+      summary: Landing page for AgentPay Guard
+      description: Returns the main HTML page for the AI Agent Payment Boundary Generator
+      tags:
+        - Pages
+      responses:
+        '200':
+          description: Successful HTML response
+          content:
+            text/html:
+              schema:
+                type: string
+
+components:
+  schemas:
+    AgentInfo:
+      type: object
+      required:
+        - name
+        - type
+      properties:
+        name:
+          type: string
+          description: Name of the AI agent
+          example: UniswapSwapBot
+        type:
+          type: string
+          enum: [general, webmcp, payment-protocol, defi, custom]
+          description: Type of the AI agent
+        purpose:
+          type: string
+          description: Purpose or description of the agent
+          example: Automated token swaps on Uniswap
+
+    PaymentBoundaries:
+      type: object
+      properties:
+        allowedDomains:
+          type: array
+          items:
+            type: string
+          description: List of allowed payment domains
+          example: [app.uniswap.org, *.webmcp.io]
+        blockedAddresses:
+          type: array
+          items:
+            type: string
+          description: List of blocked contract addresses
+          example: [0x1234..., 0x5678...]
+        allowedChains:
+          type: array
+          items:
+            type: string
+            enum: [ethereum, bsc, polygon, arbitrum, solana, custom]
+          description: List of allowed blockchain networks
+        allowedTokens:
+          type: array
+          items:
+            type: string
+          description: List of allowed token symbols
+          example: [ETH, USDC, USDT, BNB]
+
+    SpendingLimits:
+      type: object
+      required:
+        - currency
+        - perTransaction
+        - daily
+        - weekly
+      properties:
+        currency:
+          type: string
+          enum: [USD, ETH, USDC, BNB]
+          description: Currency unit for limits
+        perTransaction:
+          type: number
+          description: Maximum per-transaction limit
+          example: 1000
+        daily:
+          type: number
+          description: Maximum daily total limit
+          example: 5000
+        weekly:
+          type: number
+          description: Maximum weekly total limit
+          example: 20000
+        maxConcurrentPayments:
+          type: integer
+          minimum: 1
+          maximum: 10
+          description: Maximum concurrent payments allowed
+          example: 1
+
+    PaymentGuardConfig:
+      type: object
+      required:
+        - agent
+        - boundaries
+        - limits
+      properties:
+        agent:
+          $ref: '#/components/schemas/AgentInfo'
+        boundaries:
+          $ref: '#/components/schemas/PaymentBoundaries'
+        limits:
+          $ref: '#/components/schemas/SpendingLimits'
+        generatedAt:
+          type: string
+          format: date-time
+          description: ISO timestamp of configuration generation
+        version:
+          type: string
+          example: 1.0.0
+
+    GenerateRequest:
+      type: object
+      required:
+        - agentName
+        - perTxLimit
+        - dailyLimit
+        - weeklyLimit
+        - selectedChains
+      properties:
+        agentName:
+          type: string
+          description: Name of the AI agent
+        agentType:
+          type: string
+          enum: [general, webmcp, payment-protocol, defi, custom]
+        agentPurpose:
+          type: string
+        allowedDomains:
+          type: string
+        blockedAddresses:
+          type: string
+        selectedChains:
+          type: array
+          items:
+            type: string
+        allowedTokens:
+          type: string
+        limitCurrency:
+          type: string
+          enum: [USD, ETH, USDC, BNB]
+        perTxLimit:
+          type: number
+        dailyLimit:
+          type: number
+        weeklyLimit:
+          type: number
+        maxConcurrent:
+          type: integer
+
+    GenerateResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        config:
+          $ref: '#/components/schemas/PaymentGuardConfig'
+        agentReadablePort:
+          type: string
+          description: JSON string for machine parsing
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Not required - this is a client-side tool
+
+  tags:
+    - name: Generation
+      description: Payment boundary configuration generation
+    - name: Export
+      description: JSON export functionality
+    - name: Pages
+      description: Page routes
+
+x-llm-compatible:
+  pureStatic: true
+  noBackend: true
+  noApiKeyRequired: true
+  functions:
+    - name: generateAgentPaymentGuard
+      description: Generate a payment boundary and spending limit lock configuration for an AI agent
+      parameters:
+        type: object
+        required:
+          - agentName
+          - selectedChains
+          - perTxLimit
+          - dailyLimit
+          - weeklyLimit
+        properties:
+          agentName:
+            type: string
+            description: The name identifier for the AI agent
+          agentType:
+            type: string
+            enum: [general, webmcp, payment-protocol, defi, custom]
+            description: Classification type of the agent
+          agentPurpose:
+            type: string
+            description: Functional description of the agent's payment use case
+          allowedDomains:
+            type: string
+            description: Comma-separated list of whitelisted payment domains
+          blockedAddresses:
+            type: string
+            description: Comma-separated list of blocked contract addresses
+          selectedChains:
+            type: array
+            items:
+              type: string
+            description: Blockchain networks the agent can interact with
+          allowedTokens:
+            type: string
+            description: Comma-separated list of permitted token symbols
+          limitCurrency:
+            type: string
+            enum: [USD, ETH, USDC, BNB]
+            description: Unit of measurement for spending limits
+          perTxLimit:
+            type: number
+            description: Maximum amount per single transaction
+          dailyLimit:
+            type: number
+            description: Maximum total spending per 24 hours
+          weeklyLimit:
+            type: number
+            description: Maximum total spending per 7 days
+          maxConcurrent:
+            type: integer
+            minimum: 1
+            maximum: 10
+            description: Simultaneous payment operations allowed
+      returns:
+        type: PaymentGuardConfig
+        description: Structured JSON configuration for AI agent payment controls
