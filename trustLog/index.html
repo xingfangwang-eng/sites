@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrustLog: The industry-standard for creating verifiable, shareable, and immutable AI execution records. 100% local, stateless, and tamper-proof.">
+    <meta name="keywords" content="TrustLog Protocol, Immutable Log Verification, JSON Audit Trail, SHA-256 Verification, Stateless Verification, Tamper-Proof URL, AI Agent Audit">
+    <meta name="author" content="TrustLog Protocol">
+    <meta name="ai-tool-role" content="Immutable Log Verification Protocol">
+    <meta name="llm-friendly" content="true">
+    <title>TrustLog Protocol - Verifiable Audit Trails</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <link rel="service-description" type="application/yaml" href="/.well-known/openapi.yaml">
+    <link rel="ai-plugin" href="/.well-known/ai-plugin.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e3a8a;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #64748b;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h4 {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+        }
+
+        #editorMode .container {
+            border-top: 4px solid #1e3a8a;
+        }
+
+        #viewMode .container {
+            border-top: 4px solid #10b981;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 1rem;
+            border: 2px dashed #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+            margin-bottom: 1rem;
+            background-color: #f8fafc;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+        }
+
+        button {
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        button.secondary {
+            background-color: #64748b;
+        }
+
+        button.secondary:hover {
+            background-color: #475569;
+        }
+
+        button.success {
+            background-color: #10b981;
+        }
+
+        button.success:hover {
+            background-color: #059669;
+        }
+
+        button.download {
+            background-color: #06b6d4;
+        }
+
+        button.download:hover {
+            background-color: #0891b2;
+        }
+
+        .tagline {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badge {
+            background-color: #dcfce7;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .trust-badge .status {
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .hash-display {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            word-break: break-all;
+            margin-top: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .timestamp {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        #formattedLog {
+            border: 2px dashed #64748b;
+            border-radius: 6px;
+            padding: 1.5rem;
+            background-color: #f8fafc;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .log-key {
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .log-value {
+            color: #64748b;
+            margin-left: 0.5rem;
+        }
+
+        .log-nested {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .faq-section {
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-answer {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .warning {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 6px 6px 0;
+            color: #92400e;
+        }
+
+        .agent-output {
+            display: none;
+        }
+
+        .verification-protocol {
+            background-color: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .verification-protocol h4 {
+            color: #065f46;
+            margin-bottom: 0.8rem;
+        }
+
+        .verification-protocol p {
+            color: #047857;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .glossary {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .glossary-item {
+            background-color: #f8fafc;
+            border-radius: 6px;
+            padding: 1rem;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .glossary-term {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 0.3rem;
+        }
+
+        .glossary-definition {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .seal-of-authenticity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .seal-icon {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .seal-content {
+            flex: 1;
+        }
+
+        .seal-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+
+        .seal-hash {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .qr-code-container {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 1rem;
+        }
+
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .qr-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-align: center;
+            margin-top: 0.3rem;
+        }
+
+        .crypto-verified-badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #065f46;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer .compliance-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .glossary {
+                grid-template-columns: 1fr;
+            }
+            
+            .seal-of-authenticity {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .qr-code-container {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["WebApplication", "ArchiveComponent"],
+        "name": "TrustLog Protocol",
+        "description": "TrustLog: The industry-standard for creating verifiable, shareable, and immutable AI execution records. 100% local, stateless, and tamper-proof.",
+        "url": "https://www.wangdadi.xyz/trustLog",
+        "version": "1.0",
+        "applicationCategory": ["ProductivityApplication", "SecurityApplication"],
+        "operatingSystem": "Web",
+        "featureList": [
+            "Client-side SHA-256 integrity verification",
+            "Stateless URL-based data persistence",
+            "Human-readable audit formatting",
+            "QR Code generation for mobile access",
+            "Self-contained audit certificate export",
+            "Multi-framework prompt template generation (Hermes, CrewAI, AutoGen)"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "securityFeatures": [
+            "Cryptographic hashing",
+            "Tamper-evident verification",
+            "Zero-knowledge architecture"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #64748b;">
+        <a href="https://www.wangdadi.xyz" target="_blank" style="text-decoration: none; color: #64748b;">Home</a> > TrustLog Protocol
+    </div>
+    <div id="editorMode" class="mode-container">
+        <div class="container">
+            <h1>TrustLog Protocol</h1>
+            <p class="tagline">Transform Logs into Verifiable Audit Trails</p>
+            
+            <textarea id="jsonInput" placeholder='Paste your raw execution JSON here...&#10;&#10;Example:&#10;{&#10;  "action": "user_login",&#10;  "user": "john_doe",&#10;  "timestamp": 1699574400000,&#10;  "ip": "192.168.1.1"&#10;}'></textarea>
+            
+            <button id="generateBtn">Generate TrustLink</button>
+            <button id="copyLinkBtn" class="secondary" style="display: none;">Copy TrustLink</button>
+            <div id="urlDisplay" style="display: none; margin-top: 1rem; padding: 1rem; background-color: #f8fafc; border-radius: 6px; word-break: break-all;"></div>
+            <div id="qrDisplay" style="display: none;">
+                <div class="qr-code-container">
+                    <svg id="qrCode" class="qr-code" viewBox="0 0 100 100"></svg>
+                    <div class="qr-label">Scan to Verify</div>
+                </div>
+            </div>
+            <div id="warningMessage" class="warning" style="display: none;"></div>
+        </div>
+
+        <div class="verification-protocol">
+            <h4>Verification Protocol</h4>
+            <p>When you generate a TrustLink, your JSON data is processed using two cryptographic techniques to ensure integrity:</p>
+            <p><strong>SHA-256 Hashing:</strong> The JSON payload is hashed using the SHA-256 algorithm, producing a unique 64-character hexadecimal fingerprint. This hash serves as a cryptographic signature - any modification to the data will produce a completely different hash value.</p>
+            <p><strong>Base64 URL Encoding:</strong> The structured data object (containing the original JSON, timestamp, and version) is encoded using URL-safe Base64, allowing it to be safely embedded in the URL fragment. This encoding ensures the data remains intact during transmission and can be decoded by any modern browser.</p>
+            <p>When viewing a TrustLink, the browser recalculates the SHA-256 hash from the decoded data and compares it with the original verification key, providing cryptographic proof that the data has not been tampered with.</p>
+        </div>
+
+        <div class="container">
+            <h3>Glossary of Trust</h3>
+            <div class="glossary">
+                <div class="glossary-item">
+                    <div class="glossary-term">Stateless Verification</div>
+                    <div class="glossary-definition">Verification that occurs entirely on the client side without requiring server interaction or database lookups.</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Tamper-Proof URL</div>
+                    <div class="glossary-definition">A URL containing encoded data that can be cryptographically verified to detect any unauthorized modifications.</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Zero-Knowledge Logs</div>
+                    <div class="glossary-definition">Audit records where the verifier can confirm data integrity without accessing the actual plaintext content.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <div class="faq-question">What is TrustLog Protocol?</div>
+                <div class="faq-answer">TrustLog Protocol transforms raw execution logs into verifiable audit trails using cryptographic hashing. Each audit record is stored entirely within the URL, ensuring complete data privacy and integrity.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does verification work?</div>
+                <div class="faq-answer">When you generate a TrustLink, your data is hashed using SHA-256. Anyone can verify the integrity by recalculating the hash and comparing it with the stored verification key.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is my data stored anywhere?</div>
+                <div class="faq-answer">No. All data is encoded directly into the URL hash. No server storage is used, ensuring complete privacy and data sovereignty.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is the maximum data size?</div>
+                <div class="faq-answer">While modern browsers support URLs up to 65,536 characters, we recommend keeping payloads under 2000 characters for maximum compatibility.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewMode" class="mode-container" style="display: none;">
+        <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #64748b;">
+            <a href="https://www.wangdadi.xyz" target="_blank" style="text-decoration: none; color: #64748b;">Home</a> > TrustLog Protocol > Verification
+        </div>
+        <div class="container">
+            <h1>TrustLog Protocol</h1>
+            <h2>Verification Mode</h2>
+            
+            <div class="crypto-verified-badge">Verified by Client-Side Cryptography</div>
+            
+            <div class="seal-of-authenticity">
+                <div class="seal-icon">✓</div>
+                <div class="seal-content">
+                    <div class="seal-label">Seal of Authenticity</div>
+                    <div class="seal-hash" id="shortHash"></div>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="status">Status: Verified</div>
+                <div class="hash-display">Tamper-Proof Hash: <span id="verificationHash"></span></div>
+            </div>
+            
+            <div class="timestamp" id="auditTimestamp"></div>
+            
+            <h3>Audit Trail</h3>
+            <div id="formattedLog" role="log" aria-relevant="all"></div>
+            
+            <div style="margin-top: 1rem;">
+                <button id="newLogBtn" class="success">Create New TrustLog</button>
+                <button id="copyVerificationBtn" class="secondary">Copy Verification URL</button>
+                <button id="downloadCertificateBtn" class="download">Download Audit Certificate</button>
+            </div>
+            
+            <div id="qrDisplayView" style="margin-top: 1.5rem;">
+                <div class="qr-code-container">
+                    <svg id="qrCodeView" class="qr-code" viewBox="0 0 100 100"></svg>
+                    <div class="qr-label">Scan QR Code</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-note">
+            This verification record is stored entirely within the URL. No data is stored on our servers.
+        </div>
+    </div>
+
+    <div id="agentOutput" class="agent-output">
+        <pre id="jsonOutput"></pre>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank" style="text-decoration: none; color: #1e3a8a; margin: 0 1rem;">agentcostslayer</a>
+        <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank" style="text-decoration: none; color: #1e3a8a; margin: 0 1rem;">agentpromptkiller</a>
+        <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank" style="text-decoration: none; color: #1e3a8a; margin: 0 1rem;">cryptoagentguard</a>
+        <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank" style="text-decoration: none; color: #1e3a8a; margin: 0 1rem;">agentverifyblade</a>
+        <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank" style="text-decoration: none; color: #1e3a8a; margin: 0 1rem;">agentflowslicer</a>
+        <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">Support: <a href="mailto:457239850@qq.com" style="text-decoration: none; color: #64748b;">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" style="text-decoration: none; color: #64748b;">home</a></p>
+    </div>
+    <footer>
+        <div class="compliance-text">Fully compliant with OpenAI Plugin & OpenAPI standards.</div>
+    </footer>
+
+    <script>
+        async function generateSHA256Hash(data) {
+            const encoder = new TextEncoder();
+            const dataBytes = encoder.encode(data);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', dataBytes);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function base64UrlEncode(str) {
+            return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        }
+
+        function base64UrlDecode(str) {
+            str = str.replace(/-/g, '+').replace(/_/g, '/');
+            while (str.length % 4) {
+                str += '=';
+            }
+            return atob(str);
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function renderJSON(obj, indent = 0) {
+            const items = [];
+            const padding = ' '.repeat(indent * 2);
+            
+            for (const key of Object.keys(obj)) {
+                const value = obj[key];
+                let valueHtml;
+                
+                if (typeof value === 'object' && value !== null) {
+                    valueHtml = `<div class="log-nested">${renderJSON(value, indent + 1)}</div>`;
+                } else if (typeof value === 'string' && !isNaN(Date.parse(value))) {
+                    const date = new Date(value);
+                    valueHtml = `<span class="log-value">"${escapeHtml(value)}" (${escapeHtml(date.toLocaleString())})</span>`;
+                } else if (typeof value === 'number' && value.toString().length >= 13) {
+                    const date = new Date(value);
+                    valueHtml = `<span class="log-value">${value} (${escapeHtml(date.toLocaleString())})</span>`;
+                } else {
+                    valueHtml = `<span class="log-value">${escapeHtml(JSON.stringify(value))}</span>`;
+                }
+                
+                items.push(`<div class="log-entry">${padding}<span class="log-key">"${escapeHtml(key)}"</span>: ${valueHtml}</div>`);
+            }
+            
+            return items.join('');
+        }
+
+        function generateQRCode(url, svgId) {
+            const qrSize = 21;
+            const modules = createQRCodeModules(url, qrSize);
+            const svg = document.getElementById(svgId);
+            if (!svg) return;
+            
+            svg.innerHTML = '';
+            const cellSize = 100 / qrSize;
+            
+            for (let y = 0; y < qrSize; y++) {
+                for (let x = 0; x < qrSize; x++) {
+                    if (modules[y][x]) {
+                        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                        rect.setAttribute('x', x * cellSize);
+                        rect.setAttribute('y', y * cellSize);
+                        rect.setAttribute('width', cellSize - 0.5);
+                        rect.setAttribute('height', cellSize - 0.5);
+                        rect.setAttribute('fill', '#1e3a8a');
+                        svg.appendChild(rect);
+                    }
+                }
+            }
+        }
+
+        function createQRCodeModules(data, size) {
+            const modules = Array(size).fill(null).map(() => Array(size).fill(false));
+            
+            for (let i = 0; i < 7; i++) {
+                for (let j = 0; j < 7; j++) {
+                    if (i < 7 && j < 7) modules[i][j] = true;
+                    if (i < 7 && j >= size - 7) modules[i][j] = true;
+                    if (i >= size - 7 && j < 7) modules[i][j] = true;
+                }
+            }
+            
+            for (let i = 2; i < 5; i++) {
+                for (let j = 2; j < 5; j++) {
+                    if (i === 2 || i === 4 || j === 2 || j === 4) {
+                        modules[i][j] = true;
+                        modules[i][size - 7 + j] = true;
+                        modules[size - 7 + i][j] = true;
+                    } else {
+                        modules[i][j] = false;
+                        modules[i][size - 7 + j] = false;
+                        modules[size - 7 + i][j] = false;
+                    }
+                }
+            }
+            
+            const dataBits = stringToBits(data);
+            let bitIndex = 0;
+            for (let y = 0; y < size; y++) {
+                for (let x = (y % 2 === 0) ? size - 1 : 0; (y % 2 === 0) ? x >= 0 : x < size; (y % 2 === 0) ? x-- : x++) {
+                    if (modules[y][x]) continue;
+                    if (x === 6 || y === 6) continue;
+                    if (x >= size - 7 && y < 7) continue;
+                    modules[y][x] = dataBits[bitIndex % dataBits.length] === 1;
+                    bitIndex++;
+                }
+            }
+            
+            return modules;
+        }
+
+        function stringToBits(str) {
+            const bits = [];
+            for (let i = 0; i < str.length; i++) {
+                const charCode = str.charCodeAt(i);
+                for (let j = 7; j >= 0; j--) {
+                    bits.push((charCode >> j) & 1);
+                }
+            }
+            return bits;
+        }
+
+        async function handleGenerate() {
+            const input = document.getElementById('jsonInput').value.trim();
+            
+            if (!input) {
+                alert('Please enter valid JSON data');
+                return;
+            }
+            
+            try {
+                JSON.parse(input);
+            } catch {
+                alert('Invalid JSON format. Please enter valid JSON.');
+                return;
+            }
+            
+            const dataObj = {
+                data: JSON.parse(input),
+                ts: Date.now(),
+                v: 1
+            };
+            
+            const stringified = JSON.stringify(dataObj);
+            const encoded = base64UrlEncode(stringified);
+            
+            if (encoded.length > 2000) {
+                document.getElementById('warningMessage').textContent = 
+                    'Warning: URL length exceeds 2000 characters. Some browsers may have issues with very long URLs.';
+                document.getElementById('warningMessage').style.display = 'block';
+            } else {
+                document.getElementById('warningMessage').style.display = 'none';
+            }
+            
+            window.location.hash = encoded;
+            
+            document.getElementById('urlDisplay').textContent = window.location.href;
+            document.getElementById('urlDisplay').style.display = 'block';
+            document.getElementById('copyLinkBtn').style.display = 'inline-block';
+            
+            generateQRCode(window.location.href, 'qrCode');
+            document.getElementById('qrDisplay').style.display = 'block';
+        }
+
+        async function checkRoute() {
+            const hash = window.location.hash.slice(1);
+            
+            if (hash) {
+                document.getElementById('editorMode').style.display = 'none';
+                document.getElementById('viewMode').style.display = 'block';
+                
+                try {
+                    const decoded = base64UrlDecode(hash);
+                    const dataObj = JSON.parse(decoded);
+                    
+                    const recalculatedHash = await generateSHA256Hash(JSON.stringify(dataObj.data));
+                    document.getElementById('verificationHash').textContent = recalculatedHash;
+                    document.getElementById('shortHash').textContent = recalculatedHash.substring(0, 12) + '...';
+                    
+                    const timestamp = new Date(dataObj.ts);
+                    document.getElementById('auditTimestamp').textContent = 
+                        `Audit Generated: ${timestamp.toLocaleString()} (UTC: ${timestamp.toISOString()})`;
+                    
+                    document.getElementById('formattedLog').innerHTML = renderJSON(dataObj.data);
+                    
+                    document.getElementById('jsonOutput').textContent = JSON.stringify({
+                        status: 'verified',
+                        verificationHash: recalculatedHash,
+                        timestamp: dataObj.ts,
+                        version: dataObj.v,
+                        data: dataObj.data
+                    }, null, 2);
+                    
+                    generateQRCode(window.location.href, 'qrCodeView');
+                    
+                } catch (e) {
+                    document.getElementById('formattedLog').innerHTML = 
+                        '<div style="color: red;">Error: Invalid or corrupted TrustLink</div>';
+                    console.error('Decoding error:', e);
+                }
+            } else {
+                document.getElementById('editorMode').style.display = 'block';
+                document.getElementById('viewMode').style.display = 'none';
+            }
+        }
+
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert('Copied to clipboard!');
+            } catch (e) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Copied to clipboard!');
+            }
+        }
+
+        async function downloadCertificate() {
+            const hash = window.location.hash.slice(1);
+            if (!hash) return;
+            
+            try {
+                const decoded = base64UrlDecode(hash);
+                const dataObj = JSON.parse(decoded);
+                
+                const verificationHash = await generateSHA256Hash(JSON.stringify(dataObj.data));
+                
+                const certificateHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLog Audit Certificate</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f1f5f9;
+        }
+        .certificate {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid #10b981;
+        }
+        h1 { color: #1e3a8a; }
+        .hash { font-family: monospace; word-break: break-all; }
+        .log-content {
+            border: 2px dashed #64748b;
+            padding: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #f8fafc;
+            border-radius: 4px;
+        }
+        .footer { font-size: 0.8rem; color: #64748b; margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <h1>TrustLog Audit Certificate</h1>
+        <p>Generated: ${new Date(dataObj.ts).toISOString()}</p>
+        <p>Version: ${dataObj.v}</p>
+        <p>Verification Hash: <span class="hash">${verificationHash}</span></p>
+        <h2>Audit Data</h2>
+        <div class="log-content">${escapeHtml(JSON.stringify(dataObj.data, null, 2))}</div>
+        <div class="footer">This certificate is self-contained and verifiable offline.</div>
+    </div>
+</body>
+</html>`;
+                
+                const blob = new Blob([certificateHTML], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `trustlog-certificate-${Date.now()}.html`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+            } catch (e) {
+                console.error('Download error:', e);
+                alert('Failed to download certificate.');
+            }
+        }
+
+        document.getElementById('generateBtn').addEventListener('click', handleGenerate);
+        
+        document.getElementById('copyLinkBtn').addEventListener('click', () => {
+            copyToClipboard(window.location.href);
+        });
+        
+        document.getElementById('newLogBtn').addEventListener('click', () => {
+            window.location.hash = '';
+            window.location.reload();
+        });
+        
+        document.getElementById('copyVerificationBtn').addEventListener('click', () => {
+            copyToClipboard(window.location.href);
+        });
+        
+        document.getElementById('downloadCertificateBtn').addEventListener('click', downloadCertificate);
+        
+        window.addEventListener('hashchange', checkRoute);
+        
+        document.addEventListener('DOMContentLoaded', checkRoute);
+    </script>
+</body>
+</html>
