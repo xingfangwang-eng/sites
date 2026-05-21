@@ -1,0 +1,62 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SlackAgent Lock",
+    "name_for_model": "slackagent_lock",
+    "description_for_human": "Generate Agentforce/Slack payment lock, behavior lock, and hybrid lock workflow templates. Build automated access control workflows quickly.",
+    "description_for_model": "SlackAgent Lock is a professional workflow template generator that creates three types of lock mechanisms: Payment Lock, Behavior Lock, and Hybrid Lock. Each lock type supports dual-platform output for Slack and Agentforce. Users simply input trigger conditions and custom rules to generate ready-to-use workflow template code.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.wangdadi.xyz/slackagentlock/.well-known/openapi.yaml",
+        "has_user_authentication": false
+    },
+    "logo_url": "https://www.wangdadi.xyz/slackagentlock/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/slackagentlock/legal",
+    "tags": [
+        "workflow",
+        "automation",
+        "Slack",
+        "Agentforce",
+        "Salesforce",
+        "payment lock",
+        "behavior lock",
+        "access control",
+        "automation template"
+    ],
+    "categories": [
+        "Productivity",
+        "Automation",
+        "Development Tools"
+    ],
+    "use_cases": [
+        "付费社群访问控制",
+        "用户行为验证",
+        "多步骤权限解锁",
+        "企业内部流程自动化",
+        "客户资格验证流程"
+    ],
+    "supported_platforms": [
+        "Slack Workflow Builder",
+        "Agentforce Automation",
+        "Salesforce Flow"
+    ],
+    "capabilities": [
+        "生成支付锁工作流模板",
+        "生成行为锁工作流模板",
+        "生成混合锁工作流模板",
+        "支持Slack平台专属输出",
+        "支持Agentforce平台专属输出",
+        "支持双平台通用输出",
+        "自定义触发条件配置",
+        "自定义锁定规则配置",
+        "一键复制生成内容"
+    ],
+    "permissions": {
+        "required": [],
+        "optional": []
+    },
+    "privacy_policy": "本工具不收集任何用户数据，所有操作均在浏览器本地完成，无需登录注册"
+}
