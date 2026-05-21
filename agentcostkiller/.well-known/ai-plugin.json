@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentCost Killer",
+    "name_for_model": "agent_cost_killer",
+    "description_for_human": "AI Agent Cost Optimization Tool - Reduce token usage and gas costs by up to 70%. Supports GPT-4o, Claude-3.5, Gemini-1.5 and custom pricing models.",
+    "description_for_model": "AgentCost Killer is a client-side AI agent cost optimization tool that analyzes agent logs and prompts to calculate token/gas costs and provide optimized versions. It helps developers reduce LLM API costs and Web3 gas expenses through intelligent text compression and optimization.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/agentcostkiller/icon.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/agentcostkiller/legal",
+    "privacy_policy_url": "https://www.wangdadi.xyz/agentcostkiller/privacy"
+}
