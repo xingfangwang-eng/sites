@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "AgentID Forge",
+    "name_for_model": "agentid_forge",
+    "description_for_human": "Generate verifiable Agent KYA (Know Your Agent) identity credentials for WebMCP and payment protocols. On-chain verifiable credentials with SHA-256 hashing.",
+    "description_for_model": "A tool for generating verifiable Agent KYA credentials. Accepts agent information including name, DID, type, public key, and validity period. Returns a structured JSON credential with cryptographic hash for on-chain verification. Compatible with WebMCP and payment protocols.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "/.well-known/openapi.yaml"
+    },
+    "logo_url": "https://www.wangdadi.xyz/agentidforge/logo.png",
+    "contact_email": "457239850@qq.com",
+    "legal_info_url": "https://www.wangdadi.xyz/agentidforge/legal"
+}
