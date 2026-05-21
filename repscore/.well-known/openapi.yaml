@@ -1,93 +1,95 @@
 openapi: 3.0.0
 info:
-  title: RepScore Identity Auditor API
-  description: On-chain reputation scoring and identity verification for AI Agents
+  title: SkillManifest API
+  description: Generate AI Agent tool definitions for OpenAI and Anthropic formats
   version: 1.0.0
-servers:
-  - url: https://www.wangdadi.xyz/repscore
-    description: Production server
-  - url: http://localhost:8080
-    description: Local development server
+  contact:
+    name: SkillManifest
+    url: https://skillmanifest.dev
 
 paths:
-  /score:
+  /manifest:
     get:
-      summary: Generate reputation score for an AI Agent wallet address
-      description: Generates deterministic reputation metrics based on wallet address as cryptographic seed
-      operationId: getScore
+      summary: Generate tool definition manifest
+      description: Generates JSON schema for AI Agent tools based on input parameters
       parameters:
-        - name: address
+        - name: function_name
           in: query
-          description: The wallet address of the AI Agent (42-character hex string)
           required: true
+          description: Name of the function/tool
           schema:
             type: string
-            pattern: "^0x[a-fA-F0-9]{40}$"
+        - name: description
+          in: query
+          required: true
+          description: Description of what the function does
+          schema:
+            type: string
+        - name: params_list
+          in: query
+          required: false
+          description: Comma-separated list of parameter definitions (name:type:description)
+          schema:
+            type: string
       responses:
         '200':
-          description: Successful reputation score generation
+          description: Successfully generated manifest
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  address:
-                    type: string
-                    description: The wallet address used for scoring
-                  trust_score:
-                    type: integer
-                    description: Trust score (0-100)
-                    minimum: 0
-                    maximum: 100
-                  success_rate:
-                    type: number
-                    description: Execution success rate (90-99.9%)
-                    minimum: 90
-                    maximum: 99.9
-                  agent_class:
-                    type: string
-                    description: Classification of the agent based on address pattern
-                    enum:
-                      - ALPHA_EXECUTOR
-                      - DEFI_STRATEGIST
-                      - DATA_SENTINEL
-                      - PROTOCOL_GUARDIAN
-                      - LIQUIDITY_OPTIMIZER
-                      - YIELD_HARVESTER
-                      - RISK_ANALYZER
-                      - BRIDGE_OPERATOR
-                  tasks_completed:
-                    type: integer
-                    description: Total tasks completed
-                  uptime_days:
-                    type: integer
-                    description: Days of continuous operation
-                  skills:
+                  openai_format:
                     type: object
-                    properties:
-                      logic:
-                        type: integer
-                        description: Logic capability score (0-100)
-                      security:
-                        type: integer
-                        description: Security capability score (0-100)
-                      efficiency:
-                        type: integer
-                        description: Efficiency capability score (0-100)
-                  identity_hash:
-                    type: string
-                    description: Unique identity hash for verification
-                  timestamp:
-                    type: string
-                    format: date-time
-                    description: Timestamp of score generation
-        '400':
-          description: Invalid wallet address format
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "Invalid wallet address format"
+                    description: OpenAI Function Calling format
+                  anthropic_format:
+                    type: object
+                    description: Anthropic Tool Use format
+                example:
+                  openai_format:
+                    type: 'function'
+                    function:
+                      name: 'get_weather'
+                      description: 'Get current weather for a city'
+                      parameters:
+                        type: 'object'
+                        properties:
+                          city:
+                            type: 'string'
+                            description: 'The city name'
+                        required: ['city']
+                  anthropic_format:
+                    name: 'get_weather'
+                    description: 'Get current weather for a city'
+                    input_schema:
+                      type: 'object'
+                      properties:
+                        city:
+                          type: 'string'
+                          description: 'The city name'
+                      required: ['city']
+
+components:
+  schemas:
+    ToolDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the tool
+        description:
+          type: string
+          description: Description of the tool's purpose
+        parameters:
+          type: object
+          description: Parameter definitions
+          properties:
+            type:
+              type: string
+              enum: ['object']
+            properties:
+              type: object
+            required:
+              type: array
+              items:
+                type: string

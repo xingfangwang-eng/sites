@@ -1,77 +1,95 @@
 openapi: 3.0.0
 info:
-  title: SwarmDraw API
-  description: API for exporting multi-agent swarm configurations
+  title: SkillManifest API
+  description: Generate AI Agent tool definitions for OpenAI and Anthropic formats
   version: 1.0.0
+  contact:
+    name: SkillManifest
+    url: https://skillmanifest.dev
+
 paths:
-  /export:
+  /manifest:
     get:
-      summary: Export swarm configuration
-      description: Generates and returns the YAML configuration for the multi-agent swarm
+      summary: Generate tool definition manifest
+      description: Generates JSON schema for AI Agent tools based on input parameters
       parameters:
-        - name: format
+        - name: function_name
           in: query
-          description: Output format
-          required: false
+          required: true
+          description: Name of the function/tool
           schema:
             type: string
-            enum: [yaml, json]
-            default: yaml
-        - name: nodes
+        - name: description
           in: query
-          description: JSON string of node data (agents and tasks)
-          required: false
+          required: true
+          description: Description of what the function does
           schema:
             type: string
-        - name: connections
+        - name: params_list
           in: query
-          description: JSON string of connection data
           required: false
+          description: Comma-separated list of parameter definitions (name:type:description)
           schema:
             type: string
       responses:
         '200':
-          description: Successful export
+          description: Successfully generated manifest
           content:
-            text/yaml:
-              schema:
-                type: string
             application/json:
               schema:
                 type: object
                 properties:
-                  agents:
-                    type: array
-                    items:
-                      type: object
+                  openai_format:
+                    type: object
+                    description: OpenAI Function Calling format
+                  anthropic_format:
+                    type: object
+                    description: Anthropic Tool Use format
+                example:
+                  openai_format:
+                    type: 'function'
+                    function:
+                      name: 'get_weather'
+                      description: 'Get current weather for a city'
+                      parameters:
+                        type: 'object'
+                        properties:
+                          city:
+                            type: 'string'
+                            description: 'The city name'
+                        required: ['city']
+                  anthropic_format:
+                    name: 'get_weather'
+                    description: 'Get current weather for a city'
+                    input_schema:
+                      type: 'object'
                       properties:
-                        name:
-                          type: string
-                        role:
-                          type: string
-                        goal:
-                          type: string
-                        backstory:
-                          type: string
-                  tasks:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        description:
-                          type: string
-                        agent:
-                          type: string
-                        expected_output:
-                          type: string
-                        next_task:
-                          type: string
-                  connections:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        from:
-                          type: string
-                        to:
-                          type: string
+                        city:
+                          type: 'string'
+                          description: 'The city name'
+                      required: ['city']
+
+components:
+  schemas:
+    ToolDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the tool
+        description:
+          type: string
+          description: Description of the tool's purpose
+        parameters:
+          type: object
+          description: Parameter definitions
+          properties:
+            type:
+              type: string
+              enum: ['object']
+            properties:
+              type: object
+            required:
+              type: array
+              items:
+                type: string

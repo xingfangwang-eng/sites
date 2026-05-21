@@ -1,68 +1,38 @@
-# AGENTBOND // THE_TOKENOMICS_FORGE
+# SKILLMANIFEST // THE_SCHEMA_SMITH
 
-Live bonding curve simulation for the Agentic Economy.
+## One-click API-to-Agent Tool Definition Forge
 
-## KEYWORDS
+### Keywords
+Tool Use, Function Calling, Agentic Economy, JSON Schema, OpenAI, Anthropic
 
-Bonding Curve, AI Tokens, Virtuals, Pump.fun, Tokenomics, Agent Revenue Share
+---
 
-## USAGE
+### Usage
+1. **Define Params** - Enter function name, description, and parameters
+2. **Forge Schema** - Watch live JSON generation as you type
+3. **Copy to System Prompt** - Paste into your AI Agent configuration
 
-1. Set INITIAL_PRICE (starting token price in USD)
-2. Adjust TOTAL_SUPPLY (maximum token supply)
-3. Set BONDING_CURVE_EXPONENT (1=Linear, 2=Quadratic, etc.)
-4. Define TARGET_MARKET_CAP (your moon goal)
-5. Input DAILY_VOLUME for revenue projections
-6. Watch the curve update in real-time
+---
 
-## AI-READY
+### Privacy
+No API keys required. No data stored. Local manifest generation only.
 
-Full manifest support for Agentic discovery:
-- `/well-known/ai-plugin.json` - AI Agent integration manifest
-- `/well-known/openapi.yaml` - API specification for programmatic access
-- `#agent-economy-json` - Hidden JSON output for machine consumption
-- Schema.org markup for LLM tooling
+---
 
-## FEATURES
+### Supported Formats
+- **OpenAI Function Calling** - Standard format for GPT-4, GPT-3.5
+- **Anthropic Tool Use** - Format for Claude 3, Claude 3.5
 
-- Real-time bonding curve visualization
-- Market cap projection calculator
-- Agent revenue share modeling
-- Treasury buyback simulation
-- Hodler dividend calculations
-- Days-to-moon counter
-- SVG chart export
-- Shill report generator
+---
 
-## FORMULA
+### Features
+- Real-time schema generation
+- Dynamic parameter builder
+- Quick paste curl support
+- One-click copy to clipboard
+- Download JSON manifest
 
-```
-Price = Initial_Price + (Coefficient * (Supply ^ Exponent))
-Market Cap = ∫(Price) d(Supply) from 0 to Total Supply
-```
+---
 
-## REVENUE DISTRIBUTION
-
-- 30% → AGENT_SHARE (operational costs)
-- 30% → TREASURY_BUYBACK (price support)
-- 40% → HODLER_DIVIDENDS (rewards)
-
-## TECH STACK
-
-- Pure HTML5 / CSS3 / JavaScript
-- No external dependencies
-- AI-Native infrastructure ready
-- Brutalist UI design
-
-## RUN
-
-```bash
-# Open in any browser
-open index.html
-```
-
-## LINKS
-
-- Website: https://www.wangdadi.xyz/agentbond
-- Documentation: https://www.wangdadi.xyz/agentbond/docs
-- API: https://www.wangdadi.xyz/agentbond/api/simulate
+### AEO Optimized
+AI Engine Optimization ready. Schema.org markup included. LLM-friendly metadata.
