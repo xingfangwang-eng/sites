@@ -32,11 +32,11 @@
         "Development Tools"
     ],
     "use_cases": [
-        "付费社群访问控制",
-        "用户行为验证",
-        "多步骤权限解锁",
-        "企业内部流程自动化",
-        "客户资格验证流程"
+        "Paid community access control",
+        "User behavior verification",
+        "Multi-step permission unlocking",
+        "Enterprise internal workflow automation",
+        "Customer qualification verification process"
     ],
     "supported_platforms": [
         "Slack Workflow Builder",
@@ -44,19 +44,19 @@
         "Salesforce Flow"
     ],
     "capabilities": [
-        "生成支付锁工作流模板",
-        "生成行为锁工作流模板",
-        "生成混合锁工作流模板",
-        "支持Slack平台专属输出",
-        "支持Agentforce平台专属输出",
-        "支持双平台通用输出",
-        "自定义触发条件配置",
-        "自定义锁定规则配置",
-        "一键复制生成内容"
+        "Generate payment lock workflow templates",
+        "Generate behavior lock workflow templates",
+        "Generate hybrid lock workflow templates",
+        "Slack platform exclusive output",
+        "Agentforce platform exclusive output",
+        "Dual-platform universal output",
+        "Custom trigger condition configuration",
+        "Custom lock rule configuration",
+        "One-click copy generated content"
     ],
     "permissions": {
         "required": [],
         "optional": []
     },
-    "privacy_policy": "本工具不收集任何用户数据，所有操作均在浏览器本地完成，无需登录注册"
+    "privacy_policy": "This tool does not collect any user data. All operations are performed locally in the browser. No login or registration required."
 }
