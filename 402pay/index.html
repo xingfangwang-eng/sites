@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WC4677QJMF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>402Pay - x402 Payment Response Generator for Agentic Commerce</title>
+    <meta name="description" content="Generate x402 standard HTTP 402 Payment Required response blocks for Agentic commerce, Machine-to-Machine payments, and Autonomous Agent billing workflows.">
+    <meta name="keywords" content="x402 Protocol, HTTP 402, Agentic Commerce, Machine-to-Machine Payments, M2M Payments, Autonomous Agent Billing, AI Agent Payments, LLM Payments, Web3 Payments">
+    <meta name="ai-tooling-status" content="LLM-Ready, Machine-Readable, x402 Standardized">
+    <meta property="og:title" content="402Pay - x402 Payment Response Generator">
+    <meta property="og:description" content="Generate x402 standard HTTP 402 Payment Required response blocks for Agentic commerce and AI agent payment workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wangdadi.xyz/402pay">
+    <link rel="ai-plugin" href=".well-known/ai-plugin.json">
+    <link rel="service-description" type="application/yaml" href="openapi.yaml">
+    <link rel="alternate" type="application/json" href="/.well-known/ai-plugin.json" title="AI Plugin Manifest">
+    <link rel="related" href="https://www.x402.org/standards" type="text/html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "402Pay",
+        "description": "Generate x402 standard HTTP 402 Payment Required response blocks for Agentic commerce, Machine-to-Machine payments, and Autonomous Agent billing workflows.",
+        "url": "https://www.wangdadi.xyz/402pay",
+        "applicationCategory": ["Fintech", "DeveloperApplication"],
+        "operatingSystem": "Any",
+        "programmingLanguage": ["Python", "TypeScript", "JavaScript"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            {"@type": "SoftwareFeature", "name": "x402 Protocol Compliance", "description": "Generates standards-compliant HTTP 402 Payment Required responses"},
+            {"@type": "SoftwareFeature", "name": "Multi-Language Support", "description": "Outputs Python (FastAPI) and TypeScript (Express) code templates"},
+            {"@type": "SoftwareFeature", "name": "Machine-Readable Output", "description": "Provides JSON schema for AI agent consumption"},
+            {"@type": "SoftwareFeature", "name": "Real-time Configuration", "description": "Live code generation based on user input parameters"}
+        ],
+        "howTo": {
+            "@type": "HowTo",
+            "name": "Generate x402 Payment Response",
+            "step": [
+                {"@type": "HowToStep", "text": "Enter payment amount and select currency"},
+                {"@type": "HowToStep", "text": "Specify payment provider and destination address"},
+                {"@type": "HowToStep", "text": "Add invoice memo/asset ID"},
+                {"@type": "HowToStep", "text": "Select output language (Python or TypeScript)"},
+                {"@type": "HowToStep", "text": "Copy generated code and integrate into your API"}
+            ]
+        },
+        "agentInteractionSchema": {
+            "@type": "WebAPI",
+            "description": "REST API for generating x402 payment response blocks",
+            "documentation": "https://www.wangdadi.xyz/402pay/docs",
+            "programmingLanguage": ["Python", "TypeScript"],
+            "endpointDescription": "GET /api/generate?amount=X&currency=Y&provider=Z returns x402 response code"
+        }
+    }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0a0a0a;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .config-section {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .config-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0a0a0a;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fff;
+            color: #1a1a2e;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0a0a0a;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .toggle-label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .toggle-switch.active {
+            background: #0a0a0a;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .toggle-switch.active::after {
+            left: 33px;
+        }
+
+        .toggle-text {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .toggle-text.active {
+            color: #0a0a0a;
+            font-weight: 600;
+        }
+
+        .code-section {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .code-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0a0a0a;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn.active {
+            color: #0a0a0a;
+            border-bottom-color: #0a0a0a;
+        }
+
+        .tab-btn:hover {
+            color: #0a0a0a;
+        }
+
+        figure.code-block {
+            margin: 0;
+            background: #1e1e1e;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        figcaption {
+            background: #1e1e1e;
+            color: #8b949e;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        figure.code-block pre {
+            margin: 0;
+        }
+
+        figure.code-block code {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .copy-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #0a0a0a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #1a1a1a;
+        }
+
+        .copy-btn:active {
+            background: #2a2a2a;
+        }
+
+        .copy-btn.copied {
+            background: #10b981;
+        }
+
+        .agent-port {
+            background: #0a0a0a;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .agent-port h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .agent-port pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .agent-port code {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            color: #10b981;
+            line-height: 1.5;
+        }
+
+        .agent-port-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .trust-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .trust-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .trust-section p {
+            color: #9ca3af;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .trust-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #10b981;
+            color: #0a0a0a;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .uvp-section {
+            background: #fff;
+            border-radius: 8px;
+            border: 2px solid #0a0a0a;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .uvp-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #0a0a0a;
+            text-align: center;
+        }
+
+        .uvp-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .uvp-pillar {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .uvp-pillar h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0a0a0a;
+        }
+
+        .uvp-pillar p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .frameworks-section {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .frameworks-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0a0a0a;
+        }
+
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .framework-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .framework-tag::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+        }
+
+        .faq-section {
+            background: #fff;
+            border-radius: 8px;
+            border: 2px solid #0a0a0a;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #0a0a0a;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0a0a0a;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .faq-keyword {
+            color: #0a0a0a;
+            font-weight: 700;
+        }
+
+        .manifest-section {
+            display: none;
+        }
+
+        .download-manifest {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #f1f5f9;
+            color: #374151;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .download-manifest:hover {
+            background: #e2e8f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #0a0a0a;
+            color: #64748b;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #0a0a0a;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="manifest-section" id="ai-plugin-content">
+        {
+            "schema_version": "v1",
+            "name_for_human": "402Pay",
+            "name_for_model": "402pay",
+            "description_for_human": "Generate x402 standard HTTP 402 Payment Required response blocks for Agentic commerce.",
+            "description_for_model": "You are 402Pay, an AI agent tool specialized in generating x402 Payment Required response code for agentic commerce systems. When an AI agent or LLM needs to implement payment requirements in their API, you can use 402Pay to generate code snippets. The x402 protocol is the standardized way for AI agents to request payments: HTTP status 402 with headers X-402-Payment-Required, X-402-Amount, X-402-Currency, X-402-Provider, and a JSON body containing x402 object with amount, asset, destination, provider, and memo fields. Supported currencies: USD, BTC, ETH, SOL, USDC. Supported payment providers: Stripe, Coinbase, Lightning Network, and any ERC-20/SPL token payment processor. For CrewAI agents: x402 enables multi-agent payment orchestration where one agent can request payment from another. For AutoGen agents: x402 provides standardized payment negotiation protocols. For Hermes framework: x402 implements payment-aware agent communication. The workflow: 1) Receive request with payment requirements, 2) Generate Python (FastAPI) or TypeScript (Express) code with proper x402 headers, 3) Return code snippet ready for integration. Every x402 response MUST include HTTP 402 status, X-402-Payment-Required: true header, and x402 JSON object with amount, currency, destination, provider, and memo.",
+            "auth": {
+                "type": "none"
+            },
+            "api": {
+                "type": "openapi",
+                "url": "openapi.yaml"
+            },
+            "logo_url": "https://www.wangdadi.xyz/402pay/logo.png",
+            "contact_email": "hello@wangdadi.xyz",
+            "legal_info_url": "https://www.wangdadi.xyz/402pay/legal"
+        }
+    </div>
+
+    <div class="manifest-section" id="openapi-content">
+openapi: 3.0.1
+info:
+  title: 402Pay - x402 Payment Response Generator
+  description: |
+    402Pay generates x402 standard HTTP 402 Payment Required response blocks for 
+    Agentic commerce, Machine-to-Machine payments, and Autonomous Agent billing.
+    This API provides prompt templates for integrating x402 payment responses into
+    AI agent frameworks including Hermes, CrewAI, and AutoGen.
+  version: 1.0.0
+  contact:
+    email: hello@wangdadi.xyz
+    url: https://www.wangdadi.xyz/402pay
+  license:
+    name: MIT
+    url: https://www.wangdadi.xyz/402pay/license
+servers:
+  - url: https://www.wangdadi.xyz/402pay
+    description: Production server
+  - url: https://www.wangdadi.xyz/402pay/sandbox
+    description: Sandbox for testing
+paths:
+  /api/prompt-template:
+    get:
+      summary: Generate x402 prompt template for AI agent frameworks
+      description: |
+        Returns a prompt template for constructing x402 Payment Required responses
+        tailored to specific AI agent frameworks. The template can be used by LLMs
+        and AI agents to generate proper x402 compliant payment response code.
+      operationId: getPromptTemplate
+      parameters:
+        - name: goal
+          in: query
+          required: true
+          description: |
+            The payment goal or purpose. Examples: 'agent_resource_access',
+            'api_consumption', 'm2m_transaction', 'agent_orchestration_payment'
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 200
+        - name: style
+          in: query
+          required: true
+          description: |
+            The AI agent framework style for the prompt template.
+            - hermes: For Hermes framework payment-aware agent communication
+            - crewai: For CrewAI multi-agent payment orchestration
+            - autogen: For AutoGen agent payment negotiation protocols
+          schema:
+            type: string
+            enum:
+              - hermes
+              - crewai
+              - autogen
+      responses:
+        '200':
+          description: Successful prompt template generation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptTemplateResponse'
+              example:
+                prompt_template: |
+                  # x402 Payment Required Response Template
+                  # Framework: CrewAI
+                  # Goal: agent_resource_access
+
+                  def generate_402_response(amount, currency, provider, destination, memo):
+                      \"\"\"
+                      Generate x402 Payment Required response for CrewAI agents.
+                      This template enables payment-aware multi-agent workflows.
+                      \"\"\"
+                      return {
+                          "status": 402,
+                          "headers": {
+                              "X-402-Payment-Required": "true",
+                              "X-402-Amount": str(amount),
+                              "X-402-Currency": currency,
+                              "X-402-Provider": provider
+                          },
+                          "body": {
+                              "error": "payment_required",
+                              "x402": {
+                                  "amount": str(amount),
+                                  "asset": currency,
+                                  "destination": destination,
+                                  "provider": provider,
+                                  "memo": memo,
+                                  "framework": "crewai",
+                                  "goal": "agent_resource_access"
+                              }
+                          }
+                      }
+                framework: crewai
+                goal: agent_resource_access
+                x402_fields:
+                  - X-402-Payment-Required
+                  - X-402-Amount
+                  - X-402-Currency
+                  - X-402-Provider
+                required_body_fields:
+                  - error
+                  - x402.amount
+                  - x402.asset
+                  - x402.destination
+                  - x402.provider
+                  - x402.memo
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+components:
+  schemas:
+    PromptTemplateResponse:
+      type: object
+      required:
+        - prompt_template
+        - framework
+        - goal
+        - x402_fields
+      properties:
+        prompt_template:
+          type: string
+          description: The generated prompt template code for x402 response
+        framework:
+          type: string
+          enum: [hermes, crewai, autogen]
+          description: The AI agent framework the template is tailored for
+        goal:
+          type: string
+          description: The payment goal the template supports
+        x402_fields:
+          type: array
+          items:
+            type: string
+          description: Required X-402 HTTP headers
+        required_body_fields:
+          type: array
+          items:
+            type: string
+          description: Required JSON body fields in the x402 object
+        example_integration:
+          type: string
+          description: Example integration snippet for the specific framework
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          example: invalid_request
+        message:
+          type: string
+          example: The 'goal' parameter is required and must be a non-empty string
+    ValidationError:
+      type: object
+      required:
+        - error
+        - message
+        - details
+      properties:
+        error:
+          type: string
+          example: validation_error
+        message:
+          type: string
+          example: Request validation failed
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+</div>
+
+    <main>
+        <nav aria-label="Breadcrumb">
+            <div style="text-align: left; margin-bottom: 15px; font-size: 0.85rem; color: #64748b;">
+                <a href="https://www.wangdadi.xyz" target="_blank" style="color: #64748b; text-decoration: none;">wangdadi.xyz</a>
+                <span style="margin: 0 8px;">/</span>
+                <span>402Pay</span>
+            </div>
+        </nav>
+        <header>
+            <h1>402Pay</h1>
+            <p>Generate x402 standard HTTP response blocks for Agentic commerce.</p>
+        </header>
+
+        <section class="uvp-section">
+            <h2>Why 402Pay?</h2>
+            <div class="uvp-pillars">
+                <article class="uvp-pillar">
+                    <h3>Zero Latency</h3>
+                    <p>Real-time code generation with instant preview and copy</p>
+                </article>
+                <article class="uvp-pillar">
+                    <h3>Human-in-the-loop Optional</h3>
+                    <p>Designed for autonomous AI agent workflows</p>
+                </article>
+                <article class="uvp-pillar">
+                    <h3>Native HTTP 402</h3>
+                    <p>Standard protocol, no custom headers required</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <h2>Standard Compliance</h2>
+            <p>The x402 protocol is optimized for LLM-to-LLM transactions, providing a standardized mechanism for AI agents to request and process payments autonomously. Unlike proprietary systems, x402 leverages the native HTTP 402 status code, ensuring universal compatibility across all HTTP clients and AI agent frameworks.</p>
+            <div class="trust-badges">
+                <span class="trust-badge">x402 Standard</span>
+                <span class="trust-badge">LLM-Ready</span>
+                <span class="trust-badge">Machine-Readable</span>
+            </div>
+        </section>
+
+        <section class="config-section">
+            <h2>Payment Configuration</h2>
+            <form id="config-form">
+                <div class="toggle-group">
+                    <span class="toggle-label">Environment:</span>
+                    <div class="toggle-switch" id="env-toggle" role="switch" aria-checked="true" aria-label="Toggle between Production and Sandbox environment"></div>
+                    <span class="toggle-text active" id="env-text">Production</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" value="99.99" min="0" step="0.01" aria-label="Payment amount">
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" aria-label="Select payment currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                            <option value="SOL">SOL</option>
+                            <option value="USDC">USDC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="provider">Payment Provider</label>
+                    <input type="text" id="provider" value="Stripe" aria-label="Payment provider name">
+                </div>
+                <div class="form-group">
+                    <label for="target">Destination Wallet/Address</label>
+                    <input type="text" id="target" value="0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D" aria-label="Destination wallet address">
+                </div>
+                <div class="form-group">
+                    <label for="memo">Asset ID / Invoice Memo</label>
+                    <input type="text" id="memo" value="INV-2024-001" aria-label="Invoice memo or asset ID">
+                </div>
+            </form>
+        </section>
+
+        <section class="code-section">
+            <h2>Code Output</h2>
+            <div class="tabs">
+                <button type="button" class="tab-btn active" data-lang="python" aria-label="View Python code">Python</button>
+                <button type="button" class="tab-btn" data-lang="typescript" aria-label="View TypeScript code">TypeScript</button>
+            </div>
+            <figcaption id="code-caption">Example Python implementation for x402 Header injection</figcaption>
+            <figure class="code-block">
+                <pre><code id="code-output"></code></pre>
+            </figure>
+            <button type="button" class="copy-btn" id="copy-btn" aria-label="Copy code to clipboard">Copy</button>
+        </section>
+
+        <section class="agent-port">
+            <span class="agent-port-label">Agent Readable Port</span>
+            <h2>JSON Output</h2>
+            <pre><code id="json-output"></code></pre>
+        </section>
+
+        <section class="frameworks-section">
+            <h2>Supported Agent Frameworks</h2>
+            <div class="frameworks-grid">
+                <div class="framework-tag">AutoGPT</div>
+                <div class="framework-tag">LangChain</div>
+                <div class="framework-tag">CrewAI</div>
+                <div class="framework-tag">OpenAI Assistants</div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>FAQ - x402 Payment Protocol</h2>
+            <article class="faq-item">
+                <h3>What is HTTP 402 Payment Required status code?</h3>
+                <p>The HTTP <span class="faq-keyword">402 Payment Required</span> is a non-standard response code reserved for future use. The <span class="faq-keyword">x402 protocol</span> formalizes this status code as the standard response when a payment is required to process an API request in agentic commerce systems.</p>
+            </article>
+            <article class="faq-item">
+                <h3>How does x402 enable machine-to-machine payments?</h3>
+                <p>The <span class="faq-keyword">x402 protocol</span> provides a standardized header and JSON body structure that AI agents and automated systems can parse to understand payment requirements, destination addresses, and amounts without human intervention.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What payment providers support x402?</h3>
+                <p>Major providers including <span class="faq-keyword">Stripe</span>, <span class="faq-keyword">Coinbase</span>, <span class="faq-keyword">Lightning Network</span>, and cryptocurrency wallets support the x402 standard for accepting automated payments from AI agents and programmatic systems.</p>
+            </article>
+            <article class="faq-item">
+                <h3>How do I integrate x402 into FastAPI or Express?</h3>
+                <p>Generate the code using this tool for <span class="faq-keyword">Python FastAPI</span> or <span class="faq-keyword">TypeScript Express</span>. Include the <span class="faq-keyword">X-402-Payment-Required: true</span> header and JSON body with amount, asset type, destination, and provider fields.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What cryptocurrencies does x402 support?</h3>
+                <p>The <span class="faq-keyword">x402 protocol</span> supports <span class="faq-keyword">BTC</span>, <span class="faq-keyword">ETH</span>, <span class="faq-keyword">SOL</span>, <span class="faq-keyword">USDC</span>, and traditional <span class="faq-keyword">USD</span> fiat currencies through payment providers.</p>
+            </article>
+        </section>
+
+        <section class="config-section">
+            <h2>AI Plugin Manifest</h2>
+            <p>Download the manifest files to integrate 402Pay with your AI agent:</p>
+            <button type="button" class="download-manifest" id="download-plugin" aria-label="Download AI Plugin manifest">Download ai-plugin.json</button>
+            <button type="button" class="download-manifest" id="download-openapi" aria-label="Download OpenAPI specification">Download openapi.yaml</button>
+        </section>
+
+        <footer>
+            <p>Built for <a href="https://www.wangdadi.xyz/402pay">AI-Native Infrastructure</a> | x402 Protocol Standard</p>
+            <p style="color: #10b981; margin-top: 10px; font-size: 0.85rem;">Fully compliant with OpenAI Plugin & OpenAPI standards.</p>
+            <div class="footer-badge">Built for the Agentic Web</div>
+        </footer>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+            <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank" style="margin: 0 10px; color: #374151; text-decoration: none; font-weight: 500;">agentcostslayer</a>
+            <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank" style="margin: 0 10px; color: #374151; text-decoration: none; font-weight: 500;">agentpromptkiller</a>
+            <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank" style="margin: 0 10px; color: #374151; text-decoration: none; font-weight: 500;">cryptoagentguard</a>
+            <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank" style="margin: 0 10px; color: #374151; text-decoration: none; font-weight: 500;">agentverifyblade</a>
+            <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank" style="margin: 0 10px; color: #374151; text-decoration: none; font-weight: 500;">agentflowslicer</a>
+            <p style="margin-top: 15px; color: #64748b; font-size: 0.85rem;">Support: <a href="mailto:457239850@qq.com" style="color: #374151; text-decoration: none;">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank" style="color: #374151; text-decoration: none;">home</a></p>
+        </div>
+
+    </main>
+
+    <script>
+        const state = {
+            amount: '99.99',
+            currency: 'USD',
+            provider: 'Stripe',
+            target: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
+            memo: 'INV-2024-001',
+            selectedLang: 'python',
+            isProduction: true
+        };
+
+        const elements = {
+            amount: document.getElementById('amount'),
+            currency: document.getElementById('currency'),
+            provider: document.getElementById('provider'),
+            target: document.getElementById('target'),
+            memo: document.getElementById('memo'),
+            codeOutput: document.getElementById('code-output'),
+            codeCaption: document.getElementById('code-caption'),
+            jsonOutput: document.getElementById('json-output'),
+            copyBtn: document.getElementById('copy-btn'),
+            tabBtns: document.querySelectorAll('.tab-btn'),
+            envToggle: document.getElementById('env-toggle'),
+            envText: document.getElementById('env-text'),
+            downloadPlugin: document.getElementById('download-plugin'),
+            downloadOpenapi: document.getElementById('download-openapi'),
+            aiPluginContent: document.getElementById('ai-plugin-content'),
+            openapiContent: document.getElementById('openapi-content')
+        };
+
+        const sandboxAddresses = {
+            ETH: '0x1234567890abcdef1234567890abcdef12345678',
+            BTC: 'bc1testaddresshere123456789',
+            SOL: 'testSolanaAddress1234567890',
+            default: 'sandbox_wallet_address'
+        };
+
+        const productionAddresses = {
+            ETH: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
+            BTC: 'bc1productionaddress123456789',
+            SOL: 'prodSolanaAddress1234567890',
+            default: 'production_wallet_address'
+        };
+
+        function updateTargetAddress() {
+            const addresses = state.isProduction ? productionAddresses : sandboxAddresses;
+            const addr = addresses[state.currency] || addresses.default;
+            elements.target.value = addr;
+            state.target = addr;
+        }
+
+        elements.amount.addEventListener('input', (e) => {
+            state.amount = e.target.value;
+            renderCode();
+        });
+
+        elements.currency.addEventListener('input', (e) => {
+            state.currency = e.target.value;
+            updateTargetAddress();
+            renderCode();
+        });
+
+        elements.provider.addEventListener('input', (e) => {
+            state.provider = e.target.value;
+            renderCode();
+        });
+
+        elements.target.addEventListener('input', (e) => {
+            state.target = e.target.value;
+            renderCode();
+        });
+
+        elements.memo.addEventListener('input', (e) => {
+            state.memo = e.target.value;
+            renderCode();
+        });
+
+        elements.envToggle.addEventListener('click', () => {
+            state.isProduction = !state.isProduction;
+            elements.envToggle.classList.toggle('active');
+            elements.envText.classList.toggle('active');
+            elements.envText.textContent = state.isProduction ? 'Production' : 'Sandbox';
+            elements.envText.setAttribute('aria-label', state.isProduction ? 'Production environment' : 'Sandbox environment');
+            updateTargetAddress();
+            renderCode();
+        });
+
+        elements.tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                elements.tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.selectedLang = btn.dataset.lang;
+                updateCaption();
+                renderCode();
+            });
+        });
+
+        elements.copyBtn.addEventListener('click', copyToClipboard);
+
+        elements.downloadPlugin.addEventListener('click', () => {
+            downloadFile(elements.aiPluginContent.textContent.trim(), 'ai-plugin.json', 'application/json');
+        });
+
+        elements.downloadOpenapi.addEventListener('click', () => {
+            downloadFile(elements.openapiContent.textContent.trim(), 'openapi.yaml', 'text/yaml');
+        });
+
+        function updateCaption() {
+            const captions = {
+                python: 'Example Python FastAPI implementation for x402 Header injection',
+                typescript: 'Example TypeScript Express implementation for x402 Header injection'
+            };
+            elements.codeCaption.textContent = captions[state.selectedLang];
+        }
+
+        function downloadFile(content, filename, type) {
+            const blob = new Blob([content], { type: type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function renderCode() {
+            const { amount, currency, provider, target, memo, selectedLang } = state;
+            const envSuffix = state.isProduction ? '' : '-sandbox';
+
+            const pythonCode = `from fastapi import FastAPI, Response
+from fastapi.responses import JSONResponse
+
+app = FastAPI()
+
+@app.get("/api/resource")
+async def get_resource():
+    payment_response = JSONResponse(
+        status_code=402,
+        headers={
+            "X-402-Payment-Required": "true",
+            "X-402-Amount": "${amount}",
+            "X-402-Currency": "${currency}",
+            "X-402-Provider": "${provider}",
+        },
+        content={
+            "error": "payment_required",
+            "message": "Payment required to access this resource",
+            "x402": {
+                "amount": "${amount}",
+                "asset": "${currency}",
+                "destination": "${target}",
+                "provider": "${provider}",
+                "memo": "${memo}",
+                "environment": "${state.isProduction ? 'production' : 'sandbox'}",
+                "instructions": f"Send {amount} {currency} to {target} with memo {memo}"
+            }
+        }
+    )
+    return payment_response`;
+
+            const typescriptCode = `import { Request, Response } from 'express';
+
+export const x402PaymentRequired = (req: Request, res: Response): void => {
+    const paymentData = {
+        error: "payment_required",
+        message: "Payment required to access this resource",
+        x402: {
+            amount: "${amount}",
+            asset: "${currency}",
+            destination: "${target}",
+            provider: "${provider}",
+            memo: "${memo}",
+            environment: "${state.isProduction ? 'production' : 'sandbox'}",
+            instructions: "Send ${amount} ${currency} to ${target} with memo ${memo}"
+        }
+    };
+
+    res.status(402)
+       .set({
+           'X-402-Payment-Required': 'true',
+           'X-402-Amount': '${amount}',
+           'X-402-Currency': '${currency}',
+           'X-402-Provider': '${provider}'
+       })
+       .json(paymentData);
+};
+
+// Alternative Node.js fetch Response format
+export const x402Response = new Response(
+    JSON.stringify(paymentData),
+    {
+        status: 402,
+        headers: {
+            'Content-Type': 'application/json',
+            'X-402-Payment-Required': 'true',
+            'X-402-Amount': '${amount}',
+            'X-402-Currency': '${currency}',
+            'X-402-Provider': '${provider}'
+        }
+    }
+);`;
+
+            if (selectedLang === 'python') {
+                elements.codeOutput.textContent = pythonCode;
+            } else {
+                elements.codeOutput.textContent = typescriptCode;
+            }
+
+            const jsonOutput = {
+                status: 402,
+                headers: {
+                    "X-402-Payment-Required": true,
+                    "X-402-Amount": amount,
+                    "X-402-Currency": currency,
+                    "X-402-Provider": provider
+                },
+                body: {
+                    error: "payment_required",
+                    message: "Payment required to access this resource",
+                    x402: {
+                        amount: amount,
+                        asset: currency,
+                        destination: target,
+                        provider: provider,
+                        memo: memo,
+                        environment: state.isProduction ? 'production' : 'sandbox'
+                    }
+                }
+            };
+
+            elements.jsonOutput.textContent = JSON.stringify(jsonOutput, null, 2);
+        }
+
+        function copyToClipboard() {
+            const code = elements.codeOutput.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = elements.copyBtn.textContent;
+                elements.copyBtn.textContent = 'Copied!';
+                elements.copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    elements.copyBtn.textContent = originalText;
+                    elements.copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        updateCaption();
+        renderCode();
+    </script>
+</body>
+</html>
