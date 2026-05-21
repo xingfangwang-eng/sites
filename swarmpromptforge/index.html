@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwarmPromptForge - Instant Multi-Agent Collaboration Templates</title>
+    <meta name="description" content="SwarmPromptForge: The ultimate prompt engineering tool for generating production-ready Multi-Agent Swarm templates for Hermes, CrewAI, and AutoGen. Local, private, and instant.">
+    <meta name="keywords" content="Prompt Engineering, Multi-Agent Systems, Swarm Intelligence, CrewAI Template, AutoGen Prompt, Hermes OpenAI, AI Orchestration">
+    <meta name="author" content="SwarmPromptForge">
+    <meta name="robots" content="index, follow">
+    <meta name="ai-tool-role" content="Prompt Generator for Multi-Agent Orchestration">
+    <meta name="ai-service-type" content="Local Client-Side Utility">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC4677QJMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC4677QJMF');
+    </script>
+    <link rel="service-description" type="application/yaml" href=".well-known/openapi.yaml">
+    <link rel="ai-plugin" href=".well-known/ai-plugin.json">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SwarmPromptForge",
+        "description": "Generate production-ready Multi-Agent Swarm templates for Hermes, CrewAI, and AutoGen",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "featureList": [
+            "One-click Multi-Agent prompt generation",
+            "Support for Hermes/CrewAI/AutoGen",
+            "100% Local Processing"
+        ],
+        "url": "https://www.wangdadi.xyz/swarmpromptforge",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Generate a Swarm Prompt",
+        "description": "Learn how to generate multi-agent collaboration prompts for Hermes, CrewAI, and AutoGen frameworks",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "text": "Enter your goal or task in the 'Define Your Goal' textarea"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Select your preferred framework style: Hermes, CrewAI, or AutoGen"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Click 'Forge Swarm Prompt' to generate your template"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Copy the generated prompt and use it in your multi-agent system"
+            }
+        ]
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+
+        .breadcrumbs {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .breadcrumbs a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .llm-badge {
+            display: inline-block;
+            background-color: #10b981;
+            color: #0f172a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .section {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+        }
+
+        .section label {
+            display: block;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            background-color: #0f172a;
+            border: 2px solid #334155;
+            border-radius: 6px;
+            color: #f8fafc;
+            font-family: monospace;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        textarea::placeholder {
+            color: #64748b;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #6366f1;
+        }
+
+        .radio-option span {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .framework-description {
+            margin-top: 16px;
+            padding: 12px;
+            background-color: #0f172a;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .framework-description strong {
+            color: #6366f1;
+        }
+
+        button {
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4f46e5;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+        }
+
+        #outputContainer {
+            display: none;
+        }
+
+        #promptOutput {
+            background-color: #000000;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 20px;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+            color: #22c55e;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-bottom: 16px;
+            user-select: text;
+        }
+
+        .output-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .secondary-btn {
+            background-color: #1e293b;
+            border: 2px solid #334155;
+            color: #e2e8f0;
+        }
+
+        .secondary-btn:hover {
+            background-color: #334155;
+        }
+
+        .faq-section {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 40px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .faq-answer {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            padding-left: 12px;
+        }
+
+        #agentReadablePort {
+            display: none;
+        }
+
+        #ai-docs {
+            display: none;
+        }
+
+        .why-swarm-section {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .why-swarm-section h2 {
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+        }
+
+        .why-swarm-section p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .why-swarm-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-guarantee {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #10b981;
+            margin-top: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            margin-top: 40px;
+            border-top: 1px solid #334155;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links a {
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .download-btn {
+            background-color: #1e293b;
+            border: 2px solid #334155;
+            color: #e2e8f0;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>SwarmPromptForge</h1>
+            <p>Instant Multi-Agent Collaboration Templates</p>
+            <span class="llm-badge">[LLM-Friendly: Manifest Detected]</span>
+            <div class="breadcrumbs">
+                <a href="https://www.wangdadi.xyz">Home</a> / <span>SwarmPromptForge</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="why-swarm-section">
+                <h2>Why Swarm?</h2>
+                <p>Multi-agent orchestration represents the next evolution in AI prompting. Unlike single-agent approaches, a swarm of specialized AI agents can tackle complex tasks by dividing work, maintaining context, and leveraging specialized expertise. Each agent brings unique capabilities to the table, creating a collaborative intelligence that exceeds the sum of its parts.</p>
+                <p>Whether you're building market research reports, analyzing complex data sets, or creating comprehensive content, multi-agent systems provide structure, accountability, and quality that single prompts simply cannot match. SwarmPromptForge helps you generate production-ready templates in seconds.</p>
+            </div>
+
+            <div class="section">
+                <label for="userGoal">Define Your Goal</label>
+                <textarea id="userGoal" placeholder="e.g., Build a market research report on EV trends, create a comprehensive business plan, or analyze customer feedback data..."></textarea>
+            </div>
+
+            <div class="section">
+                <label>Select Framework Style</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="framework" value="hermes" checked>
+                        <span>Hermes (Swarm/OpenAI)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="framework" value="crewai">
+                        <span>CrewAI (Role-Based)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="framework" value="autogen">
+                        <span>AutoGen (Conversational)</span>
+                    </label>
+                </div>
+                <div class="framework-description" id="frameworkDescription">
+                    <strong>Hermes/Swarm:</strong> Lightweight hand-off framework ideal for rapid agent transitions. Focuses on orchestrator-specialist patterns with clean function calls.
+                </div>
+            </div>
+
+            <div class="section" style="text-align: center;">
+                <button id="generateBtn">Forge Swarm Prompt</button>
+                <div class="privacy-guarantee">Generated locally in your browser. No data ever leaves your device.</div>
+            </div>
+
+            <div id="outputContainer" class="section">
+                <h2>Generated Prompt</h2>
+                <pre id="promptOutput"></pre>
+                <div class="output-actions">
+                    <button id="downloadManifestBtn" class="secondary-btn">Download AI Manifest</button>
+                    <button id="downloadOpenApiBtn" class="secondary-btn">Download OpenAPI Spec</button>
+                    <button id="jsonOutputBtn" class="secondary-btn">Agent Readable Port (JSON)</button>
+                    <button id="copyBtn" class="secondary-btn">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>FAQ</h2>
+                <div class="faq-item">
+                    <div class="faq-question">What is SwarmPromptForge?</div>
+                    <div class="faq-answer">SwarmPromptForge is the ultimate prompt engineering tool for generating production-ready Multi-Agent Swarm templates for Hermes, CrewAI, and AutoGen frameworks.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I use the generated prompts?</div>
+                    <div class="faq-answer">Copy the generated prompt and paste it into your AI agent framework. Each template is tailored for its specific framework with three specialized agents: Researcher, Analyst, and Writer.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What frameworks are supported?</div>
+                    <div class="faq-answer">We support Hermes (OpenAI Swarm), CrewAI (Role-Based), and AutoGen (Conversational) frameworks.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I customize the agents?</div>
+                    <div class="faq-answer">The templates include three default agents (Researcher, Analyst, Writer) but you can modify them for your specific use case.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is my data secure?</div>
+                    <div class="faq-answer">Absolutely. All processing happens locally in your browser. No data is sent to any server.</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>SwarmPromptForge - Instant Multi-Agent Collaboration Templates</p>
+            <a href="#" id="viewManifestLink">View AI Manifest</a>
+            
+            <div class="footer-links">
+                <a href="https://www.wangdadi.xyz/agentcostslayer" target="_blank">agentcostslayer</a>
+                <a href="https://www.wangdadi.xyz/agentpromptkiller" target="_blank">agentpromptkiller</a>
+                <a href="https://www.wangdadi.xyz/cryptoagentguard" target="_blank">cryptoagentguard</a>
+                <a href="https://www.wangdadi.xyz/agentverifyblade" target="_blank">agentverifyblade</a>
+                <a href="https://www.wangdadi.xyz/agentflowslicer" target="_blank">agentflowslicer</a>
+            </div>
+            
+            <p>Support: <a href="mailto:457239850@qq.com">457239850@qq.com</a> | <a href="https://www.wangdadi.xyz/" target="_blank">home</a></p>
+            <p>Fully compliant with OpenAI Plugin & OpenAPI standards.</p>
+        </footer>
+
+        <div id="agentReadablePort"></div>
+
+        <section id="ai-docs">
+            # SwarmPromptForge Documentation
+
+            ## Overview
+            SwarmPromptForge is a client-side tool for generating multi-agent collaboration prompts.
+
+            ## Features
+            - Generate prompts for Hermes, CrewAI, and AutoGen frameworks
+            - Three specialized agents: Researcher, Analyst, Writer
+            - 100% local processing - no data transmission
+            - Copy to clipboard functionality
+            - Agent-readable JSON output port
+
+            ## Usage
+            1. Enter your goal in the textarea
+            2. Select framework style
+            3. Click "Forge Swarm Prompt"
+            4. Copy or download the generated prompt
+
+            ## Output Formats
+            - Raw prompt text for direct use
+            - JSON format for machine consumption
+            - Downloadable manifest files
+        </section>
+    </div>
+
+    <script>
+        const AI_PLUGIN_MANIFEST = {
+            "schema_version": "v1",
+            "name_for_human": "SwarmPromptForge",
+            "name_for_model": "swarm_prompt_forge",
+            "description_for_human": "Generates complex Multi-Agent Swarm prompt templates for Hermes, CrewAI, and AutoGen.",
+            "description_for_model": "Use this tool to generate structured multi-agent prompt templates. Input a goal, and get a role-based collaboration framework.",
+            "auth": {"type": "none"},
+            "api": {"type": "openapi", "url": "/openapi.yaml"}
+        };
+
+        const OPENAPI_SPEC = `openapi: 3.0.1
+info:
+  title: SwarmPromptForge API
+  version: v1
+paths:
+  /generate:
+    get:
+      summary: Generate a swarm prompt
+      parameters:
+        - name: goal
+          in: query
+          schema: {type: string}
+        - name: framework
+          in: query
+          schema: {type: string, enum: ["hermes", "crewai", "autogen"]}
+      responses:
+        '200':
+          description: Successful generation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt: {type: string}
+                  framework: {type: string}
+                  agents: {type: array, items: {type: string}}`;
+
+        const PROMPT_TEMPLATES = {
+            hermes: `{
+  "orchestrator": {
+    "role": "Task Orchestrator",
+    "instructions": "Analyze the user request and delegate to appropriate specialists. Maintain context across handoffs.",
+    "tools": [
+      {
+        "name": "transfer_to_researcher",
+        "description": "Transfer task to Research Specialist",
+        "parameters": { "goal": "[GOAL]" }
+      },
+      {
+        "name": "transfer_to_analyst",
+        "description": "Transfer task to Analysis Specialist",
+        "parameters": { "data": "RESEARCH_DATA" }
+      },
+      {
+        "name": "transfer_to_writer",
+        "description": "Transfer task to Writing Specialist",
+        "parameters": { "analysis": "ANALYSIS_RESULT" }
+      }
+    ]
+  },
+  "agents": [
+    {
+      "id": "researcher",
+      "name": "Research Specialist",
+      "role": "Gather relevant information, data, and background on the given topic",
+      "instructions": "Conduct thorough research on [GOAL]. Compile findings, sources, and key insights."
+    },
+    {
+      "id": "analyst",
+      "name": "Analysis Specialist",
+      "role": "Analyze research data and extract meaningful patterns",
+      "instructions": "Analyze the research findings. Identify trends, patterns, and actionable insights related to [GOAL]."
+    },
+    {
+      "id": "writer",
+      "name": "Writing Specialist",
+      "role": "Synthesize analysis into comprehensive reports",
+      "instructions": "Create a well-structured report based on the analysis. Present findings clearly for [GOAL]."
+    }
+  ],
+  "workflow": "orchestrator -> researcher -> analyst -> writer -> final_report"
+}`,
+            crewai: `from crewai import Agent, Task, Crew, Process
+
+# Agent: Researcher
+researcher = Agent(
+    role='Research Specialist',
+    goal='Gather comprehensive information on [GOAL]',
+    backstory='An experienced research analyst with expertise in data collection and source verification. Skilled at finding credible information quickly.',
+    verbose=True
+)
+
+# Agent: Analyst
+analyst = Agent(
+    role='Analysis Specialist',
+    goal='Analyze research data and extract actionable insights',
+    backstory='A data analyst with expertise in identifying patterns and trends. Provides evidence-based conclusions.',
+    verbose=True
+)
+
+# Agent: Technical Writer
+writer = Agent(
+    role='Technical Writer',
+    goal='Create comprehensive reports from analysis',
+    backstory='A professional writer specializing in technical and business documentation. Translates complex ideas into clear prose.',
+    verbose=True
+)
+
+# Tasks
+task1 = Task(
+    description='Conduct thorough research on [GOAL]. Identify key sources, statistics, and recent developments.',
+    agent=researcher
+)
+
+task2 = Task(
+    description='Analyze the research findings. Identify trends, opportunities, and potential challenges related to [GOAL].',
+    agent=analyst,
+    context=[task1]
+)
+
+task3 = Task(
+    description='Write a comprehensive report summarizing the research and analysis for [GOAL]. Include executive summary and recommendations.',
+    agent=writer,
+    context=[task2]
+)
+
+# Process: Sequential
+crew = Crew(
+    agents=[researcher, analyst, writer],
+    tasks=[task1, task2, task3],
+    process=Process.sequential,
+    verbose=True
+)
+
+result = crew.kickoff()`,
+            autogen: `import autogen
+
+llm_config = {
+    "config_list": [{"model": "gpt-4", "api_key": "YOUR_API_KEY"}],
+    "temperature": 0.7
+}
+
+# Researcher Agent
+researcher = autogen.AssistantAgent(
+    name="researcher",
+    system_message="""You are a Research Specialist. Your task is to conduct thorough research on [GOAL]. 
+Provide detailed findings, credible sources, and key statistics. Be comprehensive but concise.""",
+    llm_config=llm_config
+)
+
+# Analyst Agent
+analyst = autogen.AssistantAgent(
+    name="analyst",
+    system_message="""You are an Analysis Specialist. Take the research data and analyze it for [GOAL].
+Identify patterns, trends, correlations, and actionable insights. Provide data-driven conclusions.""",
+    llm_config=llm_config
+)
+
+# Writer Agent
+writer = autogen.AssistantAgent(
+    name="writer",
+    system_message="""You are a Technical Writer. Take the analysis and create a comprehensive report for [GOAL].
+Structure it professionally with executive summary, findings, and recommendations.""",
+    llm_config=llm_config
+)
+
+# User Proxy
+user_proxy = autogen.UserProxyAgent(
+    name="user_proxy",
+    system_message="""You are the user proxy. Your goal is to [GOAL].
+Interact with the research, analysis, and writing agents to complete this task.""",
+    human_input_mode="NEVER",
+    max_consecutive_auto_reply=10
+)
+
+# Group Chat
+groupchat = autogen.GroupChat(
+    agents=[user_proxy, researcher, analyst, writer],
+    messages=[],
+    max_round=15
+)
+
+manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
+
+user_proxy.initiate_chat(
+    manager,
+    message="Let's work on [GOAL]. Please research, analyze, and write a comprehensive report."
+)
+`
+        };
+
+        const FRAMEWORK_DESCRIPTIONS = {
+            hermes: "<strong>Hermes/Swarm:</strong> Lightweight hand-off framework ideal for rapid agent transitions. Focuses on orchestrator-specialist patterns with clean function calls.",
+            crewai: "<strong>CrewAI:</strong> Role-based framework emphasizing character personas and sequential workflows. Perfect for structured task decomposition with defined agent profiles.",
+            autogen: "<strong>AutoGen:</strong> Conversational framework designed for multi-agent dialogue. Features automatic agent selection and round-robin communication patterns."
+        };
+
+        const generateBtn = document.getElementById('generateBtn');
+        const userGoal = document.getElementById('userGoal');
+        const outputContainer = document.getElementById('outputContainer');
+        const promptOutput = document.getElementById('promptOutput');
+        const copyBtn = document.getElementById('copyBtn');
+        const jsonOutputBtn = document.getElementById('jsonOutputBtn');
+        const agentReadablePort = document.getElementById('agentReadablePort');
+        const frameworkRadios = document.querySelectorAll('input[name="framework"]');
+        const frameworkDescription = document.getElementById('frameworkDescription');
+        const viewManifestLink = document.getElementById('viewManifestLink');
+        const downloadManifestBtn = document.getElementById('downloadManifestBtn');
+        const downloadOpenApiBtn = document.getElementById('downloadOpenApiBtn');
+
+        frameworkRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                frameworkDescription.innerHTML = FRAMEWORK_DESCRIPTIONS[radio.value];
+            });
+        });
+
+        generateBtn.addEventListener('click', () => {
+            const goal = userGoal.value.trim();
+            
+            if (!goal) {
+                alert('Please enter a goal to generate a prompt.');
+                return;
+            }
+
+            const selectedFramework = document.querySelector('input[name="framework"]:checked').value;
+            let template = '';
+            
+            if (selectedFramework === 'hermes') {
+                template = PROMPT_TEMPLATES.hermes;
+            } else if (selectedFramework === 'crewai') {
+                template = PROMPT_TEMPLATES.crewai;
+            } else if (selectedFramework === 'autogen') {
+                template = PROMPT_TEMPLATES.autogen;
+            }
+
+            const generatedPrompt = template.replace(/\[GOAL\]/g, goal);
+            promptOutput.textContent = generatedPrompt;
+            outputContainer.style.display = 'block';
+
+            const agentData = {
+                framework: selectedFramework,
+                goal: goal,
+                prompt: generatedPrompt,
+                timestamp: new Date().toISOString(),
+                agents: ['Researcher', 'Analyst', 'Writer']
+            };
+            agentReadablePort.textContent = JSON.stringify(agentData, null, 2);
+        });
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(promptOutput.textContent);
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy. Please select and copy manually.');
+            }
+        });
+
+        jsonOutputBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(agentReadablePort.textContent);
+                const originalText = jsonOutputBtn.textContent;
+                jsonOutputBtn.textContent = 'JSON Copied!';
+                setTimeout(() => {
+                    jsonOutputBtn.textContent = originalText;
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy. Please select and copy manually.');
+            }
+        });
+
+        viewManifestLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert(JSON.stringify(AI_PLUGIN_MANIFEST, null, 2));
+        });
+
+        downloadManifestBtn.addEventListener('click', () => {
+            downloadFile(JSON.stringify(AI_PLUGIN_MANIFEST, null, 2), 'ai-plugin.json', 'application/json');
+        });
+
+        downloadOpenApiBtn.addEventListener('click', () => {
+            downloadFile(OPENAPI_SPEC, 'openapi.yaml', 'text/yaml');
+        });
+
+        function downloadFile(content, filename, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
